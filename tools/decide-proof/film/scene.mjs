@@ -24,7 +24,7 @@ const FF = { t0: 12, t1: 46.5, hold: 2.5, decel: 1.6, window: 9, target_s0: 2.5 
 const DAY_WORDS = ['one', 'two', 'three', 'four', 'five', 'six', 'seven'];
 export const limitsLine = (days) => {
   if (!Number.isInteger(days) || days < 1 || days > DAY_WORDS.length) throw new Error('film refuses: the recordings span ' + days + ' days, the limits line names one to ' + DAY_WORDS.length);
-  return 'One run per model and benchmark \u00b7 one machine \u00b7 ' + DAY_WORDS[days - 1] + (days === 1 ? ' day' : ' days') + ' \u00b7 not a ranking';
+  return 'One run per model and benchmark \u00b7 ' + DAY_WORDS[days - 1] + (days === 1 ? ' day' : ' days') + ' \u00b7 not a ranking';
 };
 export const LIMITS_LINE = limitsLine(1);
 // the dates of the published stages' calls: [{id, display}] ascending, one fact per distinct date (the first fact id in code-unit order)
@@ -36,6 +36,16 @@ export const callDates = (FACTS) => {
   }
   return [...byDate.values()].sort((x, y) => (x.value < y.value ? -1 : x.value > y.value ? 1 : 0));
 };
+// the head of a replay lane's time column names the UTC day of the lane's recording (the lanes are aligned by call number, not by clock, so two lanes
+// can show clocks of different days): the day of the lane's first call, and of its last when that is another day ("17-18 OCT", "30 OCT-1 NOV")
+const MON3 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+const dayMon = (iso) => Number(iso.slice(8, 10)) + ' ' + MON3[Number(iso.slice(5, 7)) - 1];
+export const laneDateText = (firstIso, lastIso) => {
+  const a = firstIso.slice(0, 10), b = lastIso.slice(0, 10);
+  if (a === b) return dayMon(firstIso);
+  return a.slice(0, 7) === b.slice(0, 7) ? Number(a.slice(8, 10)) + '\u2013' + dayMon(lastIso) : dayMon(firstIso) + '\u2013' + dayMon(lastIso);
+};
+export const LANE_DATE_RULE = 'UTC day and month, in capitals, of t_start of the first and of the last wire record of the lane; one day when they agree, else a range';
 export const PRODUCT = "NeuroLink, Juspay's AI harness";
 const WINDOW_COMPACT = 3;   // rows a lane shows when there are more than two lanes (film.js compact layout)
 const WINDOW_DENSE = 2;     // and when there are more than four (film.js dense layout: three rows of lanes, the counters in the sixth place)
@@ -228,6 +238,12 @@ export function buildScene({ ad, config }) {
     },
   };
 
+  // the day of each lane's recording, a derived value of the first and last wire record of the lane (check_film.py recomputes it from the files)
+  for (const l of lanes) {
+    const a = l.units[0], z = l.units[l.N - 1];
+    const part = (u) => `${u.stage.wireRel} line ${u.w.n} sha256 ${u.w.sha256.slice(0, 12)}`;
+    der('ff.date.' + l.route, laneDateText(a.o.t_start, z.o.t_start), FF.t0 + 0.7, FF.t1, 'lane-date', part(a) + ' to ' + part(z), LANE_DATE_RULE);
+  }
   const tLand = FF.t0 + L / FPS;
   fig('ff.requests', 'all.attempts', 'int', tLand + 0.2, FF.t1 - 0.4);
   for (const l of lanes) for (const b of l.bounds) { fig(`ff.acc.${l.route}.${b.bench}`, `${l.route}.${b.bench}.accuracy`, 'pct1', tLand + 0.2, FF.t1 - 0.4); fig(`ff.rows.${l.route}.${b.bench}`, `${l.route}.${b.bench}.rows`, 'int', tLand + 0.2, FF.t1 - 0.4); }
@@ -301,7 +317,7 @@ export function buildScene({ ad, config }) {
       cols: [['attempts', 'attempts', 'int'], ['retries', 'retries', 'int'], ['failed', 'failed', 'int'], ['input_tokens', 'input_tokens', 'int'], ['cost_usd', 'cost_usd', 'usd4'], ['p50', 'latency_us.p50', 'ms1'], ['p99', 'latency_us.p99', 'ms1']].map(([n, f, fmt]) => fig(`${id}.${n}`, P + f, fmt, tIn + 0.5, E)) });
   }
   const costTot = { t_in: T3.totB, cols: [fig('res.btot.attempts', 'all.attempts', 'int', T3.totB + 0.5, T3.end), fig('res.btot.tokens', 'all.input_tokens', 'int', T3.totB + 0.5, T3.end), fig('res.btot.cost', 'all.cost_usd', 'usd4', T3.totB + 0.5, T3.end)] };
-  ph('results.cost_note', 'note', [{ s: 'Each route sent one request at a time; the routes ran side by side on one machine, so this is not a latency benchmark' }], T3.bIn + 0.7, T3.end + 0.5);
+  ph('results.cost_note', 'note', [{ s: 'Each route sent one request at a time; timings depend on what else was running, so this is not a latency benchmark' }], T3.bIn + 0.7, T3.end + 0.5);
   ph('results.cost_foot', 'note', [{ s: 'Row costs are rounded; the total is the sum before rounding' }], T3.totB + 0.7, T3.end + 0.5);
 
   // ---------- chapter 4: proof ----------
@@ -373,7 +389,7 @@ export function buildScene({ ad, config }) {
 
   // replay words (the page draws them from here so the checker reads them back)
   ph('replay.caption', 'caption', [{ s: 'One line per HTTP call, from the recording (sped up)' }], FF.t0 + 0.5, FF.t1);
-  ph('replay.note', 'note', [{ s: 'Call time: every lane’s call time added together · speed: call time gained per shown second · lanes aligned by call number' }], FF.t0 + 1.0, FF.t1);
+  ph('replay.note', 'note', [{ s: 'Call time: every lane’s call time added together · speed: call time gained per shown second · lanes aligned by call number, not by clock' }], FF.t0 + 1.0, FF.t1);
   ph('replay.legend', 'legend', [{ s: 'warm-up: not a benchmark row, not scored · no answer: the call returned an error · ↻: repeat of a call that failed' }], FF.t0 + 1.0, FF.t1);
 
   const pageFiles = {}; for (const f of readdirSync(join(HERE, 'app')).sort()) pageFiles['app/' + f] = sha256File(join(HERE, 'app', f));

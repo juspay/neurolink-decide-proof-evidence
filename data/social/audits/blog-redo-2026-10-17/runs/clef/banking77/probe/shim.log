@@ -1,0 +1,2 @@
+{"event":"listening","host":"127.0.0.1","port":57021,"provider":"cloudflare-clef","recorder":true}
+{"event":"stopped","counts":{"provider":"cloudflare-clef","model":"clef","requests":1,"warmups":1,"ok":0,"bad_requests":0,"refused":{"401 authentication":1},"upstream_rate_limited":0,"max_in_flight":1}}

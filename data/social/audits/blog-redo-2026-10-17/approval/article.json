@@ -1,0 +1,30 @@
+{
+  "card": "t-redo-article",
+  "review_status": "pending_human_approve",
+  "validated_all": true,
+  "text_file": "data/social/audits/blog-redo-2026-10-17/posts/article.md",
+  "text_sha256": "227f2b169599fa8adbbfe504e70e6fe263953db665b63850e663b45d9715e41c",
+  "chars": 19037,
+  "rendered_from": {
+    "file": "data/social/audits/blog-redo-2026-10-17/text/article.md",
+    "sha256": "481db25608284b28b36cc523650adb5515edc808a71e34f35e347d3c3876a975",
+    "facts_sha256": "886d65b081fd7d28de7a2fd27571a83e0274260f4adbf4c7f4fe4ab0674c95d5"
+  },
+  "checks": [
+    {
+      "name": "render",
+      "ok": true,
+      "detail": "every number filled from facts.json by text/render.mjs"
+    },
+    {
+      "name": "check_text",
+      "ok": true,
+      "detail": "text/check_text.py: every run of digits is a fact span equal to facts.json or a declared literal"
+    },
+    {
+      "name": "verify.sh",
+      "ok": true,
+      "detail": "bash data/social/audits/blog-redo-2026-10-17/verify.sh: VERDICT PASS"
+    }
+  ]
+}

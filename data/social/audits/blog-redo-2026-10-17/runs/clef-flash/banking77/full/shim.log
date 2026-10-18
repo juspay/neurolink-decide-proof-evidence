@@ -1,0 +1,2 @@
+{"event":"listening","host":"127.0.0.1","port":51768,"provider":"cloudflare-clef","recorder":true}
+{"event":"stopped","counts":{"provider":"cloudflare-clef","model":"clef-flash","requests":3084,"warmups":4,"ok":3084,"bad_requests":0,"refused":{},"upstream_rate_limited":0,"max_in_flight":1}}

@@ -1,0 +1,19 @@
+{
+  "attempts": 5504,
+  "records": 5504,
+  "requests": 5504,
+  "input_tokens": 18656757,
+  "output_tokens": 0,
+  "estimated_attempts": 0,
+  "estimated_input_tokens": 0,
+  "cost_usd": "4.47762168",
+  "cost_usd_from_usage": "4.47762168",
+  "cap_usd": "9.38",
+  "status_counts": {
+    "200": 5504
+  },
+  "network_errors": 0,
+  "blocked": 0,
+  "blocked_unrecorded": 0,
+  "stop_reason": null
+}

@@ -1,0 +1,6 @@
+[ok]   manifest: every file matches its sha256
+[ok]   manifest: no file missing, none extra
+[ok]   facts: node = python = facts.json (886d65b081fd)
+[ok]   text article: every number is a fact or a literal
+[ok]   scan: 0 hits for 143 secret values, control ok
+VERDICT PASS: blog-redo-2026-10-17

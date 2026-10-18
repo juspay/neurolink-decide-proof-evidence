@@ -125,6 +125,13 @@ def fmt_usd(d, places):
     return "$" + group_int(int(whole)) + ("." + frac if frac else "")
 
 
+def fmt_neurons(d, places):
+    # 4a item 5, unit neurons: an exact decimal half up to `places` decimals, comma grouping, no unit sign.
+    q = d.quantize(Decimal(1).scaleb(-places), rounding=decimal.ROUND_HALF_UP, context=DISPLAY)
+    whole, _, frac = format(q, "f").partition(".")
+    return group_int(int(whole)) + ("." + frac if frac else "")
+
+
 def fmt_ms1(us):
     # 4a item 5: us / 1000 half up to one decimal; the contract names comma grouping for s0 and usdN only.
     tenths = (us + 50) // 100

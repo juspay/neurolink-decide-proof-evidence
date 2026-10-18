@@ -142,7 +142,8 @@ function buildReplay() {
     const chips = el('div', '', 'padding:6px 22px 0;height:46px;white-space:nowrap'); if (!compact) P.appendChild(chips);
     const chipEls = L.benches.map((b) => { const s = el('span', 'benchchip', '', nmH(b.label)); chips.appendChild(s); return s; });
     const colh = el('div', 'colh2'); P.appendChild(colh);
-    HEADS.forEach(([txt, col, side]) => { const sp = el('span', '', '', txt); const x = 22 + col * MONO_W; if (side === 'l') sp.style.left = x + 'px'; else { sp.style.width = '120px'; sp.style.left = (x - 120) + 'px'; sp.style.textAlign = 'right'; } colh.appendChild(sp); });
+    /* the time head names the day of this lane's recording: the lanes are aligned by call number, not by clock, so their clocks can be of different days */
+    HEADS.map((h) => (h[0] === 'Time UTC' ? ['Time UTC<br>' + dvH('ff.date.' + L.route), h[1], h[2]] : h)).forEach(([txt, col, side]) => { const sp = el('span', '', '', txt); const x = 22 + col * MONO_W; if (side === 'l') sp.style.left = x + 'px'; else { sp.style.width = '120px'; sp.style.left = (x - 120) + 'px'; sp.style.textAlign = 'right'; } colh.appendChild(sp); });
     const stream = el('div', 'stream', 'height:' + STREAM_H + 'px'); const inner = el('div', 'in'); stream.appendChild(inner); P.appendChild(stream);
     const rowsEl = []; for (let r = 0; r <= R; r++) { const d = el('div', 'l'); const a = el('span'), b = el('span'); d.append(a, b); inner.appendChild(d); rowsEl.push({ d, a, b }); }
     /* bottom: one tile per bench (running accuracy with the rows scored so far) and the pen trace */
@@ -290,10 +291,11 @@ function buildResults() {
   R.cost_heads.forEach((h, i) => { if (textW(h.toUpperCase(), '600 26px "Barlow Condensed"') + 2 * h.length > COLW[i]) throw new Error('cost table head "' + h + '" does not fit its column'); textAt(c, 'rlab', COLX[i], 240, /\d/.test(h) ? nmH(h) : escT(h), T.bIn + 0.5, EB, 'font-size:26px;line-height:28px;letter-spacing:.08em;text-transform:uppercase;text-align:right;width:' + COLW[i] + 'px'); });
   add(at(el('div', '', 'background:var(--ink);height:3px'), 96, 276, 1728, 3), T.bIn + 0.5, EB, null, c.root);
   const rh = clamp(Math.floor(528 / R.cost.length), 56, 112), lf = rh >= 100 ? 28 : 26, RY0 = 298;
+  const twoLine = rh >= 80 || R.cost.some((r) => textW(r.route_label + ' · ' + r.bench_label, '600 24px "Barlow Condensed"') > 390);
   R.cost.forEach((r, i) => {
     const yy = RY0 + i * rh;
-    // a short row puts the route and the benchmark on one line when they fit the label column, else the benchmark goes under the route (two lines of 26 px)
-    const two = rh >= 80 || textW(r.route_label + ' · ' + r.bench_label, '600 24px "Barlow Condensed"') > 390, tight = rh < 80 && two;
+    // a short row puts the route and the benchmark on one line when every row's fits the label column, else the benchmark goes under the route in every row (two lines of 26 px), so the labels share one format
+    const two = twoLine, tight = rh < 80 && two;
     textAt(c, 'rlab', 96, yy + (rh >= 80 ? 2 : 0), nmH(r.route_label) + (two ? '<br><span style="font-size:' + (tight ? 24 : lf) + 'px;color:var(--accent)">' + nmH(r.bench_label) + '</span>' : ' · ' + nmH(r.bench_label)), r.t_in, EB, 'font-size:' + (rh >= 80 ? lf : 24) + 'px;line-height:' + (rh >= 80 ? lf + 2 : tight ? 26 : 28) + 'px;white-space:normal;width:390px');
     r.cols.forEach((id, q) => textAt(c, 'rnum', COLX[q], yy, figH(id), r.t_in + 0.2, EB, 'font-size:' + (rh >= 80 ? 44 : 40) + 'px;text-align:right;width:' + COLW[q] + 'px'));
     add(at(el('div', '', 'background:var(--paper-2);height:2px'), 96, yy + rh - (tight ? 3 : 8), 1728, 2), r.t_in, EB, null, c.root);

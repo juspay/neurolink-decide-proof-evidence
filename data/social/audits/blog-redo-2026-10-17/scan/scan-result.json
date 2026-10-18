@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "targets": 143,
+  "env_files_missing": [],
+  "route_variables_missing": [],
+  "too_short": [],
+  "control": "pass",
+  "files_scanned": 272,
+  "bytes_scanned": 1025081972,
+  "skipped": [
+    {
+      "path": "film/film.mp4",
+      "reason": "media"
+    },
+    {
+      "path": "film/poster.png",
+      "reason": "media"
+    }
+  ],
+  "hits": [],
+  "secret_hits": 0
+}

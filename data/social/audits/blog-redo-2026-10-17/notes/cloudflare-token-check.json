@@ -1,0 +1,11 @@
+{
+ "checked_at_utc": "2026-10-17T20:04:21Z",
+ "endpoint": "GET https://api.cloudflare.com/client/v4/user/tokens/verify",
+ "token_variable": "CLOUDFLARE_PAID_API_KEY (the variable the clef and clef-flash routes read)",
+ "http": 200,
+ "success": true,
+ "status": "expired",
+ "expires_on": "2026-10-14T18:29:59Z",
+ "not_before": "2026-10-06T18:30:00Z",
+ "errors": []
+}

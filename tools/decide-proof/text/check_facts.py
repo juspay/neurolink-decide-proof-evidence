@@ -11,7 +11,7 @@ from fractions import Fraction
 
 TOP = ["audit_id", "facts", "inputs", "schema"]
 UNIT_FORMATS = {"count": ["int"], "tokens": ["int"], "ratio": ["pct0", "pct1", "pct2"], "usd": ["usd2", "usd4", "usd6"],
-                "us": ["ms1", "s0"], "utc": ["date_dmy", "utc_hm"], "text": ["text"], "delta": ["signed"], "pp": ["pp0", "pp1"]}
+                "neurons": ["neurons0", "neurons2"], "us": ["ms1", "s0"], "utc": ["date_dmy", "utc_hm"], "text": ["text"], "delta": ["signed"], "pp": ["pp0", "pp1"]}
 MONTHS = ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 USD_VALUE = re.compile(r"^(0|(0|[1-9][0-9]*)\.[0-9]*[1-9]|[1-9][0-9]*)$")
 ISO = re.compile(r"^([0-9]{4})-([0-9]{2})-([0-9]{2})T([0-9]{2}):([0-9]{2}):([0-9]{2})(\.[0-9]{1,9})?Z$")
@@ -57,6 +57,9 @@ def value_problem(unit, value):
     if unit == "usd":
         ok = isinstance(value, str) and USD_VALUE.match(value) is not None
         return None if ok else f"usd must be a plain decimal string with no exponent and no trailing zeros, got {value!r}"
+    if unit == "neurons":  # 4a item 4: the same plain decimal spelling as usd
+        ok = isinstance(value, str) and USD_VALUE.match(value) is not None
+        return None if ok else f"neurons must be a plain decimal string with no exponent and no trailing zeros, got {value!r}"
     if unit == "utc":
         ok = isinstance(value, str) and _iso_parts(value) is not None
         return None if ok else f"utc must be an ISO timestamp ending in Z, got {value!r}"
@@ -93,6 +96,13 @@ def expected_display(unit, value):
             q = Decimal(value).quantize(Decimal(1).scaleb(-places), rounding=ROUND_HALF_UP, context=WIDE)
             whole, _, frac = format(q, "f").partition(".")
             out[f"usd{places}"] = f"${int(whole):,}.{frac}"
+        return out
+    if unit == "neurons":
+        out = {}
+        for places in (0, 2):
+            q = Decimal(value).quantize(Decimal(1).scaleb(-places), rounding=ROUND_HALF_UP, context=WIDE)
+            whole, _, frac = format(q, "f").partition(".")
+            out[f"neurons{places}"] = f"{int(whole):,}" + (f".{frac}" if places else "")
         return out
     if unit == "us":
         tenths = _half_up(value, 100, 1)

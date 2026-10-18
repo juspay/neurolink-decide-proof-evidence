@@ -1,0 +1,4427 @@
+{
+  "audit_id": "blog-redo-2026-10-17",
+  "facts": {
+    "all.attempts": {
+      "display": {
+        "int": "43,103"
+      },
+      "from": "rule:all.attempts",
+      "unit": "count",
+      "value": 43103
+    },
+    "all.cost_usd": {
+      "display": {
+        "usd2": "$10.53",
+        "usd4": "$10.5331",
+        "usd6": "$10.533102"
+      },
+      "from": "rule:all.cost_usd",
+      "unit": "usd",
+      "value": "10.533101542"
+    },
+    "all.files_scanned": {
+      "display": {
+        "int": "272"
+      },
+      "from": "rule:all.files_scanned",
+      "unit": "count",
+      "value": 272
+    },
+    "all.input_tokens": {
+      "display": {
+        "int": "93,041,411"
+      },
+      "from": "rule:all.input_tokens",
+      "unit": "tokens",
+      "value": 93041411
+    },
+    "all.requests_recorded": {
+      "display": {
+        "int": "43,072"
+      },
+      "from": "rule:all.requests_recorded",
+      "unit": "count",
+      "value": 43072
+    },
+    "all.secret_hits": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:all.secret_hits",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.clef-flash.banking77.accuracy": {
+      "display": {
+        "pct0": "91%",
+        "pct1": "90.9%",
+        "pct2": "90.88%"
+      },
+      "from": "rule:accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 3080,
+        "num": 2799
+      }
+    },
+    "blog.clef-flash.banking77.answered": {
+      "display": {
+        "int": "3,080"
+      },
+      "from": "rule:answered",
+      "unit": "count",
+      "value": 3080
+    },
+    "blog.clef-flash.banking77.correct": {
+      "display": {
+        "int": "2,799"
+      },
+      "from": "rule:correct",
+      "unit": "count",
+      "value": 2799
+    },
+    "blog.clef-flash.banking77.failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:failed",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.clef-flash.banking77.first_pass_failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:first_pass_failed",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.clef-flash.banking77.recovered": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:recovered",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.clef-flash.banking77.rows": {
+      "display": {
+        "int": "3,080"
+      },
+      "from": "rule:rows",
+      "unit": "count",
+      "value": 3080
+    },
+    "blog.clef-flash.clinc.accuracy": {
+      "display": {
+        "pct0": "63%",
+        "pct1": "63.1%",
+        "pct2": "63.13%"
+      },
+      "from": "rule:accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 5500,
+        "num": 3472
+      }
+    },
+    "blog.clef-flash.clinc.answered": {
+      "display": {
+        "int": "5,500"
+      },
+      "from": "rule:answered",
+      "unit": "count",
+      "value": 5500
+    },
+    "blog.clef-flash.clinc.correct": {
+      "display": {
+        "int": "3,472"
+      },
+      "from": "rule:correct",
+      "unit": "count",
+      "value": 3472
+    },
+    "blog.clef-flash.clinc.failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:failed",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.clef-flash.clinc.false_alarms": {
+      "display": {
+        "int": "1,796"
+      },
+      "from": "rule:false_alarms",
+      "unit": "count",
+      "value": 1796
+    },
+    "blog.clef-flash.clinc.first_pass_failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:first_pass_failed",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.clef-flash.clinc.oos_caught": {
+      "display": {
+        "int": "991"
+      },
+      "from": "rule:oos_caught",
+      "unit": "count",
+      "value": 991
+    },
+    "blog.clef-flash.clinc.oos_rows": {
+      "display": {
+        "int": "1,000"
+      },
+      "from": "rule:oos_rows",
+      "unit": "count",
+      "value": 1000
+    },
+    "blog.clef-flash.clinc.precision": {
+      "display": {
+        "pct0": "36%",
+        "pct1": "35.6%",
+        "pct2": "35.56%"
+      },
+      "from": "rule:precision",
+      "unit": "ratio",
+      "value": {
+        "den": 2787,
+        "num": 991
+      }
+    },
+    "blog.clef-flash.clinc.recall": {
+      "display": {
+        "pct0": "99%",
+        "pct1": "99.1%",
+        "pct2": "99.10%"
+      },
+      "from": "rule:recall",
+      "unit": "ratio",
+      "value": {
+        "den": 1000,
+        "num": 991
+      }
+    },
+    "blog.clef-flash.clinc.recovered": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:recovered",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.clef-flash.clinc.rows": {
+      "display": {
+        "int": "5,500"
+      },
+      "from": "rule:rows",
+      "unit": "count",
+      "value": 5500
+    },
+    "blog.clef-flash.clinc.said_oos": {
+      "display": {
+        "int": "2,787"
+      },
+      "from": "rule:said_oos",
+      "unit": "count",
+      "value": 2787
+    },
+    "blog.clef.banking77.accuracy": {
+      "display": {
+        "pct0": "94%",
+        "pct1": "94.1%",
+        "pct2": "94.12%"
+      },
+      "from": "rule:accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 3080,
+        "num": 2899
+      }
+    },
+    "blog.clef.banking77.answered": {
+      "display": {
+        "int": "3,080"
+      },
+      "from": "rule:answered",
+      "unit": "count",
+      "value": 3080
+    },
+    "blog.clef.banking77.correct": {
+      "display": {
+        "int": "2,899"
+      },
+      "from": "rule:correct",
+      "unit": "count",
+      "value": 2899
+    },
+    "blog.clef.banking77.failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:failed",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.clef.banking77.first_pass_failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:first_pass_failed",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.clef.banking77.recovered": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:recovered",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.clef.banking77.rows": {
+      "display": {
+        "int": "3,080"
+      },
+      "from": "rule:rows",
+      "unit": "count",
+      "value": 3080
+    },
+    "blog.clef.clinc.accuracy": {
+      "display": {
+        "pct0": "97%",
+        "pct1": "97.3%",
+        "pct2": "97.27%"
+      },
+      "from": "rule:accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 5500,
+        "num": 5350
+      }
+    },
+    "blog.clef.clinc.answered": {
+      "display": {
+        "int": "5,500"
+      },
+      "from": "rule:answered",
+      "unit": "count",
+      "value": 5500
+    },
+    "blog.clef.clinc.correct": {
+      "display": {
+        "int": "5,350"
+      },
+      "from": "rule:correct",
+      "unit": "count",
+      "value": 5350
+    },
+    "blog.clef.clinc.failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:failed",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.clef.clinc.false_alarms": {
+      "display": {
+        "int": "20"
+      },
+      "from": "rule:false_alarms",
+      "unit": "count",
+      "value": 20
+    },
+    "blog.clef.clinc.first_pass_failed": {
+      "display": {
+        "int": "11"
+      },
+      "from": "rule:first_pass_failed",
+      "unit": "count",
+      "value": 11
+    },
+    "blog.clef.clinc.oos_caught": {
+      "display": {
+        "int": "951"
+      },
+      "from": "rule:oos_caught",
+      "unit": "count",
+      "value": 951
+    },
+    "blog.clef.clinc.oos_rows": {
+      "display": {
+        "int": "1,000"
+      },
+      "from": "rule:oos_rows",
+      "unit": "count",
+      "value": 1000
+    },
+    "blog.clef.clinc.precision": {
+      "display": {
+        "pct0": "98%",
+        "pct1": "97.9%",
+        "pct2": "97.94%"
+      },
+      "from": "rule:precision",
+      "unit": "ratio",
+      "value": {
+        "den": 971,
+        "num": 951
+      }
+    },
+    "blog.clef.clinc.recall": {
+      "display": {
+        "pct0": "95%",
+        "pct1": "95.1%",
+        "pct2": "95.10%"
+      },
+      "from": "rule:recall",
+      "unit": "ratio",
+      "value": {
+        "den": 1000,
+        "num": 951
+      }
+    },
+    "blog.clef.clinc.recovered": {
+      "display": {
+        "int": "11"
+      },
+      "from": "rule:recovered",
+      "unit": "count",
+      "value": 11
+    },
+    "blog.clef.clinc.rows": {
+      "display": {
+        "int": "5,500"
+      },
+      "from": "rule:rows",
+      "unit": "count",
+      "value": 5500
+    },
+    "blog.clef.clinc.said_oos": {
+      "display": {
+        "int": "971"
+      },
+      "from": "rule:said_oos",
+      "unit": "count",
+      "value": 971
+    },
+    "blog.jev.banking77.accuracy": {
+      "display": {
+        "pct0": "80%",
+        "pct1": "80.0%",
+        "pct2": "80.03%"
+      },
+      "from": "rule:accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 3080,
+        "num": 2465
+      }
+    },
+    "blog.jev.banking77.answered": {
+      "display": {
+        "int": "3,067"
+      },
+      "from": "rule:answered",
+      "unit": "count",
+      "value": 3067
+    },
+    "blog.jev.banking77.correct": {
+      "display": {
+        "int": "2,465"
+      },
+      "from": "rule:correct",
+      "unit": "count",
+      "value": 2465
+    },
+    "blog.jev.banking77.failed": {
+      "display": {
+        "int": "13"
+      },
+      "from": "rule:failed",
+      "unit": "count",
+      "value": 13
+    },
+    "blog.jev.banking77.failed.probability_distribution_check": {
+      "display": {
+        "int": "13"
+      },
+      "from": "rule:failed.probability_distribution_check",
+      "unit": "count",
+      "value": 13
+    },
+    "blog.jev.banking77.first_pass_failed": {
+      "display": {
+        "int": "40"
+      },
+      "from": "rule:first_pass_failed",
+      "unit": "count",
+      "value": 40
+    },
+    "blog.jev.banking77.recovered": {
+      "display": {
+        "int": "27"
+      },
+      "from": "rule:recovered",
+      "unit": "count",
+      "value": 27
+    },
+    "blog.jev.banking77.rows": {
+      "display": {
+        "int": "3,080"
+      },
+      "from": "rule:rows",
+      "unit": "count",
+      "value": 3080
+    },
+    "blog.jev.clinc.accuracy": {
+      "display": {
+        "pct0": "89%",
+        "pct1": "88.8%",
+        "pct2": "88.78%"
+      },
+      "from": "rule:accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 5500,
+        "num": 4883
+      }
+    },
+    "blog.jev.clinc.answered": {
+      "display": {
+        "int": "5,472"
+      },
+      "from": "rule:answered",
+      "unit": "count",
+      "value": 5472
+    },
+    "blog.jev.clinc.correct": {
+      "display": {
+        "int": "4,883"
+      },
+      "from": "rule:correct",
+      "unit": "count",
+      "value": 4883
+    },
+    "blog.jev.clinc.failed": {
+      "display": {
+        "int": "28"
+      },
+      "from": "rule:failed",
+      "unit": "count",
+      "value": 28
+    },
+    "blog.jev.clinc.failed.probability_distribution_check": {
+      "display": {
+        "int": "28"
+      },
+      "from": "rule:failed.probability_distribution_check",
+      "unit": "count",
+      "value": 28
+    },
+    "blog.jev.clinc.false_alarms": {
+      "display": {
+        "int": "137"
+      },
+      "from": "rule:false_alarms",
+      "unit": "count",
+      "value": 137
+    },
+    "blog.jev.clinc.first_pass_failed": {
+      "display": {
+        "int": "97"
+      },
+      "from": "rule:first_pass_failed",
+      "unit": "count",
+      "value": 97
+    },
+    "blog.jev.clinc.oos_caught": {
+      "display": {
+        "int": "851"
+      },
+      "from": "rule:oos_caught",
+      "unit": "count",
+      "value": 851
+    },
+    "blog.jev.clinc.oos_rows": {
+      "display": {
+        "int": "1,000"
+      },
+      "from": "rule:oos_rows",
+      "unit": "count",
+      "value": 1000
+    },
+    "blog.jev.clinc.precision": {
+      "display": {
+        "pct0": "86%",
+        "pct1": "86.1%",
+        "pct2": "86.13%"
+      },
+      "from": "rule:precision",
+      "unit": "ratio",
+      "value": {
+        "den": 988,
+        "num": 851
+      }
+    },
+    "blog.jev.clinc.recall": {
+      "display": {
+        "pct0": "85%",
+        "pct1": "85.1%",
+        "pct2": "85.10%"
+      },
+      "from": "rule:recall",
+      "unit": "ratio",
+      "value": {
+        "den": 1000,
+        "num": 851
+      }
+    },
+    "blog.jev.clinc.recovered": {
+      "display": {
+        "int": "69"
+      },
+      "from": "rule:recovered",
+      "unit": "count",
+      "value": 69
+    },
+    "blog.jev.clinc.rows": {
+      "display": {
+        "int": "5,500"
+      },
+      "from": "rule:rows",
+      "unit": "count",
+      "value": 5500
+    },
+    "blog.jev.clinc.said_oos": {
+      "display": {
+        "int": "988"
+      },
+      "from": "rule:said_oos",
+      "unit": "count",
+      "value": 988
+    },
+    "blog.luna.banking77.accuracy": {
+      "display": {
+        "pct0": "77%",
+        "pct1": "77.1%",
+        "pct2": "77.11%"
+      },
+      "from": "rule:accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 3080,
+        "num": 2375
+      }
+    },
+    "blog.luna.banking77.answered": {
+      "display": {
+        "int": "3,080"
+      },
+      "from": "rule:answered",
+      "unit": "count",
+      "value": 3080
+    },
+    "blog.luna.banking77.correct": {
+      "display": {
+        "int": "2,375"
+      },
+      "from": "rule:correct",
+      "unit": "count",
+      "value": 2375
+    },
+    "blog.luna.banking77.failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:failed",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.luna.banking77.first_pass_failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:first_pass_failed",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.luna.banking77.recovered": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:recovered",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.luna.banking77.rows": {
+      "display": {
+        "int": "3,080"
+      },
+      "from": "rule:rows",
+      "unit": "count",
+      "value": 3080
+    },
+    "blog.luna.clinc.accuracy": {
+      "display": {
+        "pct0": "88%",
+        "pct1": "88.4%",
+        "pct2": "88.42%"
+      },
+      "from": "rule:accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 5500,
+        "num": 4863
+      }
+    },
+    "blog.luna.clinc.answered": {
+      "display": {
+        "int": "5,499"
+      },
+      "from": "rule:answered",
+      "unit": "count",
+      "value": 5499
+    },
+    "blog.luna.clinc.correct": {
+      "display": {
+        "int": "4,863"
+      },
+      "from": "rule:correct",
+      "unit": "count",
+      "value": 4863
+    },
+    "blog.luna.clinc.failed": {
+      "display": {
+        "int": "1"
+      },
+      "from": "rule:failed",
+      "unit": "count",
+      "value": 1
+    },
+    "blog.luna.clinc.failed.http_5xx": {
+      "display": {
+        "int": "1"
+      },
+      "from": "rule:failed.http_5xx",
+      "unit": "count",
+      "value": 1
+    },
+    "blog.luna.clinc.false_alarms": {
+      "display": {
+        "int": "309"
+      },
+      "from": "rule:false_alarms",
+      "unit": "count",
+      "value": 309
+    },
+    "blog.luna.clinc.first_pass_failed": {
+      "display": {
+        "int": "1"
+      },
+      "from": "rule:first_pass_failed",
+      "unit": "count",
+      "value": 1
+    },
+    "blog.luna.clinc.oos_caught": {
+      "display": {
+        "int": "924"
+      },
+      "from": "rule:oos_caught",
+      "unit": "count",
+      "value": 924
+    },
+    "blog.luna.clinc.oos_rows": {
+      "display": {
+        "int": "1,000"
+      },
+      "from": "rule:oos_rows",
+      "unit": "count",
+      "value": 1000
+    },
+    "blog.luna.clinc.precision": {
+      "display": {
+        "pct0": "75%",
+        "pct1": "74.9%",
+        "pct2": "74.94%"
+      },
+      "from": "rule:precision",
+      "unit": "ratio",
+      "value": {
+        "den": 1233,
+        "num": 924
+      }
+    },
+    "blog.luna.clinc.recall": {
+      "display": {
+        "pct0": "92%",
+        "pct1": "92.4%",
+        "pct2": "92.40%"
+      },
+      "from": "rule:recall",
+      "unit": "ratio",
+      "value": {
+        "den": 1000,
+        "num": 924
+      }
+    },
+    "blog.luna.clinc.recovered": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:recovered",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.luna.clinc.rows": {
+      "display": {
+        "int": "5,500"
+      },
+      "from": "rule:rows",
+      "unit": "count",
+      "value": 5500
+    },
+    "blog.luna.clinc.said_oos": {
+      "display": {
+        "int": "1,233"
+      },
+      "from": "rule:said_oos",
+      "unit": "count",
+      "value": 1233
+    },
+    "blog.perplexity-v1.banking77.accuracy": {
+      "display": {
+        "pct0": "81%",
+        "pct1": "81.2%",
+        "pct2": "81.23%"
+      },
+      "from": "rule:accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 3080,
+        "num": 2502
+      }
+    },
+    "blog.perplexity-v1.banking77.answered": {
+      "display": {
+        "int": "3,080"
+      },
+      "from": "rule:answered",
+      "unit": "count",
+      "value": 3080
+    },
+    "blog.perplexity-v1.banking77.correct": {
+      "display": {
+        "int": "2,502"
+      },
+      "from": "rule:correct",
+      "unit": "count",
+      "value": 2502
+    },
+    "blog.perplexity-v1.banking77.failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:failed",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.perplexity-v1.banking77.first_pass_failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:first_pass_failed",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.perplexity-v1.banking77.recovered": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:recovered",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.perplexity-v1.banking77.rows": {
+      "display": {
+        "int": "3,080"
+      },
+      "from": "rule:rows",
+      "unit": "count",
+      "value": 3080
+    },
+    "blog.perplexity-v1.clinc.accuracy": {
+      "display": {
+        "pct0": "92%",
+        "pct1": "91.7%",
+        "pct2": "91.67%"
+      },
+      "from": "rule:accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 5500,
+        "num": 5042
+      }
+    },
+    "blog.perplexity-v1.clinc.answered": {
+      "display": {
+        "int": "5,500"
+      },
+      "from": "rule:answered",
+      "unit": "count",
+      "value": 5500
+    },
+    "blog.perplexity-v1.clinc.correct": {
+      "display": {
+        "int": "5,042"
+      },
+      "from": "rule:correct",
+      "unit": "count",
+      "value": 5042
+    },
+    "blog.perplexity-v1.clinc.failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:failed",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.perplexity-v1.clinc.false_alarms": {
+      "display": {
+        "int": "60"
+      },
+      "from": "rule:false_alarms",
+      "unit": "count",
+      "value": 60
+    },
+    "blog.perplexity-v1.clinc.first_pass_failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:first_pass_failed",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.perplexity-v1.clinc.oos_caught": {
+      "display": {
+        "int": "861"
+      },
+      "from": "rule:oos_caught",
+      "unit": "count",
+      "value": 861
+    },
+    "blog.perplexity-v1.clinc.oos_rows": {
+      "display": {
+        "int": "1,000"
+      },
+      "from": "rule:oos_rows",
+      "unit": "count",
+      "value": 1000
+    },
+    "blog.perplexity-v1.clinc.precision": {
+      "display": {
+        "pct0": "93%",
+        "pct1": "93.5%",
+        "pct2": "93.49%"
+      },
+      "from": "rule:precision",
+      "unit": "ratio",
+      "value": {
+        "den": 921,
+        "num": 861
+      }
+    },
+    "blog.perplexity-v1.clinc.recall": {
+      "display": {
+        "pct0": "86%",
+        "pct1": "86.1%",
+        "pct2": "86.10%"
+      },
+      "from": "rule:recall",
+      "unit": "ratio",
+      "value": {
+        "den": 1000,
+        "num": 861
+      }
+    },
+    "blog.perplexity-v1.clinc.recovered": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:recovered",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.perplexity-v1.clinc.rows": {
+      "display": {
+        "int": "5,500"
+      },
+      "from": "rule:rows",
+      "unit": "count",
+      "value": 5500
+    },
+    "blog.perplexity-v1.clinc.said_oos": {
+      "display": {
+        "int": "921"
+      },
+      "from": "rule:said_oos",
+      "unit": "count",
+      "value": 921
+    },
+    "blog.xor.banking77.accuracy": {
+      "display": {
+        "pct0": "80%",
+        "pct1": "79.8%",
+        "pct2": "79.77%"
+      },
+      "from": "rule:accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 3080,
+        "num": 2457
+      }
+    },
+    "blog.xor.banking77.answered": {
+      "display": {
+        "int": "3,080"
+      },
+      "from": "rule:answered",
+      "unit": "count",
+      "value": 3080
+    },
+    "blog.xor.banking77.correct": {
+      "display": {
+        "int": "2,457"
+      },
+      "from": "rule:correct",
+      "unit": "count",
+      "value": 2457
+    },
+    "blog.xor.banking77.failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:failed",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.xor.banking77.first_pass_failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:first_pass_failed",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.xor.banking77.recovered": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:recovered",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.xor.banking77.rows": {
+      "display": {
+        "int": "3,080"
+      },
+      "from": "rule:rows",
+      "unit": "count",
+      "value": 3080
+    },
+    "blog.xor.clinc.accuracy": {
+      "display": {
+        "pct0": "86%",
+        "pct1": "85.7%",
+        "pct2": "85.73%"
+      },
+      "from": "rule:accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 5500,
+        "num": 4715
+      }
+    },
+    "blog.xor.clinc.answered": {
+      "display": {
+        "int": "5,500"
+      },
+      "from": "rule:answered",
+      "unit": "count",
+      "value": 5500
+    },
+    "blog.xor.clinc.correct": {
+      "display": {
+        "int": "4,715"
+      },
+      "from": "rule:correct",
+      "unit": "count",
+      "value": 4715
+    },
+    "blog.xor.clinc.failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:failed",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.xor.clinc.false_alarms": {
+      "display": {
+        "int": "344"
+      },
+      "from": "rule:false_alarms",
+      "unit": "count",
+      "value": 344
+    },
+    "blog.xor.clinc.first_pass_failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:first_pass_failed",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.xor.clinc.oos_caught": {
+      "display": {
+        "int": "926"
+      },
+      "from": "rule:oos_caught",
+      "unit": "count",
+      "value": 926
+    },
+    "blog.xor.clinc.oos_rows": {
+      "display": {
+        "int": "1,000"
+      },
+      "from": "rule:oos_rows",
+      "unit": "count",
+      "value": 1000
+    },
+    "blog.xor.clinc.precision": {
+      "display": {
+        "pct0": "73%",
+        "pct1": "72.9%",
+        "pct2": "72.91%"
+      },
+      "from": "rule:precision",
+      "unit": "ratio",
+      "value": {
+        "den": 1270,
+        "num": 926
+      }
+    },
+    "blog.xor.clinc.recall": {
+      "display": {
+        "pct0": "93%",
+        "pct1": "92.6%",
+        "pct2": "92.60%"
+      },
+      "from": "rule:recall",
+      "unit": "ratio",
+      "value": {
+        "den": 1000,
+        "num": 926
+      }
+    },
+    "blog.xor.clinc.recovered": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:recovered",
+      "unit": "count",
+      "value": 0
+    },
+    "blog.xor.clinc.rows": {
+      "display": {
+        "int": "5,500"
+      },
+      "from": "rule:rows",
+      "unit": "count",
+      "value": 5500
+    },
+    "blog.xor.clinc.said_oos": {
+      "display": {
+        "int": "1,270"
+      },
+      "from": "rule:said_oos",
+      "unit": "count",
+      "value": 1270
+    },
+    "clef-flash.banking77.accuracy": {
+      "display": {
+        "pct0": "88%",
+        "pct1": "88.1%",
+        "pct2": "88.15%"
+      },
+      "from": "rule:accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 3080,
+        "num": 2715
+      }
+    },
+    "clef-flash.banking77.answered": {
+      "display": {
+        "int": "3,080"
+      },
+      "from": "rule:answered",
+      "unit": "count",
+      "value": 3080
+    },
+    "clef-flash.banking77.attempts": {
+      "display": {
+        "int": "3,084"
+      },
+      "from": "rule:attempts",
+      "unit": "count",
+      "value": 3084
+    },
+    "clef-flash.banking77.blocked": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:blocked",
+      "unit": "count",
+      "value": 0
+    },
+    "clef-flash.banking77.correct": {
+      "display": {
+        "int": "2,715"
+      },
+      "from": "rule:correct",
+      "unit": "count",
+      "value": 2715
+    },
+    "clef-flash.banking77.cost_usd": {
+      "display": {
+        "usd2": "$0.52",
+        "usd4": "$0.5172",
+        "usd6": "$0.517188"
+      },
+      "from": "rule:cost_usd",
+      "unit": "usd",
+      "value": "0.51718824"
+    },
+    "clef-flash.banking77.decide_calls": {
+      "display": {
+        "int": "3,084"
+      },
+      "from": "rule:decide_calls",
+      "unit": "count",
+      "value": 3084
+    },
+    "clef-flash.banking77.failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:failed",
+      "unit": "count",
+      "value": 0
+    },
+    "clef-flash.banking77.first_pass_failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:first_pass_failed",
+      "unit": "count",
+      "value": 0
+    },
+    "clef-flash.banking77.input_tokens": {
+      "display": {
+        "int": "5,746,536"
+      },
+      "from": "rule:input_tokens",
+      "unit": "tokens",
+      "value": 5746536
+    },
+    "clef-flash.banking77.latency_us.max": {
+      "display": {
+        "ms1": "4025.8 ms",
+        "s0": "4 s"
+      },
+      "from": "rule:latency_us.max",
+      "unit": "us",
+      "value": 4025811
+    },
+    "clef-flash.banking77.latency_us.p50": {
+      "display": {
+        "ms1": "551.6 ms",
+        "s0": "1 s"
+      },
+      "from": "rule:latency_us.p50",
+      "unit": "us",
+      "value": 551645
+    },
+    "clef-flash.banking77.latency_us.p90": {
+      "display": {
+        "ms1": "1020.5 ms",
+        "s0": "1 s"
+      },
+      "from": "rule:latency_us.p90",
+      "unit": "us",
+      "value": 1020545
+    },
+    "clef-flash.banking77.latency_us.p99": {
+      "display": {
+        "ms1": "2124.8 ms",
+        "s0": "2 s"
+      },
+      "from": "rule:latency_us.p99",
+      "unit": "us",
+      "value": 2124752
+    },
+    "clef-flash.banking77.masked.CLOUDFLARE_ACCOUNT_ID": {
+      "display": {
+        "int": "3,084"
+      },
+      "from": "rule:masked.CLOUDFLARE_ACCOUNT_ID",
+      "unit": "count",
+      "value": 3084
+    },
+    "clef-flash.banking77.masked.CLOUDFLARE_API_KEY": {
+      "display": {
+        "int": "3,084"
+      },
+      "from": "rule:masked.CLOUDFLARE_API_KEY",
+      "unit": "count",
+      "value": 3084
+    },
+    "clef-flash.banking77.masked.IPV4_ADDRESS": {
+      "display": {
+        "int": "3,084"
+      },
+      "from": "rule:masked.IPV4_ADDRESS",
+      "unit": "count",
+      "value": 3084
+    },
+    "clef-flash.banking77.model_echo": {
+      "display": {
+        "text": "clef-flash"
+      },
+      "from": "rule:model_echo",
+      "unit": "text",
+      "value": "clef-flash"
+    },
+    "clef-flash.banking77.network_errors": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:network_errors",
+      "unit": "count",
+      "value": 0
+    },
+    "clef-flash.banking77.neurons_reported": {
+      "display": {
+        "neurons0": "19,854",
+        "neurons2": "19,854.08"
+      },
+      "from": "rule:neurons_reported",
+      "unit": "neurons",
+      "value": "19854.08"
+    },
+    "clef-flash.banking77.output_tokens": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:output_tokens",
+      "unit": "tokens",
+      "value": 0
+    },
+    "clef-flash.banking77.recovered": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:recovered",
+      "unit": "count",
+      "value": 0
+    },
+    "clef-flash.banking77.retries": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:retries",
+      "unit": "count",
+      "value": 0
+    },
+    "clef-flash.banking77.rows": {
+      "display": {
+        "int": "3,080"
+      },
+      "from": "rule:rows",
+      "unit": "count",
+      "value": 3080
+    },
+    "clef-flash.banking77.status.200": {
+      "display": {
+        "int": "3,084"
+      },
+      "from": "rule:status.200",
+      "unit": "count",
+      "value": 3084
+    },
+    "clef-flash.banking77.t_first": {
+      "display": {
+        "date_dmy": "18 Oct 2026",
+        "utc_hm": "03:11 UTC"
+      },
+      "from": "rule:t_first",
+      "unit": "utc",
+      "value": "2026-10-18T03:11:35.880Z"
+    },
+    "clef-flash.banking77.t_last": {
+      "display": {
+        "date_dmy": "18 Oct 2026",
+        "utc_hm": "03:46 UTC"
+      },
+      "from": "rule:t_last",
+      "unit": "utc",
+      "value": "2026-10-18T03:46:36.340Z"
+    },
+    "clef-flash.banking77.vs_blog.accuracy": {
+      "display": {
+        "pp0": "-3 pp",
+        "pp1": "-2.7 pp"
+      },
+      "from": "rule:vs_blog.accuracy",
+      "unit": "pp",
+      "value": {
+        "den": 110,
+        "num": -3
+      }
+    },
+    "clef-flash.banking77.vs_blog.correct": {
+      "display": {
+        "signed": "-84"
+      },
+      "from": "rule:vs_blog.correct",
+      "unit": "delta",
+      "value": -84
+    },
+    "clef-flash.banking77.vs_blog.failed": {
+      "display": {
+        "signed": "0"
+      },
+      "from": "rule:vs_blog.failed",
+      "unit": "delta",
+      "value": 0
+    },
+    "clef-flash.banking77.wall_us": {
+      "display": {
+        "ms1": "2100460.0 ms",
+        "s0": "2,100 s"
+      },
+      "from": "rule:wall_us",
+      "unit": "us",
+      "value": 2100460000
+    },
+    "clef-flash.banking77.warmups": {
+      "display": {
+        "int": "4"
+      },
+      "from": "rule:warmups",
+      "unit": "count",
+      "value": 4
+    },
+    "clef-flash.clinc.accuracy": {
+      "display": {
+        "pct0": "59%",
+        "pct1": "59.1%",
+        "pct2": "59.09%"
+      },
+      "from": "rule:accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 5500,
+        "num": 3250
+      }
+    },
+    "clef-flash.clinc.answered": {
+      "display": {
+        "int": "5,500"
+      },
+      "from": "rule:answered",
+      "unit": "count",
+      "value": 5500
+    },
+    "clef-flash.clinc.attempts": {
+      "display": {
+        "int": "5,504"
+      },
+      "from": "rule:attempts",
+      "unit": "count",
+      "value": 5504
+    },
+    "clef-flash.clinc.blocked": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:blocked",
+      "unit": "count",
+      "value": 0
+    },
+    "clef-flash.clinc.correct": {
+      "display": {
+        "int": "3,250"
+      },
+      "from": "rule:correct",
+      "unit": "count",
+      "value": 3250
+    },
+    "clef-flash.clinc.cost_usd": {
+      "display": {
+        "usd2": "$1.68",
+        "usd4": "$1.6791",
+        "usd6": "$1.679108"
+      },
+      "from": "rule:cost_usd",
+      "unit": "usd",
+      "value": "1.67910813"
+    },
+    "clef-flash.clinc.decide_calls": {
+      "display": {
+        "int": "5,504"
+      },
+      "from": "rule:decide_calls",
+      "unit": "count",
+      "value": 5504
+    },
+    "clef-flash.clinc.failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:failed",
+      "unit": "count",
+      "value": 0
+    },
+    "clef-flash.clinc.false_alarms": {
+      "display": {
+        "int": "516"
+      },
+      "from": "rule:false_alarms",
+      "unit": "count",
+      "value": 516
+    },
+    "clef-flash.clinc.first_pass_failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:first_pass_failed",
+      "unit": "count",
+      "value": 0
+    },
+    "clef-flash.clinc.in_scope_accuracy": {
+      "display": {
+        "pct0": "55%",
+        "pct1": "55.4%",
+        "pct2": "55.44%"
+      },
+      "from": "rule:in_scope_accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 4500,
+        "num": 2495
+      }
+    },
+    "clef-flash.clinc.in_scope_correct": {
+      "display": {
+        "int": "2,495"
+      },
+      "from": "rule:in_scope_correct",
+      "unit": "count",
+      "value": 2495
+    },
+    "clef-flash.clinc.input_tokens": {
+      "display": {
+        "int": "18,656,757"
+      },
+      "from": "rule:input_tokens",
+      "unit": "tokens",
+      "value": 18656757
+    },
+    "clef-flash.clinc.latency_us.max": {
+      "display": {
+        "ms1": "39462.1 ms",
+        "s0": "39 s"
+      },
+      "from": "rule:latency_us.max",
+      "unit": "us",
+      "value": 39462096
+    },
+    "clef-flash.clinc.latency_us.p50": {
+      "display": {
+        "ms1": "855.2 ms",
+        "s0": "1 s"
+      },
+      "from": "rule:latency_us.p50",
+      "unit": "us",
+      "value": 855195
+    },
+    "clef-flash.clinc.latency_us.p90": {
+      "display": {
+        "ms1": "1204.0 ms",
+        "s0": "1 s"
+      },
+      "from": "rule:latency_us.p90",
+      "unit": "us",
+      "value": 1203996
+    },
+    "clef-flash.clinc.latency_us.p99": {
+      "display": {
+        "ms1": "2627.9 ms",
+        "s0": "3 s"
+      },
+      "from": "rule:latency_us.p99",
+      "unit": "us",
+      "value": 2627933
+    },
+    "clef-flash.clinc.masked.CLOUDFLARE_ACCOUNT_ID": {
+      "display": {
+        "int": "5,504"
+      },
+      "from": "rule:masked.CLOUDFLARE_ACCOUNT_ID",
+      "unit": "count",
+      "value": 5504
+    },
+    "clef-flash.clinc.masked.CLOUDFLARE_API_KEY": {
+      "display": {
+        "int": "5,504"
+      },
+      "from": "rule:masked.CLOUDFLARE_API_KEY",
+      "unit": "count",
+      "value": 5504
+    },
+    "clef-flash.clinc.masked.IPV4_ADDRESS": {
+      "display": {
+        "int": "5,504"
+      },
+      "from": "rule:masked.IPV4_ADDRESS",
+      "unit": "count",
+      "value": 5504
+    },
+    "clef-flash.clinc.model_echo": {
+      "display": {
+        "text": "clef-flash"
+      },
+      "from": "rule:model_echo",
+      "unit": "text",
+      "value": "clef-flash"
+    },
+    "clef-flash.clinc.network_errors": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:network_errors",
+      "unit": "count",
+      "value": 0
+    },
+    "clef-flash.clinc.neurons_reported": {
+      "display": {
+        "neurons0": "64,447",
+        "neurons2": "64,446.57"
+      },
+      "from": "rule:neurons_reported",
+      "unit": "neurons",
+      "value": "64446.57"
+    },
+    "clef-flash.clinc.oos_caught": {
+      "display": {
+        "int": "755"
+      },
+      "from": "rule:oos_caught",
+      "unit": "count",
+      "value": 755
+    },
+    "clef-flash.clinc.oos_rows": {
+      "display": {
+        "int": "1,000"
+      },
+      "from": "rule:oos_rows",
+      "unit": "count",
+      "value": 1000
+    },
+    "clef-flash.clinc.output_tokens": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:output_tokens",
+      "unit": "tokens",
+      "value": 0
+    },
+    "clef-flash.clinc.precision": {
+      "display": {
+        "pct0": "59%",
+        "pct1": "59.4%",
+        "pct2": "59.40%"
+      },
+      "from": "rule:precision",
+      "unit": "ratio",
+      "value": {
+        "den": 1271,
+        "num": 755
+      }
+    },
+    "clef-flash.clinc.recall": {
+      "display": {
+        "pct0": "76%",
+        "pct1": "75.5%",
+        "pct2": "75.50%"
+      },
+      "from": "rule:recall",
+      "unit": "ratio",
+      "value": {
+        "den": 1000,
+        "num": 755
+      }
+    },
+    "clef-flash.clinc.recovered": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:recovered",
+      "unit": "count",
+      "value": 0
+    },
+    "clef-flash.clinc.retries": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:retries",
+      "unit": "count",
+      "value": 0
+    },
+    "clef-flash.clinc.rows": {
+      "display": {
+        "int": "5,500"
+      },
+      "from": "rule:rows",
+      "unit": "count",
+      "value": 5500
+    },
+    "clef-flash.clinc.said_oos": {
+      "display": {
+        "int": "1,271"
+      },
+      "from": "rule:said_oos",
+      "unit": "count",
+      "value": 1271
+    },
+    "clef-flash.clinc.status.200": {
+      "display": {
+        "int": "5,504"
+      },
+      "from": "rule:status.200",
+      "unit": "count",
+      "value": 5504
+    },
+    "clef-flash.clinc.t_first": {
+      "display": {
+        "date_dmy": "18 Oct 2026",
+        "utc_hm": "03:46 UTC"
+      },
+      "from": "rule:t_first",
+      "unit": "utc",
+      "value": "2026-10-18T03:46:43.668Z"
+    },
+    "clef-flash.clinc.t_last": {
+      "display": {
+        "date_dmy": "18 Oct 2026",
+        "utc_hm": "05:15 UTC"
+      },
+      "from": "rule:t_last",
+      "unit": "utc",
+      "value": "2026-10-18T05:15:57.818Z"
+    },
+    "clef-flash.clinc.vs_blog.accuracy": {
+      "display": {
+        "pp0": "-4 pp",
+        "pp1": "-4.0 pp"
+      },
+      "from": "rule:vs_blog.accuracy",
+      "unit": "pp",
+      "value": {
+        "den": 2750,
+        "num": -111
+      }
+    },
+    "clef-flash.clinc.vs_blog.correct": {
+      "display": {
+        "signed": "-222"
+      },
+      "from": "rule:vs_blog.correct",
+      "unit": "delta",
+      "value": -222
+    },
+    "clef-flash.clinc.vs_blog.failed": {
+      "display": {
+        "signed": "0"
+      },
+      "from": "rule:vs_blog.failed",
+      "unit": "delta",
+      "value": 0
+    },
+    "clef-flash.clinc.vs_blog.precision": {
+      "display": {
+        "pp0": "+24 pp",
+        "pp1": "+23.8 pp"
+      },
+      "from": "rule:vs_blog.precision",
+      "unit": "pp",
+      "value": {
+        "den": 3542277,
+        "num": 844624
+      }
+    },
+    "clef-flash.clinc.vs_blog.recall": {
+      "display": {
+        "pp0": "-24 pp",
+        "pp1": "-23.6 pp"
+      },
+      "from": "rule:vs_blog.recall",
+      "unit": "pp",
+      "value": {
+        "den": 250,
+        "num": -59
+      }
+    },
+    "clef-flash.clinc.wall_us": {
+      "display": {
+        "ms1": "5354150.0 ms",
+        "s0": "5,354 s"
+      },
+      "from": "rule:wall_us",
+      "unit": "us",
+      "value": 5354150000
+    },
+    "clef-flash.clinc.warmups": {
+      "display": {
+        "int": "4"
+      },
+      "from": "rule:warmups",
+      "unit": "count",
+      "value": 4
+    },
+    "clef.banking77.accuracy": {
+      "display": {
+        "pct0": "94%",
+        "pct1": "94.1%",
+        "pct2": "94.09%"
+      },
+      "from": "rule:accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 3080,
+        "num": 2898
+      }
+    },
+    "clef.banking77.answered": {
+      "display": {
+        "int": "3,080"
+      },
+      "from": "rule:answered",
+      "unit": "count",
+      "value": 3080
+    },
+    "clef.banking77.attempts": {
+      "display": {
+        "int": "3,084"
+      },
+      "from": "rule:attempts",
+      "unit": "count",
+      "value": 3084
+    },
+    "clef.banking77.blocked": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:blocked",
+      "unit": "count",
+      "value": 0
+    },
+    "clef.banking77.correct": {
+      "display": {
+        "int": "2,898"
+      },
+      "from": "rule:correct",
+      "unit": "count",
+      "value": 2898
+    },
+    "clef.banking77.cost_usd": {
+      "display": {
+        "usd2": "$1.38",
+        "usd4": "$1.3792",
+        "usd6": "$1.379169"
+      },
+      "from": "rule:cost_usd",
+      "unit": "usd",
+      "value": "1.37916864"
+    },
+    "clef.banking77.decide_calls": {
+      "display": {
+        "int": "3,084"
+      },
+      "from": "rule:decide_calls",
+      "unit": "count",
+      "value": 3084
+    },
+    "clef.banking77.failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:failed",
+      "unit": "count",
+      "value": 0
+    },
+    "clef.banking77.first_pass_failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:first_pass_failed",
+      "unit": "count",
+      "value": 0
+    },
+    "clef.banking77.input_tokens": {
+      "display": {
+        "int": "5,746,536"
+      },
+      "from": "rule:input_tokens",
+      "unit": "tokens",
+      "value": 5746536
+    },
+    "clef.banking77.latency_us.max": {
+      "display": {
+        "ms1": "3380.0 ms",
+        "s0": "3 s"
+      },
+      "from": "rule:latency_us.max",
+      "unit": "us",
+      "value": 3379975
+    },
+    "clef.banking77.latency_us.p50": {
+      "display": {
+        "ms1": "518.7 ms",
+        "s0": "1 s"
+      },
+      "from": "rule:latency_us.p50",
+      "unit": "us",
+      "value": 518733
+    },
+    "clef.banking77.latency_us.p90": {
+      "display": {
+        "ms1": "907.8 ms",
+        "s0": "1 s"
+      },
+      "from": "rule:latency_us.p90",
+      "unit": "us",
+      "value": 907821
+    },
+    "clef.banking77.latency_us.p99": {
+      "display": {
+        "ms1": "1457.6 ms",
+        "s0": "1 s"
+      },
+      "from": "rule:latency_us.p99",
+      "unit": "us",
+      "value": 1457617
+    },
+    "clef.banking77.masked.CLOUDFLARE_ACCOUNT_ID": {
+      "display": {
+        "int": "3,084"
+      },
+      "from": "rule:masked.CLOUDFLARE_ACCOUNT_ID",
+      "unit": "count",
+      "value": 3084
+    },
+    "clef.banking77.masked.CLOUDFLARE_API_KEY": {
+      "display": {
+        "int": "3,084"
+      },
+      "from": "rule:masked.CLOUDFLARE_API_KEY",
+      "unit": "count",
+      "value": 3084
+    },
+    "clef.banking77.masked.IPV4_ADDRESS": {
+      "display": {
+        "int": "3,084"
+      },
+      "from": "rule:masked.IPV4_ADDRESS",
+      "unit": "count",
+      "value": 3084
+    },
+    "clef.banking77.model_echo": {
+      "display": {
+        "text": "clef"
+      },
+      "from": "rule:model_echo",
+      "unit": "text",
+      "value": "clef"
+    },
+    "clef.banking77.network_errors": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:network_errors",
+      "unit": "count",
+      "value": 0
+    },
+    "clef.banking77.neurons_reported": {
+      "display": {
+        "neurons0": "125,379",
+        "neurons2": "125,379.06"
+      },
+      "from": "rule:neurons_reported",
+      "unit": "neurons",
+      "value": "125379.06"
+    },
+    "clef.banking77.output_tokens": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:output_tokens",
+      "unit": "tokens",
+      "value": 0
+    },
+    "clef.banking77.recovered": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:recovered",
+      "unit": "count",
+      "value": 0
+    },
+    "clef.banking77.retries": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:retries",
+      "unit": "count",
+      "value": 0
+    },
+    "clef.banking77.rows": {
+      "display": {
+        "int": "3,080"
+      },
+      "from": "rule:rows",
+      "unit": "count",
+      "value": 3080
+    },
+    "clef.banking77.status.200": {
+      "display": {
+        "int": "3,084"
+      },
+      "from": "rule:status.200",
+      "unit": "count",
+      "value": 3084
+    },
+    "clef.banking77.t_first": {
+      "display": {
+        "date_dmy": "18 Oct 2026",
+        "utc_hm": "03:11 UTC"
+      },
+      "from": "rule:t_first",
+      "unit": "utc",
+      "value": "2026-10-18T03:11:39.405Z"
+    },
+    "clef.banking77.t_last": {
+      "display": {
+        "date_dmy": "18 Oct 2026",
+        "utc_hm": "03:43 UTC"
+      },
+      "from": "rule:t_last",
+      "unit": "utc",
+      "value": "2026-10-18T03:43:27.064Z"
+    },
+    "clef.banking77.vs_blog.accuracy": {
+      "display": {
+        "pp0": "0 pp",
+        "pp1": "0.0 pp"
+      },
+      "from": "rule:vs_blog.accuracy",
+      "unit": "pp",
+      "value": {
+        "den": 3080,
+        "num": -1
+      }
+    },
+    "clef.banking77.vs_blog.correct": {
+      "display": {
+        "signed": "-1"
+      },
+      "from": "rule:vs_blog.correct",
+      "unit": "delta",
+      "value": -1
+    },
+    "clef.banking77.vs_blog.failed": {
+      "display": {
+        "signed": "0"
+      },
+      "from": "rule:vs_blog.failed",
+      "unit": "delta",
+      "value": 0
+    },
+    "clef.banking77.wall_us": {
+      "display": {
+        "ms1": "1907659.0 ms",
+        "s0": "1,908 s"
+      },
+      "from": "rule:wall_us",
+      "unit": "us",
+      "value": 1907659000
+    },
+    "clef.banking77.warmups": {
+      "display": {
+        "int": "4"
+      },
+      "from": "rule:warmups",
+      "unit": "count",
+      "value": 4
+    },
+    "clef.clinc.accuracy": {
+      "display": {
+        "pct0": "97%",
+        "pct1": "97.3%",
+        "pct2": "97.31%"
+      },
+      "from": "rule:accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 5500,
+        "num": 5352
+      }
+    },
+    "clef.clinc.answered": {
+      "display": {
+        "int": "5,500"
+      },
+      "from": "rule:answered",
+      "unit": "count",
+      "value": 5500
+    },
+    "clef.clinc.attempts": {
+      "display": {
+        "int": "5,504"
+      },
+      "from": "rule:attempts",
+      "unit": "count",
+      "value": 5504
+    },
+    "clef.clinc.blocked": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:blocked",
+      "unit": "count",
+      "value": 0
+    },
+    "clef.clinc.correct": {
+      "display": {
+        "int": "5,352"
+      },
+      "from": "rule:correct",
+      "unit": "count",
+      "value": 5352
+    },
+    "clef.clinc.cost_usd": {
+      "display": {
+        "usd2": "$4.48",
+        "usd4": "$4.4776",
+        "usd6": "$4.477622"
+      },
+      "from": "rule:cost_usd",
+      "unit": "usd",
+      "value": "4.47762168"
+    },
+    "clef.clinc.decide_calls": {
+      "display": {
+        "int": "5,504"
+      },
+      "from": "rule:decide_calls",
+      "unit": "count",
+      "value": 5504
+    },
+    "clef.clinc.failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:failed",
+      "unit": "count",
+      "value": 0
+    },
+    "clef.clinc.false_alarms": {
+      "display": {
+        "int": "21"
+      },
+      "from": "rule:false_alarms",
+      "unit": "count",
+      "value": 21
+    },
+    "clef.clinc.first_pass_failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:first_pass_failed",
+      "unit": "count",
+      "value": 0
+    },
+    "clef.clinc.in_scope_accuracy": {
+      "display": {
+        "pct0": "98%",
+        "pct1": "97.8%",
+        "pct2": "97.80%"
+      },
+      "from": "rule:in_scope_accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 4500,
+        "num": 4401
+      }
+    },
+    "clef.clinc.in_scope_correct": {
+      "display": {
+        "int": "4,401"
+      },
+      "from": "rule:in_scope_correct",
+      "unit": "count",
+      "value": 4401
+    },
+    "clef.clinc.input_tokens": {
+      "display": {
+        "int": "18,656,757"
+      },
+      "from": "rule:input_tokens",
+      "unit": "tokens",
+      "value": 18656757
+    },
+    "clef.clinc.latency_us.max": {
+      "display": {
+        "ms1": "39453.0 ms",
+        "s0": "39 s"
+      },
+      "from": "rule:latency_us.max",
+      "unit": "us",
+      "value": 39452987
+    },
+    "clef.clinc.latency_us.p50": {
+      "display": {
+        "ms1": "713.9 ms",
+        "s0": "1 s"
+      },
+      "from": "rule:latency_us.p50",
+      "unit": "us",
+      "value": 713869
+    },
+    "clef.clinc.latency_us.p90": {
+      "display": {
+        "ms1": "1259.8 ms",
+        "s0": "1 s"
+      },
+      "from": "rule:latency_us.p90",
+      "unit": "us",
+      "value": 1259761
+    },
+    "clef.clinc.latency_us.p99": {
+      "display": {
+        "ms1": "2451.3 ms",
+        "s0": "2 s"
+      },
+      "from": "rule:latency_us.p99",
+      "unit": "us",
+      "value": 2451327
+    },
+    "clef.clinc.masked.CLOUDFLARE_ACCOUNT_ID": {
+      "display": {
+        "int": "5,504"
+      },
+      "from": "rule:masked.CLOUDFLARE_ACCOUNT_ID",
+      "unit": "count",
+      "value": 5504
+    },
+    "clef.clinc.masked.CLOUDFLARE_API_KEY": {
+      "display": {
+        "int": "5,504"
+      },
+      "from": "rule:masked.CLOUDFLARE_API_KEY",
+      "unit": "count",
+      "value": 5504
+    },
+    "clef.clinc.masked.IPV4_ADDRESS": {
+      "display": {
+        "int": "5,504"
+      },
+      "from": "rule:masked.IPV4_ADDRESS",
+      "unit": "count",
+      "value": 5504
+    },
+    "clef.clinc.model_echo": {
+      "display": {
+        "text": "clef"
+      },
+      "from": "rule:model_echo",
+      "unit": "text",
+      "value": "clef"
+    },
+    "clef.clinc.network_errors": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:network_errors",
+      "unit": "count",
+      "value": 0
+    },
+    "clef.clinc.neurons_reported": {
+      "display": {
+        "neurons0": "407,058",
+        "neurons2": "407,057.73"
+      },
+      "from": "rule:neurons_reported",
+      "unit": "neurons",
+      "value": "407057.73"
+    },
+    "clef.clinc.oos_caught": {
+      "display": {
+        "int": "951"
+      },
+      "from": "rule:oos_caught",
+      "unit": "count",
+      "value": 951
+    },
+    "clef.clinc.oos_rows": {
+      "display": {
+        "int": "1,000"
+      },
+      "from": "rule:oos_rows",
+      "unit": "count",
+      "value": 1000
+    },
+    "clef.clinc.output_tokens": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:output_tokens",
+      "unit": "tokens",
+      "value": 0
+    },
+    "clef.clinc.precision": {
+      "display": {
+        "pct0": "98%",
+        "pct1": "97.8%",
+        "pct2": "97.84%"
+      },
+      "from": "rule:precision",
+      "unit": "ratio",
+      "value": {
+        "den": 972,
+        "num": 951
+      }
+    },
+    "clef.clinc.recall": {
+      "display": {
+        "pct0": "95%",
+        "pct1": "95.1%",
+        "pct2": "95.10%"
+      },
+      "from": "rule:recall",
+      "unit": "ratio",
+      "value": {
+        "den": 1000,
+        "num": 951
+      }
+    },
+    "clef.clinc.recovered": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:recovered",
+      "unit": "count",
+      "value": 0
+    },
+    "clef.clinc.retries": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:retries",
+      "unit": "count",
+      "value": 0
+    },
+    "clef.clinc.rows": {
+      "display": {
+        "int": "5,500"
+      },
+      "from": "rule:rows",
+      "unit": "count",
+      "value": 5500
+    },
+    "clef.clinc.said_oos": {
+      "display": {
+        "int": "972"
+      },
+      "from": "rule:said_oos",
+      "unit": "count",
+      "value": 972
+    },
+    "clef.clinc.status.200": {
+      "display": {
+        "int": "5,504"
+      },
+      "from": "rule:status.200",
+      "unit": "count",
+      "value": 5504
+    },
+    "clef.clinc.t_first": {
+      "display": {
+        "date_dmy": "18 Oct 2026",
+        "utc_hm": "03:43 UTC"
+      },
+      "from": "rule:t_first",
+      "unit": "utc",
+      "value": "2026-10-18T03:43:38.484Z"
+    },
+    "clef.clinc.t_last": {
+      "display": {
+        "date_dmy": "18 Oct 2026",
+        "utc_hm": "05:02 UTC"
+      },
+      "from": "rule:t_last",
+      "unit": "utc",
+      "value": "2026-10-18T05:02:33.767Z"
+    },
+    "clef.clinc.vs_blog.accuracy": {
+      "display": {
+        "pp0": "0 pp",
+        "pp1": "0.0 pp"
+      },
+      "from": "rule:vs_blog.accuracy",
+      "unit": "pp",
+      "value": {
+        "den": 2750,
+        "num": 1
+      }
+    },
+    "clef.clinc.vs_blog.correct": {
+      "display": {
+        "signed": "+2"
+      },
+      "from": "rule:vs_blog.correct",
+      "unit": "delta",
+      "value": 2
+    },
+    "clef.clinc.vs_blog.failed": {
+      "display": {
+        "signed": "0"
+      },
+      "from": "rule:vs_blog.failed",
+      "unit": "delta",
+      "value": 0
+    },
+    "clef.clinc.vs_blog.precision": {
+      "display": {
+        "pp0": "0 pp",
+        "pp1": "-0.1 pp"
+      },
+      "from": "rule:vs_blog.precision",
+      "unit": "pp",
+      "value": {
+        "den": 314604,
+        "num": -317
+      }
+    },
+    "clef.clinc.vs_blog.recall": {
+      "display": {
+        "pp0": "0 pp",
+        "pp1": "0.0 pp"
+      },
+      "from": "rule:vs_blog.recall",
+      "unit": "pp",
+      "value": {
+        "den": 1,
+        "num": 0
+      }
+    },
+    "clef.clinc.wall_us": {
+      "display": {
+        "ms1": "4735283.0 ms",
+        "s0": "4,735 s"
+      },
+      "from": "rule:wall_us",
+      "unit": "us",
+      "value": 4735283000
+    },
+    "clef.clinc.warmups": {
+      "display": {
+        "int": "4"
+      },
+      "from": "rule:warmups",
+      "unit": "count",
+      "value": 4
+    },
+    "jev.banking77.accuracy": {
+      "display": {
+        "pct0": "80%",
+        "pct1": "80.5%",
+        "pct2": "80.45%"
+      },
+      "from": "rule:accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 3080,
+        "num": 2478
+      }
+    },
+    "jev.banking77.answered": {
+      "display": {
+        "int": "3,074"
+      },
+      "from": "rule:answered",
+      "unit": "count",
+      "value": 3074
+    },
+    "jev.banking77.attempts": {
+      "display": {
+        "int": "3,112"
+      },
+      "from": "rule:attempts",
+      "unit": "count",
+      "value": 3112
+    },
+    "jev.banking77.blocked": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:blocked",
+      "unit": "count",
+      "value": 0
+    },
+    "jev.banking77.correct": {
+      "display": {
+        "int": "2,478"
+      },
+      "from": "rule:correct",
+      "unit": "count",
+      "value": 2478
+    },
+    "jev.banking77.cost_usd": {
+      "display": {
+        "usd2": "$0.22",
+        "usd4": "$0.2237",
+        "usd6": "$0.223669"
+      },
+      "from": "rule:cost_usd",
+      "unit": "usd",
+      "value": "0.223668774"
+    },
+    "jev.banking77.decide_calls": {
+      "display": {
+        "int": "3,111"
+      },
+      "from": "rule:decide_calls",
+      "unit": "count",
+      "value": 3111
+    },
+    "jev.banking77.failed": {
+      "display": {
+        "int": "6"
+      },
+      "from": "rule:failed",
+      "unit": "count",
+      "value": 6
+    },
+    "jev.banking77.failed.probability_distribution_check": {
+      "display": {
+        "int": "6"
+      },
+      "from": "rule:failed.probability_distribution_check",
+      "unit": "count",
+      "value": 6
+    },
+    "jev.banking77.first_pass_failed": {
+      "display": {
+        "int": "27"
+      },
+      "from": "rule:first_pass_failed",
+      "unit": "count",
+      "value": 27
+    },
+    "jev.banking77.input_tokens": {
+      "display": {
+        "int": "5,325,447"
+      },
+      "from": "rule:input_tokens",
+      "unit": "tokens",
+      "value": 5325447
+    },
+    "jev.banking77.latency_us.max": {
+      "display": {
+        "ms1": "7314.4 ms",
+        "s0": "7 s"
+      },
+      "from": "rule:latency_us.max",
+      "unit": "us",
+      "value": 7314417
+    },
+    "jev.banking77.latency_us.p50": {
+      "display": {
+        "ms1": "304.3 ms",
+        "s0": "0 s"
+      },
+      "from": "rule:latency_us.p50",
+      "unit": "us",
+      "value": 304263
+    },
+    "jev.banking77.latency_us.p90": {
+      "display": {
+        "ms1": "363.5 ms",
+        "s0": "0 s"
+      },
+      "from": "rule:latency_us.p90",
+      "unit": "us",
+      "value": 363493
+    },
+    "jev.banking77.latency_us.p99": {
+      "display": {
+        "ms1": "590.9 ms",
+        "s0": "1 s"
+      },
+      "from": "rule:latency_us.p99",
+      "unit": "us",
+      "value": 590910
+    },
+    "jev.banking77.masked.TYPESAFE_API_KEY": {
+      "display": {
+        "int": "3,112"
+      },
+      "from": "rule:masked.TYPESAFE_API_KEY",
+      "unit": "count",
+      "value": 3112
+    },
+    "jev.banking77.model_echo": {
+      "display": {
+        "text": "jev-1.13.0"
+      },
+      "from": "rule:model_echo",
+      "unit": "text",
+      "value": "jev-1.13.0"
+    },
+    "jev.banking77.network_errors": {
+      "display": {
+        "int": "1"
+      },
+      "from": "rule:network_errors",
+      "unit": "count",
+      "value": 1
+    },
+    "jev.banking77.output_tokens": {
+      "display": {
+        "int": "2,426,228"
+      },
+      "from": "rule:output_tokens",
+      "unit": "tokens",
+      "value": 2426228
+    },
+    "jev.banking77.recovered": {
+      "display": {
+        "int": "21"
+      },
+      "from": "rule:recovered",
+      "unit": "count",
+      "value": 21
+    },
+    "jev.banking77.retries": {
+      "display": {
+        "int": "1"
+      },
+      "from": "rule:retries",
+      "unit": "count",
+      "value": 1
+    },
+    "jev.banking77.rows": {
+      "display": {
+        "int": "3,080"
+      },
+      "from": "rule:rows",
+      "unit": "count",
+      "value": 3080
+    },
+    "jev.banking77.status.200": {
+      "display": {
+        "int": "3,111"
+      },
+      "from": "rule:status.200",
+      "unit": "count",
+      "value": 3111
+    },
+    "jev.banking77.t_first": {
+      "display": {
+        "date_dmy": "17 Oct 2026",
+        "utc_hm": "06:35 UTC"
+      },
+      "from": "rule:t_first",
+      "unit": "utc",
+      "value": "2026-10-17T06:35:41.960Z"
+    },
+    "jev.banking77.t_last": {
+      "display": {
+        "date_dmy": "17 Oct 2026",
+        "utc_hm": "06:52 UTC"
+      },
+      "from": "rule:t_last",
+      "unit": "utc",
+      "value": "2026-10-17T06:52:59.645Z"
+    },
+    "jev.banking77.vs_blog.accuracy": {
+      "display": {
+        "pp0": "0 pp",
+        "pp1": "+0.4 pp"
+      },
+      "from": "rule:vs_blog.accuracy",
+      "unit": "pp",
+      "value": {
+        "den": 3080,
+        "num": 13
+      }
+    },
+    "jev.banking77.vs_blog.correct": {
+      "display": {
+        "signed": "+13"
+      },
+      "from": "rule:vs_blog.correct",
+      "unit": "delta",
+      "value": 13
+    },
+    "jev.banking77.vs_blog.failed": {
+      "display": {
+        "signed": "-7"
+      },
+      "from": "rule:vs_blog.failed",
+      "unit": "delta",
+      "value": -7
+    },
+    "jev.banking77.wall_us": {
+      "display": {
+        "ms1": "1037685.0 ms",
+        "s0": "1,038 s"
+      },
+      "from": "rule:wall_us",
+      "unit": "us",
+      "value": 1037685000
+    },
+    "jev.banking77.warmups": {
+      "display": {
+        "int": "4"
+      },
+      "from": "rule:warmups",
+      "unit": "count",
+      "value": 4
+    },
+    "jev.clinc.accuracy": {
+      "display": {
+        "pct0": "89%",
+        "pct1": "88.6%",
+        "pct2": "88.58%"
+      },
+      "from": "rule:accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 5500,
+        "num": 4872
+      }
+    },
+    "jev.clinc.answered": {
+      "display": {
+        "int": "5,464"
+      },
+      "from": "rule:answered",
+      "unit": "count",
+      "value": 5464
+    },
+    "jev.clinc.attempts": {
+      "display": {
+        "int": "5,608"
+      },
+      "from": "rule:attempts",
+      "unit": "count",
+      "value": 5608
+    },
+    "jev.clinc.blocked": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:blocked",
+      "unit": "count",
+      "value": 0
+    },
+    "jev.clinc.correct": {
+      "display": {
+        "int": "4,872"
+      },
+      "from": "rule:correct",
+      "unit": "count",
+      "value": 4872
+    },
+    "jev.clinc.cost_usd": {
+      "display": {
+        "usd2": "$0.66",
+        "usd4": "$0.6562",
+        "usd6": "$0.656163"
+      },
+      "from": "rule:cost_usd",
+      "unit": "usd",
+      "value": "0.656163438"
+    },
+    "jev.clinc.decide_calls": {
+      "display": {
+        "int": "5,607"
+      },
+      "from": "rule:decide_calls",
+      "unit": "count",
+      "value": 5607
+    },
+    "jev.clinc.failed": {
+      "display": {
+        "int": "36"
+      },
+      "from": "rule:failed",
+      "unit": "count",
+      "value": 36
+    },
+    "jev.clinc.failed.probability_distribution_check": {
+      "display": {
+        "int": "36"
+      },
+      "from": "rule:failed.probability_distribution_check",
+      "unit": "count",
+      "value": 36
+    },
+    "jev.clinc.false_alarms": {
+      "display": {
+        "int": "136"
+      },
+      "from": "rule:false_alarms",
+      "unit": "count",
+      "value": 136
+    },
+    "jev.clinc.first_pass_failed": {
+      "display": {
+        "int": "103"
+      },
+      "from": "rule:first_pass_failed",
+      "unit": "count",
+      "value": 103
+    },
+    "jev.clinc.in_scope_accuracy": {
+      "display": {
+        "pct0": "89%",
+        "pct1": "89.4%",
+        "pct2": "89.42%"
+      },
+      "from": "rule:in_scope_accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 4500,
+        "num": 4024
+      }
+    },
+    "jev.clinc.in_scope_correct": {
+      "display": {
+        "int": "4,024"
+      },
+      "from": "rule:in_scope_correct",
+      "unit": "count",
+      "value": 4024
+    },
+    "jev.clinc.input_tokens": {
+      "display": {
+        "int": "15,622,939"
+      },
+      "from": "rule:input_tokens",
+      "unit": "tokens",
+      "value": 15622939
+    },
+    "jev.clinc.latency_us.max": {
+      "display": {
+        "ms1": "2573.6 ms",
+        "s0": "3 s"
+      },
+      "from": "rule:latency_us.max",
+      "unit": "us",
+      "value": 2573581
+    },
+    "jev.clinc.latency_us.p50": {
+      "display": {
+        "ms1": "304.4 ms",
+        "s0": "0 s"
+      },
+      "from": "rule:latency_us.p50",
+      "unit": "us",
+      "value": 304383
+    },
+    "jev.clinc.latency_us.p90": {
+      "display": {
+        "ms1": "385.6 ms",
+        "s0": "0 s"
+      },
+      "from": "rule:latency_us.p90",
+      "unit": "us",
+      "value": 385605
+    },
+    "jev.clinc.latency_us.p99": {
+      "display": {
+        "ms1": "646.9 ms",
+        "s0": "1 s"
+      },
+      "from": "rule:latency_us.p99",
+      "unit": "us",
+      "value": 646922
+    },
+    "jev.clinc.masked.TYPESAFE_API_KEY": {
+      "display": {
+        "int": "5,608"
+      },
+      "from": "rule:masked.TYPESAFE_API_KEY",
+      "unit": "count",
+      "value": 5608
+    },
+    "jev.clinc.model_echo": {
+      "display": {
+        "text": "jev-1.13.0"
+      },
+      "from": "rule:model_echo",
+      "unit": "text",
+      "value": "jev-1.13.0"
+    },
+    "jev.clinc.network_errors": {
+      "display": {
+        "int": "1"
+      },
+      "from": "rule:network_errors",
+      "unit": "count",
+      "value": 1
+    },
+    "jev.clinc.oos_caught": {
+      "display": {
+        "int": "848"
+      },
+      "from": "rule:oos_caught",
+      "unit": "count",
+      "value": 848
+    },
+    "jev.clinc.oos_rows": {
+      "display": {
+        "int": "1,000"
+      },
+      "from": "rule:oos_rows",
+      "unit": "count",
+      "value": 1000
+    },
+    "jev.clinc.output_tokens": {
+      "display": {
+        "int": "8,809,315"
+      },
+      "from": "rule:output_tokens",
+      "unit": "tokens",
+      "value": 8809315
+    },
+    "jev.clinc.precision": {
+      "display": {
+        "pct0": "86%",
+        "pct1": "86.2%",
+        "pct2": "86.18%"
+      },
+      "from": "rule:precision",
+      "unit": "ratio",
+      "value": {
+        "den": 984,
+        "num": 848
+      }
+    },
+    "jev.clinc.recall": {
+      "display": {
+        "pct0": "85%",
+        "pct1": "84.8%",
+        "pct2": "84.80%"
+      },
+      "from": "rule:recall",
+      "unit": "ratio",
+      "value": {
+        "den": 1000,
+        "num": 848
+      }
+    },
+    "jev.clinc.recovered": {
+      "display": {
+        "int": "67"
+      },
+      "from": "rule:recovered",
+      "unit": "count",
+      "value": 67
+    },
+    "jev.clinc.retries": {
+      "display": {
+        "int": "1"
+      },
+      "from": "rule:retries",
+      "unit": "count",
+      "value": 1
+    },
+    "jev.clinc.rows": {
+      "display": {
+        "int": "5,500"
+      },
+      "from": "rule:rows",
+      "unit": "count",
+      "value": 5500
+    },
+    "jev.clinc.said_oos": {
+      "display": {
+        "int": "984"
+      },
+      "from": "rule:said_oos",
+      "unit": "count",
+      "value": 984
+    },
+    "jev.clinc.status.200": {
+      "display": {
+        "int": "5,607"
+      },
+      "from": "rule:status.200",
+      "unit": "count",
+      "value": 5607
+    },
+    "jev.clinc.t_first": {
+      "display": {
+        "date_dmy": "17 Oct 2026",
+        "utc_hm": "06:53 UTC"
+      },
+      "from": "rule:t_first",
+      "unit": "utc",
+      "value": "2026-10-17T06:53:07.750Z"
+    },
+    "jev.clinc.t_last": {
+      "display": {
+        "date_dmy": "17 Oct 2026",
+        "utc_hm": "07:24 UTC"
+      },
+      "from": "rule:t_last",
+      "unit": "utc",
+      "value": "2026-10-17T07:24:32.930Z"
+    },
+    "jev.clinc.vs_blog.accuracy": {
+      "display": {
+        "pp0": "0 pp",
+        "pp1": "-0.2 pp"
+      },
+      "from": "rule:vs_blog.accuracy",
+      "unit": "pp",
+      "value": {
+        "den": 500,
+        "num": -1
+      }
+    },
+    "jev.clinc.vs_blog.correct": {
+      "display": {
+        "signed": "-11"
+      },
+      "from": "rule:vs_blog.correct",
+      "unit": "delta",
+      "value": -11
+    },
+    "jev.clinc.vs_blog.failed": {
+      "display": {
+        "signed": "+8"
+      },
+      "from": "rule:vs_blog.failed",
+      "unit": "delta",
+      "value": 8
+    },
+    "jev.clinc.vs_blog.precision": {
+      "display": {
+        "pp0": "0 pp",
+        "pp1": "0.0 pp"
+      },
+      "from": "rule:vs_blog.precision",
+      "unit": "pp",
+      "value": {
+        "den": 121524,
+        "num": 55
+      }
+    },
+    "jev.clinc.vs_blog.recall": {
+      "display": {
+        "pp0": "0 pp",
+        "pp1": "-0.3 pp"
+      },
+      "from": "rule:vs_blog.recall",
+      "unit": "pp",
+      "value": {
+        "den": 1000,
+        "num": -3
+      }
+    },
+    "jev.clinc.wall_us": {
+      "display": {
+        "ms1": "1885180.0 ms",
+        "s0": "1,885 s"
+      },
+      "from": "rule:wall_us",
+      "unit": "us",
+      "value": 1885180000
+    },
+    "jev.clinc.warmups": {
+      "display": {
+        "int": "4"
+      },
+      "from": "rule:warmups",
+      "unit": "count",
+      "value": 4
+    },
+    "luna.banking77.accuracy": {
+      "display": {
+        "pct0": "77%",
+        "pct1": "77.3%",
+        "pct2": "77.34%"
+      },
+      "from": "rule:accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 3080,
+        "num": 2382
+      }
+    },
+    "luna.banking77.answered": {
+      "display": {
+        "int": "3,080"
+      },
+      "from": "rule:answered",
+      "unit": "count",
+      "value": 3080
+    },
+    "luna.banking77.attempts": {
+      "display": {
+        "int": "3,085"
+      },
+      "from": "rule:attempts",
+      "unit": "count",
+      "value": 3085
+    },
+    "luna.banking77.blocked": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:blocked",
+      "unit": "count",
+      "value": 0
+    },
+    "luna.banking77.correct": {
+      "display": {
+        "int": "2,382"
+      },
+      "from": "rule:correct",
+      "unit": "count",
+      "value": 2382
+    },
+    "luna.banking77.cost_reported_usd": {
+      "display": {
+        "usd2": "$0.30",
+        "usd4": "$0.2974",
+        "usd6": "$0.297416"
+      },
+      "from": "rule:cost_reported_usd",
+      "unit": "usd",
+      "value": "0.2974164"
+    },
+    "luna.banking77.cost_usd": {
+      "display": {
+        "usd2": "$0.30",
+        "usd4": "$0.2974",
+        "usd6": "$0.297416"
+      },
+      "from": "rule:cost_usd",
+      "unit": "usd",
+      "value": "0.2974164"
+    },
+    "luna.banking77.decide_calls": {
+      "display": {
+        "int": "3,084"
+      },
+      "from": "rule:decide_calls",
+      "unit": "count",
+      "value": 3084
+    },
+    "luna.banking77.failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:failed",
+      "unit": "count",
+      "value": 0
+    },
+    "luna.banking77.first_pass_failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:first_pass_failed",
+      "unit": "count",
+      "value": 0
+    },
+    "luna.banking77.input_tokens": {
+      "display": {
+        "int": "2,974,164"
+      },
+      "from": "rule:input_tokens",
+      "unit": "tokens",
+      "value": 2974164
+    },
+    "luna.banking77.latency_us.max": {
+      "display": {
+        "ms1": "1801.0 ms",
+        "s0": "2 s"
+      },
+      "from": "rule:latency_us.max",
+      "unit": "us",
+      "value": 1801009
+    },
+    "luna.banking77.latency_us.p50": {
+      "display": {
+        "ms1": "314.0 ms",
+        "s0": "0 s"
+      },
+      "from": "rule:latency_us.p50",
+      "unit": "us",
+      "value": 314009
+    },
+    "luna.banking77.latency_us.p90": {
+      "display": {
+        "ms1": "583.3 ms",
+        "s0": "1 s"
+      },
+      "from": "rule:latency_us.p90",
+      "unit": "us",
+      "value": 583253
+    },
+    "luna.banking77.latency_us.p99": {
+      "display": {
+        "ms1": "767.1 ms",
+        "s0": "1 s"
+      },
+      "from": "rule:latency_us.p99",
+      "unit": "us",
+      "value": 767065
+    },
+    "luna.banking77.masked.TYPESAFE_API_KEY": {
+      "display": {
+        "int": "3,085"
+      },
+      "from": "rule:masked.TYPESAFE_API_KEY",
+      "unit": "count",
+      "value": 3085
+    },
+    "luna.banking77.model_echo": {
+      "display": {
+        "text": "openai/gpt-6-luna-decisions-20261006"
+      },
+      "from": "rule:model_echo",
+      "unit": "text",
+      "value": "openai/gpt-6-luna-decisions-20261006"
+    },
+    "luna.banking77.network_errors": {
+      "display": {
+        "int": "1"
+      },
+      "from": "rule:network_errors",
+      "unit": "count",
+      "value": 1
+    },
+    "luna.banking77.output_tokens": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:output_tokens",
+      "unit": "tokens",
+      "value": 0
+    },
+    "luna.banking77.recovered": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:recovered",
+      "unit": "count",
+      "value": 0
+    },
+    "luna.banking77.retries": {
+      "display": {
+        "int": "1"
+      },
+      "from": "rule:retries",
+      "unit": "count",
+      "value": 1
+    },
+    "luna.banking77.rows": {
+      "display": {
+        "int": "3,080"
+      },
+      "from": "rule:rows",
+      "unit": "count",
+      "value": 3080
+    },
+    "luna.banking77.status.200": {
+      "display": {
+        "int": "3,084"
+      },
+      "from": "rule:status.200",
+      "unit": "count",
+      "value": 3084
+    },
+    "luna.banking77.t_first": {
+      "display": {
+        "date_dmy": "17 Oct 2026",
+        "utc_hm": "06:35 UTC"
+      },
+      "from": "rule:t_first",
+      "unit": "utc",
+      "value": "2026-10-17T06:35:42.788Z"
+    },
+    "luna.banking77.t_last": {
+      "display": {
+        "date_dmy": "17 Oct 2026",
+        "utc_hm": "06:56 UTC"
+      },
+      "from": "rule:t_last",
+      "unit": "utc",
+      "value": "2026-10-17T06:56:39.344Z"
+    },
+    "luna.banking77.vs_blog.accuracy": {
+      "display": {
+        "pp0": "0 pp",
+        "pp1": "+0.2 pp"
+      },
+      "from": "rule:vs_blog.accuracy",
+      "unit": "pp",
+      "value": {
+        "den": 440,
+        "num": 1
+      }
+    },
+    "luna.banking77.vs_blog.correct": {
+      "display": {
+        "signed": "+7"
+      },
+      "from": "rule:vs_blog.correct",
+      "unit": "delta",
+      "value": 7
+    },
+    "luna.banking77.vs_blog.failed": {
+      "display": {
+        "signed": "0"
+      },
+      "from": "rule:vs_blog.failed",
+      "unit": "delta",
+      "value": 0
+    },
+    "luna.banking77.wall_us": {
+      "display": {
+        "ms1": "1256556.0 ms",
+        "s0": "1,257 s"
+      },
+      "from": "rule:wall_us",
+      "unit": "us",
+      "value": 1256556000
+    },
+    "luna.banking77.warmups": {
+      "display": {
+        "int": "4"
+      },
+      "from": "rule:warmups",
+      "unit": "count",
+      "value": 4
+    },
+    "luna.clinc.accuracy": {
+      "display": {
+        "pct0": "88%",
+        "pct1": "88.3%",
+        "pct2": "88.33%"
+      },
+      "from": "rule:accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 5500,
+        "num": 4858
+      }
+    },
+    "luna.clinc.answered": {
+      "display": {
+        "int": "5,499"
+      },
+      "from": "rule:answered",
+      "unit": "count",
+      "value": 5499
+    },
+    "luna.clinc.attempts": {
+      "display": {
+        "int": "5,509"
+      },
+      "from": "rule:attempts",
+      "unit": "count",
+      "value": 5509
+    },
+    "luna.clinc.blocked": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:blocked",
+      "unit": "count",
+      "value": 0
+    },
+    "luna.clinc.correct": {
+      "display": {
+        "int": "4,858"
+      },
+      "from": "rule:correct",
+      "unit": "count",
+      "value": 4858
+    },
+    "luna.clinc.cost_reported_usd": {
+      "display": {
+        "usd2": "$0.82",
+        "usd4": "$0.8171",
+        "usd6": "$0.817125"
+      },
+      "from": "rule:cost_reported_usd",
+      "unit": "usd",
+      "value": "0.8171254"
+    },
+    "luna.clinc.cost_usd": {
+      "display": {
+        "usd2": "$0.82",
+        "usd4": "$0.8171",
+        "usd6": "$0.817125"
+      },
+      "from": "rule:cost_usd",
+      "unit": "usd",
+      "value": "0.8171254"
+    },
+    "luna.clinc.decide_calls": {
+      "display": {
+        "int": "5,505"
+      },
+      "from": "rule:decide_calls",
+      "unit": "count",
+      "value": 5505
+    },
+    "luna.clinc.failed": {
+      "display": {
+        "int": "1"
+      },
+      "from": "rule:failed",
+      "unit": "count",
+      "value": 1
+    },
+    "luna.clinc.failed.http_5xx": {
+      "display": {
+        "int": "1"
+      },
+      "from": "rule:failed.http_5xx",
+      "unit": "count",
+      "value": 1
+    },
+    "luna.clinc.false_alarms": {
+      "display": {
+        "int": "304"
+      },
+      "from": "rule:false_alarms",
+      "unit": "count",
+      "value": 304
+    },
+    "luna.clinc.first_pass_failed": {
+      "display": {
+        "int": "1"
+      },
+      "from": "rule:first_pass_failed",
+      "unit": "count",
+      "value": 1
+    },
+    "luna.clinc.in_scope_accuracy": {
+      "display": {
+        "pct0": "88%",
+        "pct1": "87.6%",
+        "pct2": "87.64%"
+      },
+      "from": "rule:in_scope_accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 4500,
+        "num": 3944
+      }
+    },
+    "luna.clinc.in_scope_correct": {
+      "display": {
+        "int": "3,944"
+      },
+      "from": "rule:in_scope_correct",
+      "unit": "count",
+      "value": 3944
+    },
+    "luna.clinc.input_tokens": {
+      "display": {
+        "int": "8,171,254"
+      },
+      "from": "rule:input_tokens",
+      "unit": "tokens",
+      "value": 8171254
+    },
+    "luna.clinc.latency_us.max": {
+      "display": {
+        "ms1": "3447.2 ms",
+        "s0": "3 s"
+      },
+      "from": "rule:latency_us.max",
+      "unit": "us",
+      "value": 3447205
+    },
+    "luna.clinc.latency_us.p50": {
+      "display": {
+        "ms1": "326.3 ms",
+        "s0": "0 s"
+      },
+      "from": "rule:latency_us.p50",
+      "unit": "us",
+      "value": 326312
+    },
+    "luna.clinc.latency_us.p90": {
+      "display": {
+        "ms1": "649.7 ms",
+        "s0": "1 s"
+      },
+      "from": "rule:latency_us.p90",
+      "unit": "us",
+      "value": 649709
+    },
+    "luna.clinc.latency_us.p99": {
+      "display": {
+        "ms1": "897.9 ms",
+        "s0": "1 s"
+      },
+      "from": "rule:latency_us.p99",
+      "unit": "us",
+      "value": 897931
+    },
+    "luna.clinc.masked.TYPESAFE_API_KEY": {
+      "display": {
+        "int": "5,509"
+      },
+      "from": "rule:masked.TYPESAFE_API_KEY",
+      "unit": "count",
+      "value": 5509
+    },
+    "luna.clinc.model_echo": {
+      "display": {
+        "text": "openai/gpt-6-luna-decisions-20261006"
+      },
+      "from": "rule:model_echo",
+      "unit": "text",
+      "value": "openai/gpt-6-luna-decisions-20261006"
+    },
+    "luna.clinc.network_errors": {
+      "display": {
+        "int": "1"
+      },
+      "from": "rule:network_errors",
+      "unit": "count",
+      "value": 1
+    },
+    "luna.clinc.oos_caught": {
+      "display": {
+        "int": "914"
+      },
+      "from": "rule:oos_caught",
+      "unit": "count",
+      "value": 914
+    },
+    "luna.clinc.oos_rows": {
+      "display": {
+        "int": "1,000"
+      },
+      "from": "rule:oos_rows",
+      "unit": "count",
+      "value": 1000
+    },
+    "luna.clinc.output_tokens": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:output_tokens",
+      "unit": "tokens",
+      "value": 0
+    },
+    "luna.clinc.precision": {
+      "display": {
+        "pct0": "75%",
+        "pct1": "75.0%",
+        "pct2": "75.04%"
+      },
+      "from": "rule:precision",
+      "unit": "ratio",
+      "value": {
+        "den": 1218,
+        "num": 914
+      }
+    },
+    "luna.clinc.recall": {
+      "display": {
+        "pct0": "91%",
+        "pct1": "91.4%",
+        "pct2": "91.40%"
+      },
+      "from": "rule:recall",
+      "unit": "ratio",
+      "value": {
+        "den": 1000,
+        "num": 914
+      }
+    },
+    "luna.clinc.recovered": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:recovered",
+      "unit": "count",
+      "value": 0
+    },
+    "luna.clinc.retries": {
+      "display": {
+        "int": "4"
+      },
+      "from": "rule:retries",
+      "unit": "count",
+      "value": 4
+    },
+    "luna.clinc.rows": {
+      "display": {
+        "int": "5,500"
+      },
+      "from": "rule:rows",
+      "unit": "count",
+      "value": 5500
+    },
+    "luna.clinc.said_oos": {
+      "display": {
+        "int": "1,218"
+      },
+      "from": "rule:said_oos",
+      "unit": "count",
+      "value": 1218
+    },
+    "luna.clinc.status.200": {
+      "display": {
+        "int": "5,503"
+      },
+      "from": "rule:status.200",
+      "unit": "count",
+      "value": 5503
+    },
+    "luna.clinc.status.502": {
+      "display": {
+        "int": "4"
+      },
+      "from": "rule:status.502",
+      "unit": "count",
+      "value": 4
+    },
+    "luna.clinc.status.503": {
+      "display": {
+        "int": "1"
+      },
+      "from": "rule:status.503",
+      "unit": "count",
+      "value": 1
+    },
+    "luna.clinc.t_first": {
+      "display": {
+        "date_dmy": "17 Oct 2026",
+        "utc_hm": "06:56 UTC"
+      },
+      "from": "rule:t_first",
+      "unit": "utc",
+      "value": "2026-10-17T06:56:45.281Z"
+    },
+    "luna.clinc.t_last": {
+      "display": {
+        "date_dmy": "17 Oct 2026",
+        "utc_hm": "07:37 UTC"
+      },
+      "from": "rule:t_last",
+      "unit": "utc",
+      "value": "2026-10-17T07:37:21.929Z"
+    },
+    "luna.clinc.vs_blog.accuracy": {
+      "display": {
+        "pp0": "0 pp",
+        "pp1": "-0.1 pp"
+      },
+      "from": "rule:vs_blog.accuracy",
+      "unit": "pp",
+      "value": {
+        "den": 1100,
+        "num": -1
+      }
+    },
+    "luna.clinc.vs_blog.correct": {
+      "display": {
+        "signed": "-5"
+      },
+      "from": "rule:vs_blog.correct",
+      "unit": "delta",
+      "value": -5
+    },
+    "luna.clinc.vs_blog.failed": {
+      "display": {
+        "signed": "0"
+      },
+      "from": "rule:vs_blog.failed",
+      "unit": "delta",
+      "value": 0
+    },
+    "luna.clinc.vs_blog.precision": {
+      "display": {
+        "pp0": "0 pp",
+        "pp1": "+0.1 pp"
+      },
+      "from": "rule:vs_blog.precision",
+      "unit": "pp",
+      "value": {
+        "den": 83433,
+        "num": 85
+      }
+    },
+    "luna.clinc.vs_blog.recall": {
+      "display": {
+        "pp0": "-1 pp",
+        "pp1": "-1.0 pp"
+      },
+      "from": "rule:vs_blog.recall",
+      "unit": "pp",
+      "value": {
+        "den": 100,
+        "num": -1
+      }
+    },
+    "luna.clinc.wall_us": {
+      "display": {
+        "ms1": "2436648.0 ms",
+        "s0": "2,437 s"
+      },
+      "from": "rule:wall_us",
+      "unit": "us",
+      "value": 2436648000
+    },
+    "luna.clinc.warmups": {
+      "display": {
+        "int": "4"
+      },
+      "from": "rule:warmups",
+      "unit": "count",
+      "value": 4
+    },
+    "perplexity-v1.banking77.accuracy": {
+      "display": {
+        "pct0": "91%",
+        "pct1": "91.3%",
+        "pct2": "91.27%"
+      },
+      "from": "rule:accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 3080,
+        "num": 2811
+      }
+    },
+    "perplexity-v1.banking77.answered": {
+      "display": {
+        "int": "3,080"
+      },
+      "from": "rule:answered",
+      "unit": "count",
+      "value": 3080
+    },
+    "perplexity-v1.banking77.attempts": {
+      "display": {
+        "int": "3,085"
+      },
+      "from": "rule:attempts",
+      "unit": "count",
+      "value": 3085
+    },
+    "perplexity-v1.banking77.blocked": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:blocked",
+      "unit": "count",
+      "value": 0
+    },
+    "perplexity-v1.banking77.correct": {
+      "display": {
+        "int": "2,811"
+      },
+      "from": "rule:correct",
+      "unit": "count",
+      "value": 2811
+    },
+    "perplexity-v1.banking77.cost_usd": {
+      "display": {
+        "usd2": "$0.12",
+        "usd4": "$0.1222",
+        "usd6": "$0.122178"
+      },
+      "from": "rule:cost_usd",
+      "unit": "usd",
+      "value": "0.1221776"
+    },
+    "perplexity-v1.banking77.decide_calls": {
+      "display": {
+        "int": "3,084"
+      },
+      "from": "rule:decide_calls",
+      "unit": "count",
+      "value": 3084
+    },
+    "perplexity-v1.banking77.failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:failed",
+      "unit": "count",
+      "value": 0
+    },
+    "perplexity-v1.banking77.first_pass_failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:first_pass_failed",
+      "unit": "count",
+      "value": 0
+    },
+    "perplexity-v1.banking77.input_tokens": {
+      "display": {
+        "int": "3,054,440"
+      },
+      "from": "rule:input_tokens",
+      "unit": "tokens",
+      "value": 3054440
+    },
+    "perplexity-v1.banking77.latency_us.max": {
+      "display": {
+        "ms1": "16717.8 ms",
+        "s0": "17 s"
+      },
+      "from": "rule:latency_us.max",
+      "unit": "us",
+      "value": 16717790
+    },
+    "perplexity-v1.banking77.latency_us.p50": {
+      "display": {
+        "ms1": "574.7 ms",
+        "s0": "1 s"
+      },
+      "from": "rule:latency_us.p50",
+      "unit": "us",
+      "value": 574684
+    },
+    "perplexity-v1.banking77.latency_us.p90": {
+      "display": {
+        "ms1": "1286.9 ms",
+        "s0": "1 s"
+      },
+      "from": "rule:latency_us.p90",
+      "unit": "us",
+      "value": 1286945
+    },
+    "perplexity-v1.banking77.latency_us.p99": {
+      "display": {
+        "ms1": "2346.4 ms",
+        "s0": "2 s"
+      },
+      "from": "rule:latency_us.p99",
+      "unit": "us",
+      "value": 2346385
+    },
+    "perplexity-v1.banking77.masked.PERPLEXITY_API_KEY": {
+      "display": {
+        "int": "3,085"
+      },
+      "from": "rule:masked.PERPLEXITY_API_KEY",
+      "unit": "count",
+      "value": 3085
+    },
+    "perplexity-v1.banking77.model_echo": {
+      "display": {
+        "text": "pplx-decider-v1-27b"
+      },
+      "from": "rule:model_echo",
+      "unit": "text",
+      "value": "pplx-decider-v1-27b"
+    },
+    "perplexity-v1.banking77.network_errors": {
+      "display": {
+        "int": "1"
+      },
+      "from": "rule:network_errors",
+      "unit": "count",
+      "value": 1
+    },
+    "perplexity-v1.banking77.output_tokens": {
+      "display": {
+        "int": "3,084"
+      },
+      "from": "rule:output_tokens",
+      "unit": "tokens",
+      "value": 3084
+    },
+    "perplexity-v1.banking77.recovered": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:recovered",
+      "unit": "count",
+      "value": 0
+    },
+    "perplexity-v1.banking77.retries": {
+      "display": {
+        "int": "1"
+      },
+      "from": "rule:retries",
+      "unit": "count",
+      "value": 1
+    },
+    "perplexity-v1.banking77.rows": {
+      "display": {
+        "int": "3,080"
+      },
+      "from": "rule:rows",
+      "unit": "count",
+      "value": 3080
+    },
+    "perplexity-v1.banking77.status.200": {
+      "display": {
+        "int": "3,084"
+      },
+      "from": "rule:status.200",
+      "unit": "count",
+      "value": 3084
+    },
+    "perplexity-v1.banking77.t_first": {
+      "display": {
+        "date_dmy": "17 Oct 2026",
+        "utc_hm": "06:35 UTC"
+      },
+      "from": "rule:t_first",
+      "unit": "utc",
+      "value": "2026-10-17T06:35:44.089Z"
+    },
+    "perplexity-v1.banking77.t_last": {
+      "display": {
+        "date_dmy": "17 Oct 2026",
+        "utc_hm": "07:18 UTC"
+      },
+      "from": "rule:t_last",
+      "unit": "utc",
+      "value": "2026-10-17T07:18:18.096Z"
+    },
+    "perplexity-v1.banking77.vs_blog.accuracy": {
+      "display": {
+        "pp0": "+10 pp",
+        "pp1": "+10.0 pp"
+      },
+      "from": "rule:vs_blog.accuracy",
+      "unit": "pp",
+      "value": {
+        "den": 3080,
+        "num": 309
+      }
+    },
+    "perplexity-v1.banking77.vs_blog.correct": {
+      "display": {
+        "signed": "+309"
+      },
+      "from": "rule:vs_blog.correct",
+      "unit": "delta",
+      "value": 309
+    },
+    "perplexity-v1.banking77.vs_blog.failed": {
+      "display": {
+        "signed": "0"
+      },
+      "from": "rule:vs_blog.failed",
+      "unit": "delta",
+      "value": 0
+    },
+    "perplexity-v1.banking77.wall_us": {
+      "display": {
+        "ms1": "2554007.0 ms",
+        "s0": "2,554 s"
+      },
+      "from": "rule:wall_us",
+      "unit": "us",
+      "value": 2554007000
+    },
+    "perplexity-v1.banking77.warmups": {
+      "display": {
+        "int": "4"
+      },
+      "from": "rule:warmups",
+      "unit": "count",
+      "value": 4
+    },
+    "perplexity-v1.clinc.accuracy": {
+      "display": {
+        "pct0": "93%",
+        "pct1": "92.7%",
+        "pct2": "92.67%"
+      },
+      "from": "rule:accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 5500,
+        "num": 5097
+      }
+    },
+    "perplexity-v1.clinc.answered": {
+      "display": {
+        "int": "5,500"
+      },
+      "from": "rule:answered",
+      "unit": "count",
+      "value": 5500
+    },
+    "perplexity-v1.clinc.attempts": {
+      "display": {
+        "int": "5,528"
+      },
+      "from": "rule:attempts",
+      "unit": "count",
+      "value": 5528
+    },
+    "perplexity-v1.clinc.blocked": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:blocked",
+      "unit": "count",
+      "value": 0
+    },
+    "perplexity-v1.clinc.correct": {
+      "display": {
+        "int": "5,097"
+      },
+      "from": "rule:correct",
+      "unit": "count",
+      "value": 5097
+    },
+    "perplexity-v1.clinc.cost_usd": {
+      "display": {
+        "usd2": "$0.36",
+        "usd4": "$0.3635",
+        "usd6": "$0.363463"
+      },
+      "from": "rule:cost_usd",
+      "unit": "usd",
+      "value": "0.36346324"
+    },
+    "perplexity-v1.clinc.decide_calls": {
+      "display": {
+        "int": "5,505"
+      },
+      "from": "rule:decide_calls",
+      "unit": "count",
+      "value": 5505
+    },
+    "perplexity-v1.clinc.failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rule:failed",
+      "unit": "count",
+      "value": 0
+    },
+    "perplexity-v1.clinc.false_alarms": {
+      "display": {
+        "int": "9"
+      },
+      "from": "rule:false_alarms",
+      "unit": "count",
+      "value": 9
+    },
+    "perplexity-v1.clinc.first_pass_failed": {
+      "display": {
+        "int": "1"
+      },
+      "from": "rule:first_pass_failed",
+      "unit": "count",
+      "value": 1
+    },
+    "perplexity-v1.clinc.in_scope_accuracy": {
+      "display": {
+        "pct0": "97%",
+        "pct1": "96.8%",
+        "pct2": "96.80%"
+      },
+      "from": "rule:in_scope_accuracy",
+      "unit": "ratio",
+      "value": {
+        "den": 4500,
+        "num": 4356
+      }
+    },
+    "perplexity-v1.clinc.in_scope_correct": {
+      "display": {
+        "int": "4,356"
+      },
+      "from": "rule:in_scope_correct",
+      "unit": "count",
+      "value": 4356
+    },
+    "perplexity-v1.clinc.input_tokens": {
+      "display": {
+        "int": "9,086,581"
+      },
+      "from": "rule:input_tokens",
+      "unit": "tokens",
+      "value": 9086581
+    },
+    "perplexity-v1.clinc.latency_us.max": {
+      "display": {
+        "ms1": "38011.0 ms",
+        "s0": "38 s"
+      },
+      "from": "rule:latency_us.max",
+      "unit": "us",
+      "value": 38010950
+    },
+    "perplexity-v1.clinc.latency_us.p50": {
+      "display": {
+        "ms1": "803.4 ms",
+        "s0": "1 s"
+      },
+      "from": "rule:latency_us.p50",
+      "unit": "us",
+      "value": 803372
+    },
+    "perplexity-v1.clinc.latency_us.p90": {
+      "display": {
+        "ms1": "1622.1 ms",
+        "s0": "2 s"
+      },
+      "from": "rule:latency_us.p90",
+      "unit": "us",
+      "value": 1622126
+    },
+    "perplexity-v1.clinc.latency_us.p99": {
+      "display": {
+        "ms1": "2822.8 ms",
+        "s0": "3 s"
+      },
+      "from": "rule:latency_us.p99",
+      "unit": "us",
+      "value": 2822845
+    },
+    "perplexity-v1.clinc.masked.IPV4_ADDRESS": {
+      "display": {
+        "int": "4"
+      },
+      "from": "rule:masked.IPV4_ADDRESS",
+      "unit": "count",
+      "value": 4
+    },
+    "perplexity-v1.clinc.masked.PERPLEXITY_API_KEY": {
+      "display": {
+        "int": "5,528"
+      },
+      "from": "rule:masked.PERPLEXITY_API_KEY",
+      "unit": "count",
+      "value": 5528
+    },
+    "perplexity-v1.clinc.model_echo": {
+      "display": {
+        "text": "pplx-decider-v1-27b"
+      },
+      "from": "rule:model_echo",
+      "unit": "text",
+      "value": "pplx-decider-v1-27b"
+    },
+    "perplexity-v1.clinc.network_errors": {
+      "display": {
+        "int": "18"
+      },
+      "from": "rule:network_errors",
+      "unit": "count",
+      "value": 18
+    },
+    "perplexity-v1.clinc.oos_caught": {
+      "display": {
+        "int": "741"
+      },
+      "from": "rule:oos_caught",
+      "unit": "count",
+      "value": 741
+    },
+    "perplexity-v1.clinc.oos_rows": {
+      "display": {
+        "int": "1,000"
+      },
+      "from": "rule:oos_rows",
+      "unit": "count",
+      "value": 1000
+    },
+    "perplexity-v1.clinc.output_tokens": {
+      "display": {
+        "int": "5,504"
+      },
+      "from": "rule:output_tokens",
+      "unit": "tokens",
+      "value": 5504
+    },
+    "perplexity-v1.clinc.precision": {
+      "display": {
+        "pct0": "99%",
+        "pct1": "98.8%",
+        "pct2": "98.80%"
+      },
+      "from": "rule:precision",
+      "unit": "ratio",
+      "value": {
+        "den": 750,
+        "num": 741
+      }
+    },
+    "perplexity-v1.clinc.recall": {
+      "display": {
+        "pct0": "74%",
+        "pct1": "74.1%",
+        "pct2": "74.10%"
+      },
+      "from": "rule:recall",
+      "unit": "ratio",
+      "value": {
+        "den": 1000,
+        "num": 741
+      }
+    },
+    "perplexity-v1.clinc.recovered": {
+      "display": {
+        "int": "1"
+      },
+      "from": "rule:recovered",
+      "unit": "count",
+      "value": 1
+    },
+    "perplexity-v1.clinc.retries": {
+      "display": {
+        "int": "23"
+      },
+      "from": "rule:retries",
+      "unit": "count",
+      "value": 23
+    },
+    "perplexity-v1.clinc.rows": {
+      "display": {
+        "int": "5,500"
+      },
+      "from": "rule:rows",
+      "unit": "count",
+      "value": 5500
+    },
+    "perplexity-v1.clinc.said_oos": {
+      "display": {
+        "int": "750"
+      },
+      "from": "rule:said_oos",
+      "unit": "count",
+      "value": 750
+    },
+    "perplexity-v1.clinc.status.200": {
+      "display": {
+        "int": "5,504"
+      },
+      "from": "rule:status.200",
+      "unit": "count",
+      "value": 5504
+    },
+    "perplexity-v1.clinc.status.429": {
+      "display": {
+        "int": "4"
+      },
+      "from": "rule:status.429",
+      "unit": "count",
+      "value": 4
+    },
+    "perplexity-v1.clinc.status.504": {
+      "display": {
+        "int": "2"
+      },
+      "from": "rule:status.504",
+      "unit": "count",
+      "value": 2
+    },
+    "perplexity-v1.clinc.t_first": {
+      "display": {
+        "date_dmy": "17 Oct 2026",
+        "utc_hm": "08:01 UTC"
+      },
+      "from": "rule:t_first",
+      "unit": "utc",
+      "value": "2026-10-17T08:01:47.932Z"
+    },
+    "perplexity-v1.clinc.t_last": {
+      "display": {
+        "date_dmy": "17 Oct 2026",
+        "utc_hm": "10:06 UTC"
+      },
+      "from": "rule:t_last",
+      "unit": "utc",
+      "value": "2026-10-17T10:06:59.652Z"
+    },
+    "perplexity-v1.clinc.vs_blog.accuracy": {
+      "display": {
+        "pp0": "+1 pp",
+        "pp1": "+1.0 pp"
+      },
+      "from": "rule:vs_blog.accuracy",
+      "unit": "pp",
+      "value": {
+        "den": 100,
+        "num": 1
+      }
+    },
+    "perplexity-v1.clinc.vs_blog.correct": {
+      "display": {
+        "signed": "+55"
+      },
+      "from": "rule:vs_blog.correct",
+      "unit": "delta",
+      "value": 55
+    },
+    "perplexity-v1.clinc.vs_blog.failed": {
+      "display": {
+        "signed": "0"
+      },
+      "from": "rule:vs_blog.failed",
+      "unit": "delta",
+      "value": 0
+    },
+    "perplexity-v1.clinc.vs_blog.precision": {
+      "display": {
+        "pp0": "+5 pp",
+        "pp1": "+5.3 pp"
+      },
+      "from": "rule:vs_blog.precision",
+      "unit": "pp",
+      "value": {
+        "den": 76750,
+        "num": 4079
+      }
+    },
+    "perplexity-v1.clinc.vs_blog.recall": {
+      "display": {
+        "pp0": "-12 pp",
+        "pp1": "-12.0 pp"
+      },
+      "from": "rule:vs_blog.recall",
+      "unit": "pp",
+      "value": {
+        "den": 25,
+        "num": -3
+      }
+    },
+    "perplexity-v1.clinc.wall_us": {
+      "display": {
+        "ms1": "7511720.0 ms",
+        "s0": "7,512 s"
+      },
+      "from": "rule:wall_us",
+      "unit": "us",
+      "value": 7511720000
+    },
+    "perplexity-v1.clinc.warmups": {
+      "display": {
+        "int": "4"
+      },
+      "from": "rule:warmups",
+      "unit": "count",
+      "value": 4
+    }
+  },
+  "inputs": {
+    "config": "de83cb0129625b06b934090656e63279d981f672d6fcc8cbf0498f8f60e9e4bf",
+    "replay/clef-flash.banking77": "ba474aecd5dd24c42a4ee22ef33070e463755c01da4cca46c30bf7216ce59ae8",
+    "replay/clef-flash.clinc": "366ee47b0b85d64b35e3c908e874faf9eee2e5299b49f25e1c4070970cb69a3e",
+    "replay/clef.banking77": "6497cc83fa342194c8e47baf32553d4160be01e2630e7d5ffc222698f28d3e61",
+    "replay/clef.clinc": "a37a4989ae58340f742a969ef74b0b7d94b3d27f588c443a2088aded7ae8edce",
+    "replay/jev.banking77": "c00f031a84aa014fb50b40a591a595ecd6f37f600f668d84528653ea4d192792",
+    "replay/jev.clinc": "1a0e9983cab678d752180494d976856f045f4272135ef022f426dae1a70827f8",
+    "replay/luna.banking77": "100874a39cdc8c68cec6003f7b6d6824b554d511016e9deb4ba47ad0cf855482",
+    "replay/luna.clinc": "ee2bb5b801c76c1afd51c2c51c7c83e65f8035157cc3e048011478cc1d8fa3d4",
+    "replay/perplexity-v1.banking77": "4d4c6cc17f00ba76774de38dd3d6bffc88f3abf9ab43bad2d431a7d412e655bf",
+    "replay/perplexity-v1.clinc": "ebdec4c0879650ddcf27f601940963b52cd5c73b5c4d5823d63b9a6646c22d50",
+    "replay/xor.banking77": "d885c0db2058e8f00446ba9f57426dd994a4fcff9841811e2e4edd81d6618347",
+    "replay/xor.clinc": "6aed51dacf89a6dfdb41d232a98b6347f9448bd3c2358136ad568e4b1edfc364",
+    "rows/banking77": "1629c6fbd0e2f60c9d5cfa1a67a9370af651b52e45b167ad15b08becba81782a",
+    "rows/clinc": "a0fbb6a532983860df2d782b54756d9294fe3267433401fb498b239173273435",
+    "runs/clef-flash/banking77/full/books.json": "7fa7718b14929b7bd7f10131545b3c4da04b2984fd1f48bb9a7fb2e08ba934fb",
+    "runs/clef-flash/banking77/full/decide.jsonl.gz": "c8d0cda2dbf5735676461009c23cae71882ce5bdbab93dd932b7ef85017150da",
+    "runs/clef-flash/banking77/full/kit/results.jsonl": "d307d0be1455db2756caf9ce8dbe32cfdf28b96060867bbb3ad622df1af36a11",
+    "runs/clef-flash/banking77/full/run.json": "f121098da1db28ba589c0fe0dc071c8b002fd0de89d914ba93646f816a9fb05b",
+    "runs/clef-flash/banking77/full/wire.jsonl.gz": "70bd0bf72acbb5a5d9baeabd13d9b9d07965a80b9eff0ee6aaa7afb886600fa7",
+    "runs/clef-flash/clinc/full/books.json": "f1adf606888fd5355385cafa3b1279f14195b52b12dda67ae06c032651879309",
+    "runs/clef-flash/clinc/full/decide.jsonl.gz": "071fb48b0e91283f54ee734761398df4124d356855337548c90868ee553bb076",
+    "runs/clef-flash/clinc/full/kit/results.jsonl": "bc7128a2c84c203831f460671fa80dcdc235b75e3db68782ae370942628179ac",
+    "runs/clef-flash/clinc/full/run.json": "94dc249b6dd6c4e50d1bb65df281ec3c0aaa2d3ec047ac86371c78e21fcb1c38",
+    "runs/clef-flash/clinc/full/wire.jsonl.gz": "2d129c1cc942987e53227694f1776f4835942f55e137250a848fadd02263e5d0",
+    "runs/clef/banking77/full/books.json": "0fa6ecaf9f522af6018d411a247dda55d52abb87b80d7ea6b58ce6727c3985bc",
+    "runs/clef/banking77/full/decide.jsonl.gz": "fbc04b16dc39e60aeee7f363ac2b35340fd93ecacba0815c61e3cf1a6684a1f1",
+    "runs/clef/banking77/full/kit/results.jsonl": "3d7a0a86cc09138eb298f9ab368a2e3f5492bca3557f545ed123b1a55645f64e",
+    "runs/clef/banking77/full/run.json": "f5fffeeadde5f872e7481d3c93c2414ec8b0fea529eac03978388d2ad55ae279",
+    "runs/clef/banking77/full/wire.jsonl.gz": "96fe770927afb087f60e58017d566c6d1b87247b9f16a276cabdbe169cccb63e",
+    "runs/clef/clinc/full/books.json": "c1ae6196499b1a7372ce0c5fa545c90616bfb1077426f6e1997effdcca0ae907",
+    "runs/clef/clinc/full/decide.jsonl.gz": "86e4ab0e931f0c50eca1c42d86257e4e3c0f677fb0f344f500e782417cf7a93d",
+    "runs/clef/clinc/full/kit/results.jsonl": "484fc619e896c27cdc834db6a735035cbcea139f2d53290637848ea62cdbc00e",
+    "runs/clef/clinc/full/run.json": "c02c27f98a215c0dd750d11f1315f3dc7da2a81672f2f2feb5f6cb7d1900616e",
+    "runs/clef/clinc/full/wire.jsonl.gz": "423a8f1dd9a31980bbd604fdf31b02dc4d7c1ae88baa0771ba6656b7fccc864b",
+    "runs/jev/banking77/full/books.json": "ca722569af1bd7c1864b90afd3114b082363f1714dd8230ccb3c330542904c42",
+    "runs/jev/banking77/full/decide.jsonl.gz": "5278f1c22fdd91302ac5844ef30444a751c8dbcd627aa5563d4db8f72e68de0e",
+    "runs/jev/banking77/full/kit/results.jsonl": "91418a53b4a1f14a11a24dea4d6c4b3e3e8142970d65279713804edc86bcf340",
+    "runs/jev/banking77/full/run.json": "887c59ec75843501ffa28d75660812f430b8e5b64c1320557ef9d53ec0245d6e",
+    "runs/jev/banking77/full/wire.jsonl.gz": "419777ca6bcd30dce2a41f383dcc81ff6a3ed6711f4d9bf28c0167ee5fc64826",
+    "runs/jev/clinc/full/books.json": "1c8d515f360b30547ef0cb81fa63223d39cc403690ba0e6bf64e91cf09ae6fdd",
+    "runs/jev/clinc/full/decide.jsonl.gz": "10010035d3a28cb7c73d11929f3ac3fef35b4a250df0ac888b482c9fbd12b776",
+    "runs/jev/clinc/full/kit/results.jsonl": "c5f4d0348f031a02e9cff867680738c1640f70e74e6ad4a496aac092bfdd194d",
+    "runs/jev/clinc/full/run.json": "9e05462b466ca17bd046b91d52ccfda2b9a6ab73f40a0cb36eedddfc7331bf59",
+    "runs/jev/clinc/full/wire.jsonl.gz": "74e64e2c9f0c55bb3f0f8f39824c140015bcce0f4282263d71a01a5a4430b6d0",
+    "runs/luna/banking77/full/books.json": "8f370bd99193c506bfe61c3bec82eb975cabcb31c7416319a36ccf613854f13c",
+    "runs/luna/banking77/full/decide.jsonl.gz": "a67461600f69be535873d84caa3bb4e3c06c6f7600aa165f726c2ea069b782ce",
+    "runs/luna/banking77/full/kit/results.jsonl": "9895d3ab4c9df7d99b7b958857bca3327ead07e987f3d86c1fb0cf0bb4e18976",
+    "runs/luna/banking77/full/run.json": "0d7f01266a247e99d9c9c93aefb21c0579c11ac3d15048c539fa0fd0a4b93248",
+    "runs/luna/banking77/full/wire.jsonl.gz": "e5a7d41d1281567ea9549c30b50ca51f08f350ae695fe325985b3102814588cd",
+    "runs/luna/clinc/full/books.json": "922fc1d4f0e66c4485bbd879c04a6820ca41c8a5424756dda2f63f48703c85f8",
+    "runs/luna/clinc/full/decide.jsonl.gz": "b7ca496db339734b75f63c5f70e8f165624c57e66b035122c89dd50be273940e",
+    "runs/luna/clinc/full/kit/results.jsonl": "db2af1813766b1368c1cc527a360126ca9256dced5f6d05335bc6f2d5b05997e",
+    "runs/luna/clinc/full/run.json": "9d8f6cd65da051879912bb7454b44e6cfe70917b5c193f8d4b51be690b46c816",
+    "runs/luna/clinc/full/wire.jsonl.gz": "76610bcf5ee30dc2e8afa3a9ca282296c388b94d0e7d88b2db7098bdbb7d3b7f",
+    "runs/perplexity-v1/banking77/full/books.json": "66ec08aa756e613d1024a0c984634610cb9a707c69d69b2e5383d3723424a3f3",
+    "runs/perplexity-v1/banking77/full/decide.jsonl.gz": "cf1df2239bcb04765b237c2ca1d9568a57ad6e7df5e247f6b597557acb091601",
+    "runs/perplexity-v1/banking77/full/kit/results.jsonl": "de79e528566df37cb4d99ffe911eeac1141d6cdcf4fe704bb09dc8c5949417cd",
+    "runs/perplexity-v1/banking77/full/run.json": "ab7a695c1706098e620beed1b0a8841ce9fccec24d86e972c14dab9cb18f3dc9",
+    "runs/perplexity-v1/banking77/full/wire.jsonl.gz": "29408879b02779cb76170b3bedb8c7ffdab003fedb3d61354b160f72f3320955",
+    "runs/perplexity-v1/clinc/full-r2/books.json": "a6761f8a15fa4cf29f804508ca85bdcaa7bccfd588287e791edd0f355aeadf3a",
+    "runs/perplexity-v1/clinc/full-r2/decide.jsonl.gz": "296f0ca03eb602c499beef37f54613366f219f3625c5eb6f363791645f622f25",
+    "runs/perplexity-v1/clinc/full-r2/kit/results.jsonl": "c628be2a7cab1baea853760dbdc9679640e6a5b29369a9d8b2aff27b24111ef5",
+    "runs/perplexity-v1/clinc/full-r2/run.json": "a71e6262763fb0c84f0e595ac2355f0ad8b729adbb9256a7fe4fb959b27f0827",
+    "runs/perplexity-v1/clinc/full-r2/wire.jsonl.gz": "b0be1362cb2c33e1eb33bfd57e90b62c77e06836e392ed417a554b16350d8811",
+    "scan/scan-result.json": "6ff95e5cca1b1a340f58bcda62a58d5a3e49635cdf027e75b8a6ed9c471eba3a"
+  },
+  "schema": 1
+}

@@ -83,6 +83,7 @@ html, body { margin: 0; padding: 0; width: 1920px; height: 1080px; overflow: hid
 .tile .sub .fig, .tile .sub [data-series] { color: var(--on-panel); font-weight: 600; }
 .lane .colh2 { position: relative; height: 46px; border-bottom: 2px solid var(--rule-panel); }
 .lane .colh2 span { position: absolute; bottom: 3px; font-family: var(--display); font-weight: 600; font-size: 24px; line-height: 22px; letter-spacing: .05em; text-transform: uppercase; color: var(--dim-panel); white-space: nowrap; }
+.lane .colh2 span .dv { position: static; }
 .pen { background: var(--panel); }
 
 /* opening exchange */

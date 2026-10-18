@@ -1,0 +1,2 @@
+{"event":"listening","host":"127.0.0.1","port":58653,"provider":"typesafe","recorder":true}
+{"event":"stopped","counts":{"provider":"typesafe","model":"jev-1.13.0","requests":3111,"warmups":4,"ok":3111,"bad_requests":0,"refused":{},"upstream_rate_limited":0,"max_in_flight":1}}

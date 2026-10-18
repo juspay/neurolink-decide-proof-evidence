@@ -1,0 +1,72 @@
+{
+  "audit_id": "blog-redo-2026-10-17",
+  "route": "xor",
+  "bench": "clinc",
+  "stage": "probe",
+  "suffix": null,
+  "started_utc": "2026-10-17T16:36:44.555Z",
+  "finished_utc": "2026-10-17T16:36:46.514Z",
+  "exit": 0,
+  "stop_reason": null,
+  "provider": "xor",
+  "model": "jev-latest",
+  "hosts": [
+    {
+      "from_env": "XOR_BASE_URL"
+    }
+  ],
+  "cap_usd": "0.05",
+  "rows_file_sha256": "a0fbb6a532983860df2d782b54756d9294fe3267433401fb498b239173273435",
+  "rows_sent": 3,
+  "config_sha256": "c7724b2ef217c3e6e6c90b937688d4d39229df5014bbbf38c2e442f52f20f449",
+  "versions": {
+    "node": "v24.14.1",
+    "neurolink": "12.47.0",
+    "kit_commit": "87d4650b42b377c0291a89c1f1a879f9b31082bf",
+    "kit_runner_sha256": "f4c9f36c4c557f537f1d8184db7bf00c5a84d9f4f0aa67f8c06198cead25818d",
+    "python": "Python 3.12.2"
+  },
+  "passes": [
+    {
+      "pass": 1,
+      "exit": 0,
+      "signal": null
+    }
+  ],
+  "recordings_finalized": true,
+  "join": {
+    "ok": true,
+    "method": "payload_sha256 + order",
+    "decide_requests": 3,
+    "warmups": 2,
+    "results_lines": 3,
+    "matched": 3,
+    "hash_mismatches": 0,
+    "response_mismatches": 0,
+    "responses_checked": 0,
+    "count_mismatch": false,
+    "order_only": false,
+    "partial": false,
+    "problems": []
+  },
+  "leak_scan": {
+    "exit": 0,
+    "targets": 143,
+    "files_scanned": 10,
+    "secret_hits": 0
+  },
+  "toolkit_files": {
+    "bin/proof.mjs": "4f6e6db4644e454c2c644543cf2b4bdc9e3d437b380e5541c94586cf9a23a0f3",
+    "runner/run.mjs": "e1061e1ddc9f0b0efcc9682190be774047e8226d12ee766e67341fba74a0148d",
+    "runner/shim.mjs": "9896b9dd5ff3a35c26c57b2ddf07a23fb9d2d50a77a0292511577cfa1ce82b16",
+    "runner/join.mjs": "0ba1fc672d4b8d036c1a0a8cda3b4ed9018c419643dd109f251412dbd0f19b65",
+    "runner/paths.mjs": "290b837a9fd15dc5b53384ff4c02a334b1554b9688292fe16565b1389a86ba55",
+    "lib/recorder.mjs": "75b885883ed8c058059827a49e3a08bf204d5bee7f8f6876cc41cb06a76ae34c",
+    "lib/recorder-config.mjs": "30b6c5ab190d26eb16bf9c94c8b0dfcd135bc3536096ad63c00199cc73c92de9",
+    "lib/mask.mjs": "29fbcd730338ed77a724638d53f54f45ed631cfddb17493ebae38e1a537619b3",
+    "lib/env.mjs": "e062e3149770be9ea531ff45c9a3c3c5824455dd6babdd0de0fc58e2066c42c2",
+    "lib/money.mjs": "5c9081a1e614187304d72b69ba91a8e79c121aea6e01adc992cfbb36dca68ae2",
+    "lib/gz.mjs": "63aa4b7f9dcc277224a9d81ef1e23fa3e365a9b3956885e8c32fefe86390840d",
+    "lib/scan.mjs": "cabff1c44e50745f084954395d9a99a25d296169494ca2cece7a70cf81ff48b2"
+  }
+}

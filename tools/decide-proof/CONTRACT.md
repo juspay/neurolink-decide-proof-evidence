@@ -139,19 +139,19 @@ audit's `publish` list (`[{route, bench, stage}]`; default every `full` stage pr
 Shape:
 ```json
 {"schema":1,"audit_id":"...","inputs":{"<path relative to AD>":"<sha256>", "...":"..."},
- "facts":{"<fact id>":{"value":<int|string|{num,den}>,"unit":"count|ratio|usd|tokens|us|utc|text","display":{"<fmt>":"<text>"},"from":"<one line: files and rule>"}}}
+ "facts":{"<fact id>":{"value":<int|string|{num,den}>,"unit":"count|ratio|usd|neurons|tokens|us|utc|text","display":{"<fmt>":"<text>"},"from":"<one line: files and rule>"}}}
 ```
 Fact ids (`<r>` route, `<b>` bench; every one present for every published stage):
 - `<r>.<b>.rows`, `.answered`, `.failed`, `.failed.<error_group>`, `.first_pass_failed`, `.recovered`, `.correct`, `.accuracy` (ratio correct/rows)
 - CLINC only: `.oos_rows`, `.oos_caught`, `.said_oos`, `.false_alarms`, `.recall` (oos_caught/oos_rows), `.precision` (oos_caught/said_oos), `.in_scope_correct`, `.in_scope_accuracy`
-- wire: `.attempts`, `.retries` (attempts - decide calls), `.status.<code>`, `.network_errors`, `.blocked`, `.input_tokens`, `.output_tokens`, `.cost_usd` (tokens x config price), `.cost_reported_usd` (sum of usage.cost when the provider reports it, else absent), `.latency_us.p50|p90|p99|max` (nearest rank over successful attempts), `.t_first`, `.t_last`, `.wall_us`, `.model_echo` (distinct model ids named in response bodies, joined by ", "), `.masked.<VAR>` (records that masked it)
+- wire: `.attempts`, `.retries` (attempts - decide calls), `.status.<code>`, `.network_errors`, `.blocked`, `.input_tokens`, `.output_tokens`, `.cost_usd` (tokens x config price), `.cost_reported_usd` (sum of usage.cost when the provider reports it, else absent), `.neurons_reported` (sum of the `cf-ai-neurons` response header over 2xx records, Cloudflare's own meter; absent when no record has it), `.latency_us.p50|p90|p99|max` (nearest rank over successful attempts), `.t_first`, `.t_last`, `.wall_us`, `.model_echo` (distinct model ids named in response bodies, joined by ", "), `.masked.<VAR>` (records that masked it)
 - decide: `.decide_calls`, `.warmups`
 - audit totals: `all.attempts`, `all.input_tokens`, `all.cost_usd`, `all.requests_recorded`, `all.files_scanned`, `all.secret_hits` (from the scan)
 Rules (identical to the blog's, from `article-2026-10-12/compute_oos.py`): correct = status ok and pred == gold (option ids);
 failed = status != ok, counted wrong, kept in the denominator; first-pass failure = errored_in_first_pass; out-of-scope request = gold == oos_option;
 out-of-scope answer = status ok and pred == oos_option. Usage extraction from a response body: `u = body.usage ?? body.result?.usage`;
 input = `u.input_tokens ?? u.prompt_tokens`; output = `u.output_tokens ?? u.completion_tokens`; cost = `u.cost`.
-Display formats: `int` (1,234), `pct0`, `pct1`, `pct2` (half-up, "%" appended), `usd2`, `usd4`, `usd6`, `ms1` (from us), `s0`, `utc_hm` ("10:02 UTC"), `date_dmy` ("17 Oct 2026").
+Display formats: `int` (1,234), `pct0`, `pct1`, `pct2` (half-up, "%" appended), `usd2`, `usd4`, `usd6`, `neurons0`, `neurons2` (1,234 and 1,234.57), `ms1` (from us), `s0`, `utc_hm` ("10:02 UTC"), `date_dmy` ("17 Oct 2026").
 
 ### 4a. Pinned choices (added after the first build, so the two engines can be byte-identical)
 
@@ -166,12 +166,12 @@ Where this list and anything above disagree, this list wins. Each engine must fo
    the twelve files. Nothing else.
 3. `from` = `"rule:" + <fact id with the leading "<r>.<b>." removed>` (for example `rule:correct`, `rule:latency_us.p50`,
    `rule:failed.http_5xx`, `rule:all.cost_usd`). The rules are written once, in `TK/facts/RULES.md`.
-4. Values: count, tokens and us are JSON integers; ratio is `{"den": int, "num": int}`; usd is a decimal string in plain
+4. Values: count, tokens and us are JSON integers; ratio is `{"den": int, "num": int}`; usd and neurons are a decimal string in plain
    notation with trailing zeros trimmed (`"0"` for zero, `"1.1176018"`); utc is the ISO string exactly as recorded; text is a string.
 5. `display` holds every format of the fact's unit and nothing else: count and tokens `int`; ratio `pct0`, `pct1`, `pct2`
-   (all `"n/a"` when den is 0); usd `usd2`, `usd4`, `usd6`; us `ms1`, `s0`; utc `utc_hm`, `date_dmy`; text `text`.
+   (all `"n/a"` when den is 0); usd `usd2`, `usd4`, `usd6`; neurons `neurons0`, `neurons2`; us `ms1`, `s0`; utc `utc_hm`, `date_dmy`; text `text`.
    Formats: `int` "1,234"; `pctN` half-up to N decimals then "%" ("35.6%", "92%"); `usdN` "$" + half-up to N decimals with
-   comma grouping ("$1,234.56", "$0.0012"); `ms1` us/1000 half-up to one decimal + " ms" ("388.0 ms"); `s0` us/1,000,000 half-up,
+   comma grouping ("$1,234.56", "$0.0012"); `neuronsN` the same without the "$" ("1,234", "1,234.57"); `ms1` us/1000 half-up to one decimal + " ms" ("388.0 ms"); `s0` us/1,000,000 half-up,
    comma grouping, + " s"; `utc_hm` "HH:MM UTC" taken from the ISO string (no rounding); `date_dmy` "5 Oct 2026" (day without
    leading zero, English three-letter month); `text` the value itself.
 6. Rows: `rows` = distinct kit `run_id`s in `kit/results.jsonl` that are not warm-ups; it must equal `run.json` `rows_sent` or the
@@ -192,7 +192,10 @@ Where this list and anything above disagree, this list wins. Each engine must fo
    `decide_seq` is null. Tokens: over not-blocked records with a response body that yields a usage object (section 4 rule, any
    status); a present non-integer value stops the build. `cost_usd` = input_tokens x input price + output_tokens x output price
    (usage-reported tokens only, no estimates). `cost_reported_usd` = sum of numeric `u.cost` as an exact decimal of the number's
-   shortest round-trip text (absent when no record has one). `latency_us.p50|p90|p99` = nearest rank over `us` of not-blocked
+   shortest round-trip text (absent when no record has one). `neurons_reported` = sum, as an exact decimal, of the response header
+   `cf-ai-neurons` (name compared in lower case) over not-blocked records with a 2xx status that carry it; the value must be one plain
+   decimal (ASCII digits, optionally a point and digits), else a list, a duplicate name or any other text stops the build; absent when
+   no record has the header. `latency_us.p50|p90|p99` = nearest rank over `us` of not-blocked
    records with a 2xx status: sort ascending, take index `ceil(q*n) - 1`; `.max` the largest; all absent when n is 0.
    `t_first` = smallest `t_start` and `t_last` = largest `t_end` over not-blocked records (string compare of the ISO text);
    `wall_us` = (t_last - t_first) in microseconds from the ISO millisecond values. `model_echo` = distinct strings from response
@@ -251,11 +254,11 @@ and on the masked recordings it draws from); film length, fps, codec; render twi
 negative controls (a changed fact, a changed recorded line, a planted secret in a recording) must each fail the check.
 Words on screen that the checker reads back are `scene.phrases` (`{id, role, parts, text, t0, t1}`, parts being plain text, a name, an
 identifier, a derived value or a figure); the film must carry the product line (`through decide() in NeuroLink, Juspay's AI harness`) on the
-opening and the end card, the limits line (`One run per model and benchmark · one machine · <n> day(s) · not a ranking`, with <n> in words,
+opening and the end card, the limits line (`One run per model and benchmark · <n> day(s) · not a ranking`, with <n> in words,
 one to seven: the number of distinct UTC dates (`date_dmy`) of the published stages' `t_first` and `t_last` facts; the end card dates each of
 those days, oldest first, as figures `end.date`, `end.date2`, ...) on the end card, the
 audit's own notes from the sidecar `TK/audits/<audit-id>/film.json` (`{"notes": [...]}`, kept out of the audit config because the config is
-hashed into every run.json and the manifest), and a re-mask line when a `REMASK.json` exists under `AD/runs`. Routes appear in alphabetical
+hashed into every run.json and the manifest), and a re-mask line when a `REMASK.json` exists under `AD/runs`. Each playback lane's time column names the UTC day of the lane's recording (derived value `ff.date.<route>`: the day and month in capitals of `t_start` of the first and of the last wire record of the lane, one day when they agree, else a range), and the replay note says the lanes are aligned by call number, not by clock; check_film.py recomputes it from the recordings. The rows of the cost table share one label format (route name, then the benchmark under it) whenever any row needs two lines. Routes appear in alphabetical
 order of their labels on every panel (config order is not a ranking); the opening exchange is the first benchmark question of the first
 route's first recording, shown with its gold option (from the rows file) and a HIT or MISS tag. Up to five routes are laid out: one or two
 lanes side by side, three or four in two rows, five in three rows of two with the counters in the sixth place (a lane then shows two lines);
