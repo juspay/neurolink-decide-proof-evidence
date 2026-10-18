@@ -298,6 +298,21 @@ function costOf(x, where) {
   return decimalFromNumber(x);
 }
 
+// Contract 4a item 8 (neurons_reported): Cloudflare's own meter, the response header cf-ai-neurons, as an exact decimal. The name is compared in
+// lower case. Its value must be one plain decimal (ASCII digits, optionally a point and digits); a list, a duplicate (two keys that differ only
+// in case) or any other text stops the build rather than being skipped or guessed at. null when the response has no such header.
+const NEURONS_HEADER = "cf-ai-neurons";
+const PLAIN_DECIMAL = /^[0-9]+(?:\.[0-9]+)?$/;
+function neuronsOf(res, where) {
+  const headers = res.headers;
+  if (!headers || typeof headers !== "object" || Array.isArray(headers)) return null;
+  const keys = Object.keys(headers).filter((k) => k.toLowerCase() === NEURONS_HEADER);
+  if (keys.length === 0) return null;
+  const value = headers[keys[0]];
+  if (keys.length > 1 || typeof value !== "string" || !PLAIN_DECIMAL.test(value)) throw new FactsError(`${where}: response header ${NEURONS_HEADER} is not one plain decimal`);
+  return parseDecimal(value);
+}
+
 // rank = ceil(n * pct / 100) in integer arithmetic, 1-based
 export const nearestRank = (sorted, pct) => sorted[Math.max(0, Math.trunc((sorted.length * pct + 99) / 100) - 1)];
 
@@ -309,7 +324,7 @@ const timeOf = (rec, field, where) => {
 // Contract 4a item 8. Blocked records count only as `blocked` and in `masked.<VAR>`; every other number is over the not-blocked records.
 async function readWire(path, label) {
   const a = {
-    attempts: 0, blocked: 0, networkErrors: 0, status: new Map(), inputTokens: 0n, outputTokens: 0n, reportedCost: null,
+    attempts: 0, blocked: 0, networkErrors: 0, status: new Map(), inputTokens: 0n, outputTokens: 0n, reportedCost: null, neurons: null,
     latencies: [], first: null, last: null, models: new Set(), masked: new Map(), seqs: new Set(), unattributed: 0,
   };
   for await (const { n, value: rec } of readJsonl(path, label)) {
@@ -348,6 +363,8 @@ async function readWire(path, label) {
     if (res.status >= 200 && res.status < 300) {
       if (!Number.isSafeInteger(rec.us) || rec.us < 0) throw new FactsError(`${where}: us is not a non-negative integer`);
       a.latencies.push(rec.us);
+      const neurons = neuronsOf(res, where);
+      if (neurons) a.neurons = a.neurons ? addDecimal(a.neurons, neurons) : neurons;
       const named = typeof body?.model === "string" ? body.model : body?.result?.model;
       if (typeof named === "string" && named !== "") a.models.add(named);
     }
@@ -458,6 +475,7 @@ async function stageFacts({ ctx, stage, put }) {
   const cost = costDecimal(wire.inputTokens, wire.outputTokens, parseDecimal(priceIn), parseDecimal(priceOut));
   put(prefix, "cost_usd", decimalString(cost), "usd");
   if (wire.reportedCost) put(prefix, "cost_reported_usd", decimalString(wire.reportedCost), "usd");
+  if (wire.neurons) put(prefix, "neurons_reported", decimalString(wire.neurons), "neurons");
   if (wire.latencies.length > 0) {
     const sorted = [...wire.latencies].sort((x, y) => x - y);
     for (const [name, pct] of [["p50", 50], ["p90", 90], ["p99", 99]]) put(prefix, `latency_us.${name}`, BigInt(nearestRank(sorted, pct)), "us");

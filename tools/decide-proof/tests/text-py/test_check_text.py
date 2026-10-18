@@ -261,6 +261,9 @@ class FactsGate(Case):
             ("usd", "0.0012", {"usd2": "$0.00", "usd4": "$0.0012", "usd6": "$0.001200"}),
             ("usd", "0", {"usd2": "$0.00", "usd4": "$0.0000", "usd6": "$0.000000"}),
             ("usd", "1.1176018", {"usd2": "$1.12", "usd4": "$1.1176", "usd6": "$1.117602"}),
+            ("neurons", "125379.06", {"neurons0": "125,379", "neurons2": "125,379.06"}),
+            ("neurons", "0.005", {"neurons0": "0", "neurons2": "0.01"}), ("neurons", "0", {"neurons0": "0", "neurons2": "0.00"}),
+            ("neurons", "1234567.5", {"neurons0": "1,234,568", "neurons2": "1,234,567.50"}),
             ("us", 388_000, {"ms1": "388.0 ms", "s0": "0 s"}), ("us", 388_050, {"ms1": "388.1 ms", "s0": "0 s"}),
             ("us", 13_200_000, {"ms1": "13200.0 ms", "s0": "13 s"}), ("us", 1_500_000, {"ms1": "1500.0 ms", "s0": "2 s"}),
             ("us", 12_345_678_000, {"ms1": "12345678.0 ms", "s0": "12,346 s"}),
@@ -279,6 +282,7 @@ class FactsGate(Case):
     def test_control_a_display_that_does_not_follow_from_its_value_is_unusable_input(self):
         cases = {
             "int not grouped": fx(lambda d: d["facts"]["r.b.rows"].update(display={"int": "3080"})),
+            "neurons not grouped": fx(lambda d: d["facts"].update({"r.b.neurons_reported": {"value": "125379.06", "unit": "neurons", "from": "rule:neurons_reported", "display": {"neurons0": "125379", "neurons2": "125,379.06"}}})),
             "pct0 rounded down": fx(lambda d: d["facts"]["r.b.accuracy"]["display"].update(pct0="93%")),
             "pct1 grouped": fx(lambda d: d["facts"]["r.b.accuracy"].update(value={"num": 24, "den": 2}, display={"pct0": "1200%", "pct1": "1,200.0%", "pct2": "1200.00%"})),
             "date with a leading zero": fx(lambda d: d["facts"]["r.b.t_first"]["display"].update(date_dmy="07 Oct 2026")),

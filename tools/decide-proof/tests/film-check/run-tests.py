@@ -222,7 +222,7 @@ def t_phrases_unit():
     must(cf.expected_route_order(cfg, ["luna", "jev", "perplexity-v1"]) == ["jev", "luna", "perplexity-v1"], "alphabetical order of the redo labels")
     must(cf.expected_route_order(cfg, ["d1-ultra", "d1"]) == ["d1", "d1-ultra"], "a space sorts before a hyphen: d1 before d1-ultra")
     must(cf.remask_count(AUDIT) == 1 and cf.remask_files(AUDIT) == ["runs/clef/banking77/full/REMASK.json"], f"fixture re-mask: {cf.remask_files(AUDIT)}")
-    must(cf.LIMITS_LINE.count("\u00b7") == 3 and cf.PRODUCT_LINE == "through decide() in NeuroLink, Juspay's AI harness", "constants")
+    must(cf.LIMITS_LINE.count("\u00b7") == 2 and cf.PRODUCT_LINE == "through decide() in NeuroLink, Juspay's AI harness", "constants")
     return "phrase text is rebuilt from its parts; routes sort by label (d1 before d1-ultra); the fixture's one REMASK.json is counted"
 
 
@@ -230,8 +230,8 @@ check("7b phrases: text from parts, alphabetical order, re-mask count", t_phrase
 
 
 def t_limits_days():
-    must(cf.limits_line(1) == cf.LIMITS_LINE == "One run per model and benchmark \u00b7 one machine \u00b7 one day \u00b7 not a ranking", "one day")
-    must(cf.limits_line(2) == "One run per model and benchmark \u00b7 one machine \u00b7 two days \u00b7 not a ranking", "two days: " + cf.limits_line(2))
+    must(cf.limits_line(1) == cf.LIMITS_LINE == "One run per model and benchmark \u00b7 one day \u00b7 not a ranking", "one day")
+    must(cf.limits_line(2) == "One run per model and benchmark \u00b7 two days \u00b7 not a ranking", "two days: " + cf.limits_line(2))
     must("seven days" in cf.limits_line(7), "seven days")
     for bad in (0, 8):
         try:
@@ -408,6 +408,28 @@ def t_rounding_edge():
     must('recomputed "2.00"' in msg and "proof.real" in msg, "failure text: " + msg[:300])
     return 'the checker recomputes proof.real as "2.00" for 1996 ms and refuses the builder\'s "1.100"'
 
+
+def t_lane_date():
+    must(cf.lane_date_text("2026-10-17T06:35:42.000Z", "2026-10-17T07:37:21.000Z") == "17 OCT", "one day")
+    must(cf.lane_date_text("2026-10-17T23:50:00.000Z", "2026-10-18T00:20:00.000Z") == "17\u201318 OCT", "same month")
+    must(cf.lane_date_text("2026-10-31T23:50:00.000Z", "2026-11-01T00:20:00.000Z") == "31 OCT\u20131 NOV", "two months")
+    must(cf.lane_date_text("2026-01-05T00:00:00.000Z", "2026-01-05T00:00:01.000Z") == "5 JAN", "no leading zero")
+    d = clone("lanedate")
+    p = d / "film/scene.json"
+    j = json.loads(p.read_text(encoding="utf-8"))
+    ids = sorted(k for k in j["derived"] if k.startswith("ff.date."))
+    must(len(ids) == len(j["ff"]["lanes"]) and ids, f"one lane date per lane: {ids}")
+    j["derived"][ids[0]]["text"] = "3 JUN"
+    p.write_text(json.dumps(j, separators=(",", ":"), ensure_ascii=False) + "\n", encoding="utf-8")
+    code, out, err = checker(["--only", "derived_values"], audit=d, result=WORK / "r-lanedate.json")
+    doc = json.loads((WORK / "r-lanedate.json").read_text(encoding="utf-8"))
+    shutil.rmtree(d, ignore_errors=True)
+    must(code == 1 and "derived_values" in doc["failed_checks"], f"exit {code}")
+    must(ids[0] in " ".join(doc["checks"][0]["failures"]), "failure names the lane date: " + " ".join(doc["checks"][0]["failures"])[:300])
+    return "the day of each lane is recomputed from the first and last wire record of the lane; a changed date fails derived_values"
+
+
+check("18b lane date: day and range text, and a changed lane date fails derived_values", t_lane_date)
 
 check("18 builder rounding edge: a run time of 1996 ms (builder text 1.100) fails derived_values", t_rounding_edge)
 

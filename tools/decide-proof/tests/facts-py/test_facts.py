@@ -1418,6 +1418,59 @@ class Pin8Wire(Pin):
         f = self.baseline()["facts"]
         self.assertNotIn("r2.clinclike.cost_reported_usd", f)
 
+    def _ok_records(self, recs):
+        return [r for r in recs if not r["blocked"] and r["response"] and 200 <= r["response"]["status"] < 300]
+
+    def test_neurons_reported_is_the_exact_sum_of_the_cf_ai_neurons_header_over_2xx_records(self):
+        self.baseline()
+
+        def edit(recs):
+            ok = self._ok_records(recs)
+            ok[0]["response"]["headers"]["cf-ai-neurons"] = "40.58"
+            ok[1]["response"]["headers"]["CF-AI-Neurons"] = "2.84"
+            ok[2]["response"]["headers"]["cf-ai-neurons"] = "0.1"
+            ok[3]["response"]["headers"]["cf-ai-neurons"] = "0"
+            bad = next(r for r in recs if not r["blocked"] and r["response"] and r["response"]["status"] >= 300)
+            bad["response"]["headers"]["cf-ai-neurons"] = "not a number"  # not 2xx: not counted, not even read
+        self.damage("r1.bench1", edit)
+        f = self.run_ok()
+        self.assertEqual(f["r1.bench1.neurons_reported"], {"display": {"neurons0": "44", "neurons2": "43.52"}, "from": "rule:neurons_reported",
+                                                           "unit": "neurons", "value": "43.52"})
+        self.assertNotIn("r2.clinclike.neurons_reported", f)  # a stage whose records carry no header has no such fact
+
+    def test_neurons_reported_is_absent_without_the_header_and_zero_with_only_a_zero(self):
+        f = self.baseline()["facts"]
+        self.assertFalse([k for k in f if k.endswith(".neurons_reported")])
+        self.damage("r2.clinclike", lambda recs: self._ok_records(recs)[0]["response"]["headers"].update({"cf-ai-neurons": "0"}))
+        got = self.run_ok()["r2.clinclike.neurons_reported"]
+        self.assertEqual((got["value"], got["display"]), ("0", {"neurons0": "0", "neurons2": "0.00"}))
+
+    def test_neurons_reported_is_a_decimal_sum_not_a_float_sum(self):
+        self.baseline()
+
+        def edit(recs):
+            ok = self._ok_records(recs)
+            for r, v in zip(ok, ("0.1", "0.1", "0.1", "0.2")):
+                r["response"]["headers"]["cf-ai-neurons"] = v
+        self.damage("r1.bench1", edit)
+        self.assertEqual(self.run_ok()["r1.bench1.neurons_reported"]["value"], "0.5")  # 0.1 + 0.1 + 0.1 + 0.2 in floats is 0.5000000000000001
+
+    def test_control_a_neurons_header_that_is_not_one_plain_decimal_stops_the_build(self):
+        for bad in ("1e3", "-1", " 5", "5 ", "+5", "1.", ".5", "0x10", "abc", "", "1,5", "\uff15", ["1"], 5, None, {"a": 1}):
+            self.baseline()
+            self.damage("r2.clinclike", lambda recs, bad=bad: self._ok_records(recs)[0]["response"]["headers"].update({"cf-ai-neurons": bad}))
+            code, _, err, _ = self.run_facts()
+            self.assertEqual(code, 2, repr(bad))
+            self.assertIn("cf-ai-neurons", err, repr(bad))
+        self.baseline()
+        self.damage("r2.clinclike", lambda recs: self._ok_records(recs)[0]["response"]["headers"].update({"cf-ai-neurons": "1", "CF-AI-NEURONS": "2"}))
+        self.assertEqual(self.run_facts()[0], 2)
+
+    def test_neurons_display_is_half_up_with_comma_grouping_and_no_unit_sign(self):
+        for value, n0, n2 in (("125379.06", "125,379", "125,379.06"), ("0.5", "1", "0.50"), ("0.49", "0", "0.49"), ("0.005", "0", "0.01"),
+                              ("0.004", "0", "0.00"), ("1234567.895", "1,234,568", "1,234,567.90"), ("0", "0", "0.00"), ("999.999", "1,000", "1,000.00")):
+            self.assertEqual((N.fmt_neurons(Decimal(value), 0), N.fmt_neurons(Decimal(value), 2)), (n0, n2), value)
+
     def test_latency_is_nearest_rank_over_2xx_attempts_only(self):
         base = self.baseline()["facts"]
 

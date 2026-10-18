@@ -1,0 +1,179 @@
+---
+literals:
+  - HTTP 503
+  - the 0.01 limit
+  - 8 characters or longer
+  - 0.1 off the table
+  - BANKING77
+  - CLINC150+OOS
+  - CLINC150
+  - decide()
+  - "@juspay/neurolink@12.47.0"
+  - Decider v1
+  - CC BY 4.0
+  - CC BY 3.0
+  - "\"q1: 2..64 options, got 77\""
+  - "\"q1: 2..64 options, got 151\""
+  - HTTP 422
+  - HTTP 401
+  - HTTP 400
+  - HTTP 502
+  - HTTP 429
+  - HTTP 504
+  - HTTP 200
+  - IPV4_ADDRESS
+  - 0.24 USD per million input tokens
+  - 0.09 USD
+  - between 5 and 9 Oct
+  - on 18 Oct
+  - Node 26.11.1
+  - Node 24.14.1
+  - notes/cloudflare-token-check-2.json
+  - 21,818 neurons per million input tokens
+  - 8,182 neurons per million input tokens
+  - on 3 Oct
+  - xor-text-1
+  - 14 Oct
+  - summed to 0.99
+  - 0.01 away from one
+  - 77 options
+  - 151 options
+  - commit 87d4650b
+  - openai/gpt-6-luna-decisions
+  - pplx-decider-v1-27b
+  - 80,000 tokens a minute
+  - 150 intents
+  - our 3 Oct XOR demo
+  - on 20 Sep and 2 Oct
+  - "OpenAI refused to answer question \"q1\""
+---
+---
+layout: post
+title: 'We ran our decision-model audit again, and recorded every request'
+categories:
+  - Deep Dive
+  - Engineering
+tags:
+  - neurolink
+  - decision-models
+  - evaluation
+author: neurolink
+description: >-
+  Five decision models, two public benchmarks, two days, every request and response recorded with the keys masked, and every figure in the tables counted by two separate programs that must agree byte for byte.
+toc: true
+pin: false
+---
+Our first pass at this article had a problem we could not argue our way out of: the models had been run on different days, between 5 and 9 Oct, and the numbers were assembled afterwards. So before publishing, we ran the audit again through decide() in NeuroLink, Juspay's AI harness, and this time we recorded every call. decide() asks a model one multiple-choice question and gets back its choice and a probability for each option.
+
+This redo is not a one-day audit, and we say so up front: it spans two days. Jev, Luna Decisions through OpenRouter and Perplexity Decider v1 ran on {{jev.banking77.t_first|date_dmy}}. Clef and Clef-flash, on Cloudflare Workers AI, ran on {{clef.banking77.t_first|date_dmy}}, a day later, because the Cloudflare token we first tried had expired and had to be replaced (details below). Within a day the routes overlapped for part of the time and ran alone for part of it (the times are below).
+
+The ten runs counted here sent {{all.requests_recorded|int}} requests from the benchmark kit (every row once, a second try for each row that failed, and four warm-ups per run; a warm-up is a tiny two-option test call, and the kit sends two at the start of each of its two passes) as {{all.attempts|int}} HTTP calls to the providers, with {{all.input_tokens|int}} input tokens. Every one of those calls is in a recording, with the response that came back or, where none came back, the connection error. The audit folder also holds the short probes and one stopped run; they are kept, and not counted here. The API keys are masked in each record before it is written; the questions and the answers are not. Every figure in the tables below was counted from the recording (or, in the "Earlier" columns, from our first pass's saved files) and the benchmarks' answer keys by two separate programs, one in Node and one in Python, written from the same rules and required to produce byte-identical output. If they disagree, there is no article. A short film made from the recordings goes with this post: one request shown in full, then the recording played back at speed, then the counts.
+
+## What we ran
+
+The two public benchmarks from our first pass, through the Decision Index test kit (apolinario/decision-index, commit 87d4650b) and decide():
+
+- BANKING77: {{jev.banking77.rows|int}} customer requests, one banking intent each, 77 options per question.
+- CLINC150+OOS: {{jev.clinc.rows|int}} requests, of which {{jev.clinc.oos_rows|int}} fit none of the listed intents. Each question has 151 options: the 150 intents plus one that reads "out of scope: none of the listed intents", the right answer for those, and the instruction says "or choose out of scope if none applies".
+
+Each request is one choice question with the benchmark's labels as the options. The kit asks a failed request once more and keeps the second answer; an answer that still fails counts as wrong. Accuracy is the share of all requests answered with the right option.
+
+Five model routes, one run each per benchmark, through `@juspay/neurolink@12.47.0`. Each route sent one request at a time. Times below are UTC, cut to the minute, not rounded. Jev, Luna and Perplexity ran on {{jev.banking77.t_first|date_dmy}}. Their three BANKING77 runs started within a few seconds of each other, at {{jev.banking77.t_first|utc_hm}}. Jev finished BANKING77 at {{jev.banking77.t_last|utc_hm}} and Luna at {{luna.banking77.t_last|utc_hm}}, and each went straight on to CLINC150+OOS, which ended at {{jev.clinc.t_last|utc_hm}} for Jev and {{luna.clinc.t_last|utc_hm}} for Luna. Perplexity's BANKING77 run lasted until {{perplexity-v1.banking77.t_last|utc_hm}}, so it overlapped Jev's and Luna's CLINC150+OOS runs for a while (an earlier attempt of its own CLINC150+OOS run overlapped them too, and was stopped). Perplexity's counted CLINC150+OOS run started at {{perplexity-v1.clinc.t_first|utc_hm}} and ran alone, among these five routes, until {{perplexity-v1.clinc.t_last|utc_hm}}.
+
+Clef and Clef-flash ran on {{clef.banking77.t_first|date_dmy}}, side by side from {{clef.banking77.t_first|utc_hm}}. Clef finished at {{clef.clinc.t_last|utc_hm}}, so the last stretch of Clef-flash's CLINC150+OOS run, which ended at {{clef-flash.clinc.t_last|utc_hm}}, ran alone.
+
+- Clef, Cloudflare's decision model, on Cloudflare Workers AI. Every successful response named the model {{clef.banking77.model_echo|text}}.
+- Clef-flash, another Cloudflare decision model, on the same account. Every successful response named the model {{clef-flash.banking77.model_echo|text}}.
+- Jev, TypeSafe AI's decision model, through its API. Every successful response named the model {{jev.banking77.model_echo|text}}.
+- Luna Decisions through OpenRouter. We asked openrouter.ai for openai/gpt-6-luna-decisions; OpenRouter's response header named OpenAI as the provider behind it, and every successful response named the model {{luna.banking77.model_echo|text}}. NeuroLink reaches this route through its typesafe provider, so the variable that holds the OpenRouter key is called TYPESAFE_API_KEY.
+- Perplexity Decider v1, Perplexity's hosted decision API. Every successful response named the model {{perplexity-v1.banking77.model_echo|text}}. Its calls were paced to a limit of 80,000 tokens a minute, estimated before each call.
+
+Clef and Clef-flash came a day late, and the reason belongs in the record. Our first attempt at them, on the day the other three ran, was rejected on the first call (HTTP 401, "Authentication error"), and Cloudflare's own token check, which we ran later that day, reported the token as expired on 14 Oct (the answer is saved in the audit folder as notes/cloudflare-token-check.json). We replaced the token; Cloudflare's own check, run on 18 Oct after the runs, reported the new token as active (saved as notes/cloudflare-token-check-2.json). We sent each route a three-row probe on {{clef.banking77.t_first|date_dmy}} (kept in the folder, not counted), and then ran both benchmarks in full. Both Cloudflare routes are reached through NeuroLink's cloudflare-clef provider.
+
+Our first pass also had the XOR route, Juspay's own deployment. It is not in this run. On the first day, after the three routes above had finished, we sent it the first three rows of each benchmark as a short probe, asking for the model name jev-latest, the name our 3 Oct XOR demo used (the first pass did not save its XOR settings). It answered the two two-option warm-up calls of each probe, naming its model xor-text-1, and refused all six benchmark rows: HTTP 422, "q1: 2..64 options, got 77" on BANKING77 and "q1: 2..64 options, got 151" on CLINC150+OOS. Our local relay handed the refusal to the kit as HTTP 400, so the kit's own files say that; the route's answer in the wire recording is the HTTP 422. In the first pass the same kind of request worked on every row, but we did not save that run's XOR address or model name, so we cannot say whether the route changed or we reached a different deployment this time. Both refusals are in the recording, with the route's address masked.
+
+## Accuracy
+
+Models in alphabetical order. "Earlier" is our first pass on the same benchmark, recounted from its saved per-request files by the same two programs.
+
+| Model | BANKING77 | Earlier | CLINC150+OOS | Earlier |
+|---|---|---|---|---|
+| Clef | {{clef.banking77.accuracy|pct1}} ({{clef.banking77.correct|int}}) | {{blog.clef.banking77.accuracy|pct1}} ({{blog.clef.banking77.correct|int}}) | {{clef.clinc.accuracy|pct1}} ({{clef.clinc.correct|int}}) | {{blog.clef.clinc.accuracy|pct1}} ({{blog.clef.clinc.correct|int}}) |
+| Clef-flash | {{clef-flash.banking77.accuracy|pct1}} ({{clef-flash.banking77.correct|int}}) | {{blog.clef-flash.banking77.accuracy|pct1}} ({{blog.clef-flash.banking77.correct|int}}) | {{clef-flash.clinc.accuracy|pct1}} ({{clef-flash.clinc.correct|int}}) | {{blog.clef-flash.clinc.accuracy|pct1}} ({{blog.clef-flash.clinc.correct|int}}) |
+| Jev | {{jev.banking77.accuracy|pct1}} ({{jev.banking77.correct|int}}) | {{blog.jev.banking77.accuracy|pct1}} ({{blog.jev.banking77.correct|int}}) | {{jev.clinc.accuracy|pct1}} ({{jev.clinc.correct|int}}) | {{blog.jev.clinc.accuracy|pct1}} ({{blog.jev.clinc.correct|int}}) |
+| Luna Decisions through OpenRouter | {{luna.banking77.accuracy|pct1}} ({{luna.banking77.correct|int}}) | {{blog.luna.banking77.accuracy|pct1}} ({{blog.luna.banking77.correct|int}}) | {{luna.clinc.accuracy|pct1}} ({{luna.clinc.correct|int}}) | {{blog.luna.clinc.accuracy|pct1}} ({{blog.luna.clinc.correct|int}}) |
+| Perplexity Decider v1 | {{perplexity-v1.banking77.accuracy|pct1}} ({{perplexity-v1.banking77.correct|int}}) | {{blog.perplexity-v1.banking77.accuracy|pct1}} ({{blog.perplexity-v1.banking77.correct|int}}) | {{perplexity-v1.clinc.accuracy|pct1}} ({{perplexity-v1.clinc.correct|int}}) | {{blog.perplexity-v1.clinc.accuracy|pct1}} ({{blog.perplexity-v1.clinc.correct|int}}) |
+
+Compared with the first pass ("pp" is percentage points, worked out before the table's rounding, so a difference can be 0.1 off the table):
+
+Clef reproduced its earlier counts to within two requests on both benchmarks: {{clef.banking77.vs_blog.correct|signed}} on BANKING77 and {{clef.clinc.vs_blog.correct|signed}} on CLINC150+OOS, with the same recall on CLINC150+OOS ({{clef.clinc.recall|pct1}} against {{blog.clef.clinc.recall|pct1}}) and nearly the same precision ({{clef.clinc.precision|pct1}} against {{blog.clef.clinc.precision|pct1}}).
+
+Jev and Luna landed within a point of their earlier accuracy on both benchmarks.
+
+Clef-flash did not repeat itself. On BANKING77 its accuracy moved {{clef-flash.banking77.vs_blog.accuracy|pp1}} ({{clef-flash.banking77.vs_blog.correct|signed}} requests). On CLINC150+OOS it moved {{clef-flash.clinc.vs_blog.accuracy|pp1}} ({{clef-flash.clinc.vs_blog.correct|signed}} requests) while it became much less willing to say "out of scope": it caught {{clef-flash.clinc.oos_caught|int}} of the {{clef-flash.clinc.oos_rows|int}} such requests against {{blog.clef-flash.clinc.oos_caught|int}} earlier, but gave that answer {{clef-flash.clinc.said_oos|int}} times in all against {{blog.clef-flash.clinc.said_oos|int}} earlier, so more of its "out of scope" answers were right ({{clef-flash.clinc.precision|pct1}} against {{blog.clef-flash.clinc.precision|pct1}}). Both runs asked for the model name clef-flash, but the first pass's saved files hold no responses, so we cannot compare the model name the API answered with, or say whether the model behind that name changed.
+
+Perplexity Decider v1 moved too. On BANKING77 its accuracy moved {{perplexity-v1.banking77.vs_blog.accuracy|pp1}} ({{perplexity-v1.banking77.vs_blog.correct|signed}} requests). On CLINC150+OOS it moved {{perplexity-v1.clinc.vs_blog.accuracy|pp1}} ({{perplexity-v1.clinc.vs_blog.correct|signed}} requests) while it became much less willing to say "out of scope": it caught {{perplexity-v1.clinc.oos_caught|int}} of the {{perplexity-v1.clinc.oos_rows|int}} such requests against {{blog.perplexity-v1.clinc.oos_caught|int}} earlier, and more of its "out of scope" answers were right ({{perplexity-v1.clinc.precision|pct1}} against {{blog.perplexity-v1.clinc.precision|pct1}}). Both Perplexity runs asked for pplx-decider-v1-27b, but the first pass did not record the model name the API answered with, so we cannot say whether the model behind that name changed.
+
+One run each tells you the numbers moved, not why.
+
+Failed answers count as wrong. Jev had {{jev.banking77.failed|int}} on BANKING77 and {{jev.clinc.failed|int}} on CLINC150+OOS ({{blog.jev.banking77.failed|int}} and {{blog.jev.clinc.failed|int}} earlier). In this run every one was a response whose probabilities summed to 0.99. The kit rejects a sum more than 0.01 away from one; floating-point rounding put some of those sums just over that line, and other responses with the same sum passed. Luna had {{luna.clinc.failed|int}} on CLINC150+OOS: one request came back HTTP 502 on all four calls (the kit's two tries, each repeated once inside NeuroLink), every time with the message “OpenAI refused to answer question "q1"”. The same request failed with HTTP 502 in our first pass too. Luna's other two repeats followed one HTTP 503 and one call that got no reply, and both succeeded. No other cell in this run has a failed answer, Clef and Clef-flash included.
+
+## What accuracy leaves out
+
+Accuracy counts a request as right or not, not what was said instead. On CLINC150+OOS two more numbers show it:
+
+- Recall: of the {{jev.clinc.oos_rows|int}} requests that fit no intent, the share answered "out of scope".
+- Precision: of a model's "out of scope" answers, the share that really were out of scope.
+
+| Model | Recall | Earlier | Precision | Earlier |
+|---|---|---|---|---|
+| Clef | {{clef.clinc.recall|pct1}} ({{clef.clinc.oos_caught|int}}) | {{blog.clef.clinc.recall|pct1}} | {{clef.clinc.precision|pct1}} (of {{clef.clinc.said_oos|int}}) | {{blog.clef.clinc.precision|pct1}} |
+| Clef-flash | {{clef-flash.clinc.recall|pct1}} ({{clef-flash.clinc.oos_caught|int}}) | {{blog.clef-flash.clinc.recall|pct1}} | {{clef-flash.clinc.precision|pct1}} (of {{clef-flash.clinc.said_oos|int}}) | {{blog.clef-flash.clinc.precision|pct1}} |
+| Jev | {{jev.clinc.recall|pct1}} ({{jev.clinc.oos_caught|int}}) | {{blog.jev.clinc.recall|pct1}} | {{jev.clinc.precision|pct1}} (of {{jev.clinc.said_oos|int}}) | {{blog.jev.clinc.precision|pct1}} |
+| Luna Decisions through OpenRouter | {{luna.clinc.recall|pct1}} ({{luna.clinc.oos_caught|int}}) | {{blog.luna.clinc.recall|pct1}} | {{luna.clinc.precision|pct1}} (of {{luna.clinc.said_oos|int}}) | {{blog.luna.clinc.precision|pct1}} |
+| Perplexity Decider v1 | {{perplexity-v1.clinc.recall|pct1}} ({{perplexity-v1.clinc.oos_caught|int}}) | {{blog.perplexity-v1.clinc.recall|pct1}} | {{perplexity-v1.clinc.precision|pct1}} (of {{perplexity-v1.clinc.said_oos|int}}) | {{blog.perplexity-v1.clinc.precision|pct1}} |
+
+Clef said "out of scope" {{clef.clinc.false_alarms|int}} times to a request that had an intent; Clef-flash {{clef-flash.clinc.false_alarms|int}} times ({{blog.clef-flash.clinc.false_alarms|int}} in the first pass); Jev {{jev.clinc.false_alarms|int}} times; Luna {{luna.clinc.false_alarms|int}} times; Perplexity Decider v1 {{perplexity-v1.clinc.false_alarms|int}} times. Those are the numbers an accuracy figure hides.
+
+## The recording
+
+What the recording holds for the ten counted runs:
+
+| Route | HTTP calls | Retried inside NeuroLink | Input tokens | Estimated cost | Median call |
+|---|---|---|---|---|---|
+| Clef, BANKING77 | {{clef.banking77.attempts|int}} | {{clef.banking77.retries|int}} | {{clef.banking77.input_tokens|int}} | {{clef.banking77.cost_usd|usd4}} | {{clef.banking77.latency_us.p50|ms1}} |
+| Clef, CLINC150+OOS | {{clef.clinc.attempts|int}} | {{clef.clinc.retries|int}} | {{clef.clinc.input_tokens|int}} | {{clef.clinc.cost_usd|usd4}} | {{clef.clinc.latency_us.p50|ms1}} |
+| Clef-flash, BANKING77 | {{clef-flash.banking77.attempts|int}} | {{clef-flash.banking77.retries|int}} | {{clef-flash.banking77.input_tokens|int}} | {{clef-flash.banking77.cost_usd|usd4}} | {{clef-flash.banking77.latency_us.p50|ms1}} |
+| Clef-flash, CLINC150+OOS | {{clef-flash.clinc.attempts|int}} | {{clef-flash.clinc.retries|int}} | {{clef-flash.clinc.input_tokens|int}} | {{clef-flash.clinc.cost_usd|usd4}} | {{clef-flash.clinc.latency_us.p50|ms1}} |
+| Jev, BANKING77 | {{jev.banking77.attempts|int}} | {{jev.banking77.retries|int}} | {{jev.banking77.input_tokens|int}} | {{jev.banking77.cost_usd|usd4}} | {{jev.banking77.latency_us.p50|ms1}} |
+| Jev, CLINC150+OOS | {{jev.clinc.attempts|int}} | {{jev.clinc.retries|int}} | {{jev.clinc.input_tokens|int}} | {{jev.clinc.cost_usd|usd4}} | {{jev.clinc.latency_us.p50|ms1}} |
+| Luna, BANKING77 | {{luna.banking77.attempts|int}} | {{luna.banking77.retries|int}} | {{luna.banking77.input_tokens|int}} | {{luna.banking77.cost_usd|usd4}} | {{luna.banking77.latency_us.p50|ms1}} |
+| Luna, CLINC150+OOS | {{luna.clinc.attempts|int}} | {{luna.clinc.retries|int}} | {{luna.clinc.input_tokens|int}} | {{luna.clinc.cost_usd|usd4}} | {{luna.clinc.latency_us.p50|ms1}} |
+| Perplexity Decider v1, BANKING77 | {{perplexity-v1.banking77.attempts|int}} | {{perplexity-v1.banking77.retries|int}} | {{perplexity-v1.banking77.input_tokens|int}} | {{perplexity-v1.banking77.cost_usd|usd4}} | {{perplexity-v1.banking77.latency_us.p50|ms1}} |
+| Perplexity Decider v1, CLINC150+OOS | {{perplexity-v1.clinc.attempts|int}} | {{perplexity-v1.clinc.retries|int}} | {{perplexity-v1.clinc.input_tokens|int}} | {{perplexity-v1.clinc.cost_usd|usd4}} | {{perplexity-v1.clinc.latency_us.p50|ms1}} |
+
+"Retried inside NeuroLink" counts the HTTP calls NeuroLink repeated after a connection error or an error reply, on top of the kit's own second try. Most of them are Perplexity's on CLINC150+OOS: {{perplexity-v1.clinc.network_errors|int}} connection errors, {{perplexity-v1.clinc.status.429|int}} rate-limit replies (HTTP 429) and {{perplexity-v1.clinc.status.504|int}} gateway timeouts (HTTP 504). NeuroLink repeated all but one of those failed calls: one request failed five calls in a row, and the kit then asked it again and it succeeded. Clef and Clef-flash needed no repeats at all: every call of their CLINC150+OOS runs was answered with HTTP 200 ({{clef.clinc.status.200|int}} of {{clef.clinc.attempts|int}} calls for Clef, {{clef-flash.clinc.status.200|int}} of {{clef-flash.clinc.attempts|int}} for Clef-flash), and the same holds for their BANKING77 runs ({{clef.banking77.status.200|int}} of {{clef.banking77.attempts|int}} and {{clef-flash.banking77.status.200|int}} of {{clef-flash.banking77.attempts|int}}).
+
+The ten counted runs came to an estimated {{all.cost_usd|usd2}}: the input tokens the providers reported times a per-token rate, with output tokens priced at zero. For Luna the rate is OpenRouter's listed price; OpenRouter reports a cost on every successful response, and the sum of those ({{luna.banking77.cost_reported_usd|usd4}} and {{luna.clinc.cost_reported_usd|usd4}}) equals our figure. For Jev, Perplexity, Clef and Clef-flash the rates come from NeuroLink's own price table. Jev's and Perplexity's were last checked against the providers on 20 Sep and 2 Oct. Clef costs 0.24 USD per million input tokens and Clef-flash 0.09 USD. Output tokens are priced at zero: the table lists no output price for them, and Cloudflare's replies report {{clef.banking77.output_tokens|int}} output tokens. Jev also reported {{jev.banking77.output_tokens|int}} output tokens on BANKING77 and {{jev.clinc.output_tokens|int}} on CLINC150+OOS, priced at zero because the table notes that TypeSafe bills input tokens only. Perplexity reported {{perplexity-v1.banking77.output_tokens|int}} and {{perplexity-v1.clinc.output_tokens|int}}, one for each answered call, also priced at zero because the table says its rate charges nothing for output. None of it is an invoice. The median call is the time of one round trip over the calls that got a successful reply, measured while other routes were running (except on Perplexity's CLINC150+OOS run and the last stretch of Clef-flash's), so it is not a latency benchmark.
+
+Cloudflare also meters its own work: every reply carries the neurons it used in a header, cf-ai-neurons. NeuroLink's price table says the header matched Cloudflare's published rates when it was checked on 3 Oct, at 21,818 neurons per million input tokens for Clef and 8,182 neurons per million input tokens for Clef-flash. In these runs the header adds up to {{clef.banking77.neurons_reported|neurons0}} and {{clef.clinc.neurons_reported|neurons0}} neurons for Clef, which agrees with the table's rate for Clef to within a fraction of a percent. For Clef-flash it adds up to {{clef-flash.banking77.neurons_reported|neurons0}} and {{clef-flash.clinc.neurons_reported|neurons0}} neurons, fewer than half of what the table's rate for Clef-flash gives for the same tokens, so the Clef-flash cost above and the total may be too high. We do not know why. The table keeps the list prices.
+
+The keys are masked inside the recording itself, not only on screen: the Authorization header of every counted call shows the key as `«masked:NAME»`, NAME being the variable that held it, and Cloudflare's account number, which is part of its request address, is masked too. Cloudflare's replies also carry a cookie with a value shaped like an IP address; the recorder masks any such value as the call is recorded (IPV4_ADDRESS, {{clef.banking77.masked.IPV4_ADDRESS|int}} records in Clef's BANKING77 run). Two recordings were masked again after they were recorded, for IP addresses: two Cloudflare error pages and two connection-error messages in Perplexity's counted CLINC150+OOS run, and the headers of one XOR probe; a REMASK.json next to each lists the file's hash before and after. Before publishing, the gateway's own header values in both XOR probes and the home-folder paths in the kit's logs were replaced too; CLEANING.json in the audit folder lists those files with their hashes before and after, and that pass changed no wire or decide recording of the counted runs. Afterwards a scan looked for every value, 8 characters or longer, of a key-, token-, secret-, password-, account- or address-named variable in the environment files the runs read, as they are today, plain and encoded, in {{all.files_scanned|int}} files of the audit folder (the film and its poster image are skipped as media), and found {{all.secret_hits|int}}.
+
+## How the numbers were made
+
+- A recorder inside the NeuroLink process writes every attempt, masks keys before writing, allows only each route's own host, and stops a run when its booked spend reaches a cap (none did; the one stopped run stopped on failed connections).
+- Two fact engines count everything from the recording, the kit's results file and the benchmarks' answer keys. The audit's facts file is written only if both produce the same bytes.
+- Pointed at the saved files of our first pass, the same engines reproduce every number of its two benchmark tables exactly. That is how "Earlier" above was made, Clef and Clef-flash included. The first pass's other figures, its run-to-run table on other sets, are not recounted here, and its XOR numbers are not used in this article (the engines still recount XOR's two benchmark cells, which is why the twelve saved files include them).
+- The texts are filled from the facts file, and a checker fails any number that is neither a fact nor a declared literal. The literals were checked by hand: the error codes and messages, the option counts and the kit commit against the recordings; the Node versions against each run's run.json; the token dates against the two saved token checks; the 0.01 limit against the kit's source; the name our 3 Oct XOR demo asked for against that demo's saved run files; and the first-pass dates, the price-table dates and rates, and the tokens-a-minute limit against our first-pass notes, NeuroLink's price table and the audit config. The film with this post was built the same way: every figure on screen is read back from the frames and compared with the facts.
+- One command, `bash verify.sh`, re-runs the counting offline and checks every file's hash. It needs the decide-proof toolkit, Node, Python, the two benchmarks' files and the twelve saved files of our first pass. The audit folder, the toolkit, the two benchmarks' files and the twelve saved first-pass files are all public at https://github.com/juspay/neurolink-decide-proof-evidence, where `bash verify-all.sh` re-runs the check.
+
+## What one run can and cannot show
+
+- One run per model and benchmark: we did not measure run-to-run variation in this redo.
+- Two days. Each route sent one request at a time; within a day the routes overlapped for part of the time, except Perplexity's counted CLINC150+OOS run and the last stretch of Clef-flash's, which ran alone. Clef and Clef-flash ran a day after the others, on a replaced token, so the five routes were not measured under the same conditions.
+- The runs of {{jev.banking77.t_first|date_dmy}} used Node 26.11.1 and the runs of {{clef.banking77.t_first|date_dmy}} used Node 24.14.1, and the recording code was updated in between (the versions and the file hashes are in each run's run.json).
+- Failed connections from this machine (host-unreachable, address-not-available and connect-timeout errors, the last ten in a row) stopped one Perplexity run; it was run again from the start, and the stopped run is kept in the folder, not counted.
+- These are counts on two benchmarks, not a ranking and not a Decision Index score.
+
+BANKING77 is by PolyAI (CC BY 4.0) and CLINC150 by Clinc (CC BY 3.0).

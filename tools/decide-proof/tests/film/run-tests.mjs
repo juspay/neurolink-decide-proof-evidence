@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
 import { sha256, sha256File, readJsonl, readTextLines, canonPretty } from '../../film/lib/util.mjs';
 import { openPage, launch } from '../../film/render.mjs';
-import { TOTAL, FPS, limitsLine, callDates } from '../../film/scene.mjs';
+import { TOTAL, FPS, limitsLine, callDates, laneDateText } from '../../film/scene.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const TK = resolve(HERE, '../..');
@@ -112,19 +112,34 @@ await check('12 film code has no clock, randomness, timers, CSS animation or loc
 await check('13 the scene carries the words the film must say: the harness on the opening and the end card, the limits, the audit note, the re-mask line; routes in alphabetical order; the opening question is the first of its recording', () => {
   const scene = JSON.parse(readFileSync(join(OUT, 'scene-a/scene.json'), 'utf8')); const ph = scene.phrases;
   for (const id of ['open.product', 'end.product']) must(ph[id] && ph[id].text.includes("through decide() in NeuroLink, Juspay's AI harness"), id + ' is missing or does not name the harness');
-  must(ph['end.limits'] && ph['end.limits'].text === 'One run per model and benchmark \u00b7 one machine \u00b7 one day \u00b7 not a ranking', 'end.limits: ' + ph['end.limits']?.text);
+  must(ph['end.limits'] && ph['end.limits'].text === 'One run per model and benchmark \u00b7 one day \u00b7 not a ranking', 'end.limits: ' + ph['end.limits']?.text);
   must(ph['end.note.0'] && scene.film.notes[0] === ph['end.note.0'].text && scene.film.notes_sha256, 'the audit note is not on the end card');
   must(ph['end.remask'] && ph['proof.remask'] && scene.derived['end.remask'].text === '1' && /masked afterwards/.test(ph['end.remask'].text), 're-mask line: ' + ph['end.remask']?.text);
   const lanes = scene.ff.lanes.map((l) => l.route); must(JSON.stringify(lanes) === JSON.stringify(['clef', 'luna']), 'lanes ' + lanes + ' (labels sort Clef before Luna)');
   for (const b of ['banking77', 'clinc']) must(JSON.stringify(scene.results.acc.filter((r) => r.bench === b).map((r) => r.route)) === JSON.stringify(lanes), 'accuracy rows of ' + b + ' are not in lane order');
   must(scene.exchange.record.file.startsWith('runs/clef/banking77/') && scene.derived['open.verdict'].text.match(/^(HIT|MISS)$/) && scene.derived['open.gold'].text.startsWith('option_'), 'opening exchange: ' + scene.exchange.record.file);
   must(scene.derived['open.warmups'].text === '2' && scene.derived['open.line'].text === '3', 'first question is line ' + scene.derived['open.line'].text + ' after ' + scene.derived['open.warmups'].text + ' warm-ups');
+  for (const lane of scene.ff.lanes) {
+    const d = scene.derived['ff.date.' + lane.route]; must(d && d.kind === 'lane-date', 'no lane date for ' + lane.route);
+    const firstFile = readJsonl(join(FIX, lane.files[0].wire)), lastFile = readJsonl(join(FIX, lane.files[lane.files.length - 1].wire));
+    const want = laneDateText(firstFile[0].obj.t_start, lastFile[lastFile.length - 1].obj.t_start); must(d.text === want, `lane date of ${lane.route}: ${d.text} against ${want}`);
+  }
+  must(scene.phrases['replay.note'].text.endsWith('lanes aligned by call number, not by clock'), 'replay note: ' + scene.phrases['replay.note'].text);
+  must(!/one machine/.test(scene.phrases['results.cost_note'].text) && scene.phrases['results.cost_note'].text === 'Each route sent one request at a time; timings depend on what else was running, so this is not a latency benchmark', 'cost note: ' + scene.phrases['results.cost_note'].text);
   return `${Object.keys(ph).length} phrases, lanes ${lanes.join(', ')}, opening verdict ${scene.derived['open.verdict'].text}`;
 });
 
+await check('13a the head of a replay lane names the UTC day of its recording (one day, or a range when the lane crosses midnight)', () => {
+  must(laneDateText('2026-10-17T06:35:42.000Z', '2026-10-17T07:37:21.000Z') === '17 OCT', 'one day');
+  must(laneDateText('2026-10-17T23:50:00.000Z', '2026-10-18T00:20:00.000Z') === '17\u201318 OCT', 'same month');
+  must(laneDateText('2026-10-31T23:50:00.000Z', '2026-11-01T00:20:00.000Z') === '31 OCT\u20131 NOV', 'two months');
+  must(laneDateText('2026-01-05T00:00:00.000Z', '2026-01-05T00:00:01.000Z') === '5 JAN', 'no leading zero');
+  return 'one day, a range within a month, a range across months';
+});
+
 await check('13b the limits line counts the UTC days of the recorded calls (one to seven, in words), and the end card dates every one of them', () => {
-  must(limitsLine(1) === 'One run per model and benchmark \u00b7 one machine \u00b7 one day \u00b7 not a ranking', 'one day: ' + limitsLine(1));
-  must(limitsLine(2) === 'One run per model and benchmark \u00b7 one machine \u00b7 two days \u00b7 not a ranking', 'two days: ' + limitsLine(2));
+  must(limitsLine(1) === 'One run per model and benchmark \u00b7 one day \u00b7 not a ranking', 'one day: ' + limitsLine(1));
+  must(limitsLine(2) === 'One run per model and benchmark \u00b7 two days \u00b7 not a ranking', 'two days: ' + limitsLine(2));
   must(limitsLine(7).includes('seven days'), 'seven days: ' + limitsLine(7));
   for (const bad of [0, 8, 1.5, NaN]) { let refused = false; try { limitsLine(bad); } catch { refused = true; } must(refused, 'limitsLine(' + bad + ') was not refused'); }
   const f = (value, text) => ({ value, display: { date_dmy: text } });

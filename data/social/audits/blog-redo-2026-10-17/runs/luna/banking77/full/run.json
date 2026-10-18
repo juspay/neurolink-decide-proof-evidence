@@ -1,0 +1,75 @@
+{
+  "audit_id": "blog-redo-2026-10-17",
+  "route": "luna",
+  "bench": "banking77",
+  "stage": "full",
+  "suffix": null,
+  "started_utc": "2026-10-17T06:35:40.936Z",
+  "finished_utc": "2026-10-17T06:56:41.465Z",
+  "exit": 0,
+  "stop_reason": null,
+  "provider": "typesafe",
+  "model": "openai/gpt-6-luna-decisions",
+  "hosts": [
+    "openrouter.ai"
+  ],
+  "cap_usd": "1.79",
+  "rows_file_sha256": "1629c6fbd0e2f60c9d5cfa1a67a9370af651b52e45b167ad15b08becba81782a",
+  "rows_sent": 3080,
+  "config_sha256": "af326145a04a90dd8dc81f030e699a0dc6579da541c153a6ed600fc3ead1fffa",
+  "versions": {
+    "node": "v26.11.1",
+    "neurolink": "12.47.0",
+    "kit_commit": "87d4650b42b377c0291a89c1f1a879f9b31082bf",
+    "kit_runner_sha256": "f4c9f36c4c557f537f1d8184db7bf00c5a84d9f4f0aa67f8c06198cead25818d",
+    "python": "Python 3.12.2"
+  },
+  "passes": [
+    {
+      "pass": 1,
+      "exit": 0,
+      "signal": null
+    },
+    {
+      "pass": 2,
+      "exit": 0,
+      "signal": null
+    }
+  ],
+  "recordings_finalized": true,
+  "join": {
+    "ok": true,
+    "method": "payload_sha256 + order",
+    "decide_requests": 3080,
+    "warmups": 4,
+    "results_lines": 3080,
+    "matched": 3080,
+    "hash_mismatches": 0,
+    "response_mismatches": 0,
+    "responses_checked": 3080,
+    "count_mismatch": false,
+    "order_only": false,
+    "partial": false,
+    "problems": []
+  },
+  "leak_scan": {
+    "exit": 0,
+    "targets": 143,
+    "files_scanned": 12,
+    "secret_hits": 0
+  },
+  "toolkit_files": {
+    "bin/proof.mjs": "729b6650601ffb83f283ca728f280bb831fadc82343977c21829a9a4bd2e6efc",
+    "runner/run.mjs": "18904c18091fb46a43eb6743ade3c12390a7225857124809a986d86029d1e2bc",
+    "runner/shim.mjs": "9896b9dd5ff3a35c26c57b2ddf07a23fb9d2d50a77a0292511577cfa1ce82b16",
+    "runner/join.mjs": "0ba1fc672d4b8d036c1a0a8cda3b4ed9018c419643dd109f251412dbd0f19b65",
+    "runner/paths.mjs": "290b837a9fd15dc5b53384ff4c02a334b1554b9688292fe16565b1389a86ba55",
+    "lib/recorder.mjs": "75b885883ed8c058059827a49e3a08bf204d5bee7f8f6876cc41cb06a76ae34c",
+    "lib/recorder-config.mjs": "30b6c5ab190d26eb16bf9c94c8b0dfcd135bc3536096ad63c00199cc73c92de9",
+    "lib/mask.mjs": "cfb3187dd09f10577255892f65414393fd888f1e7d631196f9a920a9a1fb3c21",
+    "lib/env.mjs": "e062e3149770be9ea531ff45c9a3c3c5824455dd6babdd0de0fc58e2066c42c2",
+    "lib/money.mjs": "5c9081a1e614187304d72b69ba91a8e79c121aea6e01adc992cfbb36dca68ae2",
+    "lib/gz.mjs": "63aa4b7f9dcc277224a9d81ef1e23fa3e365a9b3956885e8c32fefe86390840d",
+    "lib/scan.mjs": "141eb38d0d875fdc5563e68e17efea8046c5a3c174e5902372d280549c520a0a"
+  }
+}

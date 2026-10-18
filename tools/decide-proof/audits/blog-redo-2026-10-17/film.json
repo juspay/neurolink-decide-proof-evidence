@@ -1,6 +1,6 @@
 {
   "notes": [
-    "Not in this run: the XOR route, which refused every benchmark question (more than sixty-four options).",
+    "Not in this run: the XOR route, which refused all six of our probe questions (more than sixty-four options).",
     "Clef and Clef-flash ran on the later of the two days, after a replaced Cloudflare token; the other three routes ran on the earlier."
   ]
 }

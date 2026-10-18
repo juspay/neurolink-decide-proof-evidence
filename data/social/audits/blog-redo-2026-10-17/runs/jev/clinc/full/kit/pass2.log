@@ -1,0 +1,14 @@
+{"time":"2026-10-17T07:24:02.802257+00:00","event":"loading","engine":"http"}
+{"time":"2026-10-17T07:24:03.394941+00:00","event":"ready","engine":"http"}
+{"time":"2026-10-17T07:24:06.419032+00:00","event":"progress","engine":"http","completed":5500,"counts":{"ok":9,"error":1},"elapsed_seconds":2.9}
+{"time":"2026-10-17T07:24:09.218137+00:00","event":"progress","engine":"http","completed":5500,"counts":{"ok":15,"error":5},"elapsed_seconds":5.7}
+{"time":"2026-10-17T07:24:12.107100+00:00","event":"progress","engine":"http","completed":5500,"counts":{"ok":19,"error":11},"elapsed_seconds":8.6}
+{"time":"2026-10-17T07:24:14.967075+00:00","event":"progress","engine":"http","completed":5500,"counts":{"ok":26,"error":14},"elapsed_seconds":11.5}
+{"time":"2026-10-17T07:24:17.752670+00:00","event":"progress","engine":"http","completed":5500,"counts":{"ok":33,"error":17},"elapsed_seconds":14.2}
+{"time":"2026-10-17T07:24:20.543337+00:00","event":"progress","engine":"http","completed":5500,"counts":{"ok":40,"error":20},"elapsed_seconds":17.0}
+{"time":"2026-10-17T07:24:23.569012+00:00","event":"progress","engine":"http","completed":5500,"counts":{"ok":48,"error":22},"elapsed_seconds":20.1}
+{"time":"2026-10-17T07:24:26.488095+00:00","event":"progress","engine":"http","completed":5500,"counts":{"ok":55,"error":25},"elapsed_seconds":23.0}
+{"time":"2026-10-17T07:24:29.348454+00:00","event":"progress","engine":"http","completed":5500,"counts":{"ok":61,"error":29},"elapsed_seconds":25.8}
+{"time":"2026-10-17T07:24:32.107647+00:00","event":"progress","engine":"http","completed":5500,"counts":{"ok":65,"error":35},"elapsed_seconds":28.6}
+{"time":"2026-10-17T07:24:32.951708+00:00","event":"complete","engine":"http","completed":5500,"counts":{"ok":67,"error":36},"elapsed_seconds":29.4}
+{"event": "complete", "engine": "http", "completed": 5500, "counts": {"ok": 67, "error": 36}, "elapsed_seconds": 29.4}

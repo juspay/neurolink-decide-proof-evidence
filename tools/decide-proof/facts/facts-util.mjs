@@ -139,6 +139,14 @@ export function fmtUsd(text, places) {
   return `$${groupDigits((units / scale).toString())}.${(units % scale).toString().padStart(places, "0")}`;
 }
 
+// Contract 4a item 5, unit neurons: Cloudflare's own meter as an exact decimal, half up to `places` decimals, comma grouping, no unit sign.
+export function fmtNeurons(text, places) {
+  const units = roundDecimalUnits(parseDecimal(text), places);
+  const scale = 10n ** BigInt(places);
+  const whole = groupDigits((units / scale).toString());
+  return places === 0 ? whole : `${whole}.${(units % scale).toString().padStart(places, "0")}`;
+}
+
 // ---- time: microseconds from a recorded UTC timestamp (never from a clock) ----
 const ISO = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(?:\.(\d{1,9}))?Z$/;
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -230,13 +238,14 @@ export const FORMATS_BY_UNIT = {
   tokens: ["int"],
   ratio: ["pct0", "pct1", "pct2"],
   usd: ["usd2", "usd4", "usd6"],
+  neurons: ["neurons0", "neurons2"],
   us: ["ms1", "s0"],
   utc: ["utc_hm", "date_dmy"],
   text: ["text"],
   delta: ["signed"],
   pp: ["pp0", "pp1"],
 };
-export const ALL_FORMATS = ["int", "pct0", "pct1", "pct2", "usd2", "usd4", "usd6", "ms1", "s0", "utc_hm", "date_dmy", "text", "signed", "pp0", "pp1"];
+export const ALL_FORMATS = ["int", "pct0", "pct1", "pct2", "usd2", "usd4", "usd6", "neurons0", "neurons2", "ms1", "s0", "utc_hm", "date_dmy", "text", "signed", "pp0", "pp1"];
 
 export function formatValue(fmt, value) {
   switch (fmt) {
@@ -247,6 +256,8 @@ export function formatValue(fmt, value) {
     case "usd2": return fmtUsd(value, 2);
     case "usd4": return fmtUsd(value, 4);
     case "usd6": return fmtUsd(value, 6);
+    case "neurons0": return fmtNeurons(value, 0);
+    case "neurons2": return fmtNeurons(value, 2);
     case "ms1": return fmtMs1(value);
     case "s0": return fmtS0(value);
     case "utc_hm": return fmtUtcHm(value);

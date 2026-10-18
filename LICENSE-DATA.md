@@ -7,12 +7,17 @@ Different parts of this repository have different licences. This file says which
 Copyright (c) 2026 Juspay Technologies. Licensed under Creative Commons Attribution 4.0 International
 (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/legalcode
 
-This covers what Juspay Technologies produced in `data/social/audits/liquid-d1-2026-10-17/`:
+This covers what Juspay Technologies produced in the two audit folders, `data/social/audits/liquid-d1-2026-10-17/` and
+`data/social/audits/blog-redo-2026-10-17/`:
 
 - the recordings of the HTTP calls and of the `decide()` requests (`runs/`),
 - the counts computed from them (`facts/`), the rendered texts and posts (`text/`, `posts/`), the approval records
   (`approval/`), the audit configuration, the scan result and the manifest,
 - the evidence film (`film/film.mp4`) and its poster (`film/poster.png`).
+
+It also covers the twelve saved per-request files of our own first pass in
+`data/social/engagement-small-2026-10-10/article-2026-10-12/sources/` (the results and counts we recorded; the option
+texts in them are the benchmarks' labels, see below).
 
 You may share and adapt this material, including for commercial use, if you give credit to Juspay Technologies,
 link to the licence and say if you made changes.
@@ -29,7 +34,8 @@ under their licences. CC BY 4.0 for our part does not change them.
 
 The two files in `decide-proof-vd/rows/` are selections of rows from these benchmarks, built by the kit below. The
 request text of these benchmarks also appears in the recordings and in the film. Credit PolyAI and Clinc when you
-reuse it. The same credit is in `data/social/audits/liquid-d1-2026-10-17/ATTRIBUTION.md` and on the film's end card.
+reuse it. The same credit is in `ATTRIBUTION.md` of each audit folder (`data/social/audits/liquid-d1-2026-10-17/` and
+`data/social/audits/blog-redo-2026-10-17/`) and on the film's end card.
 
 ## Decision Index test kit: MIT, by its author
 

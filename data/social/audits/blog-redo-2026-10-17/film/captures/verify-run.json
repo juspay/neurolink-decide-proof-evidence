@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "bash",
+    "verify.sh"
+  ],
+  "ended_utc": "2026-10-18T09:01:30.238Z",
+  "exit": 0,
+  "literal": true,
+  "name": "verify-run",
+  "run_ms": 16732,
+  "shown": "bash verify.sh",
+  "started_utc": "2026-10-18T09:01:13.506Z",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_lines": 6,
+  "stdout_sha256": "84778faa8c5f9da8d3f329e2a55191c552c4df5a1eb1ff331a32080c625eb27b",
+  "times_pinned": false
+}

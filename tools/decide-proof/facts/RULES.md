@@ -122,6 +122,15 @@ from the audit config; exact decimal; usage-reported tokens only, no estimates.
 Sum of `usage.cost` over the same records, counting only values that are JSON numbers, each as the exact decimal of the number's
 shortest round-trip text. Absent when no record has one.
 
+### `rule:neurons_reported`
+Sum of the response header `cf-ai-neurons` (Cloudflare Workers AI's own meter of the neurons a call used) over the not-blocked
+records whose response is 2xx and carries that header, as an exact decimal; unit `neurons`, shown as `neurons0` (half up to a whole
+number) and `neurons2` (half up to two decimals), comma grouping, no sign or unit. The header name is compared in lower case. Its value
+must be one plain decimal (ASCII digits, optionally a point and digits: no sign, exponent or spaces); a value of any other shape, a list,
+or a name that appears twice (two keys that differ only in case) stops the build in both engines. Records without the header, blocked
+records and records with a non-2xx status add nothing. Absent when no such record has the header (every route that is not Cloudflare's).
+It is Cloudflare's count, not a price: no rate is applied to it.
+
 ### `rule:latency_us.p50`
 Nearest rank over `us` of the not-blocked records with a 2xx response: sort ascending, take index `ceil(0.50 * n) - 1`.
 Absent when there is no such record (also for p90, p99 and max).

@@ -1,0 +1,2 @@
+{"event":"listening","host":"127.0.0.1","port":54933,"provider":"xor","recorder":true}
+{"event":"stopped","counts":{"provider":"xor","model":"jev-latest","requests":5,"warmups":2,"ok":2,"bad_requests":0,"refused":{"400 invalid_request":3},"upstream_rate_limited":0,"max_in_flight":1}}

@@ -52,8 +52,8 @@ from decimal import Decimal  # noqa: E402
 
 from facts_io import is_int, iter_jsonl, need_int, need_str, read_json, sha256_file  # noqa: E402
 from facts_num import (EXACT, FactsError, canonical, dec_parse, dec_str, dsum, fmt_date_dmy, fmt_ms1,  # noqa: E402
-                       fmt_pct, fmt_pp, fmt_s0, fmt_signed, fmt_usd, fmt_utc_hm, frac_diff, group_int, nearest_rank,
-                       parse_utc, reported_decimal)
+                       fmt_neurons, fmt_pct, fmt_pp, fmt_s0, fmt_signed, fmt_usd, fmt_utc_hm, frac_diff, group_int,
+                       nearest_rank, parse_utc, reported_decimal)
 
 TK = os.path.dirname(HERE)
 OOS_REPLAY = {"clinc": "option_80"}
@@ -99,6 +99,9 @@ class Facts:
 
     def usd(self, fid, d):
         self.add(fid, dec_str(d), "usd", {f"usd{p}": fmt_usd(d, p) for p in (2, 4, 6)})
+
+    def neurons(self, fid, d):
+        self.add(fid, dec_str(d), "neurons", {f"neurons{p}": fmt_neurons(d, p) for p in (0, 2)})
 
     def us(self, fid, n):
         self.add(fid, n, "us", {"ms1": fmt_ms1(n), "s0": fmt_s0(n)})
@@ -203,9 +206,29 @@ def model_of(body):
     return m
 
 
+NEURONS_HEADER = "cf-ai-neurons"
+PLAIN_DECIMAL = re.compile(r"[0-9]+(?:\.[0-9]+)?")
+
+
+def neurons_of(resp, where):
+    # 4a item 8 (neurons_reported): Cloudflare's own meter, the response header cf-ai-neurons, as an exact decimal. The name is
+    # compared in lower case. The value must be one plain decimal (ASCII digits, optionally a point and digits); a list, a duplicate
+    # (two keys that differ only in case) or any other text stops the build. None when the response has no such header.
+    headers = resp.get("headers")
+    if not isinstance(headers, dict):
+        return None
+    keys = [k for k in headers if k.lower() == NEURONS_HEADER]
+    if not keys:
+        return None
+    value = headers[keys[0]]
+    if len(keys) > 1 or not isinstance(value, str) or not PLAIN_DECIMAL.fullmatch(value):
+        raise FactsError(f"{where}: response header {NEURONS_HEADER} is not one plain decimal")
+    return Decimal(value)
+
+
 def scan_wire(path, where):
     s = {"records": 0, "attempts": 0, "blocked": 0, "network_errors": 0, "status": Counter(), "tin": 0, "tout": 0,
-         "costs": [], "lat": [], "models": set(), "masked": Counter(), "tfirst": None, "tlast": None, "seqs": {},
+         "costs": [], "neurons": [], "lat": [], "models": set(), "masked": Counter(), "tfirst": None, "tlast": None, "seqs": {},
          "dseqs": set(), "null_dseq": 0}
     for n, rec in iter_jsonl(path, gz=True):
         w = f"{where}:{n}"
@@ -268,6 +291,9 @@ def scan_wire(path, where):
                 s["costs"].append(reported_decimal(c))
         if 200 <= status < 300:
             s["lat"].append(us)
+            n_header = neurons_of(resp, w)
+            if n_header is not None:
+                s["neurons"].append(n_header)
             m = model_of(body)
             if m is not None:
                 if not isinstance(m, str) or not m:
@@ -478,6 +504,8 @@ def compute_stage(ctx, F, route, bench, stage):
     F.usd(f"{p}.cost_usd", cost)
     if wire["costs"]:
         F.usd(f"{p}.cost_reported_usd", dsum(wire["costs"]))
+    if wire["neurons"]:
+        F.neurons(f"{p}.neurons_reported", dsum(wire["neurons"]))
     if wire["lat"]:
         lat = sorted(wire["lat"])
         for name, q in (("p50", 50), ("p90", 90), ("p99", 99)):

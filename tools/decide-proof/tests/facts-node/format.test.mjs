@@ -118,6 +118,7 @@ describe("recorded times", () => {
     assert.deepEqual(Object.keys(displayFor("count", 5)), ["int"]);
     assert.deepEqual(Object.keys(displayFor("ratio", { num: 1n, den: 3n })), ["pct0", "pct1", "pct2"]);
     assert.deepEqual(Object.keys(displayFor("usd", "0.5")), ["usd2", "usd4", "usd6"]);
+    assert.deepEqual(Object.keys(displayFor("neurons", "19854.08")), ["neurons0", "neurons2"]);
     assert.deepEqual(Object.keys(displayFor("us", 5n)), ["ms1", "s0"]);
     assert.deepEqual(Object.keys(displayFor("utc", "2026-10-17T10:02:03Z")), ["utc_hm", "date_dmy"]);
     assert.deepEqual(displayFor("text", "x"), { text: "x" });

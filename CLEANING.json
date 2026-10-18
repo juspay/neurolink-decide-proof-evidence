@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "what": "Log of every change between the source audit folder / toolkit and this repository. Counts and hashes only: no replaced value is written here.",
+ "what": "Log of every change between the source audit folders / toolkit and this repository, in two steps: the first commit (keys source, rules, audit, toolkit, unmodified_inputs, verification) and the second (key step_2). Counts and hashes only: no replaced value is written here.",
  "source": {
   "commit": "2e399ea16aa955f53487138ebb8d03e38c2832eb of the internal marketing repository",
   "state_copied": "git archive of that commit for data/social/audits/liquid-d1-2026-10-17 (136 files) and tools/decide-proof (220 files, exactly the git-tracked files). The working folders held the same bytes for the audit; the working toolkit folder held extra git-ignored build outputs and test logs, which are not copied."
@@ -778,7 +778,651 @@
  "omitted_from_this_repo": [
   {
    "path": "tools/decide-proof/audits/blog-redo-2026-10-17/templates/article.md.tmpl",
-   "why": "the template of the blog redo article, which is not published yet; it is added with that audit"
+   "why": "the template of the blog redo article, which is not published yet; it is added with that audit",
+   "status": "at the first commit only; included in step 2 (see step_2.toolkit_update.added)"
   }
- ]
+ ],
+ "step_2": {
+  "what": "Second commit: adds the blog redo audit, the twelve saved first-pass files it recounts, and brings tools/decide-proof to the newer state. Written in the same way as the first step.",
+  "source": {
+   "commit": "0d7330c942f54912712cde8d926b93770b37d6b6 of the internal marketing repository",
+   "state_copied": "git archive of that commit for data/social/audits/blog-redo-2026-10-17 (274 files), tools/decide-proof (221 files, exactly the git-tracked files) and the twelve rows-*.jsonl files of data/social/engagement-small-2026-10-10/article-2026-10-12/sources. The working tree held the same bytes (checked with diff -rq / cmp for the audit folder, the toolkit's tracked files and the twelve files).",
+   "previous_commit_of_this_repository": "04f28e0"
+  },
+  "rules_applied": {
+   "toolkit": {
+    "home_prefix": 170,
+    "scratch_path": 4,
+    "literal_users_assertion": 3,
+    "files_rewritten": 19,
+    "rule_definitions": "as in `rules` above (same patterns as the first step)"
+   },
+   "audit_blog_redo": "none: a dry run of the same rules over the plain files found nothing to rewrite",
+   "saved_first_pass_files": "none: a dry run of the same rules found nothing to rewrite",
+   "not_applied": "temp_dir (no macOS temp-directory path outside the recordings of the first audit's probes) and repo_root_relative (blog-expected.json already names its saved files relative to the repository root)"
+  },
+  "audit_blog_redo": {
+   "path": "data/social/audits/blog-redo-2026-10-17",
+   "files_in_source": 274,
+   "files_in_repo": 274,
+   "files_identical_to_source": 274,
+   "files_rewritten": 0,
+   "files_regenerated": 0,
+   "files_with_unlogged_difference": [],
+   "total_bytes": 239864702,
+   "facts_json_sha256": "886d65b081fd7d28de7a2fd27571a83e0274260f4adbf4c7f4fe4ab0674c95d5",
+   "facts_hash_source": "886d65b081fd",
+   "facts_hash_export": "886d65b081fd",
+   "manifest_sha256_of_manifest": "f1c2bd0f73cfbc079d8559e8dc7243c0ccd60b96ea480d6d52e080adedccaef7",
+   "film_mp4_sha256": "bd1796efdc31def553b325b3a1907361b552cda3f6066d36608bc384c43aa18a",
+   "poster_png_sha256": "f2ac0e2141e091dbf09a0e312a7c31330fd0eeaa24d55b88ed2ac8634f016be0",
+   "already_cleaned_at_the_source": "the folder's own CLEANING.json lists its earlier pass (home-directory paths in the kit's logs, temp-directory paths in the probes' environment files, and the gateway's response-header values in the two XOR probe recordings, masked with the toolkit's header token); REMASK.json files list the IPv4 re-masking of four recordings",
+   "approval_record_in_folder": "approval/article.json is a sealed record of the build and still reads review_status pending_human_approve; it was not edited"
+  },
+  "saved_first_pass_files": {
+   "directory": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources",
+   "files": [
+    {
+     "cell": "clef-flash.banking77",
+     "path": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-banking77-clef-flash.jsonl",
+     "lines": 3080,
+     "sha256": "ba474aecd5dd24c42a4ee22ef33070e463755c01da4cca46c30bf7216ce59ae8",
+     "bytes": 1089732
+    },
+    {
+     "cell": "clef-flash.clinc",
+     "path": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-clinc150-clef-flash.jsonl",
+     "lines": 5500,
+     "sha256": "366ee47b0b85d64b35e3c908e874faf9eee2e5299b49f25e1c4070970cb69a3e",
+     "bytes": 2106739
+    },
+    {
+     "cell": "clef.banking77",
+     "path": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-banking77-clef.jsonl",
+     "lines": 3080,
+     "sha256": "6497cc83fa342194c8e47baf32553d4160be01e2630e7d5ffc222698f28d3e61",
+     "bytes": 1090485
+    },
+    {
+     "cell": "clef.clinc",
+     "path": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-clinc150-clef.jsonl",
+     "lines": 5500,
+     "sha256": "a37a4989ae58340f742a969ef74b0b7d94b3d27f588c443a2088aded7ae8edce",
+     "bytes": 2059111
+    },
+    {
+     "cell": "jev.banking77",
+     "path": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-banking77-jev.jsonl",
+     "lines": 3080,
+     "sha256": "c00f031a84aa014fb50b40a591a595ecd6f37f600f668d84528653ea4d192792",
+     "bytes": 1025784
+    },
+    {
+     "cell": "jev.clinc",
+     "path": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-clinc150-jev.jsonl",
+     "lines": 5500,
+     "sha256": "1a0e9983cab678d752180494d976856f045f4272135ef022f426dae1a70827f8",
+     "bytes": 1938656
+    },
+    {
+     "cell": "luna.banking77",
+     "path": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-banking77-luna.jsonl",
+     "lines": 3080,
+     "sha256": "100874a39cdc8c68cec6003f7b6d6824b554d511016e9deb4ba47ad0cf855482",
+     "bytes": 1036389
+    },
+    {
+     "cell": "luna.clinc",
+     "path": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-clinc150-luna.jsonl",
+     "lines": 5500,
+     "sha256": "ee2bb5b801c76c1afd51c2c51c7c83e65f8035157cc3e048011478cc1d8fa3d4",
+     "bytes": 1949676
+    },
+    {
+     "cell": "perplexity-v1.banking77",
+     "path": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-banking77-perplexity-v1.jsonl",
+     "lines": 3080,
+     "sha256": "4d4c6cc17f00ba76774de38dd3d6bffc88f3abf9ab43bad2d431a7d412e655bf",
+     "bytes": 1304787
+    },
+    {
+     "cell": "perplexity-v1.clinc",
+     "path": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-clinc150-perplexity-v1.jsonl",
+     "lines": 5500,
+     "sha256": "ebdec4c0879650ddcf27f601940963b52cd5c73b5c4d5823d63b9a6646c22d50",
+     "bytes": 2447205
+    },
+    {
+     "cell": "xor.banking77",
+     "path": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-banking77-xor.jsonl",
+     "lines": 3080,
+     "sha256": "d885c0db2058e8f00446ba9f57426dd994a4fcff9841811e2e4edd81d6618347",
+     "bytes": 1087631
+    },
+    {
+     "cell": "xor.clinc",
+     "path": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-clinc150-xor.jsonl",
+     "lines": 5500,
+     "sha256": "6aed51dacf89a6dfdb41d232a98b6347f9448bd3c2358136ad568e4b1edfc364",
+     "bytes": 2065566
+    }
+   ],
+   "identical_to_source": 12,
+   "rewritten": 0,
+   "why": "audit-config.json of the redo has compare.replay = blog; the fact engines read these twelve files by the pinned paths in tools/decide-proof/tests/blog-expected.json, relative to the repository root, and check each sha256 and line count"
+  },
+  "toolkit_update": {
+   "files_in_source_git_tree": 221,
+   "files_in_repo": 221,
+   "identical_to_source": 202,
+   "rewritten_by_path_rules": 19,
+   "other_difference": 0,
+   "rewritten": [
+    {
+     "path": "tools/decide-proof/CONTRACT.md",
+     "sha256_before": "5e6e3c4e83717ddf6406e2a4064ef4042990f8622d1390c29180cb34742909d0",
+     "sha256_after": "d1a918ef54618fbdbc92e1c49217a19a3559bbbeffcf3dcd4e45597b96ce561c",
+     "bytes_before": 26484,
+     "bytes_after": 26412,
+     "replaced": {
+      "home_prefix": 4
+     }
+    },
+    {
+     "path": "tools/decide-proof/audits/liquid-d1-2026-10-17.json",
+     "sha256_before": "656d028305f81d604b642b4c8d15bd2b9b036a2ef3b694ab308ac3b5b0e58f23",
+     "sha256_after": "5f5a3627577b4e56f344371b667a59328c39f75551bf9afabf106035353c0fde",
+     "bytes_before": 3952,
+     "bytes_after": 3916,
+     "replaced": {
+      "home_prefix": 2
+     }
+    },
+    {
+     "path": "tools/decide-proof/docs/map/blog-runs.md",
+     "sha256_before": "cd7c0be3f84a36594651319cdae3b78f658d7b90c88f497580d48eb760adcbb4",
+     "sha256_after": "7cdafb2c2662597ec1c9d69e33e228e6d3cdbbde7712474a0587a98170028db2",
+     "bytes_before": 33632,
+     "bytes_after": 33099,
+     "replaced": {
+      "scratch_path": 1,
+      "home_prefix": 23
+     }
+    },
+    {
+     "path": "tools/decide-proof/docs/map/film.md",
+     "sha256_before": "97dade26cfde2324e370a1ff7786164d29b6797024e124f5a820770737168a75",
+     "sha256_after": "ce565dc37ecaf8508613a95a775eb3049d7f74423cba33f56e25a4f9087a9267",
+     "bytes_before": 25458,
+     "bytes_after": 25170,
+     "replaced": {
+      "home_prefix": 16
+     }
+    },
+    {
+     "path": "tools/decide-proof/docs/map/harness.md",
+     "sha256_before": "9a5ed4086e8968885b8a396e63b250bcfdb572cccf1543fd53f3aaf68ab28630",
+     "sha256_after": "4ce7158e17b1e47e374d386701a354645495948126b2b8d071dd6c0cd90623f9",
+     "bytes_before": 30940,
+     "bytes_after": 30515,
+     "replaced": {
+      "scratch_path": 1,
+      "home_prefix": 17
+     }
+    },
+    {
+     "path": "tools/decide-proof/tests/facts-node/compare.test.mjs",
+     "sha256_before": "62bf54723b145452fc08fcad0ba42481b06eca61fc0129476dcfd37c53e53d53",
+     "sha256_after": "68134cd3d63f860bd814b9116f4160e603991889ff246f5ba55afffc51c06b4f",
+     "bytes_before": 40378,
+     "bytes_after": 40383,
+     "replaced": {
+      "literal_users_assertion": 1
+     }
+    },
+    {
+     "path": "tools/decide-proof/tests/facts-node/replay.test.mjs",
+     "sha256_before": "391cbb210547590f1224c04ba9cb6909bcc0e9b8eecded95c91b6f3ef688d10e",
+     "sha256_after": "af5409105cfabb88e06d3f75e6ba4377babf6ee0e1509b5a0d422332e72b6b33",
+     "bytes_before": 17570,
+     "bytes_after": 17575,
+     "replaced": {
+      "literal_users_assertion": 1
+     }
+    },
+    {
+     "path": "tools/decide-proof/tests/film-check/run-tests.py",
+     "sha256_before": "c1210265c696cfc5a42af232126f14acb5f9ec2e0400afd38f039d2198bc04bc",
+     "sha256_after": "50e5f255aa1e263191145f149ea81856999df8805a0f72da3f17b1f5ca2da4ae",
+     "bytes_before": 27922,
+     "bytes_after": 27925,
+     "replaced": {
+      "literal_users_assertion": 1
+     }
+    },
+    {
+     "path": "tools/decide-proof/tests/fixtures/fake-audit/audit-config.json",
+     "sha256_before": "dd8e8e9e8a905836abd43144dfe2929690d0f64c8be5e9ed9fa72f7ce5a51191",
+     "sha256_after": "40ac474e96e619618bb006cb4c62ffd836e3d2992eb6c0a17dfcd4bae78a36d3",
+     "bytes_before": 3515,
+     "bytes_after": 3479,
+     "replaced": {
+      "home_prefix": 2
+     }
+    },
+    {
+     "path": "tools/decide-proof/tests/fixtures/fake-audit/runs/clef/banking77/full/kit/environment.json",
+     "sha256_before": "208fe2df18a00dd1bf7dc4b94a84456f98e79b23da055ba813f3f1bd022693e5",
+     "sha256_after": "169648d60612767f985c6dd4da45a4deed05f71785a2ac2f1cf247cfba9ccd83",
+     "bytes_before": 917,
+     "bytes_after": 899,
+     "replaced": {
+      "home_prefix": 1
+     }
+    },
+    {
+     "path": "tools/decide-proof/tests/fixtures/fake-audit/runs/clef/banking77/full/kit/results.jsonl",
+     "sha256_before": "dfae34171af7bf4f6367a40b3fea9b40570f9acd39dafdb33561be21b3290684",
+     "sha256_after": "a7dfb15a5aeb6f15ec23923cc7c4558a41646179d2dc3acb189a77129bf7700b",
+     "bytes_before": 74518,
+     "bytes_after": 74356,
+     "replaced": {
+      "home_prefix": 9
+     }
+    },
+    {
+     "path": "tools/decide-proof/tests/fixtures/fake-audit/runs/clef/clinc/full/kit/environment.json",
+     "sha256_before": "ad6f5de9b02aad77a81847ab7c3f627ed62f54efe37392efa902c16039bbafeb",
+     "sha256_after": "d10afabb66b189f90aaccfb5d8e216c7041246192cc9706b3a4b30519b83f638",
+     "bytes_before": 914,
+     "bytes_after": 896,
+     "replaced": {
+      "home_prefix": 1
+     }
+    },
+    {
+     "path": "tools/decide-proof/tests/fixtures/fake-audit/runs/clef/clinc/full/kit/results.jsonl",
+     "sha256_before": "5e33a513e09dafac350c7d5e891e05268dba75297d6772be788bf67da1b304be",
+     "sha256_after": "9ec22b7e3a27999eda5432aef3f16a5c679c6e53b31a716f4aa10dada32b99af",
+     "bytes_before": 160458,
+     "bytes_after": 159540,
+     "replaced": {
+      "home_prefix": 51
+     }
+    },
+    {
+     "path": "tools/decide-proof/tests/fixtures/fake-audit/runs/luna/banking77/full/kit/environment.json",
+     "sha256_before": "c3ed2e4abac73bf1aac653887ceb0db981295ab848e446270b7e4a3ade87baf1",
+     "sha256_after": "5347be391c0aab0015030a80f0eca8eafcc96fafaf54a324ea3bb2ea052c4a58",
+     "bytes_before": 964,
+     "bytes_after": 946,
+     "replaced": {
+      "home_prefix": 1
+     }
+    },
+    {
+     "path": "tools/decide-proof/tests/fixtures/fake-audit/runs/luna/banking77/full/kit/results.jsonl",
+     "sha256_before": "15a0b202bc83ea03d6c7a726bd606bed3f3ddcc61945119c509640cb3fb125b0",
+     "sha256_after": "7f71aaf57e33aca97461a783ab7730000f4b3d6b0896f5f30e562c3dbf25ce40",
+     "bytes_before": 75972,
+     "bytes_after": 75540,
+     "replaced": {
+      "home_prefix": 24
+     }
+    },
+    {
+     "path": "tools/decide-proof/tests/fixtures/fake-audit/runs/luna/clinc/full/kit/environment.json",
+     "sha256_before": "a278c627c83e60b01db7e9d92691358ef2cd8cb4d9f2d2494e82bc59d769a996",
+     "sha256_after": "66fae50f1a1bb00f388b9f6b341bdc62cd3e04e5707fa961c3b2aba2ba823699",
+     "bytes_before": 959,
+     "bytes_after": 941,
+     "replaced": {
+      "home_prefix": 1
+     }
+    },
+    {
+     "path": "tools/decide-proof/tests/fixtures/fake-audit/runs/luna/clinc/full/kit/results.jsonl",
+     "sha256_before": "280fe0c8ffd4266271c80e0d0e7da325fb1d61c83645d38accf4465e6498927f",
+     "sha256_after": "79551a5cc5bb5fe5d1ed13fddff7c8de83637c4b16d25fef4a9a7ae70719835e",
+     "bytes_before": 164306,
+     "bytes_after": 163982,
+     "replaced": {
+      "home_prefix": 18
+     }
+    },
+    {
+     "path": "tools/decide-proof/tests/lib/support/helpers.mjs",
+     "sha256_before": "3c91fa2b6ec2a2a88f703229f0b553af0cf829e8542662d648f81dddbe2184b8",
+     "sha256_after": "a09b7285708c0823feb10d73518071442b1dc92bae5ff00b85dbc38d30376bb4",
+     "bytes_before": 4652,
+     "bytes_after": 4533,
+     "replaced": {
+      "scratch_path": 1
+     }
+    },
+    {
+     "path": "tools/decide-proof/vendor/setup.sh",
+     "sha256_before": "b851eea8da99cdb6becea3e81e7da78f64dd5b9f0352c719a2aabb74a8cdca9d",
+     "sha256_after": "afdcda9790ad313de41374732da4fda920a64812ebd0906bd04e9c8dc35c37fb",
+     "bytes_before": 7701,
+     "bytes_after": 7582,
+     "replaced": {
+      "scratch_path": 1
+     }
+    }
+   ],
+   "against_previous_commit": {
+    "files_before": 219,
+    "files_after": 221,
+    "unchanged": 201,
+    "modified": [
+     {
+      "path": "tools/decide-proof/CONTRACT.md",
+      "sha256_before": "8d55efba1182ad7b8757501c869eeb1cbd94c86010eb71465ae1a27ad00dd033",
+      "sha256_after": "d1a918ef54618fbdbc92e1c49217a19a3559bbbeffcf3dcd4e45597b96ce561c",
+      "bytes_before": 25266,
+      "bytes_after": 26412
+     },
+     {
+      "path": "tools/decide-proof/audits/blog-redo-2026-10-17/film.json",
+      "sha256_before": "29c0d6938f20ec27c7f2f256a104207dfa75889e313b91d0088484dac7872d14",
+      "sha256_after": "55326fca9ca57e4e8170d30571f64e9058a2bf35ac7f98cc86ddd91338c30a03",
+      "bytes_before": 269,
+      "bytes_after": 275
+     },
+     {
+      "path": "tools/decide-proof/facts/RULES.md",
+      "sha256_before": "271c6fcb7b490bebc94c4158499b2fdd5b396876510b2dd4d70ee1ff9860e59d",
+      "sha256_after": "dd20cc846b5dbf126352a22a5c82a4eadffeb1d0c2416db630cb1f1c7daaf5cf",
+      "bytes_before": 11851,
+      "bytes_after": 12749
+     },
+     {
+      "path": "tools/decide-proof/facts/facts-core.mjs",
+      "sha256_before": "468a1230485b42bb756061c8990f4c60c22eb52bab4a7a7b3e8f131a123362eb",
+      "sha256_after": "9aa56f29cdf4d2d0bf5e2cd6ce260ac577641d7790b7eb3ea81bcfb445bc6e1e",
+      "bytes_before": 30159,
+      "bytes_after": 31423
+     },
+     {
+      "path": "tools/decide-proof/facts/facts-util.mjs",
+      "sha256_before": "1b8ccd66ee4e2fc3f38ff8d5ae8e4fac3ea52527ec4e14771afaba159770aa5b",
+      "sha256_after": "e76eaf443d21fbd3ce404c6f1596166b3a5f5c7a92914360537429938f689d23",
+      "bytes_before": 11906,
+      "bytes_after": 12509
+     },
+     {
+      "path": "tools/decide-proof/facts/facts.py",
+      "sha256_before": "b82a8adaad65c52a10b90e2762b11f4092cc2dcd90d771f92cb6f6ba664d9235",
+      "sha256_after": "4b2c6049101fedb1b60930bb18ce58bbbfaecfffcc369c3c662512b03ee79399",
+      "bytes_before": 37675,
+      "bytes_after": 38979
+     },
+     {
+      "path": "tools/decide-proof/facts/facts_num.py",
+      "sha256_before": "df9c663d8dfbdf55e9b0b3d7527f3798a81aaedd8e071a03bc98880bd1f6c8db",
+      "sha256_after": "f55b8de2bba1dc7cc9d10b0d35dcf86a05250f2f10a91644ff79ea7d09563714",
+      "bytes_before": 7290,
+      "bytes_after": 7639
+     },
+     {
+      "path": "tools/decide-proof/film/app/film.js",
+      "sha256_before": "1a289004fc1467b2969c47f5f13b198b810e784ff0f4dfc08a1f31dbe1541a28",
+      "sha256_after": "cd5f1d555130ff1324ae2347d0cd13b0e6329a072ef86a4f59f552e39edaaf78",
+      "bytes_before": 41503,
+      "bytes_after": 41857
+     },
+     {
+      "path": "tools/decide-proof/film/app/style.css",
+      "sha256_before": "9e4d1a689aec1ab2b9703e5e4c7d4c5a497d3d9b1b2253e7803c4aec36c04ce4",
+      "sha256_after": "4c0aa91b1a6e68eb63f62d154a2f5009dcc0bc8fcb23dd09909d33bf92ceb700",
+      "bytes_before": 10769,
+      "bytes_after": 10813
+     },
+     {
+      "path": "tools/decide-proof/film/check_film.py",
+      "sha256_before": "adebe7cfcec98268374136ccc0de48c9851e13814058bdf9165c9a17d922bba2",
+      "sha256_after": "87636b8959ce1ac53190047d540cee52ad3fd4ecf9dbd18370b63bd47ce3c9c2",
+      "bytes_before": 128768,
+      "bytes_after": 131057
+     },
+     {
+      "path": "tools/decide-proof/film/scene.mjs",
+      "sha256_before": "1e2f212ca32bb8b7ad6880a256350d02f22e3f80d2e95b665fdff065092f77c3",
+      "sha256_after": "1c1523cdda15d0f589b3c07633cb7b83edcd39a47759efbcc7ab827bdc9d67c1",
+      "bytes_before": 45499,
+      "bytes_after": 46913
+     },
+     {
+      "path": "tools/decide-proof/tests/facts-node/format.test.mjs",
+      "sha256_before": "3ae7fbf375a9084e1bdd2da077d52b63be8aab91d67eefec23b60ac3b042c227",
+      "sha256_after": "db2b88f180eb2575be37972fe79dc227e82b72f0544e69b99e0b2ae7956beb72",
+      "bytes_before": 11671,
+      "bytes_after": 11767
+     },
+     {
+      "path": "tools/decide-proof/tests/facts-node/pinned.test.mjs",
+      "sha256_before": "ca5da8ab2fd13296a0fcee5026e2ec7030edd30fb18c344bd5f2f1aa804d7853",
+      "sha256_after": "619ac969e17933e18ccd92edac9fba76d7d542d36a237071732e675a7696e893",
+      "bytes_before": 44813,
+      "bytes_after": 44915
+     },
+     {
+      "path": "tools/decide-proof/tests/facts-py/test_facts.py",
+      "sha256_before": "1a71488367023a12e02805cc4c8621d1961b7520460b74c32ae5f36799b19dc8",
+      "sha256_after": "cf9f2533c62ed1f9ede08b76c2279307a2bab428f42af042ea42c9b2e9251cf8",
+      "bytes_before": 120564,
+      "bytes_after": 124045
+     },
+     {
+      "path": "tools/decide-proof/tests/film-check/run-tests.py",
+      "sha256_before": "0bc9935b1483e84e068664e03e36ac4ab2966c886fb5ed7b3b2fc4b740eb7586",
+      "sha256_after": "50e5f255aa1e263191145f149ea81856999df8805a0f72da3f17b1f5ca2da4ae",
+      "bytes_before": 26402,
+      "bytes_after": 27925
+     },
+     {
+      "path": "tools/decide-proof/tests/film/run-tests.mjs",
+      "sha256_before": "84e1511ac1b779868c2b939959ddfe9fcc6c676e7f860edb6dc81a4c3c3aa496",
+      "sha256_after": "e496d6cde34387a3ef8257effec2e764ac32ea39478125407d2f7c91515155b7",
+      "bytes_before": 21825,
+      "bytes_after": 23360
+     },
+     {
+      "path": "tools/decide-proof/tests/text-py/test_check_text.py",
+      "sha256_before": "03f2f8119c2298d9a3db8b3e2e33c8db77a65007ddca2cc7e4f7b340a3d1fc08",
+      "sha256_after": "f315142fd818ee1575699497b5cc69f259094d007685749f2fa4df4ad479a91d",
+      "bytes_before": 34951,
+      "bytes_after": 35494
+     },
+     {
+      "path": "tools/decide-proof/text/check_facts.py",
+      "sha256_before": "3afc29dc7b36d16cdf9820713380f1cd52d53ad67d64439d57d198abdec5bafc",
+      "sha256_after": "00d7c70bc5de96b66d5ee539d9324221059bcbcd001a7e01cc775acf7f7e7482",
+      "bytes_before": 7727,
+      "bytes_after": 8391
+     }
+    ],
+    "added": [
+     {
+      "path": "tools/decide-proof/audits/blog-redo-2026-10-17/templates/article.md.tmpl",
+      "sha256": "c913819dcec417ed4591a5ac7bbdc2221eda5c6530a61176c88260eb5b64b0d0",
+      "bytes": 26113
+     },
+     {
+      "path": "tools/decide-proof/tests/facts-node/neurons.test.mjs",
+      "sha256": "f238a1fd60403b38b925d749df1f97c19f39e0aca636f854d0f071dc00474378",
+      "bytes": 5115
+     }
+    ],
+    "removed": []
+   },
+   "note_on_first_record": "the first step's toolkit record says 220 files; commit 04f28e0 holds 219 files under tools/decide-proof (git ls-tree)",
+   "new_fact_rule": "neurons_reported (contract 4a item 8): the sum of the cf-ai-neurons response header over the successful responses of a stage, in both fact engines (facts-core.mjs, facts.py, facts_num.py). It yields nothing for a stage whose responses carry no such header.",
+   "template_included": "tools/decide-proof/audits/blog-redo-2026-10-17/templates/article.md.tmpl, left out at the first step because its article was unpublished",
+   "verifier_code": "the files verify.sh runs are byte-identical to commit 0d7330c"
+  },
+  "liquid_audit": {
+   "folder_changed": false,
+   "facts_regenerated_with_the_updated_toolkit_equal_facts_json": "99dc62442173",
+   "how": "verify.sh of the Liquid audit with the updated toolkit: node = python = facts/facts.json"
+  },
+  "identifiers": {
+   "what": "values of identifiers loaded in-process from the author's env files and searched for in plain files and decompressed .gz (never printed here); media were not searched as text, but the film's frames (1 per second, 98) and the poster were read with tesseract and searched the same way",
+   "xor_origin_host": {
+    "unmasked_occurrences": 0,
+    "files": 0,
+    "masked_token_occurrences": 10,
+    "masked_token_files": 2,
+    "also_checked": "its registrable domain: 0 occurrences",
+    "in_public_juspay_neurolink_release_branch": "no (0 files; checked in a shallow clone of release, commit f3e87ee840e3, for the host, the full base URL and the registrable domain)",
+    "masked_token_counts_note": "counted over the tree before this file was written, so this file is not in them"
+   },
+   "cloudflare_account_id": {
+    "unmasked_occurrences": 0,
+    "files": 0,
+    "masked_token_occurrences": 17494,
+    "masked_token_files": 18,
+    "url_path_segment_forms": "api.cloudflare.com/client/v4/accounts/«masked:CLOUDFLARE_ACCOUNT_ID»/ in every recording; three other path segments occur in toolkit tests, all synthetic",
+    "masked_token_counts_note": "counted over the tree before this file was written, so this file is not in them"
+   },
+   "notes_cloudflare_token_check_files": {
+    "files": 2,
+    "account_or_token_ids_in_them": 0
+   },
+   "gateway_headers_of_the_two_xor_probes": "every x-litellm-* header, x-typesafe-request-id and x-request-id value is the toolkit's header token (checked on the decompressed recordings)",
+   "x_request_id_of_other_routes": "the request ids that Jev's own provider and others return in their response headers are recorded as returned; they are not XOR identifiers",
+   "cloudflare_token_prefix": {
+    "occurrences_of_the_prefix_in_the_tree_before_this_file_was_written": 0,
+    "note": "searched in plain files, decompressed .gz and, as raw bytes, the media; the prefix itself is not spelled out in this file"
+   },
+   "bearer_authorization_values": "62,887 occurrences of the Authorization scheme word followed by the mask token; 9 followed by a documentation or test value in toolkit files (none equals or contains any value of the env files); the rest are placeholders or plain words; none followed by anything but the mask token in any recording under runs/ (the other non-mask cases are in the audits' film files and the toolkit)"
+  },
+  "verification": {
+   "author_machine": {
+    "what": "bash verify-all.sh on this tree, HOME as usual (143 secret values)",
+    "lines": [
+     "== blog-redo-2026-10-17",
+     "[ok]   manifest: every file matches its sha256",
+     "[ok]   manifest: no file missing, none extra",
+     "[ok]   facts: node = python = facts.json (886d65b081fd)",
+     "[ok]   text article: every number is a fact or a literal",
+     "[ok]   scan: 0 hits for 143 secret values, control ok",
+     "VERDICT PASS: blog-redo-2026-10-17",
+     "== liquid-d1-2026-10-17",
+     "[ok]   manifest: every file matches its sha256",
+     "[ok]   manifest: no file missing, none extra",
+     "[ok]   facts: node = python = facts.json (99dc62442173)",
+     "[ok]   text bsky: every number is a fact or a literal",
+     "[ok]   text linkedin: every number is a fact or a literal",
+     "[ok]   text x-reply: every number is a fact or a literal",
+     "[ok]   scan: 0 hits for 143 secret values, control ok",
+     "VERDICT PASS: liquid-d1-2026-10-17"
+    ]
+   },
+   "empty_home": {
+    "what": "bash verify-all.sh on this tree with HOME set to an empty directory (no env file, so the scan runs its planted control only)",
+    "lines": [
+     "== blog-redo-2026-10-17",
+     "[ok]   manifest: every file matches its sha256",
+     "[ok]   manifest: no file missing, none extra",
+     "[ok]   facts: node = python = facts.json (886d65b081fd)",
+     "[ok]   text article: every number is a fact or a literal",
+     "[ok]   scan: 0 hits for 0 secret values, control ok",
+     "VERDICT PASS: blog-redo-2026-10-17",
+     "== liquid-d1-2026-10-17",
+     "[ok]   manifest: every file matches its sha256",
+     "[ok]   manifest: no file missing, none extra",
+     "[ok]   facts: node = python = facts.json (99dc62442173)",
+     "[ok]   text bsky: every number is a fact or a literal",
+     "[ok]   text linkedin: every number is a fact or a literal",
+     "[ok]   text x-reply: every number is a fact or a literal",
+     "[ok]   scan: 0 hits for 0 secret values, control ok",
+     "VERDICT PASS: liquid-d1-2026-10-17"
+    ],
+    "exit": 0
+   },
+   "scan": {
+    "what": "the toolkit's scanner, run from tools/decide-proof as node bin/proof.mjs scan --audit <redo audit-config.json> --json <out> <paths> (143 secret values; plain, URL-encoded, base64 and JSON-escaped forms; inside .gz too); its planted control must pass first",
+    "data_scope": {
+     "paths": "data/ (both audits and the twelve saved files) and decide-proof-vd/rows",
+     "targets": 143,
+     "control": "pass",
+     "files_scanned": 420,
+     "secret_hits": 0,
+     "files_with_hits": 0,
+     "media_skipped": 4
+    },
+    "root_files": "README.md, CLEANING.json, LICENSE, LICENSE-DATA.md, verify-all.sh and .gitattributes were scanned again after they were written: 0 hits (see the commit's result record)",
+    "whole_tree": {
+     "paths": "the whole tree",
+     "targets": 143,
+     "control": "pass",
+     "files_scanned": 710,
+     "secret_hits": 41,
+     "files_with_hits": 33,
+     "media_skipped": 11,
+     "hits_by_area": {
+      "decide-proof-vd/kit": 4,
+      "tools/decide-proof/docs": 6,
+      "tools/decide-proof/lib": 6,
+      "tools/decide-proof/runner": 12,
+      "tools/decide-proof/tests": 13
+     },
+     "all_hits_are_in": "tools/decide-proof (docs, lib, runner, tests) and decide-proof-vd/kit only; none in data/, the rows or the root files",
+     "why_they_are_not_secrets": "the same 41 hits as the first step. The variables LM_STUDIO_BASE_URL, LMSTUDIO_BASE_URL, TEST_LM_STUDIO_BASE_URL, LLAMACPP_BASE_URL, TEST_LLAMACPP_BASE_URL and OLLAMA_BASE_URL hold loopback http URLs of 22 to 24 characters (classified in-process, never printed); GOOGLE_AUTH_UNIVERSE_DOMAIN is a 14-character bare public domain (two kit files); IPV4_ADDRESS is the scanner's own rule firing on the synthetic addresses in tests/lib/mask.test.mjs."
+    }
+   },
+   "grep": {
+    "what": "read-only byte search of every plain file and of the decompressed content of every .gz; counts",
+    "counts": {
+     "files_examined": 720,
+     "users_path": 0,
+     "username": 0,
+     "scratch_or_tmp": 0,
+     "banned_phrase": 0,
+     "ipv4_in_mask_files": 10,
+     "ipv4_elsewhere": 0
+    },
+    "patterns": "the path prefix of a user's home directory; the author's username (case-insensitive); session scratch and per-user temp directory names; three phrases the write-ups must not use; IPv4 addresses other than 127.x"
+   },
+   "tests": {
+    "what": "the toolkit's own tests on a copy of this tree with the same commands as the first step",
+    "node": {
+     "tests": 346,
+     "pass": 340,
+     "fail": 0,
+     "cancelled": 0,
+     "skipped": 6,
+     "exit": 0
+    },
+    "facts_py": {
+     "tests": 155,
+     "result": "OK",
+     "exit": 0
+    },
+    "text_py": {
+     "tests": 43,
+     "result": "OK",
+     "exit": 0
+    },
+    "before": {
+     "node": {
+      "tests": 341,
+      "fail": 24,
+      "skipped": 6
+     },
+     "facts_py": {
+      "tests": 129,
+      "failed": 3
+     },
+     "text_py": {
+      "tests": 43,
+      "failed": 0
+     }
+    },
+    "earlier_failing_set_now_passes": true
+   }
+  }
+ }
 }

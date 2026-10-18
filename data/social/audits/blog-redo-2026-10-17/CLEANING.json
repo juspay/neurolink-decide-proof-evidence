@@ -1,0 +1,488 @@
+{
+ "schema": 1,
+ "what": "Log of every file of this audit folder that was rewritten after it was written by the run, to take the machine-specific paths and the gateway's own header values out of it. Counts and hashes only: no replaced value is written here.",
+ "rules": [
+  {
+   "id": "home_prefix",
+   "what": "the home-directory prefix of the machine that made the runs, in plain-text files of the kit (kit/environment.json, kit/results.jsonl tracebacks, kit/pass1.log)",
+   "replaced_with": "~"
+  },
+  {
+   "id": "temp_dir",
+   "what": "the per-user directory the operating system gives to temporary files, as a path prefix, in kit/environment.json of the probe stages",
+   "replaced_with": "/tmp/"
+  },
+  {
+   "id": "gateway_headers",
+   "what": "response headers of the two XOR probe recordings that identify an internal gateway: every x-litellm-* header, x-typesafe-request-id and x-request-id (the same value as the former); the whole value became the toolkit's header token (lib/mask.mjs headerToken), the form already used for set-cookie, and the file was rewritten with lib/gz.mjs gzipReproducible after a check that every record round-trips through JSON.stringify unchanged",
+   "replaced_with": "«masked:header:<name>»"
+  }
+ ],
+ "not_touched_in_this_pass": [
+  "wire.jsonl.gz and decide.jsonl.gz of every counted stage (they hold no path of the machine; checked after decompression), and of every other stage except the two XOR probes named above",
+  "REMASK.json files (the film counts their entries); the sha256_after of runs/xor/banking77/probe/REMASK.json is the sha256_before of that recording below",
+  "the rows files, the notes, the posts, the approval record"
+ ],
+ "regenerated_afterwards": {
+  "what": "files the build writes itself; they were rebuilt by `proof all` after this cleaning, so their new hashes are in MANIFEST.sha256. Their old hashes (the committed state before this cleaning) are listed for the record. audit-config.json is now the toolkit's audit config with the env file paths written with ~, and scan/scan-result.json now names skipped files relative to the audit folder.",
+  "files": [
+   {
+    "file": "MANIFEST.sha256",
+    "sha256_before": "e8943794dcf424fff23aa021ec7557b517d174ff6608866c34a437f4edba1cf8"
+   },
+   {
+    "file": "audit-config.json",
+    "sha256_before": "c7724b2ef217c3e6e6c90b937688d4d39229df5014bbbf38c2e442f52f20f449"
+   },
+   {
+    "file": "facts/facts-node.json",
+    "sha256_before": "7c8444974c7160b2cace9ffa5dc6cda1f3a8adc9c3e315b63fd4244c5d2adabe"
+   },
+   {
+    "file": "facts/facts-py.json",
+    "sha256_before": "7c8444974c7160b2cace9ffa5dc6cda1f3a8adc9c3e315b63fd4244c5d2adabe"
+   },
+   {
+    "file": "facts/facts.json",
+    "sha256_before": "7c8444974c7160b2cace9ffa5dc6cda1f3a8adc9c3e315b63fd4244c5d2adabe"
+   },
+   {
+    "file": "film/captures/verify-run.json",
+    "sha256_before": "560bb330751bb3a9d94499a6ee4aa599c309c442c4ef4a2a3842363ee6ff8bec"
+   },
+   {
+    "file": "film/captures/verify-run.stderr.txt",
+    "sha256_before": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+   },
+   {
+    "file": "film/captures/verify-run.stdout.txt",
+    "sha256_before": "5c2dcd704cef1aac491cd68d34776e22f0134a2575b7ccd0ae2f38ee2d972d41"
+   },
+   {
+    "file": "film/check-result.json",
+    "sha256_before": "118356f2c9c6471fa9938a3e7c2a51af8e34cff1f1d276c97b1402d0b002f058"
+   },
+   {
+    "file": "film/film.mp4",
+    "sha256_before": "1a2a5afd1bcf8af5a830bfab1c8fd97b40e025467224783ceefbaff7c18aa9a6"
+   },
+   {
+    "file": "film/poster.png",
+    "sha256_before": "1a29586614e468bd2bef7ccf04c8e066b746e5ab7f1dc32bf5098598659cd3ae"
+   },
+   {
+    "file": "film/probe.json",
+    "sha256_before": "c95fceda5bffe9dac11588cabe10cf5e3ddd86b5368be79407e8417adc3db5c9"
+   },
+   {
+    "file": "film/scene.json",
+    "sha256_before": "39d597c0e9c6a13496d8b1b766ccc5056db749e43b433a970beaef30342c784c"
+   },
+   {
+    "file": "scan/scan-result.json",
+    "sha256_before": "251da615b14be0e4e1d805732735eed7d46aace7a41ecad7192d56f9bf876947"
+   },
+   {
+    "file": "text/article.md",
+    "sha256_before": "1112880e9b5b6fa820f9de51d46a139e66a277bdd2f41b1bd2c3fae2a8ecd264"
+   },
+   {
+    "file": "text/article.provenance.json",
+    "sha256_before": "603d5c84d87d7c21d298f770c39c4c9d2c44338acc65ea4f8b06fccfac840cfe"
+   },
+   {
+    "file": "verify.sh",
+    "sha256_before": "780d5401964fa306065f9da04d595f8382f45c8ef077ca892d264842c7c7b76b"
+   }
+  ]
+ },
+ "unchanged_files": 223,
+ "files": [
+  {
+   "file": "runs/clef-flash/banking77/full/kit/environment.json",
+   "rule": "home_prefix",
+   "replaced": {
+    "home_prefix": 1
+   },
+   "sha256_before": "769e5177fcdb44686413c2a7e2014cdaabd3ae97b3de8311a98ec8689930a896",
+   "sha256_after": "bb3acf029fd6b4ffd97ed9f3f117f7002d45b3d30c5636830c108977d872cace",
+   "bytes_before": 865,
+   "bytes_after": 847
+  },
+  {
+   "file": "runs/clef-flash/banking77/probe-r2/kit/environment.json",
+   "rule": "temp_dir",
+   "replaced": {
+    "temp_dir": 1
+   },
+   "sha256_before": "22fa8ce8cdcfa0cc2659493714c81f6c64de7f38df0163c4e881d4623deb8fae",
+   "sha256_after": "7fad6ec7e95beabf0fdf6f843bbb014dd3b2065bb670561558b0dd1fad13eaba",
+   "bytes_before": 884,
+   "bytes_after": 840
+  },
+  {
+   "file": "runs/clef-flash/banking77/probe/kit/environment.json",
+   "rule": "temp_dir",
+   "replaced": {
+    "temp_dir": 1
+   },
+   "sha256_before": "add5178f9bffdc1880e7ff0fcc7f060cb755334bb65e212f79b69dff7489ddfb",
+   "sha256_after": "2b565bf4119b71279e646d9a428b0b2633058abcea4d0efcca4797bfb2cc9aa1",
+   "bytes_before": 884,
+   "bytes_after": 840
+  },
+  {
+   "file": "runs/clef-flash/banking77/probe/kit/pass1.log",
+   "rule": "home_prefix",
+   "replaced": {
+    "home_prefix": 7
+   },
+   "sha256_before": "620bc5a9f567e06bbebb1de55538047ff715fa4ded48082ff99e3992a105837f",
+   "sha256_after": "832a8f6dafe130243fd33575d367687e28a385af11602716b73574f85cc9ad62",
+   "bytes_before": 1660,
+   "bytes_after": 1534
+  },
+  {
+   "file": "runs/clef-flash/clinc/full/kit/environment.json",
+   "rule": "home_prefix",
+   "replaced": {
+    "home_prefix": 1
+   },
+   "sha256_before": "f16473ae43a74c6e99342bc48c9cd5f346588d56b93988f960c7a231452ba480",
+   "sha256_after": "262d0ab245a8e5a9e1d0dc54bd6e619b225012d0ba9aeefb047a0316d812464c",
+   "bytes_before": 862,
+   "bytes_after": 844
+  },
+  {
+   "file": "runs/clef/banking77/full/kit/environment.json",
+   "rule": "home_prefix",
+   "replaced": {
+    "home_prefix": 1
+   },
+   "sha256_before": "9b42efd4cee77ac8effecc11dcf116fad3679f4039f30646c6fcc0beae745cb9",
+   "sha256_after": "11e76f82718414719ba87166637dcabb53ed7285bb0db86867c94f75ba9eee11",
+   "bytes_before": 853,
+   "bytes_after": 835
+  },
+  {
+   "file": "runs/clef/banking77/probe-r2/kit/environment.json",
+   "rule": "temp_dir",
+   "replaced": {
+    "temp_dir": 1
+   },
+   "sha256_before": "3a4726092e8624e571b6df05d51409b9ee205df46df517562ad367d0908bf33c",
+   "sha256_after": "bc9294c409982302bdbd21c16ed4dfee8f3aa3a25f14f6c5852ab5939358e0fe",
+   "bytes_before": 872,
+   "bytes_after": 828
+  },
+  {
+   "file": "runs/clef/banking77/probe/kit/environment.json",
+   "rule": "temp_dir",
+   "replaced": {
+    "temp_dir": 1
+   },
+   "sha256_before": "365cff22ea4f195e93ce53fafe8fc5521668131db083caceeab54bfca8176a0a",
+   "sha256_after": "5d48da51b1f6dec5e2c7470e6d7f502ae2005ca996451b42876bc65ed1b91d22",
+   "bytes_before": 872,
+   "bytes_after": 828
+  },
+  {
+   "file": "runs/clef/banking77/probe/kit/pass1.log",
+   "rule": "home_prefix",
+   "replaced": {
+    "home_prefix": 7
+   },
+   "sha256_before": "aad39ea2caca067e64ec9293b920d25f746d51f984837c46ebb6618bd24c36df",
+   "sha256_after": "05d2577c92029d07cd895b5c334ef55913e2a225cda8d069104cbec3c74003fe",
+   "bytes_before": 1660,
+   "bytes_after": 1534
+  },
+  {
+   "file": "runs/clef/clinc/full/kit/environment.json",
+   "rule": "home_prefix",
+   "replaced": {
+    "home_prefix": 1
+   },
+   "sha256_before": "a86f4c0d28dad330d09e911d2dd5300f23ac8a452c16b27aa28b2a75ec6ce6d4",
+   "sha256_after": "cb7b9064eea70260ac5a16f7850c76aa1329fe399b7daff90d7480a6a18d18f5",
+   "bytes_before": 849,
+   "bytes_after": 831
+  },
+  {
+   "file": "runs/jev/banking77/full/kit/environment.json",
+   "rule": "home_prefix",
+   "replaced": {
+    "home_prefix": 1
+   },
+   "sha256_before": "5151218ea5886a77e6888bebcbd5286d951a90e36cbfc3a733d25ad5843e2312",
+   "sha256_after": "724f21fea61f5581343a1a80d74295c52944f93ac145e707d2a58a1894e5aaaf",
+   "bytes_before": 865,
+   "bytes_after": 847
+  },
+  {
+   "file": "runs/jev/banking77/full/kit/results.jsonl",
+   "rule": "home_prefix",
+   "replaced": {
+    "home_prefix": 66
+   },
+   "sha256_before": "aa9c2f0c4a06d181ff7d6da9c3255c59d7a818b81506777b8a9a44961b085d1a",
+   "sha256_after": "91418a53b4a1f14a11a24dea4d6c4b3e3e8142970d65279713804edc86bcf340",
+   "bytes_before": 5618886,
+   "bytes_after": 5617698
+  },
+  {
+   "file": "runs/jev/banking77/probe/kit/environment.json",
+   "rule": "temp_dir",
+   "replaced": {
+    "temp_dir": 1
+   },
+   "sha256_before": "ce9e7af3957e2bc732721aed99c6f5e2d233c65a081f461cb03c077d87fbce7d",
+   "sha256_after": "5fdacc1bc987611b0fd3afbaacfdb21d30934091690dba98ac382d405c358970",
+   "bytes_before": 885,
+   "bytes_after": 841
+  },
+  {
+   "file": "runs/jev/clinc/full/kit/environment.json",
+   "rule": "home_prefix",
+   "replaced": {
+    "home_prefix": 1
+   },
+   "sha256_before": "8204933264d408ef599e043be08ec25f32d0d76cbb8760dd8f44e714e822aa7f",
+   "sha256_after": "145df1229de06707089d99c493463b545fb520b94856604b603b1c233e92d7c4",
+   "bytes_before": 862,
+   "bytes_after": 844
+  },
+  {
+   "file": "runs/jev/clinc/full/kit/results.jsonl",
+   "rule": "home_prefix",
+   "replaced": {
+    "home_prefix": 278
+   },
+   "sha256_before": "19ddb68d399aa6afe0ed48d52d34a7332c2fbdc99742ced5b824f085b478c868",
+   "sha256_after": "c5f4d0348f031a02e9cff867680738c1640f70e74e6ad4a496aac092bfdd194d",
+   "bytes_before": 16134496,
+   "bytes_after": 16129492
+  },
+  {
+   "file": "runs/jev/clinc/probe/kit/environment.json",
+   "rule": "temp_dir",
+   "replaced": {
+    "temp_dir": 1
+   },
+   "sha256_before": "c3236e153ddf99a0cec7521aa55e0aa4b01a821217d6a7591596216cd4b3a85e",
+   "sha256_after": "3c00219e07a31195fd7e370565e41c9fcddc45ccc5e07ff2389c15bcae841376",
+   "bytes_before": 881,
+   "bytes_after": 837
+  },
+  {
+   "file": "runs/luna/banking77/full/kit/environment.json",
+   "rule": "home_prefix",
+   "replaced": {
+    "home_prefix": 1
+   },
+   "sha256_before": "89cce40c8229c979217e132f816b6f6087a6efac8b6206d96b63a2856b419756",
+   "sha256_after": "884af849a5f541894f69f53ad5a24396100340d15d1b3ddd7a8ea42dd1d97228",
+   "bytes_before": 900,
+   "bytes_after": 882
+  },
+  {
+   "file": "runs/luna/banking77/probe/kit/environment.json",
+   "rule": "temp_dir",
+   "replaced": {
+    "temp_dir": 1
+   },
+   "sha256_before": "b33bbbb26810d126775c643fb0a7888fbcffb51ea1b44eb5e3cfc037b53e3aac",
+   "sha256_after": "b9e50dcdd62d0f0aad8eec71c7eafd9e6b53224dcc0a445420587f84fef70862",
+   "bytes_before": 918,
+   "bytes_after": 874
+  },
+  {
+   "file": "runs/luna/clinc/full/kit/environment.json",
+   "rule": "home_prefix",
+   "replaced": {
+    "home_prefix": 1
+   },
+   "sha256_before": "5ccd7f08426955c42160f2b4f8cb14576ee86619a1e980e89eff8257ffc8893b",
+   "sha256_after": "84d5f3287d20bc32fa8ce63e13dac0a296ed52db3f41093482406ca0158163b1",
+   "bytes_before": 896,
+   "bytes_after": 878
+  },
+  {
+   "file": "runs/luna/clinc/full/kit/results.jsonl",
+   "rule": "home_prefix",
+   "replaced": {
+    "home_prefix": 6
+   },
+   "sha256_before": "95befbedc0b4c23ad6e9b2dce78fa0a445ea9e3bba6022735001ec3ceb351347",
+   "sha256_after": "db2af1813766b1368c1cc527a360126ca9256dced5f6d05335bc6f2d5b05997e",
+   "bytes_before": 16222335,
+   "bytes_after": 16222227
+  },
+  {
+   "file": "runs/luna/clinc/probe/kit/environment.json",
+   "rule": "temp_dir",
+   "replaced": {
+    "temp_dir": 1
+   },
+   "sha256_before": "bb6af0b8a697c8b4f8d25cd6c8bf7e233827fc3b8846c8b48545e78c0f32bf32",
+   "sha256_after": "c9890bbf85177ab6f781d8424e635fb9abe0e0570e72f4f237815fa92651db49",
+   "bytes_before": 915,
+   "bytes_after": 871
+  },
+  {
+   "file": "runs/perplexity-v1/banking77/full/kit/environment.json",
+   "rule": "home_prefix",
+   "replaced": {
+    "home_prefix": 1
+   },
+   "sha256_before": "e3b40ecce84ed9fa952fd70e219477d900bbb4997b7877e01a43f73201af6426",
+   "sha256_after": "fdbd016c78d9edba4677cc3b5dd3220f9ab4b18d709096db2b31d0c1a1f23a32",
+   "bytes_before": 884,
+   "bytes_after": 866
+  },
+  {
+   "file": "runs/perplexity-v1/banking77/probe/kit/environment.json",
+   "rule": "temp_dir",
+   "replaced": {
+    "temp_dir": 1
+   },
+   "sha256_before": "6ab1b89b61f5d75ebb37bc2fddf1e9294365d71625202d2a4a597688ce3b40e1",
+   "sha256_after": "0bdd8a847a11ffb298c7564df14e67a6962a86fe174ee2f5dad076544e973e91",
+   "bytes_before": 903,
+   "bytes_after": 859
+  },
+  {
+   "file": "runs/perplexity-v1/clinc/full-r2/kit/environment.json",
+   "rule": "home_prefix",
+   "replaced": {
+    "home_prefix": 1
+   },
+   "sha256_before": "4b89b98c7abdf30e3cc9fd98fc1aebe04d8c790b84b57ae1a17c02af3542f997",
+   "sha256_after": "1606b7aa2f1f9bc7c653d3267d3d76037d715b9d278cb89878bd37f22e593e9c",
+   "bytes_before": 881,
+   "bytes_after": 863
+  },
+  {
+   "file": "runs/perplexity-v1/clinc/full-r2/kit/results.jsonl",
+   "rule": "home_prefix",
+   "replaced": {
+    "home_prefix": 3
+   },
+   "sha256_before": "f4e10d7688170b3f711b95d4babbb593dac643b52f3032f3ce334a687b5977be",
+   "sha256_after": "c628be2a7cab1baea853760dbdc9679640e6a5b29369a9d8b2aff27b24111ef5",
+   "bytes_before": 32995032,
+   "bytes_after": 32994978
+  },
+  {
+   "file": "runs/perplexity-v1/clinc/full/kit/environment.json",
+   "rule": "home_prefix",
+   "replaced": {
+    "home_prefix": 1
+   },
+   "sha256_before": "4ff1298fffcfa668b74d5ceb1aef3925f7ec631214ddfe3a1eb9ff93e0b64ac5",
+   "sha256_after": "d35bac999ba43f9d1d712022feaf945cf23608ddcd840895ae6c43c434ae570d",
+   "bytes_before": 880,
+   "bytes_after": 862
+  },
+  {
+   "file": "runs/perplexity-v1/clinc/full/kit/results.jsonl",
+   "rule": "home_prefix",
+   "replaced": {
+    "home_prefix": 6
+   },
+   "sha256_before": "10cbeb0cb4b642286cfc09a9120defe0a96608149a5272408c6fc88b36b513a6",
+   "sha256_after": "13d2d6150b30f262993b5647e646cdd652983e260f2c494514e01a49aca80188",
+   "bytes_before": 9921819,
+   "bytes_after": 9921711
+  },
+  {
+   "file": "runs/perplexity-v1/clinc/probe/kit/environment.json",
+   "rule": "temp_dir",
+   "replaced": {
+    "temp_dir": 1
+   },
+   "sha256_before": "8eee8bfd8f2d938f9c9a5865c9cf706bd841cc82fe48cbf3b78a8425d71d3216",
+   "sha256_after": "983b8bed1df2b93f7fc6c600260346f4ecdac690b97141d222e083cd735bd9d9",
+   "bytes_before": 899,
+   "bytes_after": 855
+  },
+  {
+   "file": "runs/xor/banking77/probe/kit/environment.json",
+   "rule": "temp_dir",
+   "replaced": {
+    "temp_dir": 1
+   },
+   "sha256_before": "9d2cf7f06a258265d13dd9103bd636bcfcf27d50d65c7d3b130cb99a8baf9713",
+   "sha256_after": "f2ba09ae8004532396f7f88bf527bada0b45f989809ec3ceedd81bbaef6f70d0",
+   "bytes_before": 886,
+   "bytes_after": 842
+  },
+  {
+   "file": "runs/xor/banking77/probe/kit/results.jsonl",
+   "rule": "home_prefix",
+   "replaced": {
+    "home_prefix": 9
+   },
+   "sha256_before": "4ab6dc182e2704659f89375e318f99b96c37c9112b41e82997b1f01b4ba535b2",
+   "sha256_after": "93562f12bff25caeff13f7d22e8306690ff198105adaba1fb155ae6e9503bdce",
+   "bytes_before": 4575,
+   "bytes_after": 4413
+  },
+  {
+   "file": "runs/xor/banking77/probe/wire.jsonl.gz",
+   "rule": "gateway_headers",
+   "records_changed": 5,
+   "headers_masked": {
+    "x-litellm-call-id": 5,
+    "x-litellm-key-rpm-limit": 5,
+    "x-litellm-key-spend": 5,
+    "x-litellm-model-api-base": 5,
+    "x-request-id": 5,
+    "x-typesafe-request-id": 5
+   },
+   "sha256_before": "1ea682e8b7959cc6c67cc20f029b21bc17782681f693c3ea06d11860d82d4287",
+   "sha256_after": "e412c70c8f41378db8ddebf528f6e43998d4fa1067d5595cf44d9b62d3c39dee",
+   "bytes_before": 2726,
+   "bytes_after": 2502
+  },
+  {
+   "file": "runs/xor/clinc/probe/kit/environment.json",
+   "rule": "temp_dir",
+   "replaced": {
+    "temp_dir": 1
+   },
+   "sha256_before": "412c0d6106a81d3384e0f9a81b5d3f11741b899f73d3b913b83659876b6b6853",
+   "sha256_after": "07aebf8a592c2741706c9711d1db4bd71a50fd8022918283a82c245fd93178fd",
+   "bytes_before": 880,
+   "bytes_after": 836
+  },
+  {
+   "file": "runs/xor/clinc/probe/kit/results.jsonl",
+   "rule": "home_prefix",
+   "replaced": {
+    "home_prefix": 9
+   },
+   "sha256_before": "a958b4f2bd46339fa3d61d0a5cad7ed52dcebbcfc0f40a79804b28a7bbe6fd03",
+   "sha256_after": "280325615184149f91b6cd959f6e7e5335fe3e549520bb86b4be62b5ae962205",
+   "bytes_before": 4636,
+   "bytes_after": 4474
+  },
+  {
+   "file": "runs/xor/clinc/probe/wire.jsonl.gz",
+   "rule": "gateway_headers",
+   "records_changed": 5,
+   "headers_masked": {
+    "x-litellm-call-id": 5,
+    "x-litellm-key-rpm-limit": 5,
+    "x-litellm-key-spend": 5,
+    "x-litellm-model-api-base": 5,
+    "x-request-id": 5,
+    "x-typesafe-request-id": 5
+   },
+   "sha256_before": "830bfda29370f08cd8757c7b402933d23778a7643f670da28592c1936f0e4bfc",
+   "sha256_after": "1483c40956d3162d75a60f9b1eeaf33ebfe7490ca41a79b34ad12e88ab483b51",
+   "bytes_before": 3218,
+   "bytes_after": 2984
+  }
+ ]
+}

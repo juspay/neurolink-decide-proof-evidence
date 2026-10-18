@@ -35,7 +35,7 @@ const runCli = (args) => spawnSync(process.execPath, [FACTS_CLI, ...args], { enc
 const cliArgs = (fx) => ["--audit", fx.configPath, "--audit-dir", fx.adDir, "--vd", fx.vdDir, "--out", join(fx.root, "out.json")];
 
 // ---- the checker of items 1 (top level), 3, 4 and 5, written from the contract text ----
-const UNIT_FORMATS = { count: ["int"], tokens: ["int"], ratio: ["pct0", "pct1", "pct2"], usd: ["usd2", "usd4", "usd6"], us: ["ms1", "s0"], utc: ["utc_hm", "date_dmy"], text: ["text"] };
+const UNIT_FORMATS = { count: ["int"], tokens: ["int"], ratio: ["pct0", "pct1", "pct2"], usd: ["usd2", "usd4", "usd6"], neurons: ["neurons0", "neurons2"], us: ["ms1", "s0"], utc: ["utc_hm", "date_dmy"], text: ["text"] };
 const USD = /^(0|[1-9]\d*|\d+\.\d*[1-9])$/;
 const ISO_UTC = /^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(\.\d+)?Z$/;
 const sameKeys = (o, keys) => JSON.stringify(Object.keys(o).sort()) === JSON.stringify([...keys].sort());
@@ -58,7 +58,7 @@ function violations(doc) {
     const typeOk = {
       count: isCount(v), tokens: isCount(v), us: isCount(v),
       ratio: v !== null && typeof v === "object" && sameKeys(v, ["den", "num"]) && isCount(v.den) && isCount(v.num),
-      usd: typeof v === "string" && USD.test(v), utc: typeof v === "string" && ISO_UTC.test(v), text: typeof v === "string",
+      usd: typeof v === "string" && USD.test(v), neurons: typeof v === "string" && USD.test(v), utc: typeof v === "string" && ISO_UTC.test(v), text: typeof v === "string",
     }[f.unit];
     if (!typeOk) bad.push(`${id}: value ${JSON.stringify(v)} is not a ${f.unit}`);
     if (!sameKeys(f.display, formats)) bad.push(`${id}: display has ${Object.keys(f.display).join(",")}, a ${f.unit} has ${formats.join(",")}`);
@@ -206,7 +206,7 @@ describe("4a item 3: from is rule:<id without the route and benchmark>, and ever
     const produced = [
       "rows", "answered", "failed", "failed.<group>", "first_pass_failed", "recovered", "correct", "accuracy", "oos_rows", "oos_caught", "said_oos", "false_alarms",
       "recall", "precision", "in_scope_correct", "in_scope_accuracy", "attempts", "retries", "status.<code>", "network_errors", "blocked", "input_tokens", "output_tokens",
-      "cost_usd", "cost_reported_usd", "latency_us.p50", "latency_us.p90", "latency_us.p99", "latency_us.max", "t_first", "t_last", "wall_us", "model_echo", "masked.<VAR>",
+      "cost_usd", "cost_reported_usd", "neurons_reported", "latency_us.p50", "latency_us.p90", "latency_us.p99", "latency_us.max", "t_first", "t_last", "wall_us", "model_echo", "masked.<VAR>",
       "decide_calls", "warmups", "all.attempts", "all.input_tokens", "all.cost_usd", "all.requests_recorded", "all.files_scanned", "all.secret_hits",
       // contract 4b, only with the config key compare (tests/facts-node/compare.test.mjs makes them)
       "vs_blog.correct", "vs_blog.failed", "vs_blog.accuracy", "vs_blog.recall", "vs_blog.precision",

@@ -1,0 +1,11 @@
+{
+  "reason": "consecutive_failures",
+  "detail": "10 failed attempts in a row",
+  "label": "perplexity-v1/clinc/full",
+  "at_seq": 1670,
+  "attempts": 1670,
+  "cost_usd": "0.11053008",
+  "cap_usd": "0.78",
+  "consecutive_failures": 10,
+  "stopped_utc": "2026-10-17T07:59:23.801Z"
+}

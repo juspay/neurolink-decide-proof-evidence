@@ -1,0 +1,19 @@
+{
+  "attempts": 1670,
+  "records": 1670,
+  "requests": 1657,
+  "input_tokens": 2728524,
+  "output_tokens": 1654,
+  "estimated_attempts": 16,
+  "estimated_input_tokens": 34728,
+  "cost_usd": "0.11053008",
+  "cost_usd_from_usage": "0.10914096",
+  "cap_usd": "0.78",
+  "status_counts": {
+    "200": 1655
+  },
+  "network_errors": 15,
+  "blocked": 0,
+  "blocked_unrecorded": 0,
+  "stop_reason": "consecutive_failures"
+}

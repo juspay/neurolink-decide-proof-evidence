@@ -296,6 +296,21 @@ def format_fact(unit: str, value, fmt: str) -> str:
 ISO = re.compile(r"^(\d{4})-(\d\d)-(\d\d)T(\d\d):(\d\d):(\d\d)(?:\.(\d+))?Z$")
 
 
+LANE_DATE_RULE = "UTC day and month, in capitals, of t_start of the first and of the last wire record of the lane; one day when they agree, else a range"
+
+
+def lane_date_text(first_iso: str, last_iso: str) -> str:
+    """the head of a replay lane's time column: the UTC day of the lane's first call, and of its last when that is another day"""
+    def day_mon(iso):
+        return f"{int(iso[8:10])} {MONTHS[int(iso[5:7]) - 1].upper()}"
+    a, b = first_iso[:10], last_iso[:10]
+    if a == b:
+        return day_mon(first_iso)
+    if a[:7] == b[:7]:
+        return f"{int(a[8:10])}\u2013{day_mon(last_iso)}"
+    return f"{day_mon(first_iso)}\u2013{day_mon(last_iso)}"
+
+
 def clock_of(iso: str) -> str:
     m = ISO.match(iso)
     if not m:
@@ -1145,6 +1160,27 @@ def check_derived_values(ctx: Ctx) -> Check:
                     raise ValueError("no recompute rule")
                 s10 = js_round((T4["out1"] - T4["out0"]) * 10)
                 want = f"{s10 // 10}.{s10 % 10}"
+            elif kind == "lane-date":
+                m = re.match(r"^(\S+) line (\d+) sha256 ([0-9a-f]{12}) to (\S+) line (\d+) sha256 ([0-9a-f]{12})$", src)
+                if not m:
+                    raise ValueError("source is not '<wire> line <n> sha256 <12 hex> to <wire> line <m> sha256 <12 hex>'")
+                w1, n1, h1, w2, n2, h2 = m.group(1), int(m.group(2)), m.group(3), m.group(4), int(m.group(5)), m.group(6)
+                if rule != LANE_DATE_RULE or not did.startswith("ff.date."):
+                    raise ValueError("no recompute rule")
+                lane = next((l for l in sc["ff"]["lanes"] if l["route"] == did[len("ff.date."):]), None)
+                if lane is None:
+                    raise ValueError("the id names no lane of the replay")
+                files = [f["wire"] for f in lane["files"]]
+                l1, l2 = st.lines(w1), st.lines(w2)
+                a, z = st.line(w1, n1), st.line(w2, n2)
+                if w1 != files[0] or w2 != files[-1]:
+                    why = f"the source names {w1} and {w2}, the lane's first and last recordings are {files[0]} and {files[-1]}"
+                elif n1 != l1[0][0] or n2 != l2[-1][0]:
+                    why = f"the source names lines {n1} and {n2}, the first line of {w1} is {l1[0][0]} and the last line of {w2} is {l2[-1][0]}"
+                elif a is None or z is None or not a[0].startswith(h1) or not z[0].startswith(h2):
+                    why = f"line {n1} of {w1} or line {n2} of {w2} has another sha256 than the source names"
+                else:
+                    want = lane_date_text(st.obj(w1, n1)["t_start"], st.obj(w2, n2)["t_start"])
             elif kind == "file-hash":
                 m = re.match(r"^(\S+) sha256 ([0-9a-f]{64})$", src)
                 rel, full = m.group(1), m.group(2)
@@ -1707,7 +1743,7 @@ def limits_line(days: int) -> str:
     """the limits line for a recording that spans `days` UTC days"""
     if not 1 <= days <= len(DAY_WORDS):
         raise ValueError(f"the recordings span {days} days; the limits line names one to {len(DAY_WORDS)}")
-    return "One run per model and benchmark \u00b7 one machine \u00b7 " + DAY_WORDS[days - 1] + (" day" if days == 1 else " days") + " \u00b7 not a ranking"
+    return "One run per model and benchmark \u00b7 " + DAY_WORDS[days - 1] + (" day" if days == 1 else " days") + " \u00b7 not a ranking"
 
 
 LIMITS_LINE = limits_line(1)
@@ -2118,7 +2154,7 @@ def run_controls(ctx: Ctx):
             t = "One run per model and benchmark \u00b7 not a ranking"
             p["parts"], p["text"] = [{"s": t}], t
         edit_scene(c2, fn)
-    out.append(control_case(ctx, "limits_line_changed", ["phrases"], "the limits line of the end card loses \"one machine \u00b7 one day\"", harm_limits, ["phrases"]))
+    out.append(control_case(ctx, "limits_line_changed", ["phrases"], "the limits line of the end card loses its day count", harm_limits, ["phrases"]))
 
     def harm_order(c2: Ctx):
         def fn(j):
