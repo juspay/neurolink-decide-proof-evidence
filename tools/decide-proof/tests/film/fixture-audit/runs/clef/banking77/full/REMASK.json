@@ -1,0 +1,15 @@
+[
+  {
+    "rule": "IPv4 address, not loopback -> «masked:IPV4_ADDRESS» (lib/mask.mjs maskIpv4)",
+    "tool": "bin/remask.mjs",
+    "files": [
+      {
+        "file": "wire.jsonl.gz",
+        "sha256_before": "a20c0cd5b6a56c6bca877433f14f43d9a87894fea257892192919ea207dc8f7b",
+        "sha256_after": "6d83d0c12fb4b7fdcf294025e63a3a12e692ed998492ec4da92cd9ad68f01d9c",
+        "records_changed": 1,
+        "addresses_masked": 1
+      }
+    ]
+  }
+]

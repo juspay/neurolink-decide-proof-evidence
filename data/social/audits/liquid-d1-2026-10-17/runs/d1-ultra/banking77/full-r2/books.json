@@ -1,0 +1,19 @@
+{
+  "attempts": 3087,
+  "records": 3087,
+  "requests": 3084,
+  "input_tokens": 1817058,
+  "output_tokens": 0,
+  "estimated_attempts": 3,
+  "estimated_input_tokens": 4368,
+  "cost_usd": "0.076499892",
+  "cost_usd_from_usage": "0.076316436",
+  "cap_usd": "0.25",
+  "status_counts": {
+    "200": 3084
+  },
+  "network_errors": 3,
+  "blocked": 0,
+  "blocked_unrecorded": 0,
+  "stop_reason": null
+}

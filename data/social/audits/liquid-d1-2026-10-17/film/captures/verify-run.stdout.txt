@@ -1,0 +1,8 @@
+[ok]   manifest: every file matches its sha256
+[ok]   manifest: no file missing, none extra
+[ok]   facts: node = python = facts.json (ff6f99318060)
+[ok]   text bsky: every number is a fact or a literal
+[ok]   text linkedin: every number is a fact or a literal
+[ok]   text x-reply: every number is a fact or a literal
+[ok]   scan: 0 hits for 143 secret values, control ok
+VERDICT PASS: liquid-d1-2026-10-17

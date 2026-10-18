@@ -1,0 +1,51 @@
+[
+  {
+    "end": 14,
+    "fact": "d1-ultra.banking77.t_first",
+    "fmt": "date_dmy",
+    "start": 3,
+    "text": "17 Oct 2026"
+  },
+  {
+    "end": 172,
+    "fact": "d1-ultra.banking77.accuracy",
+    "fmt": "pct1",
+    "start": 167,
+    "text": "87.5%"
+  },
+  {
+    "end": 181,
+    "fact": "d1.banking77.accuracy",
+    "fmt": "pct1",
+    "start": 176,
+    "text": "89.0%"
+  },
+  {
+    "end": 201,
+    "fact": "d1-ultra.clinc.accuracy",
+    "fmt": "pct1",
+    "start": 196,
+    "text": "92.2%"
+  },
+  {
+    "end": 210,
+    "fact": "d1.clinc.accuracy",
+    "fmt": "pct1",
+    "start": 205,
+    "text": "91.2%"
+  },
+  {
+    "end": 218,
+    "fact": "all.attempts",
+    "fmt": "int",
+    "start": 212,
+    "text": "17,185"
+  },
+  {
+    "end": 254,
+    "fact": "all.cost_usd",
+    "fmt": "usd2",
+    "start": 249,
+    "text": "$0.34"
+  }
+]

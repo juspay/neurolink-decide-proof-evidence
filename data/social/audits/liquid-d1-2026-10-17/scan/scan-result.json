@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "targets": 143,
+  "env_files_missing": [],
+  "route_variables_missing": [],
+  "too_short": [],
+  "control": "pass",
+  "files_scanned": 134,
+  "bytes_scanned": 493016882,
+  "skipped": [
+    {
+      "path": "~/Developer/temp/neurolink-fork/marketing/data/social/audits/liquid-d1-2026-10-17/film/film.mp4",
+      "reason": "media"
+    },
+    {
+      "path": "~/Developer/temp/neurolink-fork/marketing/data/social/audits/liquid-d1-2026-10-17/film/poster.png",
+      "reason": "media"
+    }
+  ],
+  "hits": [],
+  "secret_hits": 0
+}

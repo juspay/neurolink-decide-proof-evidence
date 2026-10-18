@@ -1,0 +1,126 @@
+{
+  "audit_id": "fake-audit",
+  "title": "Fixture audit against the fake provider",
+  "neurolink_version": "12.47.0",
+  "kit": {
+    "commit": "87d4650b42b377c0291a89c1f1a879f9b31082bf",
+    "runner_sha256": "f4c9f36c4c557f537f1d8184db7bf00c5a84d9f4f0aa67f8c06198cead25818d"
+  },
+  "benchmarks": {
+    "banking77": {
+      "label": "BANKING77",
+      "rows_file": "tests/fixtures/fake-audit/rows/banking77-fixture-rows.jsonl",
+      "rows_sha256": "208948ef0c6370cb4fbf5b854fb1d0268eaaebc19b2c83ed8c3f2513007a5319",
+      "rows": 30,
+      "oos_option": null
+    },
+    "clinc": {
+      "label": "CLINC150+OOS",
+      "rows_file": "tests/fixtures/fake-audit/rows/clinc-fixture-rows.jsonl",
+      "rows_sha256": "6b778b5fa30f97ecdacfc3945e499259c9f424a12f3397215c20f63269e58d71",
+      "rows": 40,
+      "oos_option": "option_80",
+      "oos_label": "out of scope: none of the listed intents"
+    }
+  },
+  "env_files": [
+    "~/Developer/temp/neurolink-fork/marketing/tools/decide-proof/tests/fixtures/fake-env/fake.env",
+    "~/Developer/temp/neurolink-fork/marketing/tools/decide-proof/tests/fixtures/fake-env/fake-paid.env"
+  ],
+  "publish": [
+    {
+      "route": "luna",
+      "bench": "banking77",
+      "stage": "full"
+    },
+    {
+      "route": "luna",
+      "bench": "clinc",
+      "stage": "full"
+    },
+    {
+      "route": "clef",
+      "bench": "banking77",
+      "stage": "full"
+    },
+    {
+      "route": "clef",
+      "bench": "clinc",
+      "stage": "full"
+    }
+  ],
+  "routes": {
+    "luna": {
+      "label": "Luna-style route (typesafe provider, OpenRouter-style prefix)",
+      "provider": "typesafe",
+      "model": "openai/gpt-6-luna-decisions",
+      "env": {
+        "TYPESAFE_API_KEY": {
+          "file": 0,
+          "name": "OPENROUTER_API_KEY"
+        },
+        "FAKE_PLANTED_TOKEN": {
+          "file": 0,
+          "name": "FAKE_PLANTED_TOKEN"
+        },
+        "TYPESAFE_BASE_URL": {
+          "value": "http://127.0.0.1:54551/api"
+        },
+        "TYPESAFE_MODEL": {
+          "value": "openai/gpt-6-luna-decisions"
+        }
+      },
+      "hosts": [
+        "127.0.0.1:54551"
+      ],
+      "price_per_million_input_usd": "0.10",
+      "price_per_million_output_usd": "0",
+      "price_source": "fixture price (fake provider)",
+      "concurrency": 1,
+      "max_tokens_per_minute": null,
+      "stage_caps_usd": {
+        "probe": "0.05",
+        "pilot": "0.20",
+        "full": "1.50"
+      }
+    },
+    "clef": {
+      "label": "Clef-style route (cloudflare-clef provider)",
+      "provider": "cloudflare-clef",
+      "model": "clef",
+      "env": {
+        "CLOUDFLARE_API_KEY": {
+          "file": 1,
+          "name": "CLOUDFLARE_PAID_API_KEY"
+        },
+        "CLOUDFLARE_ACCOUNT_ID": {
+          "file": 1,
+          "name": "CLOUDFLARE_PAID_ACCOUNT_ID"
+        },
+        "FAKE_PLANTED_TOKEN": {
+          "file": 0,
+          "name": "FAKE_PLANTED_TOKEN"
+        },
+        "CLOUDFLARE_CLEF_MODEL": {
+          "value": "clef"
+        },
+        "CLOUDFLARE_CLEF_BASE_URL": {
+          "value": "http://127.0.0.1:54551/client/v4"
+        }
+      },
+      "hosts": [
+        "127.0.0.1:54551"
+      ],
+      "price_per_million_input_usd": "0.24",
+      "price_per_million_output_usd": "0",
+      "price_source": "fixture price (fake provider)",
+      "concurrency": 1,
+      "max_tokens_per_minute": null,
+      "stage_caps_usd": {
+        "probe": "0.05",
+        "pilot": "0.20",
+        "full": "1.50"
+      }
+    }
+  }
+}

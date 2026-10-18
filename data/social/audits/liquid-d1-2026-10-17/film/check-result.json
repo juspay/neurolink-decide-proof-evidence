@@ -1,0 +1,858 @@
+{
+  "audit_id": "liquid-d1-2026-10-17",
+  "checks": [
+    {
+      "error": null,
+      "failures": [],
+      "failures_total": 0,
+      "id": "facts_sha",
+      "lines": [
+        {
+          "ok": true,
+          "text": "facts.json sha256 ff6f99318060981f equals the facts_sha256 of scene.json (ff6f99318060981f)"
+        },
+        {
+          "ok": true,
+          "text": "facts.json schema 1 and audit_id liquid-d1-2026-10-17 equal to scene.json's liquid-d1-2026-10-17"
+        },
+        {
+          "ok": true,
+          "text": "12 recordings named by scene.json: sha256 equals facts.inputs and the file on disk"
+        },
+        {
+          "ok": true,
+          "text": "every recording the scene reads is named by facts.inputs"
+        }
+      ],
+      "ok": true,
+      "spec": "1",
+      "stats": {
+        "facts_sha256": "ff6f99318060981fd7a02d1769f02993c4a6916466053224bd8a7f925cdeb1a5",
+        "recordings": 12
+      },
+      "title": "facts.json is the one scene.json was built from; the recordings are the ones facts.json names"
+    },
+    {
+      "error": null,
+      "failures": [],
+      "failures_total": 0,
+      "id": "figures_text",
+      "lines": [
+        {
+          "ok": true,
+          "text": "81 figures: text equals facts.json display and the display equals the formatted value"
+        },
+        {
+          "ok": true,
+          "text": "the 63 facts shown hold exactly the display formats of their unit"
+        },
+        {
+          "ok": true,
+          "text": "replay series are consistent: counters rise from 0 to the totals, texts equal their numbers, the shown clock follows the frame"
+        },
+        {
+          "ok": true,
+          "text": "bar lengths equal 10000 x the published ratios (half up)"
+        },
+        {
+          "ok": true,
+          "text": "16 live series of the replay end on the published numbers (request counter, per-lane counts, running accuracy, lines per recording)"
+        }
+      ],
+      "ok": true,
+      "spec": "2",
+      "stats": {
+        "facts_shown": 63,
+        "figures": 81
+      },
+      "title": "every scene figure equals the facts.json display, which equals the contract formatting of the fact value"
+    },
+    {
+      "error": null,
+      "failures": [],
+      "failures_total": 0,
+      "id": "derived_values",
+      "lines": [
+        {
+          "ok": true,
+          "text": "capture film/captures/verify-run.json exists"
+        },
+        {
+          "ok": true,
+          "text": "captured stdout equals the sha256 in its capture file and in scene.json"
+        },
+        {
+          "ok": true,
+          "text": "the capture exited 0 and the command shown is the command that was run (literal=True)"
+        },
+        {
+          "ok": true,
+          "text": "run time and shown command of the capture equal scene.json's"
+        },
+        {
+          "ok": true,
+          "text": "26 derived values recomputed from their named recorded line or capture by their named rule"
+        },
+        {
+          "ok": true,
+          "text": "the 8 terminal lines of scene.json equal the 8 lines of the capture file (number, sha256, text)"
+        }
+      ],
+      "ok": true,
+      "spec": "2",
+      "stats": {
+        "derived": 26,
+        "recomputed_ok": 26
+      },
+      "title": "every derived value recomputed from its named recorded line or capture and its rule"
+    },
+    {
+      "error": null,
+      "failures": [],
+      "failures_total": 0,
+      "id": "recorded_lines",
+      "lines": [
+        {
+          "ok": true,
+          "text": "15425 indexed lines in 9 files: line number and sha256 equal the file"
+        },
+        {
+          "ok": true,
+          "text": "7712 replay lines of scene.json: wire and decide line, join by decide_seq, and the six fields shown equal the record"
+        },
+        {
+          "ok": true,
+          "text": "the opening exchange is line 3 of runs/d1/banking77/full-r2/wire.jsonl.gz with the sha256 scene.json names"
+        },
+        {
+          "ok": true,
+          "text": "the 18 request rows shown equal the recorded request rebuilt from the file"
+        },
+        {
+          "ok": true,
+          "text": "the 22 response rows shown equal the recorded response rebuilt from the file"
+        },
+        {
+          "ok": true,
+          "text": "the status shown (200) is the recorded status"
+        },
+        {
+          "ok": true,
+          "text": "the page read-back saw 7712 of the 7712 replay lines the scene lists"
+        },
+        {
+          "ok": true,
+          "text": "7722 lines the page showed (exchange 2, ff 7712, term 8): file, line, sha256 and text equal the record"
+        }
+      ],
+      "ok": true,
+      "spec": "3",
+      "stats": {
+        "indexed": 15425,
+        "page_lines": 7722,
+        "replay_units": 7712
+      },
+      "title": "every recorded line shown equals the line in the file it names (gz decompressed) and its sha256"
+    },
+    {
+      "error": null,
+      "failures": [],
+      "failures_total": 0,
+      "id": "phrases",
+      "lines": [
+        {
+          "ok": true,
+          "text": "18 phrases: the text of each equals its parts (numbers inside are derived values or figures) and its window lies inside the film"
+        },
+        {
+          "ok": true,
+          "text": "the product line is on the opening and on the end card (1 on the opening, 1 on the end card)"
+        },
+        {
+          "ok": true,
+          "text": "every product line says \"through decide() in NeuroLink, Juspay's AI harness\""
+        },
+        {
+          "ok": true,
+          "text": "the end card states \"One run per model and benchmark · one machine · one day · not a ranking\""
+        },
+        {
+          "ok": true,
+          "text": "the end card carries the 1 note(s) of the audit's film.json, word for word, and scene.json names that file's sha256"
+        },
+        {
+          "ok": true,
+          "text": "1 recording(s) were masked afterwards (REMASK.json under runs/): the proof screen and the end card say so with that number"
+        },
+        {
+          "ok": true,
+          "text": "routes are in alphabetical order of their labels (Liquid AI d1 through OpenRouter, Liquid AI d1-ultra through OpenRouter) on 8 panels"
+        },
+        {
+          "ok": true,
+          "text": "on screen the rows of the accuracy bars and of the cost table run top to bottom in that order"
+        },
+        {
+          "ok": true,
+          "text": "the opening exchange is from the first route in alphabetical order (Liquid AI d1 through OpenRouter), line 3 of runs/d1/banking77/full-r2/wire.jsonl.gz"
+        },
+        {
+          "ok": true,
+          "text": "the opening caption names the route and the benchmark and says \"first question (line n of its recording, after m warm-ups)\" with n and m derived values"
+        },
+        {
+          "ok": true,
+          "text": "the opening exchange shows the expected option and a HIT or MISS tag (MISS)"
+        },
+        {
+          "ok": true,
+          "text": "the cost table heads say HTTP calls and list-price cost (['HTTP calls', 'Retries', 'Failed', 'Input tokens', 'List-price cost', 'Median', '99th pct'])"
+        }
+      ],
+      "ok": true,
+      "spec": "-",
+      "stats": {
+        "phrases": 18,
+        "remask_recordings": 1,
+        "routes": [
+          "d1",
+          "d1-ultra"
+        ]
+      },
+      "title": "the film carries the product line, the limits, the audit's notes and the re-mask line; routes are in alphabetical order; the opening question is the first of its recording"
+    },
+    {
+      "error": null,
+      "failures": [],
+      "failures_total": 0,
+      "id": "page_readback",
+      "lines": [
+        {
+          "ok": true,
+          "text": "probe.json: all 125 figures, derived values and phrases visible with the scene text and a rectangle"
+        },
+        {
+          "ok": true,
+          "text": "probe.json: no digit on screen belongs to nothing (0 untagged)"
+        },
+        {
+          "ok": true,
+          "text": "probe.json layout audit at 92 frames: smallest text 24 px, 0 outside the safe area, 0 overlaps, 0 low contrast"
+        },
+        {
+          "ok": true,
+          "text": "probe.json: 6 font faces, all loaded"
+        },
+        {
+          "ok": true,
+          "text": "the 4 page files in film/app equal the ones the scene was built with"
+        },
+        {
+          "ok": true,
+          "text": "the 6 bundled font files equal the sha256 in the scene"
+        },
+        {
+          "ok": true,
+          "text": "fresh page: HeadlessChrome/151.0.7922.34"
+        },
+        {
+          "ok": true,
+          "text": "a fresh read-back of the page at the same times gives the text, rectangle and visibility probe.json holds, for all 125 figures, derived values and phrases"
+        },
+        {
+          "ok": true,
+          "text": "fresh page, 54 times: no digit belongs to nothing"
+        },
+        {
+          "ok": true,
+          "text": "fresh page layout audit at 53 times: smallest text 24 px, 0 outside the safe area, 0 overlaps, 0 low contrast"
+        }
+      ],
+      "ok": true,
+      "spec": "-",
+      "stats": {
+        "figures_and_derived": 125,
+        "fresh_times": 54
+      },
+      "title": "probe.json against the scene and a fresh read-back of the page; page files and fonts as built"
+    },
+    {
+      "error": null,
+      "failures": [],
+      "failures_total": 0,
+      "id": "ocr_figures",
+      "lines": [
+        {
+          "ok": true,
+          "text": "every figure to read has a rectangle in probe.json"
+        },
+        {
+          "ok": true,
+          "text": "OCR reads 107 of 107 figures and derived values as their text (101 at the first attempt, the rest after retries at other settings or other points of the window)"
+        }
+      ],
+      "ok": true,
+      "spec": "4",
+      "stats": {
+        "by_class": {
+          "hex": 8,
+          "num": 84,
+          "text": 15
+        },
+        "first_attempt": 101,
+        "items": 107,
+        "read": 107,
+        "retried": [
+          "ff.rows.d1-ultra.clinc",
+          "ff.rows.d1.clinc",
+          "open.gold",
+          "open.warmups",
+          "proof.hits",
+          "res.oos.d1-ultra.clinc.false_alarms"
+        ],
+        "sampled": false
+      },
+      "title": "OCR of every figure and derived value in the MP4 at the rectangle of probe.json equals its text"
+    },
+    {
+      "error": null,
+      "failures": [],
+      "failures_total": 0,
+      "id": "ocr_phrases",
+      "lines": [
+        {
+          "ok": true,
+          "text": "every phrase to read has a rectangle in probe.json"
+        },
+        {
+          "ok": true,
+          "text": "OCR reads 18 of 18 phrases as their text (18 at the first attempt, the rest after retries at other settings or other points of the window)"
+        }
+      ],
+      "ok": true,
+      "spec": "4",
+      "stats": {
+        "first_attempt": 18,
+        "items": 18,
+        "read": 18,
+        "retried": [],
+        "sampled": false
+      },
+      "title": "OCR of every phrase in the MP4 at the rectangle of probe.json equals its text"
+    },
+    {
+      "error": null,
+      "failures": [],
+      "failures_total": 0,
+      "id": "ocr_lines",
+      "lines": [
+        {
+          "ok": true,
+          "text": "16 replay lines chosen from frames where the rows stand still (60 such lines in the film)"
+        },
+        {
+          "ok": true,
+          "text": "the chosen rows are on screen and inside their panel at those frames"
+        },
+        {
+          "ok": true,
+          "text": "8 terminal lines were on screen and inside the terminal during the replay; 8 chosen"
+        },
+        {
+          "ok": true,
+          "text": "OCR reads 24 of 24 sampled lines (16 replay lines read digit by digit and option, 8 terminal lines) as the line of the recording"
+        }
+      ],
+      "ok": true,
+      "spec": "4",
+      "stats": {
+        "lines": 24,
+        "lines_read": 24,
+        "sampled": false
+      },
+      "title": "OCR of a sample of the replay lines and the terminal lines equals the lines of the recordings"
+    },
+    {
+      "error": null,
+      "failures": [],
+      "failures_total": 0,
+      "id": "ocr_tallies",
+      "lines": [
+        {
+          "ok": true,
+          "text": "6 (frame, lane) pairs chosen where the lane stands still and its tallies are running"
+        },
+        {
+          "ok": true,
+          "text": "every tally of the chosen frames is on screen and inside its panel"
+        },
+        {
+          "ok": true,
+          "text": "the page shows the scene's tally at each of those frames"
+        },
+        {
+          "ok": true,
+          "text": "OCR reads 12 of 12 tallies (running accuracy, rows scored so far) as the scene's series"
+        }
+      ],
+      "ok": true,
+      "spec": "4",
+      "stats": {
+        "items": 12,
+        "read": 12,
+        "sampled": false
+      },
+      "title": "OCR of the running accuracy and of the rows scored so far, per lane and bench, at sampled frames of the replay equals the scene's series"
+    },
+    {
+      "error": null,
+      "failures": [],
+      "failures_total": 0,
+      "id": "no_secrets",
+      "lines": [
+        {
+          "ok": true,
+          "text": "49 of 49 frames (one every 2 s) decoded from the film"
+        },
+        {
+          "ok": true,
+          "text": "OCR text of 49 frames (99627 characters) holds 0 credential shapes (sk-, Bearer with a value, key=value, AKIA, JWT, ghp_, xox)"
+        },
+        {
+          "ok": true,
+          "text": "the OCR read text in the frames (99627 characters, so the scan is not looking at empty text)"
+        },
+        {
+          "ok": true,
+          "text": "lib/scan.mjs control run found its planted fake secret in every form first"
+        },
+        {
+          "ok": true,
+          "text": "lib/scan.mjs exit 0: 0 hits over 164 files (recordings, facts, scene, probe, captures, OCR text of frames) looking for 143 secret values"
+        },
+        {
+          "ok": true,
+          "text": "the scan had 143 secret values to look for (a scan that looks for nothing is not a pass)"
+        }
+      ],
+      "ok": true,
+      "spec": "5",
+      "stats": {
+        "files_scanned": 164,
+        "frames_ocr": 49,
+        "sampled": false,
+        "scan_exit": 0,
+        "secret_hits": 0,
+        "targets": 143
+      },
+      "title": "no secret value and no credential shape in the recordings or in the OCR text of the frames"
+    },
+    {
+      "error": null,
+      "failures": [],
+      "failures_total": 0,
+      "id": "ffprobe",
+      "lines": [
+        {
+          "ok": true,
+          "text": "one stream, a video stream, no audio (1 streams: video)"
+        },
+        {
+          "ok": true,
+          "text": "size 1920x1080 equals 1920x1080 and the scene size [1920, 1080]"
+        },
+        {
+          "ok": true,
+          "text": "frame rate 30/1 equals 30 fps and the scene's 30"
+        },
+        {
+          "ok": true,
+          "text": "codec h264 High, pixel format yuv420p"
+        },
+        {
+          "ok": true,
+          "text": "film length 98.000 s equals the scene length 98 s within 0.1 s"
+        },
+        {
+          "ok": true,
+          "text": "2940 video packets equal the 2940 frames of the schedule"
+        },
+        {
+          "ok": true,
+          "text": "moov box before mdat (faststart): ftyp moov free mdat"
+        },
+        {
+          "ok": true,
+          "text": "poster.png is 1920x1080"
+        }
+      ],
+      "ok": true,
+      "spec": "6",
+      "stats": {
+        "duration_s": 98.0,
+        "film_sha256": "6a1b2bfefc27193140ab1889f9e88a22a9b1135627afb2b1294e911c794513cb",
+        "packets": "2940",
+        "size_bytes": 12301647
+      },
+      "title": "film file: 1920x1080, 30 fps, h264 yuv420p, length of the scene, moov before mdat, no audio"
+    },
+    {
+      "error": null,
+      "failures": [],
+      "failures_total": 0,
+      "id": "frames_repro",
+      "lines": [
+        {
+          "ok": true,
+          "text": "film/build.mjs --frames exits 0 and 0"
+        },
+        {
+          "ok": true,
+          "text": "20 of 20 frames rendered twice in separate processes have equal PNG sha256"
+        },
+        {
+          "ok": true,
+          "text": "the 20 sampled frames are not alike (20 distinct)"
+        },
+        {
+          "ok": true,
+          "text": "scene.json rebuilt twice (17503b529c72, 17503b529c72) equals the saved scene.json (17503b529c72)"
+        },
+        {
+          "ok": true,
+          "text": "the 20 rendered frames match the same frames of film.mp4 (lowest PSNR 38.0 dB, limit 30 dB)"
+        }
+      ],
+      "ok": true,
+      "spec": "7",
+      "stats": {
+        "distinct": 20,
+        "equal": 20,
+        "frame_sha256": {
+          "1102": "b06215a5968a19c19a2afdc2a7f90aafb93b06f4be18254b3aabdc2460852178",
+          "1250": "5379039f347e3918d193fdd78a710fcd7ed7c7efb49fa66311293b12caec75f3",
+          "1396": "712eeebdecf87ad7c7602ef9a57a4b5a8d153f7a01ba311bcfda795bfb41a93c",
+          "1544": "a5bd97c6eebe0b1f9fd4bc705d252578949ef263e9893d61598cd6aaf1fc6e94",
+          "1690": "596a438caed2b767c17ecc168f98f3a3f75e281ccfae67142d5d4e003938698e",
+          "1838": "b84029894ebb316bdcf173b98d608d61a2c1f67e2c6a96715ed0ef086b9f5419",
+          "1984": "a74e958d031524711a8909e2683661155f222f870ad298327dbd31e3e6c37e59",
+          "2132": "17ec16e8ab5c5a9da9aa1b22d9f83b6da5879cc1e7479b1fd6f7dbdeb1747641",
+          "220": "cdbe1331c67ee7d21c6747b3ab2c2852bd2214b1e499e08c2d28ee9a4bf1c34a",
+          "2278": "5f6691fb01a4cd68bfaa45d4039eaf3e98be7b1d4710edb36ab905a60ad8cbca",
+          "2426": "2232ba7f3bf581fb3f617a06483f290907d561707fb7bf49918309ec7c0a3b6f",
+          "2572": "a56665173d20155949cb390fec930d1501e574f492c4d1d325017bc2f2b8406b",
+          "2720": "e30ab49b262e582364b3f2709baf8d0183ba007696e3f86e5b8706336028d7fe",
+          "2866": "36be7753c610568cf4783894b253695d5535d290d8f6599a3b536645df1d6c55",
+          "368": "19c06c5f536e27a25938a35a62bf053b869fb87f6a4288f8b9170bf116fe243b",
+          "514": "ddc68280bd90639738ff0855e1b1567d0083f32642a9445696a2b2e7d9644c33",
+          "662": "1160b983b5bf0b8b293c7a4f37752db7bcf73bef3cdf0936b045b3345cb5dd15",
+          "74": "63e6e70d557b12edaa4186f5dc23070fdb7d1aabbef715d9ceb09a6798cdfa31",
+          "808": "09b0f6a222998038cea7a6af4293d88534033140f3ecf815e0ee9a3cc11686e4",
+          "956": "ddb728ef7054e97f9b9e43ecfe755597bb393291cfe3889467d7cb6cba1dd677"
+        },
+        "frames": [
+          74,
+          220,
+          368,
+          514,
+          662,
+          808,
+          956,
+          1102,
+          1250,
+          1396,
+          1544,
+          1690,
+          1838,
+          1984,
+          2132,
+          2278,
+          2426,
+          2572,
+          2720,
+          2866
+        ],
+        "scene_sha256": "17503b529c72895691c405b9b5f27c9858a70b802db58c3d4010796e0728e74c"
+      },
+      "title": "sampled frames rendered twice have equal PNG sha256, equal the saved scene, and look like the film"
+    },
+    {
+      "error": null,
+      "failures": [],
+      "failures_total": 0,
+      "id": "flash",
+      "lines": [
+        {
+          "ok": true,
+          "text": "luminance read for 2940 frames of 2940"
+        },
+        {
+          "ok": true,
+          "text": "at most 3 large luminance flips (steps of 10% of relative luminance between turning points) in any one second, 11 flips in the whole film; limit 3"
+        }
+      ],
+      "ok": true,
+      "spec": "8",
+      "stats": {
+        "frames": 2940,
+        "swings": 11,
+        "worst_second": 3
+      },
+      "title": "no more than 3 large luminance flips in any second"
+    }
+  ],
+  "complete": true,
+  "controls": [
+    {
+      "baseline_passes": true,
+      "description": "one count in facts.json is changed by 1 (its display is left as it was)",
+      "detail": "unharmed: pass; harmed: failed ['facts_sha', 'figures_text']; facts_sha: NOT TRUE: facts.json sha256 82cd5a861f3e93cb equals the facts_sha256 of scene.json (ff6f99318060981f) | figures_text: NOT TRUE: 81 figures: text equals facts.json display and the display equals the formatted value | ff.requests:",
+      "failed": [
+        "facts_sha",
+        "figures_text"
+      ],
+      "must_fail": [
+        "facts_sha",
+        "figures_text"
+      ],
+      "name": "changed_fact_value",
+      "ok": true
+    },
+    {
+      "baseline_passes": true,
+      "description": "the pct1 display of a published accuracy is changed in facts.json",
+      "detail": "unharmed: pass; harmed: failed ['facts_sha', 'figures_text']; facts_sha: NOT TRUE: facts.json sha256 64321e29c7b39d25 equals the facts_sha256 of scene.json (ff6f99318060981f) | figures_text: NOT TRUE: 81 figures: text equals facts.json display and the display equals the formatted value | ff.acc.d1-ul",
+      "failed": [
+        "facts_sha",
+        "figures_text"
+      ],
+      "must_fail": [
+        "facts_sha",
+        "figures_text"
+      ],
+      "name": "changed_fact_display",
+      "ok": true
+    },
+    {
+      "baseline_passes": true,
+      "description": "line 3 of runs/d1/banking77/full-r2/wire.jsonl.gz (the opening exchange) has its us field raised by 1",
+      "detail": "unharmed: pass; harmed: failed ['recorded_lines']; recorded_lines: NOT TRUE: 15425 indexed lines in 9 files: line number and sha256 equal the file | runs/d1/banking77/full-r2/wi",
+      "failed": [
+        "recorded_lines"
+      ],
+      "must_fail": [
+        "recorded_lines"
+      ],
+      "name": "changed_recorded_line",
+      "ok": true
+    },
+    {
+      "baseline_passes": true,
+      "description": "a synthetic secret value (from a control env file, in no account) is written into a request header of a recording",
+      "detail": "unharmed: pass; harmed: failed ['no_secrets']; no_secrets: NOT TRUE: lib/scan.mjs exit 1: 1 hits over 115 files (recordings, facts, scene, probe, captures) looking for 1",
+      "failed": [
+        "no_secrets"
+      ],
+      "must_fail": [
+        "no_secrets"
+      ],
+      "name": "planted_secret_in_recording",
+      "ok": true
+    },
+    {
+      "baseline_passes": true,
+      "description": "in probe.json the rectangle of ff.acc.d1-ultra.banking77 (\"87.5%\") is replaced by the one of ff.acc.d1-ultra.clinc (\"92.2%\")",
+      "detail": "unharmed: pass; harmed: failed ['ocr_figures']; ocr_figures: NOT TRUE: OCR reads 0 of 1 figures and derived values as their text (0 at the first attempt, the rest after re",
+      "failed": [
+        "ocr_figures"
+      ],
+      "must_fail": [
+        "ocr_figures"
+      ],
+      "name": "rect_shows_another_number",
+      "ok": true
+    },
+    {
+      "baseline_passes": true,
+      "description": "film.mp4 is cut to 97 s",
+      "detail": "unharmed: pass; harmed: failed ['ffprobe']; ffprobe: NOT TRUE: film length 97.067 s equals the scene length 98 s within 0.1 s",
+      "failed": [
+        "ffprobe"
+      ],
+      "must_fail": [
+        "ffprobe"
+      ],
+      "name": "film_one_second_short",
+      "ok": true
+    },
+    {
+      "baseline_passes": true,
+      "description": "the latency shown for the opening exchange is changed in scene.json",
+      "detail": "unharmed: pass; harmed: failed ['derived_values']; derived_values: NOT TRUE: 26 derived values recomputed from their named recorded line or capture by their named rule | open.la",
+      "failed": [
+        "derived_values"
+      ],
+      "must_fail": [
+        "derived_values"
+      ],
+      "name": "changed_derived_value",
+      "ok": true
+    },
+    {
+      "baseline_passes": true,
+      "description": "a figure text in scene.json no longer equals facts.json",
+      "detail": "unharmed: pass; harmed: failed ['figures_text']; figures_text: NOT TRUE: 81 figures: text equals facts.json display and the display equals the formatted value | res.tot.atte",
+      "failed": [
+        "figures_text"
+      ],
+      "must_fail": [
+        "figures_text"
+      ],
+      "name": "changed_figure_text",
+      "ok": true
+    },
+    {
+      "baseline_passes": true,
+      "description": "a silent audio track is added to film.mp4",
+      "detail": "unharmed: pass; harmed: failed ['ffprobe']; ffprobe: NOT TRUE: one stream, a video stream, no audio (2 streams: video, audio)",
+      "failed": [
+        "ffprobe"
+      ],
+      "must_fail": [
+        "ffprobe"
+      ],
+      "name": "film_with_audio",
+      "ok": true
+    },
+    {
+      "baseline_passes": true,
+      "description": "film.mp4 is remuxed without faststart",
+      "detail": "unharmed: pass; harmed: failed ['ffprobe']; ffprobe: NOT TRUE: moov box before mdat (faststart): ftyp free mdat moov",
+      "failed": [
+        "ffprobe"
+      ],
+      "must_fail": [
+        "ffprobe"
+      ],
+      "name": "moov_after_mdat",
+      "ok": true
+    },
+    {
+      "baseline_passes": true,
+      "description": "the end card no longer says which harness ran the calls",
+      "detail": "unharmed: pass; harmed: failed ['phrases']; phrases: NOT TRUE: every product line says \"through decide() in NeuroLink, Juspay's AI harness\"",
+      "failed": [
+        "phrases"
+      ],
+      "must_fail": [
+        "phrases"
+      ],
+      "name": "product_phrase_missing",
+      "ok": true
+    },
+    {
+      "baseline_passes": true,
+      "description": "the limits line of the end card loses \"one machine · one day\"",
+      "detail": "unharmed: pass; harmed: failed ['phrases']; phrases: NOT TRUE: the end card states \"One run per model and benchmark · one machine · one day · not a ranking\"",
+      "failed": [
+        "phrases"
+      ],
+      "must_fail": [
+        "phrases"
+      ],
+      "name": "limits_line_changed",
+      "ok": true
+    },
+    {
+      "baseline_passes": true,
+      "description": "the accuracy bars are listed in the reverse of the alphabetical order of the route labels",
+      "detail": "unharmed: pass; harmed: failed ['phrases']; phrases: NOT TRUE: routes are in alphabetical order of their labels (Liquid AI d1 through OpenRouter, Liquid AI d1-ultr",
+      "failed": [
+        "phrases"
+      ],
+      "must_fail": [
+        "phrases"
+      ],
+      "name": "routes_out_of_order",
+      "ok": true
+    },
+    {
+      "baseline_passes": true,
+      "description": "the HIT or MISS tag of the opening exchange is flipped in scene.json",
+      "detail": "unharmed: pass; harmed: failed ['derived_values']; derived_values: NOT TRUE: 26 derived values recomputed from their named recorded line or capture by their named rule | open.ve",
+      "failed": [
+        "derived_values"
+      ],
+      "must_fail": [
+        "derived_values"
+      ],
+      "name": "open_verdict_flipped",
+      "ok": true
+    },
+    {
+      "baseline_passes": true,
+      "description": "in probe.json the rectangle of the phrase end.product is replaced by the one of end.counted",
+      "detail": "unharmed: pass; harmed: failed ['ocr_phrases']; ocr_phrases: NOT TRUE: OCR reads 0 of 1 phrases as their text (0 at the first attempt, the rest after retries at other sett",
+      "failed": [
+        "ocr_phrases"
+      ],
+      "must_fail": [
+        "ocr_phrases"
+      ],
+      "name": "rect_shows_another_phrase",
+      "ok": true
+    },
+    {
+      "baseline_passes": true,
+      "description": "the rows scored so far are changed by 7 at the sampled frames of scene.json (the film still shows the recorded numbers)",
+      "detail": "unharmed: pass; harmed: failed ['ocr_tallies']; ocr_tallies: NOT TRUE: OCR reads 6 of 12 tallies (running accuracy, rows scored so far) as the scene's series",
+      "failed": [
+        "ocr_tallies"
+      ],
+      "must_fail": [
+        "ocr_tallies"
+      ],
+      "name": "tally_shows_another_number",
+      "ok": true
+    },
+    {
+      "baseline_passes": true,
+      "description": "a film of black and white swapping every 3 frames fails the flash check; one swapping every 45 frames passes",
+      "detail": "flips in the worst second: 10 in the fast film (limit 3), 1 in the calm film",
+      "failed": [
+        "flash"
+      ],
+      "must_fail": [
+        "flash"
+      ],
+      "name": "flash_detector",
+      "ok": true
+    },
+    {
+      "baseline_passes": true,
+      "description": "a frame that shows a synthetic secret value as text is read by OCR, and lib/scan.mjs finds the value in that OCR text; a frame without it is clean",
+      "detail": "scan of the OCR text: clean frame exit 0 with 0 hits, frame with the synthetic value exit 1 with 2 hits",
+      "failed": [
+        "no_secrets"
+      ],
+      "must_fail": [
+        "no_secrets"
+      ],
+      "name": "secret_in_pixels",
+      "ok": true
+    }
+  ],
+  "controls_run": true,
+  "failed_checks": [],
+  "failed_controls": [],
+  "mode": "full",
+  "schema": 1,
+  "subject": {
+    "facts_sha256": "ff6f99318060981fd7a02d1769f02993c4a6916466053224bd8a7f925cdeb1a5",
+    "film_sha256": "6a1b2bfefc27193140ab1889f9e88a22a9b1135627afb2b1294e911c794513cb",
+    "poster_sha256": "9f453af0f3672bbf10a40cc8777fc5aeb07a617a3b3da3f23051d85fedc441db",
+    "probe_sha256": "8949cf516fd2b3138c36c65aac927e5a644e90ffa48190c7569ce2eda6af5a73",
+    "scene_sha256": "17503b529c72895691c405b9b5f27c9858a70b802db58c3d4010796e0728e74c"
+  },
+  "verdict": "PASS"
+}

@@ -1,0 +1,10 @@
+# Byte-exact checkout: every file is listed with its sha256 in an audit's MANIFEST.sha256, so git must not change line endings.
+* -text
+*.gz binary
+*.mp4 binary
+*.png binary
+*.ttf binary
+# Recordings and benchmark rows are large machine-written files; do not render them as diffs.
+*.jsonl -diff
+# The Decision Index kit is third-party code kept for reference; keep it out of the language statistics.
+decide-proof-vd/** linguist-vendored

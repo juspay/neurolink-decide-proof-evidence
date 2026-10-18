@@ -1,0 +1,2 @@
+{"event":"listening","host":"127.0.0.1","port":57276,"provider":"typesafe","recorder":true}
+{"event":"stopped","counts":{"provider":"typesafe","model":"liquid/d1","requests":5,"warmups":2,"ok":5,"bad_requests":0,"refused":{},"upstream_rate_limited":0,"max_in_flight":1}}

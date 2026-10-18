@@ -1,0 +1,114 @@
+{
+  "audit_id": "fixture-audit",
+  "benchmarks": {
+    "banking77": {
+      "label": "BANKING77",
+      "oos_option": null,
+      "rows": 70,
+      "rows_file": "rows/banking77-fixture-rows.jsonl",
+      "rows_sha256": "c39f9d03095cae0e10bffc7009c3e5e0d5872c65ae8b1d698743b387addfe398"
+    },
+    "clinc": {
+      "label": "CLINC150+OOS",
+      "oos_label": "out of scope: none of the listed intents",
+      "oos_option": "option_80",
+      "rows": 100,
+      "rows_file": "rows/clinc-fixture-rows.jsonl",
+      "rows_sha256": "5235bf2fe396e71a442fb71e3dd98cbbeb0b6ea0935d7dda3e417b235019ae1b"
+    }
+  },
+  "env_files": [
+    "fixture/none.env",
+    "fixture/fake.env",
+    "fixture/none.env",
+    "fixture/fake-paid.env"
+  ],
+  "kit": {
+    "commit": "fixture",
+    "runner_sha256": "fixture"
+  },
+  "neurolink_version": "0.0.0-fixture",
+  "publish": [
+    {
+      "bench": "banking77",
+      "route": "luna",
+      "stage": "full"
+    },
+    {
+      "bench": "clinc",
+      "route": "luna",
+      "stage": "full"
+    },
+    {
+      "bench": "banking77",
+      "route": "clef",
+      "stage": "full"
+    },
+    {
+      "bench": "clinc",
+      "route": "clef",
+      "stage": "full"
+    }
+  ],
+  "routes": {
+    "clef": {
+      "concurrency": 1,
+      "env": {
+        "CLOUDFLARE_ACCOUNT_ID": {
+          "file": 3,
+          "name": "CLOUDFLARE_PAID_ACCOUNT_ID"
+        },
+        "CLOUDFLARE_API_KEY": {
+          "file": 1,
+          "name": "CLOUDFLARE_PAID_API_KEY"
+        }
+      },
+      "hosts": [
+        "api.cloudflare.com"
+      ],
+      "label": "Clef through Cloudflare Workers AI",
+      "max_tokens_per_minute": null,
+      "model": "clef",
+      "price_per_million_input_usd": "0.24",
+      "price_per_million_output_usd": "0",
+      "price_source": "fixture",
+      "provider": "cloudflare-clef",
+      "stage_caps_usd": {
+        "full": "1.50",
+        "pilot": "0.20",
+        "probe": "0.05"
+      }
+    },
+    "luna": {
+      "concurrency": 1,
+      "env": {
+        "TYPESAFE_API_KEY": {
+          "file": 1,
+          "name": "OPENROUTER_API_KEY"
+        },
+        "TYPESAFE_BASE_URL": {
+          "value": "https://openrouter.ai/api"
+        },
+        "TYPESAFE_MODEL": {
+          "value": "openai/gpt-6-luna-decisions"
+        }
+      },
+      "hosts": [
+        "openrouter.ai"
+      ],
+      "label": "Luna Decisions through OpenRouter",
+      "max_tokens_per_minute": null,
+      "model": "openai/gpt-6-luna-decisions",
+      "price_per_million_input_usd": "0.10",
+      "price_per_million_output_usd": "0",
+      "price_source": "fixture",
+      "provider": "typesafe",
+      "stage_caps_usd": {
+        "full": "1.50",
+        "pilot": "0.20",
+        "probe": "0.05"
+      }
+    }
+  },
+  "title": "Fixture audit: synthetic data, invented request text"
+}

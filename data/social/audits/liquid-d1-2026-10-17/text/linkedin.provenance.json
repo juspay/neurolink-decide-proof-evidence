@@ -1,0 +1,205 @@
+[
+  {
+    "end": 39,
+    "fact": "d1-ultra.banking77.accuracy",
+    "fmt": "pct1",
+    "start": 34,
+    "text": "87.5%"
+  },
+  {
+    "end": 62,
+    "fact": "d1-ultra.clinc.accuracy",
+    "fmt": "pct1",
+    "start": 57,
+    "text": "92.2%"
+  },
+  {
+    "end": 120,
+    "fact": "d1.banking77.accuracy",
+    "fmt": "pct1",
+    "start": 115,
+    "text": "89.0%"
+  },
+  {
+    "end": 130,
+    "fact": "d1.clinc.accuracy",
+    "fmt": "pct1",
+    "start": 125,
+    "text": "91.2%"
+  },
+  {
+    "end": 158,
+    "fact": "d1-ultra.banking77.t_first",
+    "fmt": "date_dmy",
+    "start": 147,
+    "text": "17 Oct 2026"
+  },
+  {
+    "end": 683,
+    "fact": "d1-ultra.banking77.rows",
+    "fmt": "int",
+    "start": 678,
+    "text": "3,080"
+  },
+  {
+    "end": 719,
+    "fact": "d1-ultra.banking77.accuracy",
+    "fmt": "pct1",
+    "start": 714,
+    "text": "87.5%"
+  },
+  {
+    "end": 732,
+    "fact": "d1-ultra.banking77.correct",
+    "fmt": "int",
+    "start": 727,
+    "text": "2,695"
+  },
+  {
+    "end": 745,
+    "fact": "d1.banking77.accuracy",
+    "fmt": "pct1",
+    "start": 740,
+    "text": "89.0%"
+  },
+  {
+    "end": 758,
+    "fact": "d1.banking77.correct",
+    "fmt": "int",
+    "start": 753,
+    "text": "2,741"
+  },
+  {
+    "end": 780,
+    "fact": "d1-ultra.clinc.rows",
+    "fmt": "int",
+    "start": 775,
+    "text": "5,500"
+  },
+  {
+    "end": 796,
+    "fact": "d1-ultra.clinc.oos_rows",
+    "fmt": "int",
+    "start": 791,
+    "text": "1,000"
+  },
+  {
+    "end": 854,
+    "fact": "d1-ultra.clinc.accuracy",
+    "fmt": "pct1",
+    "start": 849,
+    "text": "92.2%"
+  },
+  {
+    "end": 893,
+    "fact": "d1-ultra.clinc.recall",
+    "fmt": "pct1",
+    "start": 888,
+    "text": "81.8%"
+  },
+  {
+    "end": 927,
+    "fact": "d1-ultra.clinc.false_alarms",
+    "fmt": "int",
+    "start": 925,
+    "text": "44"
+  },
+  {
+    "end": 977,
+    "fact": "d1.clinc.accuracy",
+    "fmt": "pct1",
+    "start": 972,
+    "text": "91.2%"
+  },
+  {
+    "end": 990,
+    "fact": "d1.clinc.recall",
+    "fmt": "pct1",
+    "start": 985,
+    "text": "68.7%"
+  },
+  {
+    "end": 1030,
+    "fact": "d1.clinc.false_alarms",
+    "fmt": "int",
+    "start": 1028,
+    "text": "14"
+  },
+  {
+    "end": 1107,
+    "fact": "d1.clinc.in_scope_accuracy",
+    "fmt": "pct1",
+    "start": 1102,
+    "text": "96.2%"
+  },
+  {
+    "end": 1121,
+    "fact": "d1-ultra.clinc.in_scope_accuracy",
+    "fmt": "pct1",
+    "start": 1116,
+    "text": "94.5%"
+  },
+  {
+    "end": 1221,
+    "fact": "all.attempts",
+    "fmt": "int",
+    "start": 1215,
+    "text": "17,185"
+  },
+  {
+    "end": 1378,
+    "fact": "all.input_tokens",
+    "fmt": "int",
+    "start": 1368,
+    "text": "11,062,006"
+  },
+  {
+    "end": 1398,
+    "fact": "all.cost_usd",
+    "fmt": "usd2",
+    "start": 1393,
+    "text": "$0.34"
+  },
+  {
+    "end": 1581,
+    "fact": "d1-ultra.banking77.latency_us.p50",
+    "fmt": "ms1",
+    "start": 1573,
+    "text": "587.4 ms"
+  },
+  {
+    "end": 1604,
+    "fact": "d1.banking77.latency_us.p50",
+    "fmt": "ms1",
+    "start": 1596,
+    "text": "643.8 ms"
+  },
+  {
+    "end": 1680,
+    "fact": "d1-ultra.banking77.model_echo",
+    "fmt": "text",
+    "start": 1656,
+    "text": "liquid/d1-ultra-20261015"
+  },
+  {
+    "end": 1703,
+    "fact": "d1.banking77.model_echo",
+    "fmt": "text",
+    "start": 1685,
+    "text": "liquid/d1-20260930"
+  },
+  {
+    "end": 2171,
+    "fact": "d1-ultra.banking77.retries",
+    "fmt": "int",
+    "start": 2170,
+    "text": "3"
+  },
+  {
+    "end": 2213,
+    "fact": "d1.banking77.retries",
+    "fmt": "int",
+    "start": 2212,
+    "text": "5"
+  }
+]

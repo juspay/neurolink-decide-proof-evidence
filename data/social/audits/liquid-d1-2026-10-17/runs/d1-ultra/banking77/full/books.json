@@ -1,0 +1,17 @@
+{
+  "attempts": 8,
+  "records": 8,
+  "requests": 1,
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "estimated_attempts": 8,
+  "estimated_input_tokens": 696,
+  "cost_usd": "0.000029232",
+  "cost_usd_from_usage": "0",
+  "cap_usd": "0.25",
+  "status_counts": {},
+  "network_errors": 8,
+  "blocked": 0,
+  "blocked_unrecorded": 0,
+  "stop_reason": null
+}

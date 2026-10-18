@@ -1,0 +1,20 @@
+{
+  "attempts": 40,
+  "records": 40,
+  "requests": 37,
+  "input_tokens": 55010,
+  "output_tokens": 0,
+  "estimated_attempts": 6,
+  "estimated_input_tokens": 8698,
+  "cost_usd": "0.01528992",
+  "cost_usd_from_usage": "0.0132024",
+  "cap_usd": "1.5",
+  "status_counts": {
+    "200": 34,
+    "503": 6
+  },
+  "network_errors": 0,
+  "blocked": 0,
+  "blocked_unrecorded": 0,
+  "stop_reason": null
+}

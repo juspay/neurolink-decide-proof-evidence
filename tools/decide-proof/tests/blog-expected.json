@@ -1,0 +1,176 @@
+{
+  "cells": {
+    "clef-flash.banking77": {
+      "accuracy_pct0": "91%",
+      "correct": 2799,
+      "failed": 0,
+      "line": "| Clef-flash | 91% (2,799) | 63% (3,472) |"
+    },
+    "clef-flash.clinc": {
+      "accuracy_pct0": "63%",
+      "correct": 3472,
+      "failed": 0,
+      "line": "| Clef-flash | 91% (2,799) | 63% (3,472) |",
+      "line2": "| Clef-flash | 63% (3,472) | 99.1% (991 of 1,000) | 35.6% (991 of 2,787) |",
+      "oos_caught": 991,
+      "oos_rows": 1000,
+      "precision_pct1": "35.6%",
+      "recall_pct1": "99.1%",
+      "said_oos": 2787
+    },
+    "clef.banking77": {
+      "accuracy_pct0": "94%",
+      "correct": 2899,
+      "failed": 0,
+      "line": "| Clef | 94% (2,899) | 97% (5,350) |"
+    },
+    "clef.clinc": {
+      "accuracy_pct0": "97%",
+      "correct": 5350,
+      "failed": 0,
+      "line": "| Clef | 94% (2,899) | 97% (5,350) |",
+      "line2": "| Clef | 97% (5,350) | 95.1% (951 of 1,000) | 97.9% (951 of 971) |",
+      "oos_caught": 951,
+      "oos_rows": 1000,
+      "precision_pct1": "97.9%",
+      "recall_pct1": "95.1%",
+      "said_oos": 971
+    },
+    "jev.banking77": {
+      "accuracy_pct0": "80%",
+      "correct": 2465,
+      "failed": 13,
+      "line": "| Jev | 80% (2,465), 13 failed | 89% (4,883), 28 failed |"
+    },
+    "jev.clinc": {
+      "accuracy_pct0": "89%",
+      "correct": 4883,
+      "failed": 28,
+      "line": "| Jev | 80% (2,465), 13 failed | 89% (4,883), 28 failed |",
+      "line2": "| Jev | 89% (4,883) | 85.1% (851 of 1,000) | 86.1% (851 of 988) |",
+      "oos_caught": 851,
+      "oos_rows": 1000,
+      "precision_pct1": "86.1%",
+      "recall_pct1": "85.1%",
+      "said_oos": 988
+    },
+    "luna.banking77": {
+      "accuracy_pct0": "77%",
+      "correct": 2375,
+      "failed": 0,
+      "line": "| Luna Decisions through OpenRouter's served route, not OpenAI's own API | 77% (2,375) | 88% (4,863), 1 failed |"
+    },
+    "luna.clinc": {
+      "accuracy_pct0": "88%",
+      "correct": 4863,
+      "failed": 1,
+      "line": "| Luna Decisions through OpenRouter's served route, not OpenAI's own API | 77% (2,375) | 88% (4,863), 1 failed |",
+      "line2": "| Luna Decisions through OpenRouter's served route, not OpenAI's own API | 88% (4,863) | 92.4% (924 of 1,000) | 74.9% (924 of 1,233) |",
+      "oos_caught": 924,
+      "oos_rows": 1000,
+      "precision_pct1": "74.9%",
+      "recall_pct1": "92.4%",
+      "said_oos": 1233
+    },
+    "perplexity-v1.banking77": {
+      "accuracy_pct0": "81%",
+      "correct": 2502,
+      "failed": 0,
+      "line": "| Perplexity Decider v1 | 81% (2,502) | 92% (5,042) |"
+    },
+    "perplexity-v1.clinc": {
+      "accuracy_pct0": "92%",
+      "correct": 5042,
+      "failed": 0,
+      "line": "| Perplexity Decider v1 | 81% (2,502) | 92% (5,042) |",
+      "line2": "| Perplexity Decider v1 | 92% (5,042) | 86.1% (861 of 1,000) | 93.5% (861 of 921) |",
+      "oos_caught": 861,
+      "oos_rows": 1000,
+      "precision_pct1": "93.5%",
+      "recall_pct1": "86.1%",
+      "said_oos": 921
+    },
+    "xor.banking77": {
+      "accuracy_pct0": "80%",
+      "correct": 2457,
+      "failed": 0,
+      "line": "| The XOR route (XOR is Juspay's own; the XOR route's model is unconfirmed) | 80% (2,457) | 86% (4,715) |"
+    },
+    "xor.clinc": {
+      "accuracy_pct0": "86%",
+      "correct": 4715,
+      "failed": 0,
+      "line": "| The XOR route (XOR is Juspay's own; the XOR route's model is unconfirmed) | 80% (2,457) | 86% (4,715) |",
+      "line2": "| The XOR route (XOR is Juspay's own; the XOR route's model is unconfirmed) | 86% (4,715) | 92.6% (926 of 1,000) | 72.9% (926 of 1,270) |",
+      "oos_caught": 926,
+      "oos_rows": 1000,
+      "precision_pct1": "72.9%",
+      "recall_pct1": "92.6%",
+      "said_oos": 1270
+    }
+  },
+  "replay_files": {
+    "clef-flash.banking77": {
+      "file": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-banking77-clef-flash.jsonl",
+      "lines": 3080,
+      "sha256": "ba474aecd5dd24c42a4ee22ef33070e463755c01da4cca46c30bf7216ce59ae8"
+    },
+    "clef-flash.clinc": {
+      "file": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-clinc150-clef-flash.jsonl",
+      "lines": 5500,
+      "sha256": "366ee47b0b85d64b35e3c908e874faf9eee2e5299b49f25e1c4070970cb69a3e"
+    },
+    "clef.banking77": {
+      "file": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-banking77-clef.jsonl",
+      "lines": 3080,
+      "sha256": "6497cc83fa342194c8e47baf32553d4160be01e2630e7d5ffc222698f28d3e61"
+    },
+    "clef.clinc": {
+      "file": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-clinc150-clef.jsonl",
+      "lines": 5500,
+      "sha256": "a37a4989ae58340f742a969ef74b0b7d94b3d27f588c443a2088aded7ae8edce"
+    },
+    "jev.banking77": {
+      "file": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-banking77-jev.jsonl",
+      "lines": 3080,
+      "sha256": "c00f031a84aa014fb50b40a591a595ecd6f37f600f668d84528653ea4d192792"
+    },
+    "jev.clinc": {
+      "file": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-clinc150-jev.jsonl",
+      "lines": 5500,
+      "sha256": "1a0e9983cab678d752180494d976856f045f4272135ef022f426dae1a70827f8"
+    },
+    "luna.banking77": {
+      "file": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-banking77-luna.jsonl",
+      "lines": 3080,
+      "sha256": "100874a39cdc8c68cec6003f7b6d6824b554d511016e9deb4ba47ad0cf855482"
+    },
+    "luna.clinc": {
+      "file": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-clinc150-luna.jsonl",
+      "lines": 5500,
+      "sha256": "ee2bb5b801c76c1afd51c2c51c7c83e65f8035157cc3e048011478cc1d8fa3d4"
+    },
+    "perplexity-v1.banking77": {
+      "file": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-banking77-perplexity-v1.jsonl",
+      "lines": 3080,
+      "sha256": "4d4c6cc17f00ba76774de38dd3d6bffc88f3abf9ab43bad2d431a7d412e655bf"
+    },
+    "perplexity-v1.clinc": {
+      "file": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-clinc150-perplexity-v1.jsonl",
+      "lines": 5500,
+      "sha256": "ebdec4c0879650ddcf27f601940963b52cd5c73b5c4d5823d63b9a6646c22d50"
+    },
+    "xor.banking77": {
+      "file": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-banking77-xor.jsonl",
+      "lines": 3080,
+      "sha256": "d885c0db2058e8f00446ba9f57426dd994a4fcff9841811e2e4edd81d6618347"
+    },
+    "xor.clinc": {
+      "file": "data/social/engagement-small-2026-10-10/article-2026-10-12/sources/rows-clinc150-xor.jsonl",
+      "lines": 5500,
+      "sha256": "6aed51dacf89a6dfdb41d232a98b6347f9448bd3c2358136ad568e4b1edfc364"
+    }
+  },
+  "source": "data/social/engagement-small-2026-10-10/article-2026-10-12/posts/article.md",
+  "source_sha256": "50f1747a5afca18dcedf79a7a690553d1d2f8c88718915aa1648941eff7e34b8"
+}

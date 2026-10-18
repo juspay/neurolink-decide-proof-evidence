@@ -1,0 +1,11 @@
+{
+  "fonts": [
+    { "family": "Barlow Condensed", "weight": 500, "style": "normal", "file": "BarlowCondensed-Medium.ttf", "licence": "OFL-barlowcondensed.txt" },
+    { "family": "Barlow Condensed", "weight": 600, "style": "normal", "file": "BarlowCondensed-SemiBold.ttf", "licence": "OFL-barlowcondensed.txt" },
+    { "family": "Barlow Condensed", "weight": 700, "style": "normal", "file": "BarlowCondensed-Bold.ttf", "licence": "OFL-barlowcondensed.txt" },
+    { "family": "IBM Plex Mono", "weight": 400, "style": "normal", "file": "IBMPlexMono-Regular.ttf", "licence": "OFL-ibmplexmono.txt" },
+    { "family": "IBM Plex Mono", "weight": 500, "style": "normal", "file": "IBMPlexMono-Medium.ttf", "licence": "OFL-ibmplexmono.txt" },
+    { "family": "IBM Plex Mono", "weight": 600, "style": "normal", "file": "IBMPlexMono-SemiBold.ttf", "licence": "OFL-ibmplexmono.txt" }
+  ],
+  "source": "https://github.com/google/fonts/tree/main/ofl (barlowcondensed, ibmplexmono); SIL Open Font License 1.1, texts alongside"
+}

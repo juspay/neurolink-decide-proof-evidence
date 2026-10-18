@@ -1,0 +1,23 @@
+{"time":"2026-10-17T11:05:06.184822+00:00","event":"loading","engine":"http"}
+
+[stderr]
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "~/.cache/decide-proof/kit/decision_index/__main__.py", line 4, in <module>
+    main()
+  File "~/.cache/decide-proof/kit/decision_index/cli.py", line 258, in main
+    args.func(args)
+  File "~/.cache/decide-proof/kit/decision_index/cli.py", line 81, in cmd_run
+    print(json.dumps(run(args.engine, engine_options(args), rows, out, limit=args.limit, compact=args.compact, resume=not args.fresh, corpus_sha256=corpus, keep=keep)))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.cache/decide-proof/kit/decision_index/runner.py", line 47, in run
+    engine.warmup()
+  File "~/.cache/decide-proof/kit/decision_index/engines/base.py", line 55, in warmup
+    self("The color is red.", warm)
+  File "~/.cache/decide-proof/kit/decision_index/engines/http.py", line 44, in __call__
+    r.raise_for_status()
+  File "~/.cache/decide-proof/venv/lib/python3.12/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Server error '502 Bad Gateway' for url 'http://127.0.0.1:63197/v1/systemone'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502

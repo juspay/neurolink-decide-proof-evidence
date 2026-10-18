@@ -1,0 +1,784 @@
+{
+ "schema": 1,
+ "what": "Log of every change between the source audit folder / toolkit and this repository. Counts and hashes only: no replaced value is written here.",
+ "source": {
+  "commit": "2e399ea16aa955f53487138ebb8d03e38c2832eb of the internal marketing repository",
+  "state_copied": "git archive of that commit for data/social/audits/liquid-d1-2026-10-17 (136 files) and tools/decide-proof (220 files, exactly the git-tracked files). The working folders held the same bytes for the audit; the working toolkit folder held extra git-ignored build outputs and test logs, which are not copied."
+ },
+ "rules": [
+  {
+   "id": "home_prefix",
+   "what": "the home-directory prefix of the author's machine, in plain text files",
+   "replaced_with": "~",
+   "applies_to": "audit folder and toolkit copy"
+  },
+  {
+   "id": "scratch_path",
+   "what": "a session scratchpad path whose directory name encodes the home path",
+   "replaced_with": "~/scratchpad",
+   "applies_to": "toolkit copy"
+  },
+  {
+   "id": "temp_dir",
+   "what": "the per-user directory macOS gives to temporary files, as a path prefix",
+   "replaced_with": "/tmp/",
+   "applies_to": "kit/environment.json of the four probe stages"
+  },
+  {
+   "id": "literal_users_assertion",
+   "what": "a test assertion that output holds no home path, which spelled the first path segment in a string literal; the literal is split in two so the segment is not written out (same truth value)",
+   "replaced_with": "split string literal",
+   "applies_to": "3 test files in the toolkit copy"
+  }
+ ],
+ "rules_not_applied": "tools/decide-proof/tests/blog-expected.json already names its saved-rows files relative to the repository root at this commit, so the repo-root rewrite used for an earlier export of the same toolkit was not needed. Gateway-header masking applies only to the second audit's XOR probes, which are not in this repository.",
+ "decisions": {
+  "facts_regeneration": "audit-config.json (env file paths), scan/scan-result.json (skipped-file paths) and runs/d1/banking77/full-r2/kit/results.jsonl (Python tracebacks with file paths; a counted kit result) are inputs of the fact engines, so cleaning them changes the input hashes that facts/facts.json lists. facts/facts-node.json, facts-py.json and facts.json were regenerated with the toolkit's own `proof facts` (both engines must agree byte for byte, or nothing is written); MANIFEST.sha256 with runner/finish.mjs writeManifest. No check was loosened and verify.sh is unchanged. The `facts` object is identical to the original (audit.facts_check.facts_object_identical: 132 facts); only the listed inputs differ, so facts.json's own hash changed from ff6f99318060 (shown on the posted film's verify screen) to 99dc62442173. The counted recordings (wire.jsonl.gz and decide.jsonl.gz of the four counted stages) are byte-identical, so the fingerprints the film shows for them still hold. Records of the original run that cite an old hash were not edited; they are listed under audit.records_left_as_recorded_that_cite_an_old_sha256.",
+  "media": "film/film.mp4 and film/poster.png are not rewritten (the cleaning skips media); audit.media_byte_identical_to_source compares them with the originals by sha256.",
+  "toolkit_scope": "Exactly the 220 git-tracked files of tools/decide-proof. Excluded because git-ignored: tests/film/out, tests/film-check/work, *.mp4 build outputs, node_modules, caches and test logs.",
+  "kit_and_rows": "decide-proof-vd/rows/*.jsonl byte-identical to ~/.cache/decide-proof/rows on the author's machine (sha256 equal to the pins in audit-config.json). decide-proof-vd/kit is `git archive` of apolinario/decision-index at commit 87d4650b42b377c0291a89c1f1a879f9b31082bf (MIT licence file included, runner.py sha256 equals the pin); verify.sh does not read it.",
+  "git_attributes": ".gitattributes sets `* -text` so that git never changes line endings: the manifest lists the sha256 of every byte."
+ },
+ "audit": {
+  "files_in_source": 136,
+  "files_in_repo": 136,
+  "files_identical_to_source": 117,
+  "files_rewritten_by_path_rules": 15,
+  "files_regenerated": 4,
+  "files_with_unlogged_difference": [],
+  "rewritten_paths": [
+   {
+    "path": "audit-config.json",
+    "sha256_before": "656d028305f81d604b642b4c8d15bd2b9b036a2ef3b694ab308ac3b5b0e58f23",
+    "sha256_after": "5f5a3627577b4e56f344371b667a59328c39f75551bf9afabf106035353c0fde",
+    "bytes_before": 3952,
+    "bytes_after": 3916,
+    "replaced": {
+     "home_prefix": 2
+    }
+   },
+   {
+    "path": "runs/d1-ultra/banking77/full-r2/kit/environment.json",
+    "sha256_before": "66ec6f00ab466c1761b2dc84dfc76732b8164b77f139d5eb79aa5648734e63ff",
+    "sha256_after": "da9cf1173764089a2545118c57175dbe9656d4cddc9829ae420a414c10ba156c",
+    "bytes_before": 876,
+    "bytes_after": 858,
+    "replaced": {
+     "home_prefix": 1
+    }
+   },
+   {
+    "path": "runs/d1-ultra/banking77/full/kit/environment.json",
+    "sha256_before": "0f4abde0887649856a85b8e22c81f1aafa7c3aaa8b653cf0919c2c2597c8dad3",
+    "sha256_after": "f14f1edd0e2d098a5d1ffb0c0427fe55a1e28f63e258863d9dd594f38f89c632",
+    "bytes_before": 877,
+    "bytes_after": 859,
+    "replaced": {
+     "home_prefix": 1
+    }
+   },
+   {
+    "path": "runs/d1-ultra/banking77/full/kit/pass1.log",
+    "sha256_before": "14c5b0e72b01f0b5694d6856e3aaeb7b3f345c1b88a68c1a4899223c2b6283ce",
+    "sha256_after": "0315c1905c2db669e5e056da076489139d380625269b80948cfc5fc2dcfe7430",
+    "bytes_before": 1659,
+    "bytes_after": 1533,
+    "replaced": {
+     "home_prefix": 7
+    }
+   },
+   {
+    "path": "runs/d1-ultra/banking77/probe/kit/environment.json",
+    "sha256_before": "72183cec63f645a517247efcda65f979c1832f443a8e9cac22a05a4fde54e746",
+    "sha256_after": "a2f88ec7c5a4dc23bbd3a9b84149fe35ef4f1c332ca625ef470936faae6109ed",
+    "bytes_before": 895,
+    "bytes_after": 851,
+    "replaced": {
+     "temp_dir": 1
+    }
+   },
+   {
+    "path": "runs/d1-ultra/clinc/full/kit/environment.json",
+    "sha256_before": "195cd2ac925b2f5d5d3f501c63fb8840e44344d4b4bc1dcbb9c34de03f23c918",
+    "sha256_after": "d7766e317aeaa891760121f378a8dfe0e25905606bc0211481187539dec8e0e4",
+    "bytes_before": 872,
+    "bytes_after": 854,
+    "replaced": {
+     "home_prefix": 1
+    }
+   },
+   {
+    "path": "runs/d1-ultra/clinc/probe/kit/environment.json",
+    "sha256_before": "d0e72be86421e6813234a0ffbc7815dd79e9026fc74c8fae5ce0bad95dfd94e2",
+    "sha256_after": "a0c07dcc89fe96895d42c3983ef81f81f71aa9a7ef56fa5d77ab2dc0dc6a569b",
+    "bytes_before": 892,
+    "bytes_after": 848,
+    "replaced": {
+     "temp_dir": 1
+    }
+   },
+   {
+    "path": "runs/d1/banking77/full-r2/kit/environment.json",
+    "sha256_before": "f0990bf5fe917f674673b2495133740e6d48a51a77276c605d8df8690a632ec0",
+    "sha256_after": "288a0d80c6bcafdeaee51de758033eded2d904a0821fbdf99d7fa728d2ae1ced",
+    "bytes_before": 864,
+    "bytes_after": 846,
+    "replaced": {
+     "home_prefix": 1
+    }
+   },
+   {
+    "path": "runs/d1/banking77/full-r2/kit/results.jsonl",
+    "sha256_before": "2b6bcc8f7b4a87997b0c9fb343284e6364873382134824cfd226477ac850b433",
+    "sha256_after": "04dcbe89d102e90bd0e2cf40c9cf78d7dd982a1551af71f3d9c3868b03fce6c1",
+    "bytes_before": 10436158,
+    "bytes_after": 10436104,
+    "replaced": {
+     "home_prefix": 3
+    }
+   },
+   {
+    "path": "runs/d1/banking77/full/kit/environment.json",
+    "sha256_before": "e8f0d07bd5a638e41292ce128e4afaaa0363ce7b362b9aa2b4bc28253f30e4dd",
+    "sha256_after": "754b489501ade61ac238a08a4e6404e104c992ced45dbb8daacbf054ed73daae",
+    "bytes_before": 864,
+    "bytes_after": 846,
+    "replaced": {
+     "home_prefix": 1
+    }
+   },
+   {
+    "path": "runs/d1/banking77/full/kit/pass1.log",
+    "sha256_before": "faa675e4992fd6329c07ac688718360c102029e57fe8d1a37d810587bcb73b08",
+    "sha256_after": "1dcbe46f467e33565faa9ed7c998a94859aa4d9f5db411be0d802222195803f5",
+    "bytes_before": 1659,
+    "bytes_after": 1533,
+    "replaced": {
+     "home_prefix": 7
+    }
+   },
+   {
+    "path": "runs/d1/banking77/probe/kit/environment.json",
+    "sha256_before": "8ea006cff7e2cc2efbac1ccd039646df12ead6622082fd305615ff8cbbe02094",
+    "sha256_after": "e9eb97e8e0629866068a5f2a12cbbb43cc6d8df2a35e27bddf9141aed51ff7f2",
+    "bytes_before": 883,
+    "bytes_after": 839,
+    "replaced": {
+     "temp_dir": 1
+    }
+   },
+   {
+    "path": "runs/d1/clinc/full/kit/environment.json",
+    "sha256_before": "dd4f0adeb9062ee3f9240b966f80253666f01e5f721871e7ffd98ce83c11b241",
+    "sha256_after": "cadccd4e7cc7f6d872d2f9efcc85d9b4a2a0e6c26a568d076d411dee03e14a2b",
+    "bytes_before": 860,
+    "bytes_after": 842,
+    "replaced": {
+     "home_prefix": 1
+    }
+   },
+   {
+    "path": "runs/d1/clinc/probe/kit/environment.json",
+    "sha256_before": "c88c57585c1f0800cd83c66c8d84a41311b7f0b807557e2b5c0b2acd0d4dd172",
+    "sha256_after": "7a57a0e9d348e9f64c0930c9bdc5be88f7c107a983f3d96ee918778780325b37",
+    "bytes_before": 879,
+    "bytes_after": 835,
+    "replaced": {
+     "temp_dir": 1
+    }
+   },
+   {
+    "path": "scan/scan-result.json",
+    "sha256_before": "f04a62add9f70b471d52f4b9b33534ab31a38aa9eeb899a14a650d373132dda8",
+    "sha256_after": "35351e8aef6f25674616bdf0a13c2749601020714e4d8247fff44d524325f9cc",
+    "bytes_before": 581,
+    "bytes_after": 545,
+    "replaced": {
+     "home_prefix": 2
+    }
+   }
+  ],
+  "regenerated": [
+   {
+    "path": "MANIFEST.sha256",
+    "sha256_before": "3630b26009816a445ad50690a849b9e9da0e40e097c22ae4fd12aaad0dcd200b",
+    "sha256_after": "1697b2d531daf488cb75f571d7624e34bd07cdffa726127e6ab290c888e5ce8c"
+   },
+   {
+    "path": "facts/facts-node.json",
+    "sha256_before": "ff6f99318060981fd7a02d1769f02993c4a6916466053224bd8a7f925cdeb1a5",
+    "sha256_after": "99dc6244217375cc44d40c2df5ba0cc08e38ff69483df997ece3b40dd9d58227"
+   },
+   {
+    "path": "facts/facts-py.json",
+    "sha256_before": "ff6f99318060981fd7a02d1769f02993c4a6916466053224bd8a7f925cdeb1a5",
+    "sha256_after": "99dc6244217375cc44d40c2df5ba0cc08e38ff69483df997ece3b40dd9d58227"
+   },
+   {
+    "path": "facts/facts.json",
+    "sha256_before": "ff6f99318060981fd7a02d1769f02993c4a6916466053224bd8a7f925cdeb1a5",
+    "sha256_after": "99dc6244217375cc44d40c2df5ba0cc08e38ff69483df997ece3b40dd9d58227"
+   }
+  ],
+  "facts_check": {
+   "facts_object_identical": true,
+   "facts_count": 132,
+   "audit_id_and_schema_identical": true,
+   "inputs_total": 24,
+   "inputs_changed": [
+    {
+     "input": "config",
+     "sha256_before": "656d028305f81d604b642b4c8d15bd2b9b036a2ef3b694ab308ac3b5b0e58f23",
+     "sha256_after": "5f5a3627577b4e56f344371b667a59328c39f75551bf9afabf106035353c0fde"
+    },
+    {
+     "input": "runs/d1/banking77/full-r2/kit/results.jsonl",
+     "sha256_before": "2b6bcc8f7b4a87997b0c9fb343284e6364873382134824cfd226477ac850b433",
+     "sha256_after": "04dcbe89d102e90bd0e2cf40c9cf78d7dd982a1551af71f3d9c3868b03fce6c1"
+    },
+    {
+     "input": "scan/scan-result.json",
+     "sha256_before": "f04a62add9f70b471d52f4b9b33534ab31a38aa9eeb899a14a650d373132dda8",
+     "sha256_after": "35351e8aef6f25674616bdf0a13c2749601020714e4d8247fff44d524325f9cc"
+    }
+   ],
+   "node_python_facts_json_byte_identical": true,
+   "facts_json_sha256_before": "ff6f99318060981fd7a02d1769f02993c4a6916466053224bd8a7f925cdeb1a5",
+   "facts_json_sha256_after": "99dc6244217375cc44d40c2df5ba0cc08e38ff69483df997ece3b40dd9d58227"
+  },
+  "fact_engine_recordings_byte_identical": {
+   "count": 8,
+   "all_identical": true,
+   "files": [
+    {
+     "path": "runs/d1-ultra/banking77/full-r2/decide.jsonl.gz",
+     "sha256": "c40afda2f6d9f8161611c8a3edb841a1de4dbf05b14aaba0eb239c339271b85b",
+     "byte_identical_to_source": true
+    },
+    {
+     "path": "runs/d1-ultra/banking77/full-r2/wire.jsonl.gz",
+     "sha256": "e1ce442a7961e545e835471ca44c20d1cc62d20ec50854b93c1e7331ee58e4c7",
+     "byte_identical_to_source": true
+    },
+    {
+     "path": "runs/d1-ultra/clinc/full/decide.jsonl.gz",
+     "sha256": "e025c8ec6ed7340a3d7cd6d57f2d1d1796da512fccda93b44d87bfd9669f1877",
+     "byte_identical_to_source": true
+    },
+    {
+     "path": "runs/d1-ultra/clinc/full/wire.jsonl.gz",
+     "sha256": "eb755d5d021bdfefb8bb8724009c591bf3c99a6e13d4d36b6d66c3badc7f7a5e",
+     "byte_identical_to_source": true
+    },
+    {
+     "path": "runs/d1/banking77/full-r2/decide.jsonl.gz",
+     "sha256": "c43ccdbe9c9a8b50e71e98cccfe8cd2daf4042ea83449dbf96eb1697cf3af386",
+     "byte_identical_to_source": true
+    },
+    {
+     "path": "runs/d1/banking77/full-r2/wire.jsonl.gz",
+     "sha256": "3d456eb6fb341ac38b3ab576545f5570fc2dc56bd7213036f3cd6d0f6815e0b2",
+     "byte_identical_to_source": true
+    },
+    {
+     "path": "runs/d1/clinc/full/decide.jsonl.gz",
+     "sha256": "7db6d0a2206e023f1920a1e89a032fb16c8279b4cf43e8ec1a23c4002b7c0da2",
+     "byte_identical_to_source": true
+    },
+    {
+     "path": "runs/d1/clinc/full/wire.jsonl.gz",
+     "sha256": "5e07b1caf756bc57e06e3b0f65c93a0ee0dff1f6f73cc05747e5ada21e40e649",
+     "byte_identical_to_source": true
+    }
+   ]
+  },
+  "recordings_gz_total": 20,
+  "recordings_gz_changed": [],
+  "media_byte_identical_to_source": {
+   "film/film.mp4": {
+    "sha256": "6a1b2bfefc27193140ab1889f9e88a22a9b1135627afb2b1294e911c794513cb",
+    "bytes": 12301647,
+    "byte_identical_to_source": true
+   },
+   "film/poster.png": {
+    "sha256": "9f453af0f3672bbf10a40cc8777fc5aeb07a617a3b3da3f23051d85fedc441db",
+    "bytes": 261415,
+    "byte_identical_to_source": true
+   }
+  },
+  "manifest": {
+   "sha256_before": "3630b26009816a445ad50690a849b9e9da0e40e097c22ae4fd12aaad0dcd200b",
+   "sha256_after": "1697b2d531daf488cb75f571d7624e34bd07cdffa726127e6ab290c888e5ce8c",
+   "files_listed_before": 135,
+   "files_listed_after": 135
+  },
+  "records_left_as_recorded_that_cite_an_old_sha256": [
+   {
+    "record": "approval/bsky.json",
+    "cites_old_sha256_of": [
+     "facts/facts.json"
+    ]
+   },
+   {
+    "record": "approval/linkedin.json",
+    "cites_old_sha256_of": [
+     "facts/facts.json"
+    ]
+   },
+   {
+    "record": "approval/x-reply.json",
+    "cites_old_sha256_of": [
+     "facts/facts.json"
+    ]
+   },
+   {
+    "record": "film/captures/verify-run.stdout.txt",
+    "cites_old_sha256_of": [
+     "facts/facts.json"
+    ]
+   },
+   {
+    "record": "film/check-result.json",
+    "cites_old_sha256_of": [
+     "facts/facts.json"
+    ]
+   },
+   {
+    "record": "film/probe.json",
+    "cites_old_sha256_of": [
+     "facts/facts.json"
+    ]
+   },
+   {
+    "record": "film/scene.json",
+    "cites_old_sha256_of": [
+     "facts/facts.json",
+     "runs/d1/banking77/full-r2/kit/results.jsonl"
+    ]
+   }
+  ]
+ },
+ "toolkit": {
+  "files_in_source_git_tree": 220,
+  "files_in_repo": 220,
+  "identical": 201,
+  "rewritten": [
+   {
+    "path": "CONTRACT.md",
+    "sha256_before": "29e7802639a89056c35e9b85bd5e0e406fc21eb24949fc18825413aed2fbc696",
+    "sha256_after": "8d55efba1182ad7b8757501c869eeb1cbd94c86010eb71465ae1a27ad00dd033",
+    "bytes_before": 25338,
+    "bytes_after": 25266,
+    "replaced": {
+     "home_prefix": 4
+    }
+   },
+   {
+    "path": "audits/liquid-d1-2026-10-17.json",
+    "sha256_before": "656d028305f81d604b642b4c8d15bd2b9b036a2ef3b694ab308ac3b5b0e58f23",
+    "sha256_after": "5f5a3627577b4e56f344371b667a59328c39f75551bf9afabf106035353c0fde",
+    "bytes_before": 3952,
+    "bytes_after": 3916,
+    "replaced": {
+     "home_prefix": 2
+    }
+   },
+   {
+    "path": "docs/map/blog-runs.md",
+    "sha256_before": "cd7c0be3f84a36594651319cdae3b78f658d7b90c88f497580d48eb760adcbb4",
+    "sha256_after": "7cdafb2c2662597ec1c9d69e33e228e6d3cdbbde7712474a0587a98170028db2",
+    "bytes_before": 33632,
+    "bytes_after": 33099,
+    "replaced": {
+     "scratch_path": 1,
+     "home_prefix": 23
+    }
+   },
+   {
+    "path": "docs/map/film.md",
+    "sha256_before": "97dade26cfde2324e370a1ff7786164d29b6797024e124f5a820770737168a75",
+    "sha256_after": "ce565dc37ecaf8508613a95a775eb3049d7f74423cba33f56e25a4f9087a9267",
+    "bytes_before": 25458,
+    "bytes_after": 25170,
+    "replaced": {
+     "home_prefix": 16
+    }
+   },
+   {
+    "path": "docs/map/harness.md",
+    "sha256_before": "9a5ed4086e8968885b8a396e63b250bcfdb572cccf1543fd53f3aaf68ab28630",
+    "sha256_after": "4ce7158e17b1e47e374d386701a354645495948126b2b8d071dd6c0cd90623f9",
+    "bytes_before": 30940,
+    "bytes_after": 30515,
+    "replaced": {
+     "scratch_path": 1,
+     "home_prefix": 17
+    }
+   },
+   {
+    "path": "tests/facts-node/compare.test.mjs",
+    "sha256_before": "62bf54723b145452fc08fcad0ba42481b06eca61fc0129476dcfd37c53e53d53",
+    "sha256_after": "68134cd3d63f860bd814b9116f4160e603991889ff246f5ba55afffc51c06b4f",
+    "bytes_before": 40378,
+    "bytes_after": 40383,
+    "replaced": {
+     "literal_users_assertion": 1
+    }
+   },
+   {
+    "path": "tests/facts-node/replay.test.mjs",
+    "sha256_before": "391cbb210547590f1224c04ba9cb6909bcc0e9b8eecded95c91b6f3ef688d10e",
+    "sha256_after": "af5409105cfabb88e06d3f75e6ba4377babf6ee0e1509b5a0d422332e72b6b33",
+    "bytes_before": 17570,
+    "bytes_after": 17575,
+    "replaced": {
+     "literal_users_assertion": 1
+    }
+   },
+   {
+    "path": "tests/film-check/run-tests.py",
+    "sha256_before": "cf39bf84e5ffb5ce12b3f38cbf7c8d0636faaf7e9a376803d0e743922dfbd1ea",
+    "sha256_after": "0bc9935b1483e84e068664e03e36ac4ab2966c886fb5ed7b3b2fc4b740eb7586",
+    "bytes_before": 26399,
+    "bytes_after": 26402,
+    "replaced": {
+     "literal_users_assertion": 1
+    }
+   },
+   {
+    "path": "tests/fixtures/fake-audit/audit-config.json",
+    "sha256_before": "dd8e8e9e8a905836abd43144dfe2929690d0f64c8be5e9ed9fa72f7ce5a51191",
+    "sha256_after": "40ac474e96e619618bb006cb4c62ffd836e3d2992eb6c0a17dfcd4bae78a36d3",
+    "bytes_before": 3515,
+    "bytes_after": 3479,
+    "replaced": {
+     "home_prefix": 2
+    }
+   },
+   {
+    "path": "tests/fixtures/fake-audit/runs/clef/banking77/full/kit/environment.json",
+    "sha256_before": "208fe2df18a00dd1bf7dc4b94a84456f98e79b23da055ba813f3f1bd022693e5",
+    "sha256_after": "169648d60612767f985c6dd4da45a4deed05f71785a2ac2f1cf247cfba9ccd83",
+    "bytes_before": 917,
+    "bytes_after": 899,
+    "replaced": {
+     "home_prefix": 1
+    }
+   },
+   {
+    "path": "tests/fixtures/fake-audit/runs/clef/banking77/full/kit/results.jsonl",
+    "sha256_before": "dfae34171af7bf4f6367a40b3fea9b40570f9acd39dafdb33561be21b3290684",
+    "sha256_after": "a7dfb15a5aeb6f15ec23923cc7c4558a41646179d2dc3acb189a77129bf7700b",
+    "bytes_before": 74518,
+    "bytes_after": 74356,
+    "replaced": {
+     "home_prefix": 9
+    }
+   },
+   {
+    "path": "tests/fixtures/fake-audit/runs/clef/clinc/full/kit/environment.json",
+    "sha256_before": "ad6f5de9b02aad77a81847ab7c3f627ed62f54efe37392efa902c16039bbafeb",
+    "sha256_after": "d10afabb66b189f90aaccfb5d8e216c7041246192cc9706b3a4b30519b83f638",
+    "bytes_before": 914,
+    "bytes_after": 896,
+    "replaced": {
+     "home_prefix": 1
+    }
+   },
+   {
+    "path": "tests/fixtures/fake-audit/runs/clef/clinc/full/kit/results.jsonl",
+    "sha256_before": "5e33a513e09dafac350c7d5e891e05268dba75297d6772be788bf67da1b304be",
+    "sha256_after": "9ec22b7e3a27999eda5432aef3f16a5c679c6e53b31a716f4aa10dada32b99af",
+    "bytes_before": 160458,
+    "bytes_after": 159540,
+    "replaced": {
+     "home_prefix": 51
+    }
+   },
+   {
+    "path": "tests/fixtures/fake-audit/runs/luna/banking77/full/kit/environment.json",
+    "sha256_before": "c3ed2e4abac73bf1aac653887ceb0db981295ab848e446270b7e4a3ade87baf1",
+    "sha256_after": "5347be391c0aab0015030a80f0eca8eafcc96fafaf54a324ea3bb2ea052c4a58",
+    "bytes_before": 964,
+    "bytes_after": 946,
+    "replaced": {
+     "home_prefix": 1
+    }
+   },
+   {
+    "path": "tests/fixtures/fake-audit/runs/luna/banking77/full/kit/results.jsonl",
+    "sha256_before": "15a0b202bc83ea03d6c7a726bd606bed3f3ddcc61945119c509640cb3fb125b0",
+    "sha256_after": "7f71aaf57e33aca97461a783ab7730000f4b3d6b0896f5f30e562c3dbf25ce40",
+    "bytes_before": 75972,
+    "bytes_after": 75540,
+    "replaced": {
+     "home_prefix": 24
+    }
+   },
+   {
+    "path": "tests/fixtures/fake-audit/runs/luna/clinc/full/kit/environment.json",
+    "sha256_before": "a278c627c83e60b01db7e9d92691358ef2cd8cb4d9f2d2494e82bc59d769a996",
+    "sha256_after": "66fae50f1a1bb00f388b9f6b341bdc62cd3e04e5707fa961c3b2aba2ba823699",
+    "bytes_before": 959,
+    "bytes_after": 941,
+    "replaced": {
+     "home_prefix": 1
+    }
+   },
+   {
+    "path": "tests/fixtures/fake-audit/runs/luna/clinc/full/kit/results.jsonl",
+    "sha256_before": "280fe0c8ffd4266271c80e0d0e7da325fb1d61c83645d38accf4465e6498927f",
+    "sha256_after": "79551a5cc5bb5fe5d1ed13fddff7c8de83637c4b16d25fef4a9a7ae70719835e",
+    "bytes_before": 164306,
+    "bytes_after": 163982,
+    "replaced": {
+     "home_prefix": 18
+    }
+   },
+   {
+    "path": "tests/lib/support/helpers.mjs",
+    "sha256_before": "3c91fa2b6ec2a2a88f703229f0b553af0cf829e8542662d648f81dddbe2184b8",
+    "sha256_after": "a09b7285708c0823feb10d73518071442b1dc92bae5ff00b85dbc38d30376bb4",
+    "bytes_before": 4652,
+    "bytes_after": 4533,
+    "replaced": {
+     "scratch_path": 1
+    }
+   },
+   {
+    "path": "vendor/setup.sh",
+    "sha256_before": "b851eea8da99cdb6becea3e81e7da78f64dd5b9f0352c719a2aabb74a8cdca9d",
+    "sha256_after": "afdcda9790ad313de41374732da4fda920a64812ebd0906bd04e9c8dc35c37fb",
+    "bytes_before": 7701,
+    "bytes_after": 7582,
+    "replaced": {
+     "scratch_path": 1
+    }
+   }
+  ],
+  "other_difference": [],
+  "verifier_code_byte_identical": {
+   "facts/facts.mjs": true,
+   "facts/facts-core.mjs": true,
+   "facts/facts-util.mjs": true,
+   "facts/facts-replay.mjs": true,
+   "facts/facts.py": true,
+   "facts/facts_num.py": true,
+   "facts/facts_io.py": true,
+   "text/check_text.py": true,
+   "text/check_facts.py": true,
+   "text/check_front.py": true,
+   "lib/scan.mjs": true,
+   "lib/env.mjs": true,
+   "lib/mask.mjs": true,
+   "lib/gz.mjs": true,
+   "runner/finish.mjs": true
+  },
+  "templates_byte_identical": {
+   "audits/blog-redo-2026-10-17/templates/article.md.tmpl": true,
+   "audits/fake-audit/templates/fixture-summary.md": true,
+   "audits/liquid-d1-2026-10-17/templates/bsky.txt.tmpl": true,
+   "audits/liquid-d1-2026-10-17/templates/linkedin.txt.tmpl": true,
+   "audits/liquid-d1-2026-10-17/templates/x-reply.txt.tmpl": true
+  }
+ },
+ "unmodified_inputs": {
+  "rows": {
+   "banking77-selected-rows.jsonl": {
+    "sha256": "1629c6fbd0e2f60c9d5cfa1a67a9370af651b52e45b167ad15b08becba81782a",
+    "bytes": 11009590,
+    "byte_identical_to_cache": true
+   },
+   "clinc-selected-rows.jsonl": {
+    "sha256": "a0fbb6a532983860df2d782b54756d9294fe3267433401fb498b239173273435",
+    "bytes": 39962599,
+    "byte_identical_to_cache": true
+   }
+  },
+  "kit": {
+   "repo": "https://github.com/apolinario/decision-index",
+   "commit": "87d4650b42b377c0291a89c1f1a879f9b31082bf",
+   "form": "git archive of that commit, no history",
+   "runner_py_sha256": "f4c9f36c4c557f537f1d8184db7bf00c5a84d9f4f0aa67f8c06198cead25818d"
+  }
+ },
+ "verification": {
+  "baseline_pristine_copy": {
+   "what": "verify.sh of the audit on a byte-for-byte copy of the original commit (git archive), with the original toolkit and the rows, on the author's machine (so the scan covers 143 real secret values)",
+   "liquid-d1-2026-10-17": [
+    "[ok]   manifest: every file matches its sha256",
+    "[ok]   manifest: no file missing, none extra",
+    "[ok]   facts: node = python = facts.json (ff6f99318060)",
+    "[ok]   text bsky: every number is a fact or a literal",
+    "[ok]   text linkedin: every number is a fact or a literal",
+    "[ok]   text x-reply: every number is a fact or a literal",
+    "[ok]   scan: 0 hits for 143 secret values, control ok",
+    "VERDICT PASS: liquid-d1-2026-10-17"
+   ]
+  },
+  "cleaned_copy_author_machine": {
+   "what": "bash verify-all.sh on this repository's tree, on the machine that holds the env files",
+   "liquid-d1-2026-10-17": [
+    "== liquid-d1-2026-10-17",
+    "[ok]   manifest: every file matches its sha256",
+    "[ok]   manifest: no file missing, none extra",
+    "[ok]   facts: node = python = facts.json (99dc62442173)",
+    "[ok]   text bsky: every number is a fact or a literal",
+    "[ok]   text linkedin: every number is a fact or a literal",
+    "[ok]   text x-reply: every number is a fact or a literal",
+    "[ok]   scan: 0 hits for 143 secret values, control ok",
+    "VERDICT PASS: liquid-d1-2026-10-17"
+   ]
+  },
+  "reader_simulation": {
+   "what": "a copy of this tree, HOME pointing at an empty directory, working directory elsewhere, command `bash verify-all.sh`: no env file exists, so the scan covers 0 secret values and shows its planted control only",
+   "output": [
+    "== liquid-d1-2026-10-17",
+    "[ok]   manifest: every file matches its sha256",
+    "[ok]   manifest: no file missing, none extra",
+    "[ok]   facts: node = python = facts.json (99dc62442173)",
+    "[ok]   text bsky: every number is a fact or a literal",
+    "[ok]   text linkedin: every number is a fact or a literal",
+    "[ok]   text x-reply: every number is a fact or a literal",
+    "[ok]   scan: 0 hits for 0 secret values, control ok",
+    "VERDICT PASS: liquid-d1-2026-10-17"
+   ]
+  },
+  "negative_controls": {
+   "what": "each control is a copy of the tree with one byte changed (a digit raised by one); verify-all.sh must fail",
+   "A_one_byte_in_the_clinc_rows_file": [
+    "== liquid-d1-2026-10-17",
+    "[ok]   manifest: every file matches its sha256",
+    "[ok]   manifest: no file missing, none extra",
+    "[FAIL] facts: a fact engine refused: facts-node: refused: rows file of clinc (VD/rows/clinc-selected-rows.jsonl) has sha256 e25994087e46087733ba3b5b52fe73626dda76497db01388c973de04b90616a3, the config pins a0fbb6a532983860df2d782b54756d9294",
+    "[ok]   text bsky: every number is a fact or a literal",
+    "[ok]   text linkedin: every number is a fact or a literal",
+    "[ok]   text x-reply: every number is a fact or a literal",
+    "[ok]   scan: 0 hits for 143 secret values, control ok",
+    "VERDICT FAIL: 1 check(s) failed"
+   ],
+   "B_one_byte_in_a_counted_kit_results_file": [
+    "== liquid-d1-2026-10-17",
+    "[FAIL] manifest: runs/d1-ultra/clinc/full/kit/results.jsonl: FAILED shasum: WARNING: 1 computed checksum did NOT match ",
+    "[ok]   manifest: no file missing, none extra",
+    "[FAIL] facts: a re-run differs from facts/facts.json",
+    "[ok]   text bsky: every number is a fact or a literal",
+    "[ok]   text linkedin: every number is a fact or a literal",
+    "[ok]   text x-reply: every number is a fact or a literal",
+    "[ok]   scan: 0 hits for 143 secret values, control ok",
+    "VERDICT FAIL: 2 check(s) failed"
+   ],
+   "C_one_byte_in_the_x_reply_text": [
+    "== liquid-d1-2026-10-17",
+    "[FAIL] manifest: text/x-reply.md: FAILED shasum: WARNING: 1 computed checksum did NOT match ",
+    "[ok]   manifest: no file missing, none extra",
+    "[ok]   facts: node = python = facts.json (99dc62442173)",
+    "[ok]   text bsky: every number is a fact or a literal",
+    "[ok]   text linkedin: every number is a fact or a literal",
+    "[FAIL] text x-reply: check_text: FAIL <copy>/data/social/audits/liquid-d1-2026-10-17/text/x-reply.md: 3 problems, 24 digit runs",
+    "[ok]   scan: 0 hits for 143 secret values, control ok",
+    "VERDICT FAIL: 2 check(s) failed"
+   ]
+  },
+  "tests_pristine": {
+   "what": "toolkit unit tests run from a Liquid-only layout root (audit, toolkit, rows and kit; no second audit and no saved-rows files) with the same commands on each side: node --test --test-concurrency=1 on tests/lib, facts-node, text-node and runner; python3 -I on tests/facts-py/test_facts.py and tests/text-py/test_check_text.py",
+   "node": {
+    "tests": 341,
+    "pass": 311,
+    "fail": 24,
+    "cancelled": 0,
+    "skipped": 6,
+    "todo": 0,
+    "exit": 1
+   },
+   "facts_py": {
+    "exit": 1,
+    "tests": 129,
+    "result": "FAILED (failures=2, errors=1)"
+   },
+   "text_py": {
+    "exit": 0,
+    "tests": 43,
+    "result": "OK"
+   }
+  },
+  "tests_cleaned": {
+   "what": "toolkit unit tests run from a Liquid-only layout root (audit, toolkit, rows and kit; no second audit and no saved-rows files) with the same commands on each side: node --test --test-concurrency=1 on tests/lib, facts-node, text-node and runner; python3 -I on tests/facts-py/test_facts.py and tests/text-py/test_check_text.py",
+   "node": {
+    "tests": 341,
+    "pass": 311,
+    "fail": 24,
+    "cancelled": 0,
+    "skipped": 6,
+    "todo": 0,
+    "exit": 1
+   },
+   "facts_py": {
+    "exit": 1,
+    "tests": 129,
+    "result": "FAILED (failures=2, errors=1)"
+   },
+   "text_py": {
+    "exit": 0,
+    "tests": 43,
+    "result": "OK"
+   },
+   "known_difference": "none: the set of failing tests is identical on the pristine and the cleaned side (identical). Every failure comes from the twelve saved-rows files of an earlier run (data/social/engagement-small-2026-10-10/...), which belong to the second audit and are not in this repository, or from a refusal test that expects a different message when they are absent."
+  },
+  "scan": {
+   "what": "the toolkit's own scanner, run from tools/decide-proof as: node bin/proof.mjs scan --audit <audit-config.json> --json <out> <paths>; it reads the env files named in the config inside its own process and looks for 143 secret values (plain, URL-encoded, base64 and JSON-escaped forms, inside .gz too); its planted control must pass first",
+   "data_scope": {
+    "paths": "data/, decide-proof-vd/rows, README.md, verify-all.sh, LICENSE, LICENSE-DATA.md, .gitattributes",
+    "targets": 143,
+    "control": "pass",
+    "files_scanned": 141,
+    "bytes_scanned": 544023051,
+    "secret_hits": 0,
+    "files_with_hits": 0,
+    "media_skipped": 2
+   },
+   "whole_tree": {
+    "paths": "the whole tree",
+    "targets": 143,
+    "control": "pass",
+    "files_scanned": 424,
+    "bytes_scanned": 557190734,
+    "secret_hits": 41,
+    "files_with_hits": 33,
+    "media_skipped": 8,
+    "hits_by_area": {
+     "decide-proof-vd/kit": 4,
+     "tools/decide-proof/docs": 6,
+     "tools/decide-proof/lib": 6,
+     "tools/decide-proof/runner": 12,
+     "tools/decide-proof/tests": 13
+    },
+    "all_hits_are_in": "tools/decide-proof (code, docs, tests) and decide-proof-vd/kit only; none in data/, the rows, README, licences or this file",
+    "why_they_are_not_secrets": "The scanner treats every env variable whose name contains BASE_URL, AUTH, ... as secret. The hit variables are LM_STUDIO_BASE_URL, LMSTUDIO_BASE_URL, TEST_LM_STUDIO_BASE_URL, LLAMACPP_BASE_URL, TEST_LLAMACPP_BASE_URL and OLLAMA_BASE_URL (values classified in-process by a regular expression, never printed: loopback http URLs of 22 to 24 characters, the default local-model server addresses that recorder-config.mjs, shim.mjs and fake-provider.mjs also list as defaults), GOOGLE_AUTH_UNIVERSE_DOMAIN (a 14-character bare public domain name, found in two kit files), and the scanner's own non-loopback IPv4 rule (IPV4_ADDRESS), which fires on the synthetic addresses in lib/mask.mjs and tests/lib/mask.test.mjs (documentation and test vectors of that rule). The scanner is built for audit folders, not for toolkit source."
+   }
+  },
+  "grep": {
+   "what": "read-only byte search of every plain file and of the decompressed content of every .gz (media searched as raw bytes for the path and user patterns only), run on a fresh git clone of this repository; counts",
+   "patterns": "the path prefix of a user's home directory; the author's username (case-insensitive); session scratch and per-user temp directory names; three phrases the write-ups must not use (case-insensitive, with a space, hyphen or underscore between the words); IPv4 addresses other than the 127.x loopback range",
+   "counts": {
+    "files_examined": 433,
+    "users_path": 0,
+    "username": 0,
+    "scratch_or_tmp": 0,
+    "banned_phrase": 0,
+    "ipv4_in_mask_files": 10,
+    "ipv4_elsewhere": 0
+   },
+   "notes": [
+    "ipv4_in_mask_files: synthetic addresses (private-range, documentation and test values, and the unspecified address) in the masking rule's own source and tests (lib/mask.mjs, tests/lib/mask.test.mjs); ipv4_elsewhere is the count outside those two files.",
+    "The only e-mail-shaped strings in the repository are two test fixtures of the toolkit (t@example.com and a fake proxy credential on a .invalid host)."
+   ]
+  }
+ },
+ "omitted_from_this_repo": [
+  {
+   "path": "tools/decide-proof/audits/blog-redo-2026-10-17/templates/article.md.tmpl",
+   "why": "the template of the blog redo article, which is not published yet; it is added with that audit"
+  }
+ ]
+}

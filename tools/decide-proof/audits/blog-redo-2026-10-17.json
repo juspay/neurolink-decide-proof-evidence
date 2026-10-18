@@ -1,0 +1,272 @@
+{
+  "audit_id": "blog-redo-2026-10-17",
+  "title": "Can a decision model say 'none of these'? (redo)",
+  "neurolink_version": "12.47.0",
+  "kit": {
+    "commit": "87d4650b42b377c0291a89c1f1a879f9b31082bf",
+    "runner_sha256": "f4c9f36c4c557f537f1d8184db7bf00c5a84d9f4f0aa67f8c06198cead25818d"
+  },
+  "benchmarks": {
+    "banking77": {
+      "label": "BANKING77",
+      "rows_file": "VD/rows/banking77-selected-rows.jsonl",
+      "rows_sha256": "1629c6fbd0e2f60c9d5cfa1a67a9370af651b52e45b167ad15b08becba81782a",
+      "rows": 3080,
+      "oos_option": null
+    },
+    "clinc": {
+      "label": "CLINC150+OOS",
+      "rows_file": "VD/rows/clinc-selected-rows.jsonl",
+      "rows_sha256": "a0fbb6a532983860df2d782b54756d9294fe3267433401fb498b239173273435",
+      "rows": 5500,
+      "oos_option": "option_80",
+      "oos_label": "out of scope: none of the listed intents"
+    }
+  },
+  "env_files": [
+    "~/Developer/temp/neurolink-fork/marketing/.env",
+    "~/Developer/temp/neurolink-fork/neurolink/.env",
+    "~/.neurolink/.env",
+    "~/.neurolink/cloudflare-paid.env"
+  ],
+  "stage_caps_note": "probe 0.05 and pilot 0.25 USD for every route. full = 1.6 x the projected full-run cost in docs/map/routes.md (3,080 + 5,500 rows plus 8 warm-ups), rounded up to whole cents: luna 1.1145 -> 1.79, jev upper bracket 1.03 -> 1.65, perplexity-v1 0.4867 -> 0.78, clef 5.8568 -> 9.38, clef-flash 2.1963 -> 3.52. XOR has no list price: its price is entered as 0 so the cap never binds, and the attempt limit (4 x rows + 64) bounds the stage.",
+  "routes": {
+    "luna": {
+      "label": "Luna Decisions through OpenRouter",
+      "provider": "typesafe",
+      "model": "openai/gpt-6-luna-decisions",
+      "env": {
+        "TYPESAFE_API_KEY": {
+          "file": 1,
+          "name": "OPENROUTER_API_KEY"
+        },
+        "TYPESAFE_BASE_URL": {
+          "value": "https://openrouter.ai/api"
+        },
+        "TYPESAFE_MODEL": {
+          "value": "openai/gpt-6-luna-decisions"
+        }
+      },
+      "hosts": [
+        "openrouter.ai"
+      ],
+      "price_per_million_input_usd": "0.10",
+      "price_per_million_output_usd": "0",
+      "price_source": "OpenRouter model listing saved in the 9 Oct run (prompt 0.0000001 USD per token, completion 0), and every 2xx of that run carried usage.cost = input tokens x 0.10 per million. NeuroLink 12.47.0 dist/utils/pricing.js has no row for this model: pricing.js:422-427 is gpt-5.6-luna (0.20 in, 1.20 out), a different model, and is not used.",
+      "concurrency": 1,
+      "max_tokens_per_minute": null,
+      "stage_caps_usd": {
+        "probe": "0.05",
+        "pilot": "0.25",
+        "full": "1.79"
+      }
+    },
+    "jev": {
+      "label": "Jev through TypeSafe AI",
+      "provider": "typesafe",
+      "model": "jev-1.13.0",
+      "env": {
+        "TYPESAFE_API_KEY": {
+          "file": 1,
+          "name": "TYPESAFE_API_KEY"
+        },
+        "TYPESAFE_MODEL": {
+          "value": "jev-1.13.0"
+        }
+      },
+      "hosts": [
+        "api.typesafe.ai"
+      ],
+      "price_per_million_input_usd": "0.042",
+      "price_per_million_output_usd": "0",
+      "price_source": "@juspay/neurolink 12.47.0 dist/utils/pricing.js:780-781 (typesafe _default and jev-latest: input 0.042 / 1_000_000, output 0; comment: TypeSafe bills input tokens only, rates from typesafe.ai/pricing checked 2026-09-20)",
+      "concurrency": 1,
+      "max_tokens_per_minute": null,
+      "stage_caps_usd": {
+        "probe": "0.05",
+        "pilot": "0.25",
+        "full": "1.65"
+      }
+    },
+    "perplexity-v1": {
+      "label": "Perplexity Decider v1",
+      "provider": "perplexity-decider",
+      "model": "pplx-decider-v1-27b",
+      "env": {
+        "PERPLEXITY_API_KEY": {
+          "file": 2,
+          "name": "PERPLEXITY_API_KEY"
+        },
+        "PERPLEXITY_DECIDER_MODEL": {
+          "value": "pplx-decider-v1-27b"
+        }
+      },
+      "hosts": [
+        "api.perplexity.ai"
+      ],
+      "price_per_million_input_usd": "0.04",
+      "price_per_million_output_usd": "0",
+      "price_source": "@juspay/neurolink 12.47.0 dist/utils/pricing.js:788-789 (perplexity-decider _default and pplx-decider-v1-27b: input 0.04 / 1_000_000, output 0; comment: rate from the API reference checked 2026-10-02)",
+      "concurrency": 1,
+      "max_tokens_per_minute": 80000,
+      "stage_caps_usd": {
+        "probe": "0.05",
+        "pilot": "0.25",
+        "full": "0.78"
+      }
+    },
+    "clef": {
+      "label": "Clef through Cloudflare Workers AI",
+      "provider": "cloudflare-clef",
+      "model": "clef",
+      "env": {
+        "CLOUDFLARE_API_KEY": {
+          "file": 3,
+          "name": "CLOUDFLARE_PAID_API_KEY"
+        },
+        "CLOUDFLARE_ACCOUNT_ID": {
+          "file": 3,
+          "name": "CLOUDFLARE_PAID_ACCOUNT_ID"
+        },
+        "CLOUDFLARE_CLEF_MODEL": {
+          "value": "clef"
+        }
+      },
+      "hosts": [
+        "api.cloudflare.com"
+      ],
+      "price_per_million_input_usd": "0.24",
+      "price_per_million_output_usd": "0",
+      "price_source": "@juspay/neurolink 12.47.0 dist/utils/pricing.js:799-800 (cloudflare-clef _default and clef: input 0.24 / 1_000_000, output 0; comment: Workers AI bills Clef per million input tokens, no output price listed)",
+      "concurrency": 1,
+      "max_tokens_per_minute": null,
+      "stage_caps_usd": {
+        "probe": "0.05",
+        "pilot": "0.25",
+        "full": "9.38"
+      }
+    },
+    "clef-flash": {
+      "label": "Clef-flash through Cloudflare Workers AI",
+      "provider": "cloudflare-clef",
+      "model": "clef-flash",
+      "env": {
+        "CLOUDFLARE_API_KEY": {
+          "file": 3,
+          "name": "CLOUDFLARE_PAID_API_KEY"
+        },
+        "CLOUDFLARE_ACCOUNT_ID": {
+          "file": 3,
+          "name": "CLOUDFLARE_PAID_ACCOUNT_ID"
+        },
+        "CLOUDFLARE_CLEF_MODEL": {
+          "value": "clef-flash"
+        }
+      },
+      "hosts": [
+        "api.cloudflare.com"
+      ],
+      "price_per_million_input_usd": "0.09",
+      "price_per_million_output_usd": "0",
+      "price_source": "@juspay/neurolink 12.47.0 dist/utils/pricing.js:801 (cloudflare-clef clef-flash: input 0.09 / 1_000_000, output 0)",
+      "concurrency": 1,
+      "max_tokens_per_minute": null,
+      "stage_caps_usd": {
+        "probe": "0.05",
+        "pilot": "0.25",
+        "full": "3.52"
+      }
+    },
+    "xor": {
+      "label": "XOR through a deployment route",
+      "provider": "xor",
+      "model": "jev-latest",
+      "env": {
+        "XOR_BASE_URL": {
+          "file": 1,
+          "name": "LITELLM_BASE_URL"
+        },
+        "XOR_API_KEY": {
+          "file": 1,
+          "name": "XOR_API_KEY"
+        },
+        "XOR_MODEL": {
+          "value": "jev-latest"
+        }
+      },
+      "hosts": [
+        {
+          "from_env": "XOR_BASE_URL"
+        }
+      ],
+      "price_per_million_input_usd": "0",
+      "price_per_million_output_usd": "0",
+      "price_source": "not priced: no list price exists for this route (no xor entry in NeuroLink 12.47.0 dist/utils/pricing.js; a LiteLLM deployment reached with the team key), so its tokens are counted and its cost is reported as not priced, never as zero",
+      "concurrency": 1,
+      "max_tokens_per_minute": null,
+      "stage_caps_usd": {
+        "probe": "0.05",
+        "pilot": "0.25",
+        "full": "1.00"
+      },
+      "env_note": "as the blog's XOR runs of 5-6 Oct: scratchpad xor-demo/xor_env.sh (2 Oct) mapped LITELLM_BASE_URL and XOR_API_KEY of the main NeuroLink .env and set XOR_MODEL=jev-latest; the route is a LiteLLM deployment, and the model behind it is whatever the route serves (the response's model field is recorded)"
+    }
+  },
+  "publish": [
+    {
+      "route": "clef",
+      "bench": "banking77",
+      "stage": "full"
+    },
+    {
+      "route": "clef",
+      "bench": "clinc",
+      "stage": "full"
+    },
+    {
+      "route": "clef-flash",
+      "bench": "banking77",
+      "stage": "full"
+    },
+    {
+      "route": "clef-flash",
+      "bench": "clinc",
+      "stage": "full"
+    },
+    {
+      "route": "jev",
+      "bench": "banking77",
+      "stage": "full"
+    },
+    {
+      "route": "jev",
+      "bench": "clinc",
+      "stage": "full"
+    },
+    {
+      "route": "luna",
+      "bench": "banking77",
+      "stage": "full"
+    },
+    {
+      "route": "luna",
+      "bench": "clinc",
+      "stage": "full"
+    },
+    {
+      "route": "perplexity-v1",
+      "bench": "banking77",
+      "stage": "full"
+    },
+    {
+      "route": "perplexity-v1",
+      "bench": "clinc",
+      "stage": "full-r2"
+    }
+  ],
+  "publish_note": "perplexity-v1/clinc/full was stopped by the guard after 10 failed attempts in a row (failed connections from this machine, 17 Oct 13:02-13:29 IST); it is kept in the folder and not published; full-r2 is the complete rerun. clef and clef-flash: the probe stages of 17 Oct (06:33 UTC) were rejected by Cloudflare with HTTP 401 (the token had expired on 14 Oct, notes/cloudflare-token-check.json) and are kept, not published; after the token was replaced, probe-r2 (three rows, 18 Oct 03:11 UTC) and the four full stages ran on 18 Oct UTC, a day after the other three routes",
+  "compare": {
+    "label": "blog",
+    "replay": "blog"
+  }
+}

@@ -1,0 +1,1 @@
+On 17 Oct 2026 we ran d1-ultra and d1 through decide() in NeuroLink, Juspay's AI harness, via OpenRouter. Accuracy, d1-ultra (d1): BANKING77 87.5% (89.0%), CLINC150+OOS 92.2% (91.2%). Out of scope caught 81.8% (68.7%); in-scope right 94.5% (96.2%). One run each, not a ranking.

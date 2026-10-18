@@ -1,0 +1,65 @@
+[
+  {
+    "end": 14,
+    "fact": "d1-ultra.banking77.t_first",
+    "fmt": "date_dmy",
+    "start": 3,
+    "text": "17 Oct 2026"
+  },
+  {
+    "end": 146,
+    "fact": "d1-ultra.banking77.accuracy",
+    "fmt": "pct1",
+    "start": 141,
+    "text": "87.5%"
+  },
+  {
+    "end": 153,
+    "fact": "d1.banking77.accuracy",
+    "fmt": "pct1",
+    "start": 148,
+    "text": "89.0%"
+  },
+  {
+    "end": 174,
+    "fact": "d1-ultra.clinc.accuracy",
+    "fmt": "pct1",
+    "start": 169,
+    "text": "92.2%"
+  },
+  {
+    "end": 181,
+    "fact": "d1.clinc.accuracy",
+    "fmt": "pct1",
+    "start": 176,
+    "text": "91.2%"
+  },
+  {
+    "end": 209,
+    "fact": "d1-ultra.clinc.recall",
+    "fmt": "pct1",
+    "start": 204,
+    "text": "81.8%"
+  },
+  {
+    "end": 216,
+    "fact": "d1.clinc.recall",
+    "fmt": "pct1",
+    "start": 211,
+    "text": "68.7%"
+  },
+  {
+    "end": 239,
+    "fact": "d1-ultra.clinc.in_scope_accuracy",
+    "fmt": "pct1",
+    "start": 234,
+    "text": "94.5%"
+  },
+  {
+    "end": 246,
+    "fact": "d1.clinc.in_scope_accuracy",
+    "fmt": "pct1",
+    "start": 241,
+    "text": "96.2%"
+  }
+]

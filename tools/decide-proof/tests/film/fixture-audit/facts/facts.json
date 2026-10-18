@@ -1,0 +1,1243 @@
+{
+  "audit_id": "fixture-audit",
+  "facts": {
+    "all.attempts": {
+      "display": {
+        "int": "361"
+      },
+      "from": "sum of <route>.<bench>.attempts",
+      "unit": "count",
+      "value": 361
+    },
+    "all.cost_usd": {
+      "display": {
+        "usd2": "$0.04",
+        "usd4": "$0.0391",
+        "usd6": "$0.039102"
+      },
+      "from": "sum of <route>.<bench>.cost_usd",
+      "unit": "usd",
+      "value": "0.03910206"
+    },
+    "all.files_scanned": {
+      "display": {
+        "int": "32"
+      },
+      "from": "FIXTURE STAND-IN: files under the fixture folder at generation time (no scan was run)",
+      "unit": "count",
+      "value": 32
+    },
+    "all.input_tokens": {
+      "display": {
+        "int": "213,628"
+      },
+      "from": "sum of <route>.<bench>.input_tokens",
+      "unit": "tokens",
+      "value": 213628
+    },
+    "all.requests_recorded": {
+      "display": {
+        "int": "352"
+      },
+      "from": "decide.jsonl.gz records over every published stage",
+      "unit": "count",
+      "value": 352
+    },
+    "all.secret_hits": {
+      "display": {
+        "int": "0"
+      },
+      "from": "FIXTURE STAND-IN: 0 (no scan was run; the fixture holds only masked tokens)",
+      "unit": "count",
+      "value": 0
+    },
+    "clef.banking77.accuracy": {
+      "display": {
+        "pct0": "90%",
+        "pct1": "90.0%",
+        "pct2": "90.00%"
+      },
+      "from": "correct / rows",
+      "unit": "ratio",
+      "value": {
+        "den": 70,
+        "num": 63
+      }
+    },
+    "clef.banking77.answered": {
+      "display": {
+        "int": "70"
+      },
+      "from": "kit/results.jsonl joined to the rows file; rule of compute_oos.py",
+      "unit": "count",
+      "value": 70
+    },
+    "clef.banking77.attempts": {
+      "display": {
+        "int": "75"
+      },
+      "from": "wire.jsonl.gz record count",
+      "unit": "count",
+      "value": 75
+    },
+    "clef.banking77.blocked": {
+      "display": {
+        "int": "0"
+      },
+      "from": "wire records blocked by the guard",
+      "unit": "count",
+      "value": 0
+    },
+    "clef.banking77.correct": {
+      "display": {
+        "int": "63"
+      },
+      "from": "kit/results.jsonl joined to the rows file; rule of compute_oos.py",
+      "unit": "count",
+      "value": 63
+    },
+    "clef.banking77.cost_usd": {
+      "display": {
+        "usd2": "$0.01",
+        "usd4": "$0.0121",
+        "usd6": "$0.012105"
+      },
+      "from": "tokens x config price",
+      "unit": "usd",
+      "value": "0.01210536"
+    },
+    "clef.banking77.decide_calls": {
+      "display": {
+        "int": "73"
+      },
+      "from": "decide.jsonl.gz record count",
+      "unit": "count",
+      "value": 73
+    },
+    "clef.banking77.failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "kit/results.jsonl joined to the rows file; rule of compute_oos.py",
+      "unit": "count",
+      "value": 0
+    },
+    "clef.banking77.failed.upstream": {
+      "display": {
+        "int": "0"
+      },
+      "from": "decide_error.kind of the last record of each failed row",
+      "unit": "count",
+      "value": 0
+    },
+    "clef.banking77.first_pass_failed": {
+      "display": {
+        "int": "1"
+      },
+      "from": "rows whose first decide record failed",
+      "unit": "count",
+      "value": 1
+    },
+    "clef.banking77.input_tokens": {
+      "display": {
+        "int": "50,439"
+      },
+      "from": "usage in wire responses",
+      "unit": "tokens",
+      "value": 50439
+    },
+    "clef.banking77.latency_us.max": {
+      "display": {
+        "ms1": "3423.3 ms",
+        "s0": "3 s"
+      },
+      "from": "nearest rank over successful attempts",
+      "unit": "us",
+      "value": 3423331
+    },
+    "clef.banking77.latency_us.p50": {
+      "display": {
+        "ms1": "788.7 ms",
+        "s0": "1 s"
+      },
+      "from": "nearest rank over successful attempts",
+      "unit": "us",
+      "value": 788696
+    },
+    "clef.banking77.latency_us.p90": {
+      "display": {
+        "ms1": "976.2 ms",
+        "s0": "1 s"
+      },
+      "from": "nearest rank over successful attempts",
+      "unit": "us",
+      "value": 976228
+    },
+    "clef.banking77.latency_us.p99": {
+      "display": {
+        "ms1": "3423.3 ms",
+        "s0": "3 s"
+      },
+      "from": "nearest rank over successful attempts",
+      "unit": "us",
+      "value": 3423331
+    },
+    "clef.banking77.masked.CLOUDFLARE_ACCOUNT_ID": {
+      "display": {
+        "int": "75"
+      },
+      "from": "wire records that masked CLOUDFLARE_ACCOUNT_ID",
+      "unit": "count",
+      "value": 75
+    },
+    "clef.banking77.masked.CLOUDFLARE_API_KEY": {
+      "display": {
+        "int": "75"
+      },
+      "from": "wire records that masked CLOUDFLARE_API_KEY",
+      "unit": "count",
+      "value": 75
+    },
+    "clef.banking77.masked.header:set-cookie": {
+      "display": {
+        "int": "75"
+      },
+      "from": "wire records that masked header:set-cookie",
+      "unit": "count",
+      "value": 75
+    },
+    "clef.banking77.model_echo": {
+      "display": {
+        "text": "clef"
+      },
+      "from": "model ids in response bodies",
+      "unit": "text",
+      "value": "clef"
+    },
+    "clef.banking77.network_errors": {
+      "display": {
+        "int": "0"
+      },
+      "from": "wire records with error",
+      "unit": "count",
+      "value": 0
+    },
+    "clef.banking77.output_tokens": {
+      "display": {
+        "int": "0"
+      },
+      "from": "usage in wire responses",
+      "unit": "tokens",
+      "value": 0
+    },
+    "clef.banking77.recovered": {
+      "display": {
+        "int": "1"
+      },
+      "from": "first-pass failures that ended ok",
+      "unit": "count",
+      "value": 1
+    },
+    "clef.banking77.retries": {
+      "display": {
+        "int": "2"
+      },
+      "from": "attempts - decide calls",
+      "unit": "count",
+      "value": 2
+    },
+    "clef.banking77.rows": {
+      "display": {
+        "int": "70"
+      },
+      "from": "rows file lines scored in kit/results.jsonl joined to the rows file; rule of compute_oos.py",
+      "unit": "count",
+      "value": 70
+    },
+    "clef.banking77.status.200": {
+      "display": {
+        "int": "72"
+      },
+      "from": "wire.jsonl.gz response.status counts",
+      "unit": "count",
+      "value": 72
+    },
+    "clef.banking77.status.502": {
+      "display": {
+        "int": "2"
+      },
+      "from": "wire.jsonl.gz response.status counts",
+      "unit": "count",
+      "value": 2
+    },
+    "clef.banking77.status.503": {
+      "display": {
+        "int": "1"
+      },
+      "from": "wire.jsonl.gz response.status counts",
+      "unit": "count",
+      "value": 1
+    },
+    "clef.banking77.t_first": {
+      "display": {
+        "date_dmy": "17 Oct 2026",
+        "utc_hm": "09:05 UTC"
+      },
+      "from": "first t_start",
+      "unit": "utc",
+      "value": "2026-10-17T09:05:00.000Z"
+    },
+    "clef.banking77.t_last": {
+      "display": {
+        "date_dmy": "17 Oct 2026",
+        "utc_hm": "09:06 UTC"
+      },
+      "from": "last t_end",
+      "unit": "utc",
+      "value": "2026-10-17T09:06:14.279Z"
+    },
+    "clef.banking77.wall_us": {
+      "display": {
+        "s0": "74 s"
+      },
+      "from": "t_last - t_first",
+      "unit": "us",
+      "value": 74279000
+    },
+    "clef.banking77.warmups": {
+      "display": {
+        "int": "2"
+      },
+      "from": "decide records marked warmup",
+      "unit": "count",
+      "value": 2
+    },
+    "clef.clinc.accuracy": {
+      "display": {
+        "pct0": "72%",
+        "pct1": "72.0%",
+        "pct2": "72.00%"
+      },
+      "from": "correct / rows",
+      "unit": "ratio",
+      "value": {
+        "den": 100,
+        "num": 72
+      }
+    },
+    "clef.clinc.answered": {
+      "display": {
+        "int": "99"
+      },
+      "from": "kit/results.jsonl joined to the rows file; rule of compute_oos.py",
+      "unit": "count",
+      "value": 99
+    },
+    "clef.clinc.attempts": {
+      "display": {
+        "int": "105"
+      },
+      "from": "wire.jsonl.gz record count",
+      "unit": "count",
+      "value": 105
+    },
+    "clef.clinc.blocked": {
+      "display": {
+        "int": "0"
+      },
+      "from": "wire records blocked by the guard",
+      "unit": "count",
+      "value": 0
+    },
+    "clef.clinc.correct": {
+      "display": {
+        "int": "72"
+      },
+      "from": "kit/results.jsonl joined to the rows file; rule of compute_oos.py",
+      "unit": "count",
+      "value": 72
+    },
+    "clef.clinc.cost_usd": {
+      "display": {
+        "usd2": "$0.02",
+        "usd4": "$0.0183",
+        "usd6": "$0.018305"
+      },
+      "from": "tokens x config price",
+      "unit": "usd",
+      "value": "0.0183048"
+    },
+    "clef.clinc.decide_calls": {
+      "display": {
+        "int": "103"
+      },
+      "from": "decide.jsonl.gz record count",
+      "unit": "count",
+      "value": 103
+    },
+    "clef.clinc.failed": {
+      "display": {
+        "int": "1"
+      },
+      "from": "kit/results.jsonl joined to the rows file; rule of compute_oos.py",
+      "unit": "count",
+      "value": 1
+    },
+    "clef.clinc.failed.upstream": {
+      "display": {
+        "int": "1"
+      },
+      "from": "decide_error.kind of the last record of each failed row",
+      "unit": "count",
+      "value": 1
+    },
+    "clef.clinc.false_alarms": {
+      "display": {
+        "int": "1"
+      },
+      "from": "said_oos - oos_caught",
+      "unit": "count",
+      "value": 1
+    },
+    "clef.clinc.first_pass_failed": {
+      "display": {
+        "int": "1"
+      },
+      "from": "rows whose first decide record failed",
+      "unit": "count",
+      "value": 1
+    },
+    "clef.clinc.in_scope_accuracy": {
+      "display": {
+        "pct0": "84%",
+        "pct1": "84.3%",
+        "pct2": "84.29%"
+      },
+      "from": "in_scope_correct / (rows - oos_rows)",
+      "unit": "ratio",
+      "value": {
+        "den": 70,
+        "num": 59
+      }
+    },
+    "clef.clinc.in_scope_correct": {
+      "display": {
+        "int": "59"
+      },
+      "from": "correct - oos_caught",
+      "unit": "count",
+      "value": 59
+    },
+    "clef.clinc.input_tokens": {
+      "display": {
+        "int": "76,270"
+      },
+      "from": "usage in wire responses",
+      "unit": "tokens",
+      "value": 76270
+    },
+    "clef.clinc.latency_us.max": {
+      "display": {
+        "ms1": "2620.8 ms",
+        "s0": "3 s"
+      },
+      "from": "nearest rank over successful attempts",
+      "unit": "us",
+      "value": 2620844
+    },
+    "clef.clinc.latency_us.p50": {
+      "display": {
+        "ms1": "818.3 ms",
+        "s0": "1 s"
+      },
+      "from": "nearest rank over successful attempts",
+      "unit": "us",
+      "value": 818298
+    },
+    "clef.clinc.latency_us.p90": {
+      "display": {
+        "ms1": "961.0 ms",
+        "s0": "1 s"
+      },
+      "from": "nearest rank over successful attempts",
+      "unit": "us",
+      "value": 960960
+    },
+    "clef.clinc.latency_us.p99": {
+      "display": {
+        "ms1": "2508.1 ms",
+        "s0": "3 s"
+      },
+      "from": "nearest rank over successful attempts",
+      "unit": "us",
+      "value": 2508081
+    },
+    "clef.clinc.masked.CLOUDFLARE_ACCOUNT_ID": {
+      "display": {
+        "int": "105"
+      },
+      "from": "wire records that masked CLOUDFLARE_ACCOUNT_ID",
+      "unit": "count",
+      "value": 105
+    },
+    "clef.clinc.masked.CLOUDFLARE_API_KEY": {
+      "display": {
+        "int": "105"
+      },
+      "from": "wire records that masked CLOUDFLARE_API_KEY",
+      "unit": "count",
+      "value": 105
+    },
+    "clef.clinc.masked.header:set-cookie": {
+      "display": {
+        "int": "105"
+      },
+      "from": "wire records that masked header:set-cookie",
+      "unit": "count",
+      "value": 105
+    },
+    "clef.clinc.model_echo": {
+      "display": {
+        "text": "clef"
+      },
+      "from": "model ids in response bodies",
+      "unit": "text",
+      "value": "clef"
+    },
+    "clef.clinc.network_errors": {
+      "display": {
+        "int": "0"
+      },
+      "from": "wire records with error",
+      "unit": "count",
+      "value": 0
+    },
+    "clef.clinc.oos_caught": {
+      "display": {
+        "int": "13"
+      },
+      "from": "kit/results.jsonl joined to the rows file; rule of compute_oos.py",
+      "unit": "count",
+      "value": 13
+    },
+    "clef.clinc.oos_rows": {
+      "display": {
+        "int": "30"
+      },
+      "from": "kit/results.jsonl joined to the rows file; rule of compute_oos.py",
+      "unit": "count",
+      "value": 30
+    },
+    "clef.clinc.output_tokens": {
+      "display": {
+        "int": "0"
+      },
+      "from": "usage in wire responses",
+      "unit": "tokens",
+      "value": 0
+    },
+    "clef.clinc.precision": {
+      "display": {
+        "pct0": "93%",
+        "pct1": "92.9%",
+        "pct2": "92.86%"
+      },
+      "from": "oos_caught / said_oos",
+      "unit": "ratio",
+      "value": {
+        "den": 14,
+        "num": 13
+      }
+    },
+    "clef.clinc.recall": {
+      "display": {
+        "pct0": "43%",
+        "pct1": "43.3%",
+        "pct2": "43.33%"
+      },
+      "from": "oos_caught / oos_rows",
+      "unit": "ratio",
+      "value": {
+        "den": 30,
+        "num": 13
+      }
+    },
+    "clef.clinc.recovered": {
+      "display": {
+        "int": "0"
+      },
+      "from": "first-pass failures that ended ok",
+      "unit": "count",
+      "value": 0
+    },
+    "clef.clinc.retries": {
+      "display": {
+        "int": "2"
+      },
+      "from": "attempts - decide calls",
+      "unit": "count",
+      "value": 2
+    },
+    "clef.clinc.rows": {
+      "display": {
+        "int": "100"
+      },
+      "from": "rows file lines scored in kit/results.jsonl joined to the rows file; rule of compute_oos.py",
+      "unit": "count",
+      "value": 100
+    },
+    "clef.clinc.said_oos": {
+      "display": {
+        "int": "14"
+      },
+      "from": "kit/results.jsonl joined to the rows file; rule of compute_oos.py",
+      "unit": "count",
+      "value": 14
+    },
+    "clef.clinc.status.200": {
+      "display": {
+        "int": "101"
+      },
+      "from": "wire.jsonl.gz response.status counts",
+      "unit": "count",
+      "value": 101
+    },
+    "clef.clinc.status.502": {
+      "display": {
+        "int": "4"
+      },
+      "from": "wire.jsonl.gz response.status counts",
+      "unit": "count",
+      "value": 4
+    },
+    "clef.clinc.t_first": {
+      "display": {
+        "date_dmy": "17 Oct 2026",
+        "utc_hm": "09:07 UTC"
+      },
+      "from": "first t_start",
+      "unit": "utc",
+      "value": "2026-10-17T09:07:30.000Z"
+    },
+    "clef.clinc.t_last": {
+      "display": {
+        "date_dmy": "17 Oct 2026",
+        "utc_hm": "09:09 UTC"
+      },
+      "from": "last t_end",
+      "unit": "utc",
+      "value": "2026-10-17T09:09:07.914Z"
+    },
+    "clef.clinc.wall_us": {
+      "display": {
+        "s0": "98 s"
+      },
+      "from": "t_last - t_first",
+      "unit": "us",
+      "value": 97914000
+    },
+    "clef.clinc.warmups": {
+      "display": {
+        "int": "2"
+      },
+      "from": "decide records marked warmup",
+      "unit": "count",
+      "value": 2
+    },
+    "luna.banking77.accuracy": {
+      "display": {
+        "pct0": "91%",
+        "pct1": "91.4%",
+        "pct2": "91.43%"
+      },
+      "from": "correct / rows",
+      "unit": "ratio",
+      "value": {
+        "den": 70,
+        "num": 64
+      }
+    },
+    "luna.banking77.answered": {
+      "display": {
+        "int": "70"
+      },
+      "from": "kit/results.jsonl joined to the rows file; rule of compute_oos.py",
+      "unit": "count",
+      "value": 70
+    },
+    "luna.banking77.attempts": {
+      "display": {
+        "int": "73"
+      },
+      "from": "wire.jsonl.gz record count",
+      "unit": "count",
+      "value": 73
+    },
+    "luna.banking77.blocked": {
+      "display": {
+        "int": "0"
+      },
+      "from": "wire records blocked by the guard",
+      "unit": "count",
+      "value": 0
+    },
+    "luna.banking77.correct": {
+      "display": {
+        "int": "64"
+      },
+      "from": "kit/results.jsonl joined to the rows file; rule of compute_oos.py",
+      "unit": "count",
+      "value": 64
+    },
+    "luna.banking77.cost_reported_usd": {
+      "display": {
+        "usd2": "$0.00",
+        "usd4": "$0.0000",
+        "usd6": "$0.000003"
+      },
+      "from": "sum of usage.cost",
+      "unit": "usd",
+      "value": "0.0000033879"
+    },
+    "luna.banking77.cost_usd": {
+      "display": {
+        "usd2": "$0.00",
+        "usd4": "$0.0034",
+        "usd6": "$0.003388"
+      },
+      "from": "tokens x config price",
+      "unit": "usd",
+      "value": "0.0033879"
+    },
+    "luna.banking77.decide_calls": {
+      "display": {
+        "int": "72"
+      },
+      "from": "decide.jsonl.gz record count",
+      "unit": "count",
+      "value": 72
+    },
+    "luna.banking77.failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "kit/results.jsonl joined to the rows file; rule of compute_oos.py",
+      "unit": "count",
+      "value": 0
+    },
+    "luna.banking77.failed.upstream": {
+      "display": {
+        "int": "0"
+      },
+      "from": "decide_error.kind of the last record of each failed row",
+      "unit": "count",
+      "value": 0
+    },
+    "luna.banking77.first_pass_failed": {
+      "display": {
+        "int": "0"
+      },
+      "from": "rows whose first decide record failed",
+      "unit": "count",
+      "value": 0
+    },
+    "luna.banking77.input_tokens": {
+      "display": {
+        "int": "33,879"
+      },
+      "from": "usage in wire responses",
+      "unit": "tokens",
+      "value": 33879
+    },
+    "luna.banking77.latency_us.max": {
+      "display": {
+        "ms1": "2277.6 ms",
+        "s0": "2 s"
+      },
+      "from": "nearest rank over successful attempts",
+      "unit": "us",
+      "value": 2277571
+    },
+    "luna.banking77.latency_us.p50": {
+      "display": {
+        "ms1": "430.2 ms",
+        "s0": "0 s"
+      },
+      "from": "nearest rank over successful attempts",
+      "unit": "us",
+      "value": 430218
+    },
+    "luna.banking77.latency_us.p90": {
+      "display": {
+        "ms1": "492.1 ms",
+        "s0": "0 s"
+      },
+      "from": "nearest rank over successful attempts",
+      "unit": "us",
+      "value": 492105
+    },
+    "luna.banking77.latency_us.p99": {
+      "display": {
+        "ms1": "2277.6 ms",
+        "s0": "2 s"
+      },
+      "from": "nearest rank over successful attempts",
+      "unit": "us",
+      "value": 2277571
+    },
+    "luna.banking77.masked.TYPESAFE_API_KEY": {
+      "display": {
+        "int": "73"
+      },
+      "from": "wire records that masked TYPESAFE_API_KEY",
+      "unit": "count",
+      "value": 73
+    },
+    "luna.banking77.model_echo": {
+      "display": {
+        "text": "openai/gpt-6-luna-decisions-20261006"
+      },
+      "from": "model ids in response bodies",
+      "unit": "text",
+      "value": "openai/gpt-6-luna-decisions-20261006"
+    },
+    "luna.banking77.network_errors": {
+      "display": {
+        "int": "0"
+      },
+      "from": "wire records with error",
+      "unit": "count",
+      "value": 0
+    },
+    "luna.banking77.output_tokens": {
+      "display": {
+        "int": "72"
+      },
+      "from": "usage in wire responses",
+      "unit": "tokens",
+      "value": 72
+    },
+    "luna.banking77.recovered": {
+      "display": {
+        "int": "0"
+      },
+      "from": "first-pass failures that ended ok",
+      "unit": "count",
+      "value": 0
+    },
+    "luna.banking77.retries": {
+      "display": {
+        "int": "1"
+      },
+      "from": "attempts - decide calls",
+      "unit": "count",
+      "value": 1
+    },
+    "luna.banking77.rows": {
+      "display": {
+        "int": "70"
+      },
+      "from": "rows file lines scored in kit/results.jsonl joined to the rows file; rule of compute_oos.py",
+      "unit": "count",
+      "value": 70
+    },
+    "luna.banking77.status.200": {
+      "display": {
+        "int": "72"
+      },
+      "from": "wire.jsonl.gz response.status counts",
+      "unit": "count",
+      "value": 72
+    },
+    "luna.banking77.status.503": {
+      "display": {
+        "int": "1"
+      },
+      "from": "wire.jsonl.gz response.status counts",
+      "unit": "count",
+      "value": 1
+    },
+    "luna.banking77.t_first": {
+      "display": {
+        "date_dmy": "17 Oct 2026",
+        "utc_hm": "09:00 UTC"
+      },
+      "from": "first t_start",
+      "unit": "utc",
+      "value": "2026-10-17T09:00:00.000Z"
+    },
+    "luna.banking77.t_last": {
+      "display": {
+        "date_dmy": "17 Oct 2026",
+        "utc_hm": "09:00 UTC"
+      },
+      "from": "last t_end",
+      "unit": "utc",
+      "value": "2026-10-17T09:00:35.304Z"
+    },
+    "luna.banking77.wall_us": {
+      "display": {
+        "s0": "35 s"
+      },
+      "from": "t_last - t_first",
+      "unit": "us",
+      "value": 35304000
+    },
+    "luna.banking77.warmups": {
+      "display": {
+        "int": "2"
+      },
+      "from": "decide records marked warmup",
+      "unit": "count",
+      "value": 2
+    },
+    "luna.clinc.accuracy": {
+      "display": {
+        "pct0": "88%",
+        "pct1": "88.0%",
+        "pct2": "88.00%"
+      },
+      "from": "correct / rows",
+      "unit": "ratio",
+      "value": {
+        "den": 100,
+        "num": 88
+      }
+    },
+    "luna.clinc.answered": {
+      "display": {
+        "int": "99"
+      },
+      "from": "kit/results.jsonl joined to the rows file; rule of compute_oos.py",
+      "unit": "count",
+      "value": 99
+    },
+    "luna.clinc.attempts": {
+      "display": {
+        "int": "108"
+      },
+      "from": "wire.jsonl.gz record count",
+      "unit": "count",
+      "value": 108
+    },
+    "luna.clinc.blocked": {
+      "display": {
+        "int": "0"
+      },
+      "from": "wire records blocked by the guard",
+      "unit": "count",
+      "value": 0
+    },
+    "luna.clinc.correct": {
+      "display": {
+        "int": "88"
+      },
+      "from": "kit/results.jsonl joined to the rows file; rule of compute_oos.py",
+      "unit": "count",
+      "value": 88
+    },
+    "luna.clinc.cost_reported_usd": {
+      "display": {
+        "usd2": "$0.00",
+        "usd4": "$0.0000",
+        "usd6": "$0.000005"
+      },
+      "from": "sum of usage.cost",
+      "unit": "usd",
+      "value": "0.000005304"
+    },
+    "luna.clinc.cost_usd": {
+      "display": {
+        "usd2": "$0.01",
+        "usd4": "$0.0053",
+        "usd6": "$0.005304"
+      },
+      "from": "tokens x config price",
+      "unit": "usd",
+      "value": "0.005304"
+    },
+    "luna.clinc.decide_calls": {
+      "display": {
+        "int": "104"
+      },
+      "from": "decide.jsonl.gz record count",
+      "unit": "count",
+      "value": 104
+    },
+    "luna.clinc.failed": {
+      "display": {
+        "int": "1"
+      },
+      "from": "kit/results.jsonl joined to the rows file; rule of compute_oos.py",
+      "unit": "count",
+      "value": 1
+    },
+    "luna.clinc.failed.upstream": {
+      "display": {
+        "int": "1"
+      },
+      "from": "decide_error.kind of the last record of each failed row",
+      "unit": "count",
+      "value": 1
+    },
+    "luna.clinc.false_alarms": {
+      "display": {
+        "int": "1"
+      },
+      "from": "said_oos - oos_caught",
+      "unit": "count",
+      "value": 1
+    },
+    "luna.clinc.first_pass_failed": {
+      "display": {
+        "int": "2"
+      },
+      "from": "rows whose first decide record failed",
+      "unit": "count",
+      "value": 2
+    },
+    "luna.clinc.in_scope_accuracy": {
+      "display": {
+        "pct0": "89%",
+        "pct1": "88.6%",
+        "pct2": "88.57%"
+      },
+      "from": "in_scope_correct / (rows - oos_rows)",
+      "unit": "ratio",
+      "value": {
+        "den": 70,
+        "num": 62
+      }
+    },
+    "luna.clinc.in_scope_correct": {
+      "display": {
+        "int": "62"
+      },
+      "from": "correct - oos_caught",
+      "unit": "count",
+      "value": 62
+    },
+    "luna.clinc.input_tokens": {
+      "display": {
+        "int": "53,040"
+      },
+      "from": "usage in wire responses",
+      "unit": "tokens",
+      "value": 53040
+    },
+    "luna.clinc.latency_us.max": {
+      "display": {
+        "ms1": "2779.6 ms",
+        "s0": "3 s"
+      },
+      "from": "nearest rank over successful attempts",
+      "unit": "us",
+      "value": 2779598
+    },
+    "luna.clinc.latency_us.p50": {
+      "display": {
+        "ms1": "415.8 ms",
+        "s0": "0 s"
+      },
+      "from": "nearest rank over successful attempts",
+      "unit": "us",
+      "value": 415755
+    },
+    "luna.clinc.latency_us.p90": {
+      "display": {
+        "ms1": "509.2 ms",
+        "s0": "1 s"
+      },
+      "from": "nearest rank over successful attempts",
+      "unit": "us",
+      "value": 509248
+    },
+    "luna.clinc.latency_us.p99": {
+      "display": {
+        "ms1": "2276.5 ms",
+        "s0": "2 s"
+      },
+      "from": "nearest rank over successful attempts",
+      "unit": "us",
+      "value": 2276525
+    },
+    "luna.clinc.masked.TYPESAFE_API_KEY": {
+      "display": {
+        "int": "108"
+      },
+      "from": "wire records that masked TYPESAFE_API_KEY",
+      "unit": "count",
+      "value": 108
+    },
+    "luna.clinc.model_echo": {
+      "display": {
+        "text": "openai/gpt-6-luna-decisions-20261006"
+      },
+      "from": "model ids in response bodies",
+      "unit": "text",
+      "value": "openai/gpt-6-luna-decisions-20261006"
+    },
+    "luna.clinc.network_errors": {
+      "display": {
+        "int": "1"
+      },
+      "from": "wire records with error",
+      "unit": "count",
+      "value": 1
+    },
+    "luna.clinc.oos_caught": {
+      "display": {
+        "int": "26"
+      },
+      "from": "kit/results.jsonl joined to the rows file; rule of compute_oos.py",
+      "unit": "count",
+      "value": 26
+    },
+    "luna.clinc.oos_rows": {
+      "display": {
+        "int": "30"
+      },
+      "from": "kit/results.jsonl joined to the rows file; rule of compute_oos.py",
+      "unit": "count",
+      "value": 30
+    },
+    "luna.clinc.output_tokens": {
+      "display": {
+        "int": "101"
+      },
+      "from": "usage in wire responses",
+      "unit": "tokens",
+      "value": 101
+    },
+    "luna.clinc.precision": {
+      "display": {
+        "pct0": "96%",
+        "pct1": "96.3%",
+        "pct2": "96.30%"
+      },
+      "from": "oos_caught / said_oos",
+      "unit": "ratio",
+      "value": {
+        "den": 27,
+        "num": 26
+      }
+    },
+    "luna.clinc.recall": {
+      "display": {
+        "pct0": "87%",
+        "pct1": "86.7%",
+        "pct2": "86.67%"
+      },
+      "from": "oos_caught / oos_rows",
+      "unit": "ratio",
+      "value": {
+        "den": 30,
+        "num": 26
+      }
+    },
+    "luna.clinc.recovered": {
+      "display": {
+        "int": "1"
+      },
+      "from": "first-pass failures that ended ok",
+      "unit": "count",
+      "value": 1
+    },
+    "luna.clinc.retries": {
+      "display": {
+        "int": "4"
+      },
+      "from": "attempts - decide calls",
+      "unit": "count",
+      "value": 4
+    },
+    "luna.clinc.rows": {
+      "display": {
+        "int": "100"
+      },
+      "from": "rows file lines scored in kit/results.jsonl joined to the rows file; rule of compute_oos.py",
+      "unit": "count",
+      "value": 100
+    },
+    "luna.clinc.said_oos": {
+      "display": {
+        "int": "27"
+      },
+      "from": "kit/results.jsonl joined to the rows file; rule of compute_oos.py",
+      "unit": "count",
+      "value": 27
+    },
+    "luna.clinc.status.200": {
+      "display": {
+        "int": "101"
+      },
+      "from": "wire.jsonl.gz response.status counts",
+      "unit": "count",
+      "value": 101
+    },
+    "luna.clinc.status.502": {
+      "display": {
+        "int": "6"
+      },
+      "from": "wire.jsonl.gz response.status counts",
+      "unit": "count",
+      "value": 6
+    },
+    "luna.clinc.t_first": {
+      "display": {
+        "date_dmy": "17 Oct 2026",
+        "utc_hm": "09:02 UTC"
+      },
+      "from": "first t_start",
+      "unit": "utc",
+      "value": "2026-10-17T09:02:10.000Z"
+    },
+    "luna.clinc.t_last": {
+      "display": {
+        "date_dmy": "17 Oct 2026",
+        "utc_hm": "09:03 UTC"
+      },
+      "from": "last t_end",
+      "unit": "utc",
+      "value": "2026-10-17T09:03:08.318Z"
+    },
+    "luna.clinc.wall_us": {
+      "display": {
+        "s0": "58 s"
+      },
+      "from": "t_last - t_first",
+      "unit": "us",
+      "value": 58318000
+    },
+    "luna.clinc.warmups": {
+      "display": {
+        "int": "2"
+      },
+      "from": "decide records marked warmup",
+      "unit": "count",
+      "value": 2
+    }
+  },
+  "inputs": {
+    "audit-config.json": "1dea36eaa61b26c0282d987fb48077512c647970d26afe2ae8b0368781ac9f18",
+    "rows/banking77-fixture-rows.jsonl": "c39f9d03095cae0e10bffc7009c3e5e0d5872c65ae8b1d698743b387addfe398",
+    "rows/clinc-fixture-rows.jsonl": "5235bf2fe396e71a442fb71e3dd98cbbeb0b6ea0935d7dda3e417b235019ae1b",
+    "runs/clef/banking77/full/decide.jsonl.gz": "73395ded32340f15e12d361bf21389f2682488e532c289279115483bce7ea1c0",
+    "runs/clef/banking77/full/kit/results.jsonl": "70315e24222d7f11419be0c3586076c6648b526ee1331dda618abac7045412b8",
+    "runs/clef/banking77/full/run.json": "cb710a6dbf5a7e549c73dc878217498efac5f42cb737af00df2e36e7985bc160",
+    "runs/clef/banking77/full/wire.jsonl.gz": "6d83d0c12fb4b7fdcf294025e63a3a12e692ed998492ec4da92cd9ad68f01d9c",
+    "runs/clef/clinc/full/decide.jsonl.gz": "175ce5005e34714a4ceabaeb2d729ca971b8ed5f7b9f1dd87ebfe58d868d8f84",
+    "runs/clef/clinc/full/kit/results.jsonl": "60540f8051e73967d0a6dcfc865022e93e159e251bb4497d02b7a63b22e01a30",
+    "runs/clef/clinc/full/run.json": "d39fc71388a49e13faf7e38694e11443e28efa83c79f8048827f17309928a4ba",
+    "runs/clef/clinc/full/wire.jsonl.gz": "4b0f94a684da8ba5b85a73483427aa3bdf017ae251e91257489d5f6c0e427f05",
+    "runs/luna/banking77/full/decide.jsonl.gz": "68d46d399946d67364fac28ad1d844057d6d2950218ebe2af396e5439391d447",
+    "runs/luna/banking77/full/kit/results.jsonl": "2376bab55717319291badc9b8c6768853f1fe24ffc81cdb72d06de0627362204",
+    "runs/luna/banking77/full/run.json": "0f6241af32dca007281bc842dcd43c35464fc8b1796bac15879e9a9c5b98b52c",
+    "runs/luna/banking77/full/wire.jsonl.gz": "d4c11afcf05ccb09bfd437692a40f785ab3a553f82e632776b6f1f7092862398",
+    "runs/luna/clinc/full/decide.jsonl.gz": "75deeb465459d345c70ffb952e9304ee00052d5d5e8b611754db801f259dc6c5",
+    "runs/luna/clinc/full/kit/results.jsonl": "99ff0b63dc8ea38c284397b7627f02d84ef6a0f717d0ca75889ef00cc120f9f4",
+    "runs/luna/clinc/full/run.json": "b265333a60e84b33670f5e8a8f29029969cd75a2949693fba3d5ec26180709d3",
+    "runs/luna/clinc/full/wire.jsonl.gz": "c8c3a4fcbcbdc2af8f59378412af1faaef4ae9c53bec5e9d40765051dbd8ba2d"
+  },
+  "schema": 1
+}

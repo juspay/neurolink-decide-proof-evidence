@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "node",
+    "recount.mjs"
+  ],
+  "ended_utc": "2026-10-17T10:30:01.840Z",
+  "exit": 0,
+  "literal": true,
+  "name": "verify-run",
+  "run_ms": 1840,
+  "shown": "node recount.mjs",
+  "started_utc": "2026-10-17T10:30:00.000Z",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_lines": 18,
+  "stdout_sha256": "e7069393e2f25aad8c77de5e1561786530d19b256d14fee9d3cde80ef7509313",
+  "times_pinned": true
+}

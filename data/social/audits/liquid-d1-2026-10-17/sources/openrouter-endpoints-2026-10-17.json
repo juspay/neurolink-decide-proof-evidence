@@ -1,0 +1,32 @@
+{
+  "fetched": "2026-10-17, about 16:20 IST, public GET without a key",
+  "liquid/d1-ultra": {
+    "url": "https://openrouter.ai/api/v1/models/liquid/d1-ultra/endpoints",
+    "http_status": 200,
+    "id": "liquid/d1-ultra",
+    "name": "LiquidAI: d1-ultra",
+    "created": 1792108354,
+    "description_head": "d1-ultra is Liquid AI's largest decision model, served as a System One endpoint. Send a state of text and images along with typed questions, and it returns a choice, a...",
+    "modality": "text+image->decisions",
+    "endpoint": {"name": "Liquid | liquid/d1-ultra-20261015", "provider_name": "Liquid", "context_length": 32768, "pricing": {"prompt": "0.000000042", "completion": "0", "input_cache_read": "0.000000042", "discount": 0}, "max_completion_tokens": 29491, "status": 0}
+  },
+  "liquid/d1": {
+    "url": "https://openrouter.ai/api/v1/models/liquid/d1/endpoints",
+    "http_status": 200,
+    "id": "liquid/d1",
+    "name": "LiquidAI: d1",
+    "created": 1790878711,
+    "description_head": "d1 is Liquid AI's structured decision model, served as a System One endpoint. Send a state along with typed questions, and it returns a choice, a score, or a yes/no...",
+    "modality": "text+image->decisions",
+    "endpoint": {"name": "Liquid | liquid/d1-20260930", "provider_name": "Liquid", "context_length": 65536, "pricing": {"prompt": "0.00000002", "completion": "0", "input_cache_read": "0.00000002", "discount": 0}, "max_completion_tokens": 58982, "status": 0}
+  },
+  "launch_post": {
+    "url": "https://x.com/liquidai/status/2111101102309736557",
+    "read_via": "https://api.fxtwitter.com/liquidai/status/2111101102309736557",
+    "author": "Liquid AI (@liquidai)",
+    "created_at": "Fri Oct 16 14:24:59 +0000 2026",
+    "text": "d1-ultra can reliably do agentic orchestration, routing, AI guardrails, automating manufacturing processes, computer-use, content moderation, fraud & risk screening, large document intake, ranking search and recommendations, and acting as the brain of robots. Generally d1-ultra is a great fit for intuitive and fast decision-making applications.\n\nhttp://openrouter.ai/liquid/d1-ultra",
+    "quoted_author": "ArtificialAnlys",
+    "quoted_text_head": "Liquid AI has released d1-ultra, taking the #1 position on the Artificial Analysis Decision Index v1.0, supported by a reduction in hallucinations\n\nd1-ultra is the new decision model from @liquidai and follows on from their release of d1 earlier this month. It is priced at $0.042 per 1M input tokens compared to $0.02 per 1M input tokens for d1. Like d1, d1-ultra is billed only on input tokens."
+  }
+}

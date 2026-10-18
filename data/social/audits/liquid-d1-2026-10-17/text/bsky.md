@@ -1,0 +1,1 @@
+On 17 Oct 2026, a day after Liquid AI's d1-ultra launch post, we ran it and d1 through decide() in NeuroLink, Juspay's AI harness. Accuracy, d1-ultra vs d1: BANKING77 87.5% vs 89.0%, CLINC150+OOS 92.2% vs 91.2%. 17,185 HTTP calls in four full runs, $0.34 at list prices. One run each, not a ranking.

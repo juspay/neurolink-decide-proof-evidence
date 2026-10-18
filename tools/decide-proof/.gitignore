@@ -1,0 +1,5 @@
+# build outputs of the tests (rebuilt on every run)
+tests/film/out/
+tests/film-check/work/
+*.mp4
+node_modules/

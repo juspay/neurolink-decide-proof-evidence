@@ -1,0 +1,18 @@
+recount from the recordings, compared with facts.json
+ok   clef.banking77.attempts                 75 =      75
+ok   clef.banking77.decide_calls             73 =      73
+ok   clef.banking77.input_tokens          50439 =   50439
+ok   clef.banking77.status.200               72 =      72
+ok   clef.clinc.attempts                    105 =     105
+ok   clef.clinc.decide_calls                103 =     103
+ok   clef.clinc.input_tokens              76270 =   76270
+ok   clef.clinc.status.200                  101 =     101
+ok   luna.banking77.attempts                 73 =      73
+ok   luna.banking77.decide_calls             72 =      72
+ok   luna.banking77.input_tokens          33879 =   33879
+ok   luna.banking77.status.200               72 =      72
+ok   luna.clinc.attempts                    108 =     108
+ok   luna.clinc.decide_calls                104 =     104
+ok   luna.clinc.input_tokens              53040 =   53040
+ok   luna.clinc.status.200                  101 =     101
+VERDICT: 16 of 16 recounts equal facts.json

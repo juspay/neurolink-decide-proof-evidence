@@ -1,0 +1,30 @@
+{
+  "card": "t-liq-li",
+  "review_status": "pending_human_approve",
+  "validated_all": true,
+  "text_file": "data/social/audits/liquid-d1-2026-10-17/posts/linkedin.txt",
+  "text_sha256": "4a90884be8ef20fdfce0f5c9a1bbc9e81b29ea44982211ee9fd1f9e97c677f1a",
+  "chars": 2426,
+  "rendered_from": {
+    "file": "data/social/audits/liquid-d1-2026-10-17/text/linkedin.md",
+    "sha256": "80e52c091c7cc57dd88510a3f192b8fbe1e9828e860d6d99ab7afffd8abf0fbc",
+    "facts_sha256": "ff6f99318060981fd7a02d1769f02993c4a6916466053224bd8a7f925cdeb1a5"
+  },
+  "checks": [
+    {
+      "name": "render",
+      "ok": true,
+      "detail": "every number filled from facts.json by text/render.mjs"
+    },
+    {
+      "name": "check_text",
+      "ok": true,
+      "detail": "text/check_text.py: every run of digits is a fact span equal to facts.json or a declared literal"
+    },
+    {
+      "name": "verify.sh",
+      "ok": true,
+      "detail": "bash data/social/audits/liquid-d1-2026-10-17/verify.sh: VERDICT PASS"
+    }
+  ]
+}

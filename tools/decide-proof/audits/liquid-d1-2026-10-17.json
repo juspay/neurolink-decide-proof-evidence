@@ -1,0 +1,118 @@
+{
+  "audit_id": "liquid-d1-2026-10-17",
+  "title": "Liquid AI d1-ultra and d1 through NeuroLink decide()",
+  "neurolink_version": "12.47.0",
+  "kit": {
+    "commit": "87d4650b42b377c0291a89c1f1a879f9b31082bf",
+    "runner_sha256": "f4c9f36c4c557f537f1d8184db7bf00c5a84d9f4f0aa67f8c06198cead25818d"
+  },
+  "benchmarks": {
+    "banking77": {
+      "label": "BANKING77",
+      "rows_file": "VD/rows/banking77-selected-rows.jsonl",
+      "rows_sha256": "1629c6fbd0e2f60c9d5cfa1a67a9370af651b52e45b167ad15b08becba81782a",
+      "rows": 3080,
+      "oos_option": null
+    },
+    "clinc": {
+      "label": "CLINC150+OOS",
+      "rows_file": "VD/rows/clinc-selected-rows.jsonl",
+      "rows_sha256": "a0fbb6a532983860df2d782b54756d9294fe3267433401fb498b239173273435",
+      "rows": 5500,
+      "oos_option": "option_80",
+      "oos_label": "out of scope: none of the listed intents"
+    }
+  },
+  "env_files": [
+    "~/Developer/temp/neurolink-fork/marketing/.env",
+    "~/Developer/temp/neurolink-fork/neurolink/.env",
+    "~/.neurolink/.env",
+    "~/.neurolink/cloudflare-paid.env"
+  ],
+  "routes": {
+    "d1-ultra": {
+      "label": "Liquid AI d1-ultra through OpenRouter",
+      "provider": "typesafe",
+      "model": "liquid/d1-ultra",
+      "env": {
+        "TYPESAFE_API_KEY": {
+          "file": 1,
+          "name": "OPENROUTER_API_KEY"
+        },
+        "TYPESAFE_BASE_URL": {
+          "value": "https://openrouter.ai/api"
+        },
+        "TYPESAFE_MODEL": {
+          "value": "liquid/d1-ultra"
+        }
+      },
+      "hosts": [
+        "openrouter.ai"
+      ],
+      "price_per_million_input_usd": "0.042",
+      "price_per_million_output_usd": "0",
+      "price_source": "OpenRouter endpoints listing for liquid/d1-ultra, fetched 17 Oct 2026 (pricing.prompt, pricing.completion): data/social/audits/liquid-d1-2026-10-17/sources/openrouter-endpoints-2026-10-17.json",
+      "concurrency": 1,
+      "max_tokens_per_minute": null,
+      "stage_caps_usd": {
+        "probe": "0.05",
+        "pilot": "0.25",
+        "full": "0.25"
+      }
+    },
+    "d1": {
+      "label": "Liquid AI d1 through OpenRouter",
+      "provider": "typesafe",
+      "model": "liquid/d1",
+      "env": {
+        "TYPESAFE_API_KEY": {
+          "file": 1,
+          "name": "OPENROUTER_API_KEY"
+        },
+        "TYPESAFE_BASE_URL": {
+          "value": "https://openrouter.ai/api"
+        },
+        "TYPESAFE_MODEL": {
+          "value": "liquid/d1"
+        }
+      },
+      "hosts": [
+        "openrouter.ai"
+      ],
+      "price_per_million_input_usd": "0.02",
+      "price_per_million_output_usd": "0",
+      "price_source": "OpenRouter endpoints listing for liquid/d1, fetched 17 Oct 2026 (pricing.prompt, pricing.completion): data/social/audits/liquid-d1-2026-10-17/sources/openrouter-endpoints-2026-10-17.json",
+      "concurrency": 1,
+      "max_tokens_per_minute": null,
+      "stage_caps_usd": {
+        "probe": "0.05",
+        "pilot": "0.25",
+        "full": "0.12"
+      }
+    }
+  },
+  "stage_caps_note": "probe 0.05 and pilot 0.25 USD. Full = 1.6 x the larger benchmark's projection from the 17 Oct probes (about 590 input tokens a BANKING77 request and 675 a CLINC150+OOS request): d1-ultra 5,500 x 675 x 0.042 per million = 0.156 -> 0.25; d1 5,500 x 675 x 0.02 per million = 0.074 -> 0.12",
+  "publish": [
+    {
+      "route": "d1-ultra",
+      "bench": "banking77",
+      "stage": "full-r2"
+    },
+    {
+      "route": "d1",
+      "bench": "banking77",
+      "stage": "full-r2"
+    },
+    {
+      "route": "d1-ultra",
+      "bench": "clinc",
+      "stage": "full"
+    },
+    {
+      "route": "d1",
+      "bench": "clinc",
+      "stage": "full"
+    }
+  ],
+  "publish_note": "runs/<route>/banking77/full stopped on its first warm-up call (connection timeouts to openrouter.ai from this machine at 16:35 IST, 17 Oct; no benchmark row was sent); kept as a record and not published; full-r2 is the complete rerun"
+}
