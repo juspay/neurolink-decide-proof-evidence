@@ -4,8 +4,8 @@ This repository holds the recorded evidence behind two audits of decision models
 published number from the recordings:
 
 1. **Liquid AI `d1-ultra` and `d1`**, run on 17 Oct 2026. It has public posts, listed below.
-2. **The blog redo**, five decision models run on 17 and 18 Oct 2026. Its article is not published yet; the section
-   "The blog redo audit" below says what it is.
+2. **The blog redo**, five decision models run on 17 and 18 Oct 2026. Its article was published on 19 Oct 2026; the
+   section "The blog redo audit" below links it and says what it is.
 
 Both audits ran through `decide()` in [NeuroLink](https://github.com/juspay/neurolink), Juspay's AI harness, on two public
 benchmarks: BANKING77 (3,080 requests) and CLINC150+OOS (5,500 requests, 1,000 of which fit none of the listed intents).
@@ -44,8 +44,9 @@ benchmark question was sent. Both were run again from the beginning. The stopped
 
 ## The blog redo audit
 
-Its article, "We ran our decision-model audit again, and recorded every request", is not published at the time of this
-commit. The audit folder is `data/social/audits/blog-redo-2026-10-17/`.
+Its article, "We ran our decision-model audit again, and recorded every request", was published on 19 Oct 2026 at
+https://blog.neurolink.ink/posts/we-ran-our-decision-model-audit-again-and-recorded-every-request/, with the film from this folder (`film/film.mp4`, the same bytes). The audit folder is
+`data/social/audits/blog-redo-2026-10-17/`.
 
 **What it is.** Five decision models, each run once on BANKING77 and once on CLINC150+OOS through `decide()` in
 [NeuroLink](https://github.com/juspay/neurolink) 12.47.0, with every HTTP call recorded and the API keys masked as the
