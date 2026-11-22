@@ -43,6 +43,36 @@ Clef and Clef-flash came a day late, and the reason belongs in the record. Our f
 
 Our first pass also had the XOR route, Juspay's own deployment. It is not in this run. On the first day, after the three routes above had finished, we sent it the first three rows of each benchmark as a short probe, asking for the model name jev-latest, the name our 3 Oct XOR demo used (the first pass did not save its XOR settings). It answered the two two-option warm-up calls of each probe, naming its model xor-text-1, and refused all six benchmark rows: HTTP 422, "q1: 2..64 options, got 77" on BANKING77 and "q1: 2..64 options, got 151" on CLINC150+OOS. Our local relay handed the refusal to the kit as HTTP 400, so the kit's own files say that; the route's answer in the wire recording is the HTTP 422. In the first pass the same kind of request worked on every row, but we did not save that run's XOR address or model name, so we cannot say whether the route changed or we reached a different deployment this time. Both refusals are in the recording, with the route's address masked.
 
+## The request, as code
+
+decide() takes a model, a state and a set of questions. The test kit speaks a different request format, so a small loopback program in our toolkit sits between the two: it receives each request from the kit, makes one decide() call, and turns the answer back into the kit's format. This is that call, copied from the program's source, `tools/decide-proof/runner/shim.mjs`, shifted to the left margin:
+
+```js
+const input = {
+  provider,
+  model,
+  state: body.state,
+  questions: Object.fromEntries(Object.entries(questions).map(([id, q]) => [id, toDecideQuestion(q)])),
+  timeoutMs,
+};
+// (lines omitted)
+result = await hooks.runInDecide(started.decide_seq, () => decide(input));
+// (lines omitted)
+decide: (input) => neurolink.decide(input),
+```
+
+The provider and the model are fixed for each route, and the questions are the kit's own, passed through `toDecideQuestion`. That function is the only translation of the question itself, and it is short:
+
+```js
+export const toDecideQuestion = (q) => {
+  const instructions = q.instructions ?? undefined;
+  if (q.type === "noul") return { type: "boolean", instructions, ...(isObj(q.criteria) ? { criteria: q.criteria } : {}) };
+  return { type: q.type, instructions, criteria: q.criteria };
+};
+```
+
+A choice question goes through unchanged: its instructions are the request text and its criteria are the options. The kit's `noul` question type, a single probability, is renamed to the type decide() calls boolean. The benchmarks here use choice questions only, as the recorded request below shows.
+
 ## Accuracy
 
 Models in alphabetical order. "Earlier" is our first pass on the same benchmark, recounted from its saved per-request files by the same two programs.
@@ -86,6 +116,37 @@ Accuracy counts a request as right or not, not what was said instead. On CLINC15
 
 Clef said "out of scope" 21 times to a request that had an intent; Clef-flash 516 times (1,796 in the first pass); Jev 136 times; Luna 304 times; Perplexity Decider v1 9 times. Those are the numbers an accuracy figure hides.
 
+## How recall and precision are counted
+
+Both fact programs apply one rule to the final state of each request. A request is out of scope when its right answer is the out-of-scope option. An out-of-scope request is caught when the model answered that option. A request that failed has no answer, so it is never a catch and never an "out of scope" answer. Recall is the catches divided by the out-of-scope requests. Precision is the catches divided by every "out of scope" answer. The false alarms in this section are the "out of scope" answers minus the catches.
+
+The Node program, from `tools/decide-proof/facts/facts-core.mjs`:
+
+```js
+    if (t.oos !== null && r.pred === t.oos) t.saidOos += 1;
+// (lines omitted)
+  if (r.gold === t.oos) {
+    t.oosRows += 1;
+    if (ok && r.pred === t.oos) t.oosCaught += 1;
+  } else {
+// (lines omitted)
+  put(prefix, "recall", ratio(t.oosCaught, t.oosRows), "ratio");
+  put(prefix, "precision", ratio(t.oosCaught, t.saidOos), "ratio");
+```
+
+The Python program, written separately from the same rule, from `tools/decide-proof/facts/facts.py`:
+
+```python
+    oos_rows = sum(1 for r in rows if r["gold"] == oos)
+    caught = sum(1 for r in rows if r["gold"] == oos and r["ok"] and r["pred"] == oos)
+    said = sum(1 for r in rows if r["ok"] and r["pred"] == oos)
+# (lines omitted)
+    F.ratio(f"{p}.recall", caught, oos_rows)
+    F.ratio(f"{p}.precision", caught, said)
+```
+
+If the two ever counted differently, the facts file would not be written and there would be no article.
+
 ## The recording
 
 What the recording holds for the ten counted runs:
@@ -111,6 +172,72 @@ Cloudflare also meters its own work: every reply carries the neurons it used in 
 
 The keys are masked inside the recording itself, not only on screen: the Authorization header of every counted call shows the key as `«masked:NAME»`, NAME being the variable that held it, and Cloudflare's account number, which is part of its request address, is masked too. Cloudflare's replies also carry a cookie with a value shaped like an IP address; the recorder masks any such value as the call is recorded (IPV4_ADDRESS, 3,084 records in Clef's BANKING77 run). Two recordings were masked again after they were recorded, for IP addresses: two Cloudflare error pages and two connection-error messages in Perplexity's counted CLINC150+OOS run, and the headers of one XOR probe; a REMASK.json next to each lists the file's hash before and after. Before publishing, the gateway's own header values in both XOR probes and the home-folder paths in the kit's logs were replaced too; CLEANING.json in the audit folder lists those files with their hashes before and after, and that pass changed no wire or decide recording of the counted runs. Afterwards a scan looked for every value, 8 characters or longer, of a key-, token-, secret-, password-, account- or address-named variable in the environment files the runs read, as they are today, plain and encoded, in 272 files of the audit folder (the film and its poster image are skipped as media), and found 0.
 
+## One recorded call
+
+This is one call from the recording, reformatted over several lines and trimmed. It is the third record in `runs/jev/banking77/full/wire.jsonl.gz` in the audit folder, Jev's first counted request on BANKING77, right after the two warm-up calls that start the first pass. A line starting with `//` marks something left out.
+
+```jsonc
+{
+  "layer": "wire",
+  "seq": 3,
+  "decide_seq": 3,
+  "attempt": 1,
+  "request": {
+    "method": "POST",
+    "url": "https://api.typesafe.ai/v1/systemone",
+    "headers": {
+      "authorization": "Bearer «masked:TYPESAFE_API_KEY»",
+      "content-type": "application/json"
+    },
+    "body": {
+      "model": "jev-1.13.0",
+      "state": {},
+      "questions": {
+        "q1": {
+          "type": "choice",
+          "instructions": "Classify the banking intent of this user request:\nHow do I locate my card?",
+          "criteria": {
+            "option_0": "card_arrival",
+            "option_1": "card_linking"
+            // the rest of the 77 options follow
+          }
+        }
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "q1": {
+          "type": "choice",
+          "choice": "option_11",
+          "confidence": 0.97,
+          "probabilities": {
+            "option_0": 0.03,
+            // all the other options are zero except the chosen one
+            "option_11": 0.97
+          }
+        }
+      },
+      "usage": { "input_tokens": 1708, "output_tokens": 781 }
+    }
+  },
+  "error": null,
+  "blocked": false,
+  "masked": ["TYPESAFE_API_KEY"]
+}
+```
+
+The key is not in the file. The authorization header holds `«masked:TYPESAFE_API_KEY»`, the name of the variable that held the key, and the `masked` list at the bottom names every variable masked in this record. The question and the answer are left as they were. The `usage` block is the provider's own count of the tokens for this call, and those counts are what the input-token figures above are summed from.
+
+The kit's request reaches NeuroLink as a decide() call, and the matching record for this request in `decide.jsonl.gz` names that call:
+
+```jsonc
+"decide_call": { "provider": "typesafe", "model": "jev-1.13.0", "timeoutMs": 90000 }
+```
+
 ## How the numbers were made
 
 - A recorder inside the NeuroLink process writes every attempt, masks keys before writing, allows only each route's own host, and stops a run when its booked spend reaches a cap (none did; the one stopped run stopped on failed connections).
@@ -118,6 +245,35 @@ The keys are masked inside the recording itself, not only on screen: the Authori
 - Pointed at the saved files of our first pass, the same engines reproduce every number of its two benchmark tables exactly. That is how "Earlier" above was made, Clef and Clef-flash included. The first pass's other figures, its run-to-run table on other sets, are not recounted here, and its XOR numbers are not used in this article (the engines still recount XOR's two benchmark cells, which is why the twelve saved files include them).
 - The texts are filled from the facts file, and a checker fails any number that is neither a fact nor a declared literal. The literals were checked by hand: the error codes and messages, the option counts and the kit commit against the recordings; the Node versions against each run's run.json; the token dates against the two saved token checks; the 0.01 limit against the kit's source; the name our 3 Oct XOR demo asked for against that demo's saved run files; and the first-pass dates, the price-table dates and rates, and the tokens-a-minute limit against our first-pass notes, NeuroLink's price table and the audit config. The film with this post was built the same way: every figure on screen is read back from the frames and compared with the facts.
 - One command, `bash verify.sh`, re-runs the counting offline and checks every file's hash. It needs the decide-proof toolkit, Node, Python, the two benchmarks' files and the twelve saved files of our first pass. The audit folder, the toolkit, the two benchmarks' files and the twelve saved first-pass files are all public at https://github.com/juspay/neurolink-decide-proof-evidence, where `bash verify-all.sh` re-runs the check.
+
+## Check it yourself
+
+The recordings, the toolkit and the audit folder are in a public repository, `juspay/neurolink-decide-proof-evidence`. Its README says what you need: bash, Node and Python, with no network, no API key and no install step. From the folder you cloned, this runs only this audit's check:
+
+```bash
+DPROOF_VD="$PWD/decide-proof-vd" bash data/social/audits/blog-redo-2026-10-17/verify.sh
+```
+
+This is what it printed when we ran it against the audit folder, which took a few minutes. The output is abridged: two lines are shortened, as the note under the block says.
+
+```text
+[ok]   manifest: every file matches its sha256
+[ok]   manifest: no file missing, none extra
+[ok]   facts: node = python = facts.json
+[ok]   text article: every number is a fact or a literal
+[ok]   scan: 0 hits, control ok
+VERDICT PASS: blog-redo-2026-10-17
+```
+
+In the full output, the facts line ends with a short hash of facts.json, and the scan line says how many secret values it looked for. We cut both, because they depend on the machine. The scan reads our own environment files, so on a machine without them it reports zero values and shows only that its planted control is found. The repository's README says the same.
+
+The last two checks are the ones to read closely. The text check is the one that fails any number in this article that is neither a counted fact nor a literal the template declares.
+
+To read the recording itself, this prints the record shown above, the third line of the file:
+
+```bash
+gzip -dc data/social/audits/blog-redo-2026-10-17/runs/jev/banking77/full/wire.jsonl.gz | sed -n 3p
+```
 
 ## What one run can and cannot show
 

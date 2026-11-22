@@ -189,1305 +189,1326 @@
     "text": "18 Oct 2026"
   },
   {
-    "end": 7174,
+    "end": 8745,
     "fact": "clef.banking77.accuracy",
     "fmt": "pct1",
-    "start": 7169,
+    "start": 8740,
     "text": "94.1%"
   },
   {
-    "end": 7181,
+    "end": 8752,
     "fact": "clef.banking77.correct",
     "fmt": "int",
-    "start": 7176,
+    "start": 8747,
     "text": "2,898"
   },
   {
-    "end": 7190,
+    "end": 8761,
     "fact": "blog.clef.banking77.accuracy",
     "fmt": "pct1",
-    "start": 7185,
+    "start": 8756,
     "text": "94.1%"
   },
   {
-    "end": 7197,
+    "end": 8768,
     "fact": "blog.clef.banking77.correct",
     "fmt": "int",
-    "start": 7192,
+    "start": 8763,
     "text": "2,899"
   },
   {
-    "end": 7206,
+    "end": 8777,
     "fact": "clef.clinc.accuracy",
     "fmt": "pct1",
-    "start": 7201,
+    "start": 8772,
     "text": "97.3%"
   },
   {
-    "end": 7213,
+    "end": 8784,
     "fact": "clef.clinc.correct",
     "fmt": "int",
-    "start": 7208,
+    "start": 8779,
     "text": "5,352"
   },
   {
-    "end": 7222,
+    "end": 8793,
     "fact": "blog.clef.clinc.accuracy",
     "fmt": "pct1",
-    "start": 7217,
+    "start": 8788,
     "text": "97.3%"
   },
   {
-    "end": 7229,
+    "end": 8800,
     "fact": "blog.clef.clinc.correct",
     "fmt": "int",
-    "start": 7224,
+    "start": 8795,
     "text": "5,350"
   },
   {
-    "end": 7253,
+    "end": 8824,
     "fact": "clef-flash.banking77.accuracy",
     "fmt": "pct1",
-    "start": 7248,
+    "start": 8819,
     "text": "88.1%"
   },
   {
-    "end": 7260,
+    "end": 8831,
     "fact": "clef-flash.banking77.correct",
     "fmt": "int",
-    "start": 7255,
+    "start": 8826,
     "text": "2,715"
   },
   {
-    "end": 7269,
+    "end": 8840,
     "fact": "blog.clef-flash.banking77.accuracy",
     "fmt": "pct1",
-    "start": 7264,
+    "start": 8835,
     "text": "90.9%"
   },
   {
-    "end": 7276,
+    "end": 8847,
     "fact": "blog.clef-flash.banking77.correct",
     "fmt": "int",
-    "start": 7271,
+    "start": 8842,
     "text": "2,799"
   },
   {
-    "end": 7285,
+    "end": 8856,
     "fact": "clef-flash.clinc.accuracy",
     "fmt": "pct1",
-    "start": 7280,
+    "start": 8851,
     "text": "59.1%"
   },
   {
-    "end": 7292,
+    "end": 8863,
     "fact": "clef-flash.clinc.correct",
     "fmt": "int",
-    "start": 7287,
+    "start": 8858,
     "text": "3,250"
   },
   {
-    "end": 7301,
+    "end": 8872,
     "fact": "blog.clef-flash.clinc.accuracy",
     "fmt": "pct1",
-    "start": 7296,
+    "start": 8867,
     "text": "63.1%"
   },
   {
-    "end": 7308,
+    "end": 8879,
     "fact": "blog.clef-flash.clinc.correct",
     "fmt": "int",
-    "start": 7303,
+    "start": 8874,
     "text": "3,472"
   },
   {
-    "end": 7325,
+    "end": 8896,
     "fact": "jev.banking77.accuracy",
     "fmt": "pct1",
-    "start": 7320,
+    "start": 8891,
     "text": "80.5%"
   },
   {
-    "end": 7332,
+    "end": 8903,
     "fact": "jev.banking77.correct",
     "fmt": "int",
-    "start": 7327,
+    "start": 8898,
     "text": "2,478"
   },
   {
-    "end": 7341,
+    "end": 8912,
     "fact": "blog.jev.banking77.accuracy",
     "fmt": "pct1",
-    "start": 7336,
+    "start": 8907,
     "text": "80.0%"
   },
   {
-    "end": 7348,
+    "end": 8919,
     "fact": "blog.jev.banking77.correct",
     "fmt": "int",
-    "start": 7343,
+    "start": 8914,
     "text": "2,465"
   },
   {
-    "end": 7357,
+    "end": 8928,
     "fact": "jev.clinc.accuracy",
     "fmt": "pct1",
-    "start": 7352,
+    "start": 8923,
     "text": "88.6%"
   },
   {
-    "end": 7364,
+    "end": 8935,
     "fact": "jev.clinc.correct",
     "fmt": "int",
-    "start": 7359,
+    "start": 8930,
     "text": "4,872"
   },
   {
-    "end": 7373,
+    "end": 8944,
     "fact": "blog.jev.clinc.accuracy",
     "fmt": "pct1",
-    "start": 7368,
+    "start": 8939,
     "text": "88.8%"
   },
   {
-    "end": 7380,
+    "end": 8951,
     "fact": "blog.jev.clinc.correct",
     "fmt": "int",
-    "start": 7375,
+    "start": 8946,
     "text": "4,883"
   },
   {
-    "end": 7427,
+    "end": 8998,
     "fact": "luna.banking77.accuracy",
     "fmt": "pct1",
-    "start": 7422,
+    "start": 8993,
     "text": "77.3%"
   },
   {
-    "end": 7434,
+    "end": 9005,
     "fact": "luna.banking77.correct",
     "fmt": "int",
-    "start": 7429,
+    "start": 9000,
     "text": "2,382"
   },
   {
-    "end": 7443,
+    "end": 9014,
     "fact": "blog.luna.banking77.accuracy",
     "fmt": "pct1",
-    "start": 7438,
+    "start": 9009,
     "text": "77.1%"
   },
   {
-    "end": 7450,
+    "end": 9021,
     "fact": "blog.luna.banking77.correct",
     "fmt": "int",
-    "start": 7445,
+    "start": 9016,
     "text": "2,375"
   },
   {
-    "end": 7459,
+    "end": 9030,
     "fact": "luna.clinc.accuracy",
     "fmt": "pct1",
-    "start": 7454,
+    "start": 9025,
     "text": "88.3%"
   },
   {
-    "end": 7466,
+    "end": 9037,
     "fact": "luna.clinc.correct",
     "fmt": "int",
-    "start": 7461,
+    "start": 9032,
     "text": "4,858"
   },
   {
-    "end": 7475,
+    "end": 9046,
     "fact": "blog.luna.clinc.accuracy",
     "fmt": "pct1",
-    "start": 7470,
+    "start": 9041,
     "text": "88.4%"
   },
   {
-    "end": 7482,
+    "end": 9053,
     "fact": "blog.luna.clinc.correct",
     "fmt": "int",
-    "start": 7477,
+    "start": 9048,
     "text": "4,863"
   },
   {
-    "end": 7517,
+    "end": 9088,
     "fact": "perplexity-v1.banking77.accuracy",
     "fmt": "pct1",
-    "start": 7512,
+    "start": 9083,
     "text": "91.3%"
   },
   {
-    "end": 7524,
+    "end": 9095,
     "fact": "perplexity-v1.banking77.correct",
     "fmt": "int",
-    "start": 7519,
+    "start": 9090,
     "text": "2,811"
   },
   {
-    "end": 7533,
+    "end": 9104,
     "fact": "blog.perplexity-v1.banking77.accuracy",
     "fmt": "pct1",
-    "start": 7528,
+    "start": 9099,
     "text": "81.2%"
   },
   {
-    "end": 7540,
+    "end": 9111,
     "fact": "blog.perplexity-v1.banking77.correct",
     "fmt": "int",
-    "start": 7535,
+    "start": 9106,
     "text": "2,502"
   },
   {
-    "end": 7549,
+    "end": 9120,
     "fact": "perplexity-v1.clinc.accuracy",
     "fmt": "pct1",
-    "start": 7544,
+    "start": 9115,
     "text": "92.7%"
   },
   {
-    "end": 7556,
+    "end": 9127,
     "fact": "perplexity-v1.clinc.correct",
     "fmt": "int",
-    "start": 7551,
+    "start": 9122,
     "text": "5,097"
   },
   {
-    "end": 7565,
+    "end": 9136,
     "fact": "blog.perplexity-v1.clinc.accuracy",
     "fmt": "pct1",
-    "start": 7560,
+    "start": 9131,
     "text": "91.7%"
   },
   {
-    "end": 7572,
+    "end": 9143,
     "fact": "blog.perplexity-v1.clinc.correct",
     "fmt": "int",
-    "start": 7567,
+    "start": 9138,
     "text": "5,042"
   },
   {
-    "end": 7798,
+    "end": 9369,
     "fact": "clef.banking77.vs_blog.correct",
     "fmt": "signed",
-    "start": 7796,
+    "start": 9367,
     "text": "-1"
   },
   {
-    "end": 7818,
+    "end": 9389,
     "fact": "clef.clinc.vs_blog.correct",
     "fmt": "signed",
-    "start": 7816,
+    "start": 9387,
     "text": "+2"
   },
   {
-    "end": 7879,
+    "end": 9450,
     "fact": "clef.clinc.recall",
     "fmt": "pct1",
-    "start": 7874,
+    "start": 9445,
     "text": "95.1%"
   },
   {
-    "end": 7893,
+    "end": 9464,
     "fact": "blog.clef.clinc.recall",
     "fmt": "pct1",
-    "start": 7888,
+    "start": 9459,
     "text": "95.1%"
   },
   {
-    "end": 7931,
+    "end": 9502,
     "fact": "clef.clinc.precision",
     "fmt": "pct1",
-    "start": 7926,
+    "start": 9497,
     "text": "97.8%"
   },
   {
-    "end": 7945,
+    "end": 9516,
     "fact": "blog.clef.clinc.precision",
     "fmt": "pct1",
-    "start": 7940,
+    "start": 9511,
     "text": "97.9%"
   },
   {
-    "end": 8104,
+    "end": 9675,
     "fact": "clef-flash.banking77.vs_blog.accuracy",
     "fmt": "pp1",
-    "start": 8097,
+    "start": 9668,
     "text": "-2.7 pp"
   },
   {
-    "end": 8109,
+    "end": 9680,
     "fact": "clef-flash.banking77.vs_blog.correct",
     "fmt": "signed",
-    "start": 8106,
+    "start": 9677,
     "text": "-84"
   },
   {
-    "end": 8153,
+    "end": 9724,
     "fact": "clef-flash.clinc.vs_blog.accuracy",
     "fmt": "pp1",
-    "start": 8146,
+    "start": 9717,
     "text": "-4.0 pp"
   },
   {
-    "end": 8159,
+    "end": 9730,
     "fact": "clef-flash.clinc.vs_blog.correct",
     "fmt": "signed",
-    "start": 8155,
+    "start": 9726,
     "text": "-222"
   },
   {
-    "end": 8240,
+    "end": 9811,
     "fact": "clef-flash.clinc.oos_caught",
     "fmt": "int",
-    "start": 8237,
+    "start": 9808,
     "text": "755"
   },
   {
-    "end": 8253,
+    "end": 9824,
     "fact": "clef-flash.clinc.oos_rows",
     "fmt": "int",
-    "start": 8248,
+    "start": 9819,
     "text": "1,000"
   },
   {
-    "end": 8279,
+    "end": 9850,
     "fact": "blog.clef-flash.clinc.oos_caught",
     "fmt": "int",
-    "start": 8276,
+    "start": 9847,
     "text": "991"
   },
   {
-    "end": 8315,
+    "end": 9886,
     "fact": "clef-flash.clinc.said_oos",
     "fmt": "int",
-    "start": 8310,
+    "start": 9881,
     "text": "1,271"
   },
   {
-    "end": 8342,
+    "end": 9913,
     "fact": "blog.clef-flash.clinc.said_oos",
     "fmt": "int",
-    "start": 8337,
+    "start": 9908,
     "text": "2,787"
   },
   {
-    "end": 8407,
+    "end": 9978,
     "fact": "clef-flash.clinc.precision",
     "fmt": "pct1",
-    "start": 8402,
+    "start": 9973,
     "text": "59.4%"
   },
   {
-    "end": 8421,
+    "end": 9992,
     "fact": "blog.clef-flash.clinc.precision",
     "fmt": "pct1",
-    "start": 8416,
+    "start": 9987,
     "text": "35.6%"
   },
   {
-    "end": 8707,
+    "end": 10278,
     "fact": "perplexity-v1.banking77.vs_blog.accuracy",
     "fmt": "pp1",
-    "start": 8699,
+    "start": 10270,
     "text": "+10.0 pp"
   },
   {
-    "end": 8713,
+    "end": 10284,
     "fact": "perplexity-v1.banking77.vs_blog.correct",
     "fmt": "signed",
-    "start": 8709,
+    "start": 10280,
     "text": "+309"
   },
   {
-    "end": 8757,
+    "end": 10328,
     "fact": "perplexity-v1.clinc.vs_blog.accuracy",
     "fmt": "pp1",
-    "start": 8750,
+    "start": 10321,
     "text": "+1.0 pp"
   },
   {
-    "end": 8762,
+    "end": 10333,
     "fact": "perplexity-v1.clinc.vs_blog.correct",
     "fmt": "signed",
-    "start": 8759,
+    "start": 10330,
     "text": "+55"
   },
   {
-    "end": 8843,
+    "end": 10414,
     "fact": "perplexity-v1.clinc.oos_caught",
     "fmt": "int",
-    "start": 8840,
+    "start": 10411,
     "text": "741"
   },
   {
-    "end": 8856,
+    "end": 10427,
     "fact": "perplexity-v1.clinc.oos_rows",
     "fmt": "int",
-    "start": 8851,
+    "start": 10422,
     "text": "1,000"
   },
   {
-    "end": 8882,
+    "end": 10453,
     "fact": "blog.perplexity-v1.clinc.oos_caught",
     "fmt": "int",
-    "start": 8879,
+    "start": 10450,
     "text": "861"
   },
   {
-    "end": 8948,
+    "end": 10519,
     "fact": "perplexity-v1.clinc.precision",
     "fmt": "pct1",
-    "start": 8943,
+    "start": 10514,
     "text": "98.8%"
   },
   {
-    "end": 8962,
+    "end": 10533,
     "fact": "blog.perplexity-v1.clinc.precision",
     "fmt": "pct1",
-    "start": 8957,
+    "start": 10528,
     "text": "93.5%"
   },
   {
-    "end": 9243,
+    "end": 10814,
     "fact": "jev.banking77.failed",
     "fmt": "int",
-    "start": 9242,
+    "start": 10813,
     "text": "6"
   },
   {
-    "end": 9263,
+    "end": 10834,
     "fact": "jev.clinc.failed",
     "fmt": "int",
-    "start": 9261,
+    "start": 10832,
     "text": "36"
   },
   {
-    "end": 9283,
+    "end": 10854,
     "fact": "blog.jev.banking77.failed",
     "fmt": "int",
-    "start": 9281,
+    "start": 10852,
     "text": "13"
   },
   {
-    "end": 9290,
+    "end": 10861,
     "fact": "blog.jev.clinc.failed",
     "fmt": "int",
-    "start": 9288,
+    "start": 10859,
     "text": "28"
   },
   {
-    "end": 9550,
+    "end": 11121,
     "fact": "luna.clinc.failed",
     "fmt": "int",
-    "start": 9549,
+    "start": 11120,
     "text": "1"
-  },
-  {
-    "end": 10149,
-    "fact": "jev.clinc.oos_rows",
-    "fmt": "int",
-    "start": 10144,
-    "text": "1,000"
-  },
-  {
-    "end": 10393,
-    "fact": "clef.clinc.recall",
-    "fmt": "pct1",
-    "start": 10388,
-    "text": "95.1%"
-  },
-  {
-    "end": 10398,
-    "fact": "clef.clinc.oos_caught",
-    "fmt": "int",
-    "start": 10395,
-    "text": "951"
-  },
-  {
-    "end": 10407,
-    "fact": "blog.clef.clinc.recall",
-    "fmt": "pct1",
-    "start": 10402,
-    "text": "95.1%"
-  },
-  {
-    "end": 10415,
-    "fact": "clef.clinc.precision",
-    "fmt": "pct1",
-    "start": 10410,
-    "text": "97.8%"
-  },
-  {
-    "end": 10423,
-    "fact": "clef.clinc.said_oos",
-    "fmt": "int",
-    "start": 10420,
-    "text": "972"
-  },
-  {
-    "end": 10432,
-    "fact": "blog.clef.clinc.precision",
-    "fmt": "pct1",
-    "start": 10427,
-    "text": "97.9%"
-  },
-  {
-    "end": 10455,
-    "fact": "clef-flash.clinc.recall",
-    "fmt": "pct1",
-    "start": 10450,
-    "text": "75.5%"
-  },
-  {
-    "end": 10460,
-    "fact": "clef-flash.clinc.oos_caught",
-    "fmt": "int",
-    "start": 10457,
-    "text": "755"
-  },
-  {
-    "end": 10469,
-    "fact": "blog.clef-flash.clinc.recall",
-    "fmt": "pct1",
-    "start": 10464,
-    "text": "99.1%"
-  },
-  {
-    "end": 10477,
-    "fact": "clef-flash.clinc.precision",
-    "fmt": "pct1",
-    "start": 10472,
-    "text": "59.4%"
-  },
-  {
-    "end": 10487,
-    "fact": "clef-flash.clinc.said_oos",
-    "fmt": "int",
-    "start": 10482,
-    "text": "1,271"
-  },
-  {
-    "end": 10496,
-    "fact": "blog.clef-flash.clinc.precision",
-    "fmt": "pct1",
-    "start": 10491,
-    "text": "35.6%"
-  },
-  {
-    "end": 10512,
-    "fact": "jev.clinc.recall",
-    "fmt": "pct1",
-    "start": 10507,
-    "text": "84.8%"
-  },
-  {
-    "end": 10517,
-    "fact": "jev.clinc.oos_caught",
-    "fmt": "int",
-    "start": 10514,
-    "text": "848"
-  },
-  {
-    "end": 10526,
-    "fact": "blog.jev.clinc.recall",
-    "fmt": "pct1",
-    "start": 10521,
-    "text": "85.1%"
-  },
-  {
-    "end": 10534,
-    "fact": "jev.clinc.precision",
-    "fmt": "pct1",
-    "start": 10529,
-    "text": "86.2%"
-  },
-  {
-    "end": 10542,
-    "fact": "jev.clinc.said_oos",
-    "fmt": "int",
-    "start": 10539,
-    "text": "984"
-  },
-  {
-    "end": 10551,
-    "fact": "blog.jev.clinc.precision",
-    "fmt": "pct1",
-    "start": 10546,
-    "text": "86.1%"
-  },
-  {
-    "end": 10597,
-    "fact": "luna.clinc.recall",
-    "fmt": "pct1",
-    "start": 10592,
-    "text": "91.4%"
-  },
-  {
-    "end": 10602,
-    "fact": "luna.clinc.oos_caught",
-    "fmt": "int",
-    "start": 10599,
-    "text": "914"
-  },
-  {
-    "end": 10611,
-    "fact": "blog.luna.clinc.recall",
-    "fmt": "pct1",
-    "start": 10606,
-    "text": "92.4%"
-  },
-  {
-    "end": 10619,
-    "fact": "luna.clinc.precision",
-    "fmt": "pct1",
-    "start": 10614,
-    "text": "75.0%"
-  },
-  {
-    "end": 10629,
-    "fact": "luna.clinc.said_oos",
-    "fmt": "int",
-    "start": 10624,
-    "text": "1,218"
-  },
-  {
-    "end": 10638,
-    "fact": "blog.luna.clinc.precision",
-    "fmt": "pct1",
-    "start": 10633,
-    "text": "74.9%"
-  },
-  {
-    "end": 10672,
-    "fact": "perplexity-v1.clinc.recall",
-    "fmt": "pct1",
-    "start": 10667,
-    "text": "74.1%"
-  },
-  {
-    "end": 10677,
-    "fact": "perplexity-v1.clinc.oos_caught",
-    "fmt": "int",
-    "start": 10674,
-    "text": "741"
-  },
-  {
-    "end": 10686,
-    "fact": "blog.perplexity-v1.clinc.recall",
-    "fmt": "pct1",
-    "start": 10681,
-    "text": "86.1%"
-  },
-  {
-    "end": 10694,
-    "fact": "perplexity-v1.clinc.precision",
-    "fmt": "pct1",
-    "start": 10689,
-    "text": "98.8%"
-  },
-  {
-    "end": 10702,
-    "fact": "perplexity-v1.clinc.said_oos",
-    "fmt": "int",
-    "start": 10699,
-    "text": "750"
-  },
-  {
-    "end": 10711,
-    "fact": "blog.perplexity-v1.clinc.precision",
-    "fmt": "pct1",
-    "start": 10706,
-    "text": "93.5%"
-  },
-  {
-    "end": 10742,
-    "fact": "clef.clinc.false_alarms",
-    "fmt": "int",
-    "start": 10740,
-    "text": "21"
-  },
-  {
-    "end": 10796,
-    "fact": "clef-flash.clinc.false_alarms",
-    "fmt": "int",
-    "start": 10793,
-    "text": "516"
-  },
-  {
-    "end": 10809,
-    "fact": "blog.clef-flash.clinc.false_alarms",
-    "fmt": "int",
-    "start": 10804,
-    "text": "1,796"
-  },
-  {
-    "end": 10837,
-    "fact": "jev.clinc.false_alarms",
-    "fmt": "int",
-    "start": 10834,
-    "text": "136"
-  },
-  {
-    "end": 10853,
-    "fact": "luna.clinc.false_alarms",
-    "fmt": "int",
-    "start": 10850,
-    "text": "304"
-  },
-  {
-    "end": 10884,
-    "fact": "perplexity-v1.clinc.false_alarms",
-    "fmt": "int",
-    "start": 10883,
-    "text": "9"
-  },
-  {
-    "end": 11158,
-    "fact": "clef.banking77.attempts",
-    "fmt": "int",
-    "start": 11153,
-    "text": "3,084"
-  },
-  {
-    "end": 11162,
-    "fact": "clef.banking77.retries",
-    "fmt": "int",
-    "start": 11161,
-    "text": "0"
-  },
-  {
-    "end": 11174,
-    "fact": "clef.banking77.input_tokens",
-    "fmt": "int",
-    "start": 11165,
-    "text": "5,746,536"
-  },
-  {
-    "end": 11184,
-    "fact": "clef.banking77.cost_usd",
-    "fmt": "usd4",
-    "start": 11177,
-    "text": "$1.3792"
-  },
-  {
-    "end": 11195,
-    "fact": "clef.banking77.latency_us.p50",
-    "fmt": "ms1",
-    "start": 11187,
-    "text": "518.7 ms"
-  },
-  {
-    "end": 11226,
-    "fact": "clef.clinc.attempts",
-    "fmt": "int",
-    "start": 11221,
-    "text": "5,504"
-  },
-  {
-    "end": 11230,
-    "fact": "clef.clinc.retries",
-    "fmt": "int",
-    "start": 11229,
-    "text": "0"
-  },
-  {
-    "end": 11243,
-    "fact": "clef.clinc.input_tokens",
-    "fmt": "int",
-    "start": 11233,
-    "text": "18,656,757"
-  },
-  {
-    "end": 11253,
-    "fact": "clef.clinc.cost_usd",
-    "fmt": "usd4",
-    "start": 11246,
-    "text": "$4.4776"
-  },
-  {
-    "end": 11264,
-    "fact": "clef.clinc.latency_us.p50",
-    "fmt": "ms1",
-    "start": 11256,
-    "text": "713.9 ms"
-  },
-  {
-    "end": 11298,
-    "fact": "clef-flash.banking77.attempts",
-    "fmt": "int",
-    "start": 11293,
-    "text": "3,084"
-  },
-  {
-    "end": 11302,
-    "fact": "clef-flash.banking77.retries",
-    "fmt": "int",
-    "start": 11301,
-    "text": "0"
-  },
-  {
-    "end": 11314,
-    "fact": "clef-flash.banking77.input_tokens",
-    "fmt": "int",
-    "start": 11305,
-    "text": "5,746,536"
-  },
-  {
-    "end": 11324,
-    "fact": "clef-flash.banking77.cost_usd",
-    "fmt": "usd4",
-    "start": 11317,
-    "text": "$0.5172"
-  },
-  {
-    "end": 11335,
-    "fact": "clef-flash.banking77.latency_us.p50",
-    "fmt": "ms1",
-    "start": 11327,
-    "text": "551.6 ms"
-  },
-  {
-    "end": 11372,
-    "fact": "clef-flash.clinc.attempts",
-    "fmt": "int",
-    "start": 11367,
-    "text": "5,504"
-  },
-  {
-    "end": 11376,
-    "fact": "clef-flash.clinc.retries",
-    "fmt": "int",
-    "start": 11375,
-    "text": "0"
-  },
-  {
-    "end": 11389,
-    "fact": "clef-flash.clinc.input_tokens",
-    "fmt": "int",
-    "start": 11379,
-    "text": "18,656,757"
-  },
-  {
-    "end": 11399,
-    "fact": "clef-flash.clinc.cost_usd",
-    "fmt": "usd4",
-    "start": 11392,
-    "text": "$1.6791"
-  },
-  {
-    "end": 11410,
-    "fact": "clef-flash.clinc.latency_us.p50",
-    "fmt": "ms1",
-    "start": 11402,
-    "text": "855.2 ms"
-  },
-  {
-    "end": 11437,
-    "fact": "jev.banking77.attempts",
-    "fmt": "int",
-    "start": 11432,
-    "text": "3,112"
-  },
-  {
-    "end": 11441,
-    "fact": "jev.banking77.retries",
-    "fmt": "int",
-    "start": 11440,
-    "text": "1"
-  },
-  {
-    "end": 11453,
-    "fact": "jev.banking77.input_tokens",
-    "fmt": "int",
-    "start": 11444,
-    "text": "5,325,447"
-  },
-  {
-    "end": 11463,
-    "fact": "jev.banking77.cost_usd",
-    "fmt": "usd4",
-    "start": 11456,
-    "text": "$0.2237"
-  },
-  {
-    "end": 11474,
-    "fact": "jev.banking77.latency_us.p50",
-    "fmt": "ms1",
-    "start": 11466,
-    "text": "304.3 ms"
-  },
-  {
-    "end": 11504,
-    "fact": "jev.clinc.attempts",
-    "fmt": "int",
-    "start": 11499,
-    "text": "5,608"
-  },
-  {
-    "end": 11508,
-    "fact": "jev.clinc.retries",
-    "fmt": "int",
-    "start": 11507,
-    "text": "1"
-  },
-  {
-    "end": 11521,
-    "fact": "jev.clinc.input_tokens",
-    "fmt": "int",
-    "start": 11511,
-    "text": "15,622,939"
-  },
-  {
-    "end": 11531,
-    "fact": "jev.clinc.cost_usd",
-    "fmt": "usd4",
-    "start": 11524,
-    "text": "$0.6562"
-  },
-  {
-    "end": 11542,
-    "fact": "jev.clinc.latency_us.p50",
-    "fmt": "ms1",
-    "start": 11534,
-    "text": "304.4 ms"
-  },
-  {
-    "end": 11570,
-    "fact": "luna.banking77.attempts",
-    "fmt": "int",
-    "start": 11565,
-    "text": "3,085"
-  },
-  {
-    "end": 11574,
-    "fact": "luna.banking77.retries",
-    "fmt": "int",
-    "start": 11573,
-    "text": "1"
-  },
-  {
-    "end": 11586,
-    "fact": "luna.banking77.input_tokens",
-    "fmt": "int",
-    "start": 11577,
-    "text": "2,974,164"
-  },
-  {
-    "end": 11596,
-    "fact": "luna.banking77.cost_usd",
-    "fmt": "usd4",
-    "start": 11589,
-    "text": "$0.2974"
-  },
-  {
-    "end": 11607,
-    "fact": "luna.banking77.latency_us.p50",
-    "fmt": "ms1",
-    "start": 11599,
-    "text": "314.0 ms"
-  },
-  {
-    "end": 11638,
-    "fact": "luna.clinc.attempts",
-    "fmt": "int",
-    "start": 11633,
-    "text": "5,509"
-  },
-  {
-    "end": 11642,
-    "fact": "luna.clinc.retries",
-    "fmt": "int",
-    "start": 11641,
-    "text": "4"
-  },
-  {
-    "end": 11654,
-    "fact": "luna.clinc.input_tokens",
-    "fmt": "int",
-    "start": 11645,
-    "text": "8,171,254"
-  },
-  {
-    "end": 11664,
-    "fact": "luna.clinc.cost_usd",
-    "fmt": "usd4",
-    "start": 11657,
-    "text": "$0.8171"
-  },
-  {
-    "end": 11675,
-    "fact": "luna.clinc.latency_us.p50",
-    "fmt": "ms1",
-    "start": 11667,
-    "text": "326.3 ms"
   },
   {
     "end": 11720,
-    "fact": "perplexity-v1.banking77.attempts",
+    "fact": "jev.clinc.oos_rows",
     "fmt": "int",
     "start": 11715,
-    "text": "3,085"
+    "text": "1,000"
   },
   {
-    "end": 11724,
-    "fact": "perplexity-v1.banking77.retries",
+    "end": 11964,
+    "fact": "clef.clinc.recall",
+    "fmt": "pct1",
+    "start": 11959,
+    "text": "95.1%"
+  },
+  {
+    "end": 11969,
+    "fact": "clef.clinc.oos_caught",
     "fmt": "int",
-    "start": 11723,
+    "start": 11966,
+    "text": "951"
+  },
+  {
+    "end": 11978,
+    "fact": "blog.clef.clinc.recall",
+    "fmt": "pct1",
+    "start": 11973,
+    "text": "95.1%"
+  },
+  {
+    "end": 11986,
+    "fact": "clef.clinc.precision",
+    "fmt": "pct1",
+    "start": 11981,
+    "text": "97.8%"
+  },
+  {
+    "end": 11994,
+    "fact": "clef.clinc.said_oos",
+    "fmt": "int",
+    "start": 11991,
+    "text": "972"
+  },
+  {
+    "end": 12003,
+    "fact": "blog.clef.clinc.precision",
+    "fmt": "pct1",
+    "start": 11998,
+    "text": "97.9%"
+  },
+  {
+    "end": 12026,
+    "fact": "clef-flash.clinc.recall",
+    "fmt": "pct1",
+    "start": 12021,
+    "text": "75.5%"
+  },
+  {
+    "end": 12031,
+    "fact": "clef-flash.clinc.oos_caught",
+    "fmt": "int",
+    "start": 12028,
+    "text": "755"
+  },
+  {
+    "end": 12040,
+    "fact": "blog.clef-flash.clinc.recall",
+    "fmt": "pct1",
+    "start": 12035,
+    "text": "99.1%"
+  },
+  {
+    "end": 12048,
+    "fact": "clef-flash.clinc.precision",
+    "fmt": "pct1",
+    "start": 12043,
+    "text": "59.4%"
+  },
+  {
+    "end": 12058,
+    "fact": "clef-flash.clinc.said_oos",
+    "fmt": "int",
+    "start": 12053,
+    "text": "1,271"
+  },
+  {
+    "end": 12067,
+    "fact": "blog.clef-flash.clinc.precision",
+    "fmt": "pct1",
+    "start": 12062,
+    "text": "35.6%"
+  },
+  {
+    "end": 12083,
+    "fact": "jev.clinc.recall",
+    "fmt": "pct1",
+    "start": 12078,
+    "text": "84.8%"
+  },
+  {
+    "end": 12088,
+    "fact": "jev.clinc.oos_caught",
+    "fmt": "int",
+    "start": 12085,
+    "text": "848"
+  },
+  {
+    "end": 12097,
+    "fact": "blog.jev.clinc.recall",
+    "fmt": "pct1",
+    "start": 12092,
+    "text": "85.1%"
+  },
+  {
+    "end": 12105,
+    "fact": "jev.clinc.precision",
+    "fmt": "pct1",
+    "start": 12100,
+    "text": "86.2%"
+  },
+  {
+    "end": 12113,
+    "fact": "jev.clinc.said_oos",
+    "fmt": "int",
+    "start": 12110,
+    "text": "984"
+  },
+  {
+    "end": 12122,
+    "fact": "blog.jev.clinc.precision",
+    "fmt": "pct1",
+    "start": 12117,
+    "text": "86.1%"
+  },
+  {
+    "end": 12168,
+    "fact": "luna.clinc.recall",
+    "fmt": "pct1",
+    "start": 12163,
+    "text": "91.4%"
+  },
+  {
+    "end": 12173,
+    "fact": "luna.clinc.oos_caught",
+    "fmt": "int",
+    "start": 12170,
+    "text": "914"
+  },
+  {
+    "end": 12182,
+    "fact": "blog.luna.clinc.recall",
+    "fmt": "pct1",
+    "start": 12177,
+    "text": "92.4%"
+  },
+  {
+    "end": 12190,
+    "fact": "luna.clinc.precision",
+    "fmt": "pct1",
+    "start": 12185,
+    "text": "75.0%"
+  },
+  {
+    "end": 12200,
+    "fact": "luna.clinc.said_oos",
+    "fmt": "int",
+    "start": 12195,
+    "text": "1,218"
+  },
+  {
+    "end": 12209,
+    "fact": "blog.luna.clinc.precision",
+    "fmt": "pct1",
+    "start": 12204,
+    "text": "74.9%"
+  },
+  {
+    "end": 12243,
+    "fact": "perplexity-v1.clinc.recall",
+    "fmt": "pct1",
+    "start": 12238,
+    "text": "74.1%"
+  },
+  {
+    "end": 12248,
+    "fact": "perplexity-v1.clinc.oos_caught",
+    "fmt": "int",
+    "start": 12245,
+    "text": "741"
+  },
+  {
+    "end": 12257,
+    "fact": "blog.perplexity-v1.clinc.recall",
+    "fmt": "pct1",
+    "start": 12252,
+    "text": "86.1%"
+  },
+  {
+    "end": 12265,
+    "fact": "perplexity-v1.clinc.precision",
+    "fmt": "pct1",
+    "start": 12260,
+    "text": "98.8%"
+  },
+  {
+    "end": 12273,
+    "fact": "perplexity-v1.clinc.said_oos",
+    "fmt": "int",
+    "start": 12270,
+    "text": "750"
+  },
+  {
+    "end": 12282,
+    "fact": "blog.perplexity-v1.clinc.precision",
+    "fmt": "pct1",
+    "start": 12277,
+    "text": "93.5%"
+  },
+  {
+    "end": 12313,
+    "fact": "clef.clinc.false_alarms",
+    "fmt": "int",
+    "start": 12311,
+    "text": "21"
+  },
+  {
+    "end": 12367,
+    "fact": "clef-flash.clinc.false_alarms",
+    "fmt": "int",
+    "start": 12364,
+    "text": "516"
+  },
+  {
+    "end": 12380,
+    "fact": "blog.clef-flash.clinc.false_alarms",
+    "fmt": "int",
+    "start": 12375,
+    "text": "1,796"
+  },
+  {
+    "end": 12408,
+    "fact": "jev.clinc.false_alarms",
+    "fmt": "int",
+    "start": 12405,
+    "text": "136"
+  },
+  {
+    "end": 12424,
+    "fact": "luna.clinc.false_alarms",
+    "fmt": "int",
+    "start": 12421,
+    "text": "304"
+  },
+  {
+    "end": 12455,
+    "fact": "perplexity-v1.clinc.false_alarms",
+    "fmt": "int",
+    "start": 12454,
+    "text": "9"
+  },
+  {
+    "end": 14244,
+    "fact": "clef.banking77.attempts",
+    "fmt": "int",
+    "start": 14239,
+    "text": "3,084"
+  },
+  {
+    "end": 14248,
+    "fact": "clef.banking77.retries",
+    "fmt": "int",
+    "start": 14247,
+    "text": "0"
+  },
+  {
+    "end": 14260,
+    "fact": "clef.banking77.input_tokens",
+    "fmt": "int",
+    "start": 14251,
+    "text": "5,746,536"
+  },
+  {
+    "end": 14270,
+    "fact": "clef.banking77.cost_usd",
+    "fmt": "usd4",
+    "start": 14263,
+    "text": "$1.3792"
+  },
+  {
+    "end": 14281,
+    "fact": "clef.banking77.latency_us.p50",
+    "fmt": "ms1",
+    "start": 14273,
+    "text": "518.7 ms"
+  },
+  {
+    "end": 14312,
+    "fact": "clef.clinc.attempts",
+    "fmt": "int",
+    "start": 14307,
+    "text": "5,504"
+  },
+  {
+    "end": 14316,
+    "fact": "clef.clinc.retries",
+    "fmt": "int",
+    "start": 14315,
+    "text": "0"
+  },
+  {
+    "end": 14329,
+    "fact": "clef.clinc.input_tokens",
+    "fmt": "int",
+    "start": 14319,
+    "text": "18,656,757"
+  },
+  {
+    "end": 14339,
+    "fact": "clef.clinc.cost_usd",
+    "fmt": "usd4",
+    "start": 14332,
+    "text": "$4.4776"
+  },
+  {
+    "end": 14350,
+    "fact": "clef.clinc.latency_us.p50",
+    "fmt": "ms1",
+    "start": 14342,
+    "text": "713.9 ms"
+  },
+  {
+    "end": 14384,
+    "fact": "clef-flash.banking77.attempts",
+    "fmt": "int",
+    "start": 14379,
+    "text": "3,084"
+  },
+  {
+    "end": 14388,
+    "fact": "clef-flash.banking77.retries",
+    "fmt": "int",
+    "start": 14387,
+    "text": "0"
+  },
+  {
+    "end": 14400,
+    "fact": "clef-flash.banking77.input_tokens",
+    "fmt": "int",
+    "start": 14391,
+    "text": "5,746,536"
+  },
+  {
+    "end": 14410,
+    "fact": "clef-flash.banking77.cost_usd",
+    "fmt": "usd4",
+    "start": 14403,
+    "text": "$0.5172"
+  },
+  {
+    "end": 14421,
+    "fact": "clef-flash.banking77.latency_us.p50",
+    "fmt": "ms1",
+    "start": 14413,
+    "text": "551.6 ms"
+  },
+  {
+    "end": 14458,
+    "fact": "clef-flash.clinc.attempts",
+    "fmt": "int",
+    "start": 14453,
+    "text": "5,504"
+  },
+  {
+    "end": 14462,
+    "fact": "clef-flash.clinc.retries",
+    "fmt": "int",
+    "start": 14461,
+    "text": "0"
+  },
+  {
+    "end": 14475,
+    "fact": "clef-flash.clinc.input_tokens",
+    "fmt": "int",
+    "start": 14465,
+    "text": "18,656,757"
+  },
+  {
+    "end": 14485,
+    "fact": "clef-flash.clinc.cost_usd",
+    "fmt": "usd4",
+    "start": 14478,
+    "text": "$1.6791"
+  },
+  {
+    "end": 14496,
+    "fact": "clef-flash.clinc.latency_us.p50",
+    "fmt": "ms1",
+    "start": 14488,
+    "text": "855.2 ms"
+  },
+  {
+    "end": 14523,
+    "fact": "jev.banking77.attempts",
+    "fmt": "int",
+    "start": 14518,
+    "text": "3,112"
+  },
+  {
+    "end": 14527,
+    "fact": "jev.banking77.retries",
+    "fmt": "int",
+    "start": 14526,
     "text": "1"
   },
   {
-    "end": 11736,
-    "fact": "perplexity-v1.banking77.input_tokens",
+    "end": 14539,
+    "fact": "jev.banking77.input_tokens",
     "fmt": "int",
-    "start": 11727,
-    "text": "3,054,440"
+    "start": 14530,
+    "text": "5,325,447"
   },
   {
-    "end": 11746,
-    "fact": "perplexity-v1.banking77.cost_usd",
+    "end": 14549,
+    "fact": "jev.banking77.cost_usd",
     "fmt": "usd4",
-    "start": 11739,
-    "text": "$0.1222"
+    "start": 14542,
+    "text": "$0.2237"
   },
   {
-    "end": 11757,
-    "fact": "perplexity-v1.banking77.latency_us.p50",
+    "end": 14560,
+    "fact": "jev.banking77.latency_us.p50",
     "fmt": "ms1",
-    "start": 11749,
-    "text": "574.7 ms"
+    "start": 14552,
+    "text": "304.3 ms"
   },
   {
-    "end": 11805,
-    "fact": "perplexity-v1.clinc.attempts",
+    "end": 14590,
+    "fact": "jev.clinc.attempts",
     "fmt": "int",
-    "start": 11800,
-    "text": "5,528"
+    "start": 14585,
+    "text": "5,608"
   },
   {
-    "end": 11810,
-    "fact": "perplexity-v1.clinc.retries",
+    "end": 14594,
+    "fact": "jev.clinc.retries",
     "fmt": "int",
-    "start": 11808,
-    "text": "23"
+    "start": 14593,
+    "text": "1"
   },
   {
-    "end": 11822,
-    "fact": "perplexity-v1.clinc.input_tokens",
+    "end": 14607,
+    "fact": "jev.clinc.input_tokens",
     "fmt": "int",
-    "start": 11813,
-    "text": "9,086,581"
+    "start": 14597,
+    "text": "15,622,939"
   },
   {
-    "end": 11832,
-    "fact": "perplexity-v1.clinc.cost_usd",
+    "end": 14617,
+    "fact": "jev.clinc.cost_usd",
     "fmt": "usd4",
-    "start": 11825,
-    "text": "$0.3635"
+    "start": 14610,
+    "text": "$0.6562"
   },
   {
-    "end": 11843,
-    "fact": "perplexity-v1.clinc.latency_us.p50",
+    "end": 14628,
+    "fact": "jev.clinc.latency_us.p50",
     "fmt": "ms1",
-    "start": 11835,
-    "text": "803.4 ms"
+    "start": 14620,
+    "text": "304.4 ms"
   },
   {
-    "end": 12044,
-    "fact": "perplexity-v1.clinc.network_errors",
+    "end": 14656,
+    "fact": "luna.banking77.attempts",
     "fmt": "int",
-    "start": 12042,
-    "text": "18"
+    "start": 14651,
+    "text": "3,085"
   },
   {
-    "end": 12065,
-    "fact": "perplexity-v1.clinc.status.429",
+    "end": 14660,
+    "fact": "luna.banking77.retries",
     "fmt": "int",
-    "start": 12064,
-    "text": "4"
+    "start": 14659,
+    "text": "1"
   },
   {
-    "end": 12101,
-    "fact": "perplexity-v1.clinc.status.504",
+    "end": 14672,
+    "fact": "luna.banking77.input_tokens",
     "fmt": "int",
-    "start": 12100,
-    "text": "2"
+    "start": 14663,
+    "text": "2,974,164"
   },
   {
-    "end": 12392,
-    "fact": "clef.clinc.status.200",
-    "fmt": "int",
-    "start": 12387,
-    "text": "5,504"
-  },
-  {
-    "end": 12401,
-    "fact": "clef.clinc.attempts",
-    "fmt": "int",
-    "start": 12396,
-    "text": "5,504"
-  },
-  {
-    "end": 12423,
-    "fact": "clef-flash.clinc.status.200",
-    "fmt": "int",
-    "start": 12418,
-    "text": "5,504"
-  },
-  {
-    "end": 12432,
-    "fact": "clef-flash.clinc.attempts",
-    "fmt": "int",
-    "start": 12427,
-    "text": "5,504"
-  },
-  {
-    "end": 12500,
-    "fact": "clef.banking77.status.200",
-    "fmt": "int",
-    "start": 12495,
-    "text": "3,084"
-  },
-  {
-    "end": 12509,
-    "fact": "clef.banking77.attempts",
-    "fmt": "int",
-    "start": 12504,
-    "text": "3,084"
-  },
-  {
-    "end": 12519,
-    "fact": "clef-flash.banking77.status.200",
-    "fmt": "int",
-    "start": 12514,
-    "text": "3,084"
-  },
-  {
-    "end": 12528,
-    "fact": "clef-flash.banking77.attempts",
-    "fmt": "int",
-    "start": 12523,
-    "text": "3,084"
-  },
-  {
-    "end": 12580,
-    "fact": "all.cost_usd",
-    "fmt": "usd2",
-    "start": 12574,
-    "text": "$10.53"
-  },
-  {
-    "end": 12814,
-    "fact": "luna.banking77.cost_reported_usd",
+    "end": 14682,
+    "fact": "luna.banking77.cost_usd",
     "fmt": "usd4",
-    "start": 12807,
+    "start": 14675,
     "text": "$0.2974"
   },
   {
-    "end": 12826,
-    "fact": "luna.clinc.cost_reported_usd",
+    "end": 14693,
+    "fact": "luna.banking77.latency_us.p50",
+    "fmt": "ms1",
+    "start": 14685,
+    "text": "314.0 ms"
+  },
+  {
+    "end": 14724,
+    "fact": "luna.clinc.attempts",
+    "fmt": "int",
+    "start": 14719,
+    "text": "5,509"
+  },
+  {
+    "end": 14728,
+    "fact": "luna.clinc.retries",
+    "fmt": "int",
+    "start": 14727,
+    "text": "4"
+  },
+  {
+    "end": 14740,
+    "fact": "luna.clinc.input_tokens",
+    "fmt": "int",
+    "start": 14731,
+    "text": "8,171,254"
+  },
+  {
+    "end": 14750,
+    "fact": "luna.clinc.cost_usd",
     "fmt": "usd4",
-    "start": 12819,
+    "start": 14743,
     "text": "$0.8171"
   },
   {
-    "end": 13200,
-    "fact": "clef.banking77.output_tokens",
-    "fmt": "int",
-    "start": 13199,
-    "text": "0"
+    "end": 14761,
+    "fact": "luna.clinc.latency_us.p50",
+    "fmt": "ms1",
+    "start": 14753,
+    "text": "326.3 ms"
   },
   {
-    "end": 13243,
-    "fact": "jev.banking77.output_tokens",
+    "end": 14806,
+    "fact": "perplexity-v1.banking77.attempts",
     "fmt": "int",
-    "start": 13234,
-    "text": "2,426,228"
+    "start": 14801,
+    "text": "3,085"
   },
   {
-    "end": 13284,
-    "fact": "jev.clinc.output_tokens",
+    "end": 14810,
+    "fact": "perplexity-v1.banking77.retries",
     "fmt": "int",
-    "start": 13275,
-    "text": "8,809,315"
+    "start": 14809,
+    "text": "1"
   },
   {
-    "end": 13405,
-    "fact": "perplexity-v1.banking77.output_tokens",
+    "end": 14822,
+    "fact": "perplexity-v1.banking77.input_tokens",
     "fmt": "int",
-    "start": 13400,
-    "text": "3,084"
+    "start": 14813,
+    "text": "3,054,440"
   },
   {
-    "end": 13415,
-    "fact": "perplexity-v1.clinc.output_tokens",
+    "end": 14832,
+    "fact": "perplexity-v1.banking77.cost_usd",
+    "fmt": "usd4",
+    "start": 14825,
+    "text": "$0.1222"
+  },
+  {
+    "end": 14843,
+    "fact": "perplexity-v1.banking77.latency_us.p50",
+    "fmt": "ms1",
+    "start": 14835,
+    "text": "574.7 ms"
+  },
+  {
+    "end": 14891,
+    "fact": "perplexity-v1.clinc.attempts",
     "fmt": "int",
-    "start": 13410,
+    "start": 14886,
+    "text": "5,528"
+  },
+  {
+    "end": 14896,
+    "fact": "perplexity-v1.clinc.retries",
+    "fmt": "int",
+    "start": 14894,
+    "text": "23"
+  },
+  {
+    "end": 14908,
+    "fact": "perplexity-v1.clinc.input_tokens",
+    "fmt": "int",
+    "start": 14899,
+    "text": "9,086,581"
+  },
+  {
+    "end": 14918,
+    "fact": "perplexity-v1.clinc.cost_usd",
+    "fmt": "usd4",
+    "start": 14911,
+    "text": "$0.3635"
+  },
+  {
+    "end": 14929,
+    "fact": "perplexity-v1.clinc.latency_us.p50",
+    "fmt": "ms1",
+    "start": 14921,
+    "text": "803.4 ms"
+  },
+  {
+    "end": 15130,
+    "fact": "perplexity-v1.clinc.network_errors",
+    "fmt": "int",
+    "start": 15128,
+    "text": "18"
+  },
+  {
+    "end": 15151,
+    "fact": "perplexity-v1.clinc.status.429",
+    "fmt": "int",
+    "start": 15150,
+    "text": "4"
+  },
+  {
+    "end": 15187,
+    "fact": "perplexity-v1.clinc.status.504",
+    "fmt": "int",
+    "start": 15186,
+    "text": "2"
+  },
+  {
+    "end": 15478,
+    "fact": "clef.clinc.status.200",
+    "fmt": "int",
+    "start": 15473,
     "text": "5,504"
   },
   {
-    "end": 14163,
-    "fact": "clef.banking77.neurons_reported",
-    "fmt": "neurons0",
-    "start": 14156,
-    "text": "125,379"
-  },
-  {
-    "end": 14175,
-    "fact": "clef.clinc.neurons_reported",
-    "fmt": "neurons0",
-    "start": 14168,
-    "text": "407,058"
-  },
-  {
-    "end": 14308,
-    "fact": "clef-flash.banking77.neurons_reported",
-    "fmt": "neurons0",
-    "start": 14302,
-    "text": "19,854"
-  },
-  {
-    "end": 14319,
-    "fact": "clef-flash.clinc.neurons_reported",
-    "fmt": "neurons0",
-    "start": 14313,
-    "text": "64,447"
-  },
-  {
-    "end": 14959,
-    "fact": "clef.banking77.masked.IPV4_ADDRESS",
+    "end": 15487,
+    "fact": "clef.clinc.attempts",
     "fmt": "int",
-    "start": 14954,
+    "start": 15482,
+    "text": "5,504"
+  },
+  {
+    "end": 15509,
+    "fact": "clef-flash.clinc.status.200",
+    "fmt": "int",
+    "start": 15504,
+    "text": "5,504"
+  },
+  {
+    "end": 15518,
+    "fact": "clef-flash.clinc.attempts",
+    "fmt": "int",
+    "start": 15513,
+    "text": "5,504"
+  },
+  {
+    "end": 15586,
+    "fact": "clef.banking77.status.200",
+    "fmt": "int",
+    "start": 15581,
     "text": "3,084"
   },
   {
-    "end": 15791,
-    "fact": "all.files_scanned",
+    "end": 15595,
+    "fact": "clef.banking77.attempts",
     "fmt": "int",
-    "start": 15788,
-    "text": "272"
+    "start": 15590,
+    "text": "3,084"
   },
   {
-    "end": 15883,
-    "fact": "all.secret_hits",
+    "end": 15605,
+    "fact": "clef-flash.banking77.status.200",
     "fmt": "int",
-    "start": 15882,
+    "start": 15600,
+    "text": "3,084"
+  },
+  {
+    "end": 15614,
+    "fact": "clef-flash.banking77.attempts",
+    "fmt": "int",
+    "start": 15609,
+    "text": "3,084"
+  },
+  {
+    "end": 15666,
+    "fact": "all.cost_usd",
+    "fmt": "usd2",
+    "start": 15660,
+    "text": "$10.53"
+  },
+  {
+    "end": 15900,
+    "fact": "luna.banking77.cost_reported_usd",
+    "fmt": "usd4",
+    "start": 15893,
+    "text": "$0.2974"
+  },
+  {
+    "end": 15912,
+    "fact": "luna.clinc.cost_reported_usd",
+    "fmt": "usd4",
+    "start": 15905,
+    "text": "$0.8171"
+  },
+  {
+    "end": 16286,
+    "fact": "clef.banking77.output_tokens",
+    "fmt": "int",
+    "start": 16285,
     "text": "0"
   },
   {
-    "end": 18460,
+    "end": 16329,
+    "fact": "jev.banking77.output_tokens",
+    "fmt": "int",
+    "start": 16320,
+    "text": "2,426,228"
+  },
+  {
+    "end": 16370,
+    "fact": "jev.clinc.output_tokens",
+    "fmt": "int",
+    "start": 16361,
+    "text": "8,809,315"
+  },
+  {
+    "end": 16491,
+    "fact": "perplexity-v1.banking77.output_tokens",
+    "fmt": "int",
+    "start": 16486,
+    "text": "3,084"
+  },
+  {
+    "end": 16501,
+    "fact": "perplexity-v1.clinc.output_tokens",
+    "fmt": "int",
+    "start": 16496,
+    "text": "5,504"
+  },
+  {
+    "end": 17249,
+    "fact": "clef.banking77.neurons_reported",
+    "fmt": "neurons0",
+    "start": 17242,
+    "text": "125,379"
+  },
+  {
+    "end": 17261,
+    "fact": "clef.clinc.neurons_reported",
+    "fmt": "neurons0",
+    "start": 17254,
+    "text": "407,058"
+  },
+  {
+    "end": 17394,
+    "fact": "clef-flash.banking77.neurons_reported",
+    "fmt": "neurons0",
+    "start": 17388,
+    "text": "19,854"
+  },
+  {
+    "end": 17405,
+    "fact": "clef-flash.clinc.neurons_reported",
+    "fmt": "neurons0",
+    "start": 17399,
+    "text": "64,447"
+  },
+  {
+    "end": 18045,
+    "fact": "clef.banking77.masked.IPV4_ADDRESS",
+    "fmt": "int",
+    "start": 18040,
+    "text": "3,084"
+  },
+  {
+    "end": 18877,
+    "fact": "all.files_scanned",
+    "fmt": "int",
+    "start": 18874,
+    "text": "272"
+  },
+  {
+    "end": 18969,
+    "fact": "all.secret_hits",
+    "fmt": "int",
+    "start": 18968,
+    "text": "0"
+  },
+  {
+    "end": 19647,
+    "fact": "jev.banking77.model_echo",
+    "fmt": "text",
+    "start": 19637,
+    "text": "jev-1.13.0"
+  },
+  {
+    "end": 20107,
+    "fact": "jev.banking77.model_echo",
+    "fmt": "text",
+    "start": 20097,
+    "text": "jev-1.13.0"
+  },
+  {
+    "end": 21192,
+    "fact": "jev.banking77.model_echo",
+    "fmt": "text",
+    "start": 21182,
+    "text": "jev-1.13.0"
+  },
+  {
+    "end": 25406,
     "fact": "jev.banking77.t_first",
     "fmt": "date_dmy",
-    "start": 18449,
+    "start": 25395,
     "text": "17 Oct 2026"
   },
   {
-    "end": 18506,
+    "end": 25452,
     "fact": "clef.banking77.t_first",
     "fmt": "date_dmy",
-    "start": 18495,
+    "start": 25441,
     "text": "18 Oct 2026"
   }
 ]
